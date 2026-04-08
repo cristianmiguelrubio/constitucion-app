@@ -266,6 +266,7 @@ export default function Home() {
               <p className="text-xs text-green-400">611 945 719</p>
             </div>
           </a>
+        </div>
         <FormSugerencia />
       </div>
     </div>
