@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 export default function LoginModal({ onLogin }) {
-  const [modo, setModo] = useState('login') // 'login' | 'registro'
+  const [modo, setModo] = useState('login')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [nombre, setNombre] = useState('')
@@ -32,63 +32,53 @@ export default function LoginModal({ onLogin }) {
       })
 
       let data
-      try {
-        data = await resp.json()
-      } catch {
-        setError(`Error del servidor (${resp.status}). Inténtalo de nuevo.`)
-        return
-      }
+      try { data = await resp.json() }
+      catch { setError(`Error del servidor (${resp.status})`); return }
 
-      if (!resp.ok) {
-        setError(data.detail || 'Error al iniciar sesión')
-        return
-      }
+      if (!resp.ok) { setError(data.detail || 'Error al iniciar sesión'); return }
 
-      // Guardar token y datos de sesión
       localStorage.setItem('token', data.token)
       localStorage.setItem('usuario', JSON.stringify({ email: data.email, nombre: data.nombre }))
 
-      // Sincronizar progreso del servidor
       try {
-        const progresoResp = await fetch('/api/progreso', {
-          headers: { Authorization: `Bearer ${data.token}` }
-        })
-        const progreso = await progresoResp.json()
+        const pr = await fetch('/api/progreso', { headers: { Authorization: `Bearer ${data.token}` } })
+        const progreso = await pr.json()
         if (Object.keys(progreso.estudiados || {}).length > 0)
           localStorage.setItem('estudiados', JSON.stringify(progreso.estudiados))
         if (Object.keys(progreso.notas || {}).length > 0)
           localStorage.setItem('notas', JSON.stringify(progreso.notas))
-      } catch { /* sin progreso previo */ }
+      } catch { }
 
       onLogin({ email: data.email, nombre: data.nombre })
     } catch {
-      setError('Error de conexión. ¿Está el servidor en marcha?')
+      setError('Error de conexión. Inténtalo de nuevo.')
     } finally {
       setCargando(false)
     }
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-900/80 backdrop-blur-sm px-4">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-sm p-8">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-brand-900/80 backdrop-blur-sm">
+      <div className="bg-white w-full sm:max-w-sm sm:mx-4 rounded-t-3xl sm:rounded-2xl shadow-2xl p-6 pb-10 sm:pb-6">
+
+        {/* Handle bar móvil */}
+        <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-5 sm:hidden" />
 
         {/* Logo */}
-        <div className="text-center mb-6">
-          <div className="text-5xl mb-3">📜</div>
-          <h1 className="text-2xl font-bold text-brand-700">Constitución Española</h1>
-          <p className="text-sm text-gray-400 mt-1">Estudio para oposiciones</p>
+        <div className="text-center mb-5">
+          <div className="text-4xl mb-2">📜</div>
+          <h1 className="text-xl font-bold text-brand-700">Constitución Española</h1>
+          <p className="text-xs text-gray-400 mt-1">Estudio para oposiciones</p>
         </div>
 
-        {/* Tabs login / registro */}
-        <div className="flex rounded-xl overflow-hidden border border-gray-200 mb-5">
+        {/* Tabs */}
+        <div className="flex rounded-xl overflow-hidden border border-gray-200 mb-4">
           {['login', 'registro'].map(m => (
             <button
               key={m}
               onClick={() => { setModo(m); limpiarError() }}
-              className={`flex-1 py-2 text-sm font-semibold transition-colors ${
-                modo === m
-                  ? 'bg-brand-700 text-white'
-                  : 'text-gray-500 hover:bg-gray-50'
+              className={`flex-1 py-2.5 text-sm font-semibold transition-colors ${
+                modo === m ? 'bg-brand-700 text-white' : 'text-gray-500 active:bg-gray-50'
               }`}
             >
               {m === 'login' ? 'Entrar' : 'Crear cuenta'}
@@ -105,7 +95,7 @@ export default function LoginModal({ onLogin }) {
                 value={nombre}
                 onChange={e => setNombre(e.target.value)}
                 placeholder="María García"
-                className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
               />
             </div>
           )}
@@ -119,7 +109,8 @@ export default function LoginModal({ onLogin }) {
               placeholder="tu@email.com"
               required
               autoComplete="email"
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+              inputMode="email"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
           </div>
 
@@ -132,12 +123,12 @@ export default function LoginModal({ onLogin }) {
               placeholder={modo === 'registro' ? 'Mínimo 6 caracteres' : '••••••••'}
               required
               autoComplete={modo === 'login' ? 'current-password' : 'new-password'}
-              className="w-full border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-3 py-2 rounded-xl">
+            <div className="bg-red-50 border border-red-200 text-red-600 text-sm px-3 py-2.5 rounded-xl">
               {error}
             </div>
           )}
@@ -145,11 +136,9 @@ export default function LoginModal({ onLogin }) {
           <button
             type="submit"
             disabled={cargando}
-            className="w-full bg-brand-700 hover:bg-brand-900 text-white font-semibold py-3 rounded-xl transition-colors disabled:opacity-60 mt-1"
+            className="w-full bg-brand-700 active:bg-brand-900 text-white font-semibold py-3.5 rounded-xl transition-colors disabled:opacity-60 text-base mt-1"
           >
-            {cargando
-              ? 'Un momento...'
-              : modo === 'login' ? 'Entrar →' : 'Crear cuenta →'}
+            {cargando ? 'Un momento...' : modo === 'login' ? 'Entrar →' : 'Crear cuenta →'}
           </button>
         </form>
 

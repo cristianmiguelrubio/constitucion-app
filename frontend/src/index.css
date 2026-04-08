@@ -3,13 +3,20 @@
 @tailwind utilities;
 
 @layer base {
-  html { @apply scroll-smooth; }
-  body { @apply bg-gray-50 text-gray-900 font-sans; }
+  html {
+    @apply scroll-smooth;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-gray-50 text-gray-900 font-sans;
+    overscroll-behavior-y: contain;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-brand-500 hover:bg-brand-700 text-white px-4 py-2 rounded-lg transition-colors font-medium;
+    @apply bg-brand-500 active:bg-brand-700 hover:bg-brand-700 text-white px-4 py-3 rounded-xl transition-colors font-semibold text-sm touch-manipulation;
   }
   .card {
     @apply bg-white rounded-xl shadow-sm border border-gray-100 p-4;
@@ -17,4 +24,22 @@
   .badge-nuevo {
     @apply inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded-full;
   }
+  /* Área segura para el nav inferior en iPhone */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Mejoras táctiles */
+button, a {
+  touch-action: manipulation;
+}
+
+/* Scrollbar más fina en móvil */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full;
 }
