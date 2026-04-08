@@ -73,7 +73,7 @@ def _cargar_temas_policia(db: Session, temas: list):
     for t in temas:
         existe = db.query(Tema).filter(Tema.oposicion_id == op.id, Tema.numero == t["numero"]).first()
         if not existe:
-            db.add(Tema(oposicion_id=op.id, numero=t["numero"], titulo=t["titulo"], contenido=t["contenido"]))
+            db.add(Tema(oposicion_id=op.id, numero=t["numero"], titulo=t["titulo"], contenido=t["contenido"], resumen=t.get("resumen")))
     db.commit()
     logger.info(f"Cargados {len(temas)} temas de Policía Local")
 

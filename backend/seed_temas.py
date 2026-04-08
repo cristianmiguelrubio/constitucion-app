@@ -430,6 +430,19 @@ GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 1
 Dicha Ley contempla los mecanismos que permitan el cumplimiento del límite de
 deuda a que se refiere el artículo 135.3 de la Constitución Española.
 6RUPO 1 - DERECHO CONSTITUCIONAL TEMA 1""",
+        "resumen": """e Capítulo 3%: De los principios rectores de la política social y económica (del 39 al e Capítulo 4%: De las garantías de las libertades y derechos fundamentales (del 53 e Capítulo 5%: De la suspensión de los derechos y libertades (artículo 55).
+
+Disposición Derogatoria = Disposición Final Las disposiciones adicionales y transitorias están dedicadas principalmente a la ordenación territorial, mientras que la derogatoria declara expresamente derogadas la ley 1/1977 de 4 de Enero, para la Reforma Política y todas las disposiciones que se opongan a la Constitución que no hubieran sido ya derogadas por esta (Principios del Movimiento Nacional del 58, Fuero de los Españoles del 45, el del Trabajo del 38, la Ley Constitutiva de las Cortes del 42, y la Sucesión en la Jefatura del Estado del 47, la ley orgánica del Estado (que modificaba todas las anteriores) y la de Referéndum Nacional del 45).
+
+Podemos dividir los principios en: 1 Principios con la definición teórica del Estado y de sus valores 2 Valores superiores del ordenamiento jurídico 3 Principios de organización política 4 Principios informadores del ordenamiento jurídico 5 Principios informadores de la actividad concreta del estado Principios con la definición teórica del Estado y de sus valores La definición de España es que es un Estado social y democrático de derecho: Estado de Derecho: Se basa en el principio de Legalidad.
+
+Las instituciones se organizan según el principio de división de poderes y de la pronunciación de una serie de derechos y libertades constitucionales a los ciudadanos que obligan a todos los poderes y que a su vez los poderes se comprometen a garantizar.
+
+Manifestado en el reconocimiento del derecho de participación de los ciudadanos en la formación de la voluntad política de los gobernantes y la inclusión de toda una serie de derechos de contenido económico y social.
+
+Principios de organización política e Soberanía popular e HMonarquía parlamentaria e Unidad de la Nación Española e Autonomía de las nacionalidades y de las regiones e Solidaridad interterritorial e Definición de la lengua oficial del estado y de las CCAA.
+
+Hasta ahora las dos únicas modificaciones de la Constitución son: la 12 fue el 27 de Julio de 1.992 al artículo 13.2, con motivo de la ratificación por parte de España del Tratado de Maastrich y la obligación de adecuar la Constitución a él, concediendo a todo ciudadano de la Unión Europea que resida en un Estado miembro del que no sea nacional el derecho a ser elector y elegible en las elecciones municipales del Estado en que reside (LO 10/92 de 28 de Diciembre).""",
     },
     {
         "numero": 2,
@@ -915,6 +928,19 @@ RD 434/88 del 6 de Mayo de Reestructuración de la Casa Real.
 RD 1368/87 de 6 de Noviembre de Régimen de títulos, tratamientos y honores de la
 Familia Real y de los Regentes.
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 2""",
+        "resumen": """La Constitución Española define en su Preámbulo el esquema o líneas generales de la organización política del Estado Español de la siguiente manera: La Nación española, deseando establecer la justicia, la libertad y la seguridad y promover el bien de cuantos la integran, en uso de su soberanía, proclama su voluntad de: - Garantizar la convivencia democrática dentro de la Constitución y de las leyes conforme a un orden económico y social justo.
+
+CLASE Y FORMA DE ESTADO El primero de los artículos de nuestra constitución dice: 1- España se constituye en un Estado social y democrático de derecho, que propugna como valores superiores de su ordenamiento jurídico la libertad, la justicia, la igualdad y el pluralismo político.
+
+Es, también, el gobierno de la mayoría pero con respeto de las minorías, que tienen que mantener la posibilidad de llegar a ser mayoría - lo que exige que los cauces de acceso al poder de las minorías permanezcan abiertos y no sean obstruidos por quienes temporalmente detenten la mayoría, y que los mandatos políticos sean temporales.
+
+ESTADO DE DERECHO La cláusula del Estado de Derecho, como señala Santamaría Pastor (Fundamentos de Derecho Administrativo, l, p. 192-194), fue desarrollada por la doctrina alemana de Derecho Público en el primer tercio del siglo XX en torno a criterios formales - principios de legalidad de la Administración, división de poderes, supremacía y reserva de ley, protección de los ciudadanos mediante tribunales independientes y responsabilidad del Estado por actos ilícitos (Thoma)-, complementados en la posguerra, vista su utilización por el nacional socialismo, con otros de tipo material - toda la actuación de los poderes públicos debe dirigirse a la consecución de valores, entre los que el más importante es la garantía y protección de la libertad personal y política (Stern)-.
+
+- “Asimismo, todos tienen derecho al Juez ordinario predeterminado por la ley, a la defensa y a la asistencia de letrado, a ser informados de la acusación formulada contra ellos, a un proceso público sin dilaciones indebidas y con todas las garantías, a utilizar los medios de prueba pertinentes para su defensa, a no declarar contra sí mismos, a no confesarse culpables y a la presunción de inocencia.
+
+La figura del Rey queda convertida en un símbolo de la unidad nacional y en un poder moderador, que vela por el esencial cumplimiento de los textos constitucionales, pero sin intervenir en la funciones de Gobierno El Rey aparece como personificación de la Corona, y símbolo de la unidad y permanencia del Estado.
+
+El artículo 56.2 de la Constitución establece que: "el Rey es el Jefe del Estado, símbolo de su unidad y permanencia, arbitra y modera el funcionamiento regular de las instituciones, asume la más alta representación del Estado español en las relaciones internacionales, especialmente con las naciones de su identidad histórica y ejerce las funciones que le atribuyen expresamente la Constitución y las leyes.""",
     },
     {
         "numero": 3,
@@ -1111,6 +1137,19 @@ Legislativas y de acuerdo con sus respectivos Estatutos de Autonomía (excepto
 Ceuta y Melilla que carecen de Asamblea Legislativa).
 
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 3""",
+        "resumen": """Además cada Comunidad Autónoma designará un Senador, más otro por cada millón de habitantes de su respectivo territorio, siendo éstos designados por cada 1 Ley Orgánica 5/85 de 19 de Junio de Régimen Electoral General Asamblea Legislativa.
+
+La duración del mandato de los parlamentarios (Diputados y Senadores) es de 4 años, salvo que se disuelvan antes las Cámaras, cuya disolución habrá de ser decretada por el Rey a propuesta del Presidente del Gobierno.
+
+Los Diputados y Senadores gozarán de inviolabilidad por las opiniones manifestadas en el ejercicio de sus funciones, y de inmunidad, no podrán ser detenidos salvo en flagrante delito, ni procesados sin la previa autorización de la Cámara respectiva, lo que se denomina suplicatorio, siendo competente la Sala de lo Penal del Tribunal Supremo (art.
+
+Es decir, el Congreso tiene todas las competencias: derecho de iniciativa, elaboración y discusión del proyecto o proposición de ley y aprobación; mientras el Senado limita su actividad al derecho de iniciativa y a deliberar sobre los proyectos o proposiciones previamente aprobados por el Congreso.
+
+3/1984, de 28 de marzo) regulará los requisitos de la iniciativa popular para la presentación de proposiciones de Ley, respaldada por al menos 500.000 firmas acreditadas”.
+
+81 C.): son las relativas al desarrollo de los derechos fundamentales y de las libertades públicas, las que aprueben los Estatutos de Autonomía y el Régimen Electoral General y todas las demás previstas en la Constitución.
+
+del 2 de febrero de 1981, y por ello la posibilidad de poderes legislativos en su ámbito territorial, que ejercen las Comunidades Autónomas mediante sus Asambleas Legislativas y de acuerdo con sus respectivos Estatutos de Autonomía (excepto Ceuta y Melilla que carecen de Asamblea Legislativa).""",
     },
     {
         "numero": 4,
@@ -1543,6 +1582,19 @@ Las proposiciones no de Ley y las mociones.
 Sirven para manifestar la voluntad de la mayoría del Parlamento en torno a una
 cuestión concreta, sin que está adopción de decisión suponga efectos jurídicos vinculantes.
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 4""",
+        "resumen": """De este modo, el texto procede a una ordenación de las normas reglamentarias con base en los principios de jerarquía y de competencia, criterio este último que preside la relación entre los Reales Decretos del Consejo de Ministros y los Reales Decretos del Presidente del Gobierno, cuya parcela propia se sitúa en la materia funcional y operativa del órgano complejo que el Gobierno.
+
+El Gobierno se compone del Presidente, del Vicepresidente o Vicepresidentes, en su caso, y de los Ministros, según indica el artículo 98 de la Constitución y el artículo 1.2. de la E S P P E B Sindicato de Policías y Bomberos Ley 50/ 1997, de 27 de noviembre, del Gobierno.
+
+Los Ministros/as Concepto y funciones Los Ministros/as, como titulares de sus Departamentos, tienen competencia y responsabilidad en la esfera específica de su actuación, y les corresponde el ejercicio de las siguientes funciones: e Desarrollar la acción del Gobierno en el ámbito de su Departamento, de conformidad con los acuerdos adoptados en Consejo de Ministros o con las directrices del Presidente del Gobierno.
+
+FUNCIONES Corresponde al Gobierno, a tenor de lo establecido en el artículo 97 de la Constitución: e Dirigir la política interior e Dirigir la política exterior e - Dirigir la Administración civil e — Dirigir la Administración militar e Dirigir la defensa del Estado e Ejercer la función ejecutiva e Ejercer la potestad reglamentaria de acuerdo con la Constitución y las leyes FUNCIONES Según el artículo 98.2 de la Constitución, corresponde al Presidente del Gobierno e — Dirigir la acción del Gobierno e Coordinar las funciones de los demás miembros del mismo, sin perjuicio de la competencia y responsabilidad directa de éstos en su gestión.
+
+Además de esas funciones genéricas corresponde al Presidente del Gobierno el ejercicio de las siguientes funciones específicas: e Representar al Gobierno e Establecer el programa político del Gobierno e Determinar las directrices de la política interior y exterior y velar por su cumplimiento e Proponer al Rey, previa deliberación del Consejo de Ministros, la disolución del Congreso de los Diputados, del Senado o de ambas Cámaras e Plantear ante el Congreso de los Diputados, previa deliberación del Consejo de Ministros, la cuestión de confianza e Proponer al Rey la convocatoria de referéndum consultivo, previa autorización del Congreso de los Diputados e _ Dirigir la política de defensa y ejercer respecto de las Fuerzas Armadas las funciones previstas en la legislación reguladora de la defensa nacional y de la organización militar e Convocar, presidir y fijar el orden del día de las reuniones del Consejo de Ministros, sin perjuicio de lo establecido en el articulo 62. g) de la Constitución e Refrendar, en su caso, los actos del Rey y someterle, para su sanción, las leyes y demás normas con rango de ley, de acuerdo con lo establecido en los artículos 64 y 91 de la Constitución e Interponer el recurso de inconstitucionalidad e Crear, modificar y suprimir, por Real Decreto, los Departamentos Ministeriales, así como las Secretarías de Estado.
+
+Asimismo, le corresponde la aprobación de la estructura orgánica de la Presidencia del Gobierno e Proponer al Rey el nombramiento y separación de los Vicepresidentes y de los Ministros e Resolverlos conflictos de atribuciones que puedan surgir entre los diferentes Ministerios e Impartir instrucciones a los demás miembros del Gobierno e Ejercer cuantas otras atribuciones le confieran la Constitución y las leyes.
+
+Todos los grupos parlamentarios pueden formular interpelaciones al Gobierno y a cada uno de sus miembros sobre cuestiones de política general, bien del Gobierno o de algún departamento ministerial, la interpelación debe referirse pues a un tema de interés general, se discuten en el Pleno y tras la exposición del interpelante, la contestación del Gobierno y las correspondientes réplicas, los representantes de los demás grupos parlamentarios pueden intervenir para delimitar su posición sobre el tema.""",
     },
     {
         "numero": 5,
@@ -1953,6 +2005,19 @@ relativo al recurso previo de inconstitucionalidad contra Proyectos de Estatutos
 Autonomía y contra Propuestas de Reforma de Estatutos de Autonomía.
 
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 5""",
+        "resumen": """En desarrollo de los principios constitucionales se dictó la Ley Orgánica del Poder Judicial, 6/85, de 1 de julio, determinando la constitución, funcionamiento y gobierno de los juzgados y tribunales así como el estatuto jurídico de los Jueces y Magistrados de Carrera, que formarán un Cuerpo único, y del personal al servicio de la Administración de Justicia, entre otras modificaciones cabe citar la Ley Orgánica 4/2013, de 28 de junio, de reforma del Consejo General del Poder Judicial, a través de la cual se produce una reforma en profundidad de su estructura y funcionamiento que permite poner fin a los problemas que a lo largo de los años se han puesto de manifiesto, así como dotarlo de una estructura más eficiente.
+
+De éstos, doce entre Jueces y Magistrados de todas las categorías judiciales, en los términos que establezca la ley orgánica; cuatro a propuesta del Congreso de los Diputados y cuatro a propuesta del Senado, elegidos en ambos casos por mayoría de tres quintos de sus miembros, entre abogados y otros juristas, todos ellos de reconocida competencia y con más de quince años de ejercicio en su profesión.
+
+Será nombrado por el Rey a propuesta del Consejo General del Poder Judicial entre miembros de la Carrera Judicial con la categoría de Magistrado del Tribunal Supremo y reunir las condiciones exigidas para ser Presidente de Sala del mismo, o bien ser un jurista de reconocida competencia con más de veinticinco años de antigiedad en el ejercicio de su profesión, por un período de cinco años.
+
+El cómputo de los plazos en los procedimientos de designación de Vocales del Consejo General del Poder Judicial y de elección del Presidente del Tribunal Supremo y del Consejo General del Poder Judicial, así como del Vicepresidente del Tribunal Supremo, se realizará por días hábiles cuando el plazo se señale por días, empezando a computarse desde el día siguiente, y de fecha a fecha cuando se fije en meses o años.
+
+Regulados en el Libro l, de la Ley Orgánica 6/1985, de 1 de julio, del Poder Judicial, que trata “de la extensión y límites de la jurisdicción y de la planta y organización de los Juzgados y Tribunales, donde en su artículo 26, determina que el ejercicio de la potestad jurisdiccional se atribuye a los siguientes juzgados y Tribunales: Juzgados de Paz, Juzgados de Primera Instancia e Instrucción, de lo Mercantil, de Violencia sobre la Mujer, de lo Penal, de lo Contencioso-Administrativo, de lo Social, de Menores y de Vigilancia Penitenciaria, Audiencias Provinciales, Tribunales Superiores de Justicia, Audiencia Nacional y Tribunal Supremo.
+
+19- JUZGADOS DE VIOLENCIA DE GENERO (creados por LEY ORGÁNICA 1/2004, de 28 de diciembre, de Medidas de Protección Integral contra la Violencia de Género).
+
+Ley Orgánica 12/2015, de 22 de septiembre, de modificación de la Ley Orgánica 2/1979, de 3 de octubre, del Tribunal Constitucional, incorporando el TÍTULO VI BIS, relativo al recurso previo de inconstitucionalidad contra Proyectos de Estatutos de Autonomía y contra Propuestas de Reforma de Estatutos de Autonomía.""",
     },
     {
         "numero": 6,
@@ -2643,6 +2708,19 @@ organización, funcionamiento y régimen jurídico de las entidades locales.
 corporaciones locales
 
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 6""",
+        "resumen": """A raíz de la aprobación de la Constitución española de 1931 se estableció un sistema autonómico que no pudo desarrollarse como consecuencia de la Guerra Civil española de 1936, pero que dio sus frutos en la aprobación de los Estatutos de Autonomía de las actualmente denominadas “comunidades históricas”, Cataluña, País Vasco y Galicia.
+
+= Las comunidades autónomas son corporaciones públicas de base territorial y de naturaleza política * Tienen personalidad jurídica propia " Son entidades territoriales que gozan de autonomía política mayor que la que gozan los municipios y provincias " Gozan de potestad legislativa y ejecutiva " Son órganos constitucionales PROCESO DE CREACIÓN Características del proceso autonómico Los caracteres del proceso autonómico son: a) Proceso general y voluntario: tiene naturaleza general porque la constitución en su artículo 143.
+
+De este modo pudo ser ejercitado por: * Las provincias limítrofes con características históricas, culturales y económicas comunes * Los territorios insulares * Las provincias con entidad regional histórica Además se establece, en el artículo 144, la posibilidad de que territorios que no cuenten con ninguna de esas características ( como es el caso de Madrid) se constituyan en Comunidades Autónomas previa autorización de las Cortes Generales: Las Cortes Generales, mediante ley orgánica, podrán, por motivos de interés nacional: * Autorizar la constitución de una comunidad autónoma cuando su ámbito territorial no supere el de una provincia y no reúna las condiciones del apartado 1 del Art.
+
+b) Vía especial En este caso la iniciativa aparece recogida en el artículo 151 de la Constitución en los siguientes términos: La iniciativa del proceso autonómico debe ser adoptada, además de por las Diputaciones o los órganos interinsulares correspondientes, por las tres cuartas partes de los Municipios de cada una de las provincias afectadas que representen, al menos, la mayoría del censo electoral de cada una de ellas y dicha iniciativa sea ratificada mediante referéndum por el voto afirmativo de la mayoría absoluta de los electores de cada provincia en los términos que establezca una ley orgánica.
+
+i) Las funciones de las asambleas parlamentarias autonómicas son semejantes a las de las cortes generales y podemos diferenciar las siguientes: * Función presupuestaria * Función legislativa * Función de control del Ejecutivo autonómico * Función de elección del Gobierno y del Presidente del Ejecutivo autonómico * Función de participación en la reforma de la Constitución * Función de participación en el control de constitucionalidad de la ley y sí disposiciones normativas con fuerza de ley * Función de participación en la composición del Senado ÓRGANOS EJECUTIVOS.
+
+Consta de diversas fases: la presentación de un candidato alternativo, el respaldo de un número mínimo de parlamentarios autonómicos, un periodo de enfriamiento desde su debate y votación, el respaldo de la mayoría absoluta de los miembros de la Cámara.
+
+Las funciones de coordinación no afectaran en ningún caso a la autonomía de las entidades locales La normativa principal en materia de Administración Local es la siguiente: * Ley 7/1985, de 2 de abril, reguladora de las Bases del Régimen Local * Real decreto legislativo 781/1986, de 18 de abril, por el que se aprueba el texto refundido de las disposiciones legales vigentes en materia de régimen local * Ley 39/1988, reguladora de las haciendas locales de 28 de diciembre de 1988.""",
     },
     {
         "numero": 7,
@@ -3080,6 +3158,19 @@ informe donde se especificará el número y tipo de quejas recibidas; lo present
 hallen reunidas en período ordinario de sesiones.
 
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA ?""",
+        "resumen": """Siendo esta la única modificación de la Constitución, fue el 27 de Agosto de 1.992 al artículo 13.2, con motivo de la ratificación por parte de España del Tratado de Maastrich y la obligación de adecuar la Constitución a él, concediendo a todo ciudadano de la Unión Europea que resida en un Estado miembro del que no sea nacional el derecho a ser elector y elegible en las elecciones municipales del Estado en que reside, así como al Parlamento Europeo.
+
+El estado de alarma no supone, en principio, efecto alguno sobre la vigencia de los derechos fundamentales, puesto que su declaración implica sólo una puesta de todas las autoridades civiles de la Administración Pública del territorio afectado, incluidos los cuerpos policiales, bajo las órdenes directas de la autoridad competente, concepto éste referido al Gobierno o, por delegación de éste, al Presidente de una Comunidad Autónoma cuando la declaración afecte exclusivamente a todo o parte de suterritorio.
+
+El Gobierno declaró el estado de alarma el 9 de octubre de 2020 con el fin de establecer las medidas necesarias para responder ante situaciones de especial riesgo por transmisión no controlada de infecciones causadas por el SARS-CoV-2 y resultando de aplicación en el territorio de nueve municipios de la Comunidad Autónoma de Madrid: Alcobendas, Alcorcón, Fuenlabrada, Getafe, Leganés, Madrid, Móstoles, Parla y Torrejón de Ardoz.
+
+BOE - Real Decreto 956/2020, de 3 de noviembre de 2020, por el que se prorroga el estado de alarma declarado por el Real Decreto 926/2020, de 25 de octubre, por el que se declara el estado de alarma para contener la propagación de infecciones causadas por el SARS-CoV-2.
+
+El Consejo de Ministros aprobó el 3 de noviembre una prórroga del Estado de alarma por un periodo de 6 meses desde las 00:00 horas del 9 de noviembre de 2020 hasta las 00:00 horas del 9 de mayo de 2021.
+
+Durante el periodo establecido: 1) Se limitó la circulación de las personas por las vías o espacios de uso público entre las 23:00 y las 6:00 horas excepto para: adquirir medicamentos, productos sanitarios y otros bienes de primera necesidad; asistir a centros, servicios y establecimientos sanitarios o a centros de atención veterinaria por motivos de urgencia; cumplir obligaciones laborales, profesionales, empresariales, institucionales o legales; retornar al lugar de residencia habitual tras realizar algunas de estas actividades; asistir y cuidar a mayores, menores, dependientes, personas con discapacidad o personas especialmente vulnerables; por causa de fuerza mayor o situación de necesidad o cualquier otra actividad de análoga naturaleza acreditada; repostar en gasolineras o estaciones de servicio, cuando sea necesario para la realización de las actividades previstas.
+
+2) Se restringió la entrada y salida de personas del territorio de cada comunidad o ciudad autónoma salvo para: asistir a centros, servicios y establecimientos sanitarios; cumplir obligaciones laborales, profesionales, empresariales, institucionales o legales; asistir a centros universitarios, docentes y educativos; retornar al lugar de residencia habitual o familiar; asistir y cuidar a mayores, menores, dependientes, personas con discapacidad o personas especialmente vulnerables; desplazarse a entidades financieras y de seguros o estaciones de repostaje en territorios limítrofes, actuaciones requeridas o urgentes ante los órganos públicos, judiciales o notariales; renovar permisos y documentación oficial, así como otros trámites administrativos inaplazables; realizar exámenes o pruebas oficiales inaplazables; causa de fuerza mayor o situación de necesidad o cualquier otra actividad de análoga naturaleza, debidamente acreditada.""",
     },
     {
         "numero": 8,
@@ -4191,6 +4282,19 @@ o El Consejo de Cámaras Oficiales de Comercio, Industria y Navegación fue crea
 Ley 11/1997, de 16 de diciembre.
 o El Consejo Valenciano de Bienestar Social fue creado por Ley 5/1997, de 25 de junio.
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA 8""",
+        "resumen": """La reforma efectuada por LO 3/2019, de 12 de marzo, de reforma del EACV en materia de participación de la GV en las decisiones sobre inversión del Estado en la CV, añade el apartado cuarto del artículo 52 del EACV prevé que la Generalitat participará en las decisiones sobre la inversión del Estado en la Comunidad Valenciana la cual, excluido el Fondo de Compensación Interterritorial, será equivalente, para dar cumplimiento a lo dispuesto en el artículo 138 de la Constitución, al peso de la población de la Comunitat Valenciana sobre el conjunto del Estado por un período de siete años.
+
+Si bien la formulación constitucional de aplicación a esta materia debe bastar para el adecuado uso de la Bandera, se puede también abundar en la existencia de normativa de desarrollo de la misma, básicamente la Ley 39/1981, de 28 de octubre, reguladora del uso de la Bandera de España y el de otras banderas y enseñas.
+
+El nuevo Estatuto de Autonomía de la Comunidad Valenciana, y en cuanto a SIMBOLOS, ha significado la importancia del Real Monasterio de Santa María de la Valldigna, como “símbolo de la grandeza del Pueblo Valenciano reconocido como nacionalidad histórica.” A tal efecto, el artículo 57, dispone literalmente lo que sigue: “El Real Monasterio de Santa María de la Valldigna es templo espiritual, histórico y cultural del antiguo Reino de Valencia, y es, igualmente, símbolo de la grandeza del Pueblo Valenciano reconocido como Nacionalidad Histórica.
+
+Una Ley de Les Corts determinará el destino y utilización del Real Monasterio de Santa María de la Valldigna como punto de encuentro de todos los valencianos, y como centro de investigación y estudio para recuperar la historia de la Comunitat Valenciana.” LA GENERALITAT VALENCIANA Con la llegada del nuevo EA, se incorporan todas las instituciones creadas con posterioridad a la creación del EA'82 y se elimina el gentilicio “Valenciana” detrás de Generalitat.
+
+La Generalitat, en el ejercicio de sus competencias, y sin perjuicio de la coordinación general que corresponde al Estado, fomentará el sistema valenciano de ciencia, tecnología y empresa promoviendo la articulación y cooperación entre las universidades, organismos públicos de investigación, red de institutos tecnológicos de la Comunitat Valenciana y otros agentes públicos y privados, con la finalidad estatutaria de 1+D+] y con el fin de fomentar el desarrollo tecnológico y la innovación, con apoyo del progreso y la competitividad empresarial de la Comunitat Valenciana.
+
+Son leyes orgánicas las relativas al desarrollo de los derechos fundamentales y de las libertades públicas, las que aprueben los Estatutos de Autonomía y el régimen electoral general y las demás previstas en la Constitución] de aquélla, lo desarrollan, de las facultades que atribuye al Estado el número 30 [Regulación de las condiciones de obtención, expedición y homologación de títulos académicos y profesionales y normas básicas para el desarrollo del artículo 27 de la Constitución, a fin de garantizar el cumplimiento de las obligaciones de los poderes públicos en esta materia] del apartado 1 del art.
+
+SINDICATURA DE COMPTES El artículo 39 del nuevo Estatuto de la Comunidad Valenciana, se refiere a la Sindicatura de Comptes, en los términos que sigue: “La Sindicatura de Comptes es el órgano al que corresponde el control externo económico y presupuestario de la actividad financiera de la Generalitat, de los entes locales comprendidos en su territorio y del resto del sector público valenciano, así como de las cuentas que lo justifiquen.""",
     },
     {
         "numero": 9,
@@ -5155,6 +5259,19 @@ reglamentos, ya que para ser efectivo únicamente se precisa su publicación en 
 edictos de las Casas Consistoriales y otros lugares públicos.
 
 GRUPO 1 - DERECHO CONSTITUCIONAL TEMA ?""",
+        "resumen": """El principio de jerarquía normativa también permite constatar la relación existente entre la fuente de la que emana cada norma (el órgano que la produce) y la forma de la misma, así como su rango y fuerza; correspondiendo a la Constitución determinar las potestades normativas y la atribución del rango en virtud de la fuente de la que proceden, de modo que todas las normas procedentes de la misma fuente tienen, en principio, la misma forma externa y la misma fuerza (leyes, decretos...).
+
+La iniciativa legislativa y potestad para dictar normas con rango de ley El artículo 127 de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, al regular la iniciativa legislativa y potestad para dictar normas con rango de ley, preceptúa que: El Gobierno de la Nación ejercerá la iniciativa legislativa prevista en la Constitución mediante la elaboración y aprobación de los anteproyectos de Ley y la ulterior remisión de los proyectos de ley a las Cortes Generales.
+
+Es el caso de las situaciones previstas en el artículo 116 de la Constitución en el que se regulan los estados de alarma, excepción y sitio, 0, más específicamente, en la potestad que confiere a los Alcaldes el artículo 21.1.m) de la Ley 7/1985, de 2 de abril, Reguladora de las Bases del Régimen Local, para "adoptar personalmente, y bajo su responsabilidad, en caso de catástrofe o de infortunios públicos o grave riesgo de los mismos, las medidas necesarias y adecuadas dando cuenta inmediata al Pleno".
+
+Con respecto a estos dos límites, la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, estipula en su artículo 47.2 que “también serán nulas de pleno derecho las disposiciones administrativas que vulneren la Constitución, las leyes u otras disposiciones administrativas de rango superior, las que regulen materias reservadas a la Ley, y las que establezcan la retroactividad de disposiciones sancionadoras no favorables o restrictivas de derechos individuales”, y en su artículo 128.2 y 3 que “los reglamentos y disposiciones administrativas no podrán vulnerar la Constitución o las leyes ni regular aquellas materias que la Constitución o los Estatutos de Autonomía reconocen de la competencia de las Cortes Generales o de las Asambleas Legislativas de las Comunidades Autónomas.
+
+La ley 7/85 de 2 de Abril, las regula en su título XI “Tipificación de las Infracciones y Sanciones por las Entidades Locales en Determinadas Materias”: Artículo 139 Tipificación de infracciones y sanciones en determinadas materias Para la adecuada ordenación de las relaciones de convivencia de interés local y del uso de sus servicios, equipamientos, infraestructuras, instalaciones y espacios públicos, los entes locales podrán, en defecto de normativa sectorial específica, establecer los tipos de las infracciones e imponer sanciones por el incumplimiento de deberes, prohibiciones o limitaciones contenidos en las correspondientes ordenanzas, de acuerdo con los criterios establecidos en los artículos siguientes.
+
+Serán muy graves las infracciones que supongan: a) Una perturbación relevante de la convivencia que afecte de manera grave, inmediata y directa a la tranquilidad o al ejercicio de derechos legítimos de otras personas, al normal desarrollo de actividades de toda clase conformes con la normativa aplicable o a la salubridad u ornato públicos, siempre que se trate de conductas no subsumibles en los tipos previstos en el capítulo IV de la Ley 1/1992, de 21 de febrero, de Protección de la Seguridad Ciudadana.
+
+Cuando de una resolución administrativa, o de cualquier otra forma de finalización del procedimiento administrativo prevista en esta ley, nazca una obligación de pago derivada de una sanción pecuniaria, multa o cualquier otro derecho que haya de abonarse a la Hacienda pública, éste se efectuará preferentemente, salvo que se justifique la imposibilidad de hacerlo, utilizando alguno de los medios electrónicos siguientes: a) Tarjeta de crédito y débito.""",
     },
     {
         "numero": 10,
@@ -5950,6 +6067,19 @@ creación, que permite que los ciudadanos y ciudadanas soliciten nuevas propuest
 si un millón de personas han firmado una petición en tal sentido.
 
 GRUPO 1 - DERECHO CONSTITUCTONAL TEMA 10""",
+        "resumen": """TRATADOS CONSTITUTIVOS DE LA ACTUAL UNIÓN EUROPEA: Tratado constitutivo de la Comunidad Europea del Carbón y del Acero El Tratado constitutivo de la Comunidad Europea del Carbón y del Acero (CECA), firmado el 18 de abril de 1951 en París, entró en vigor el 23 de julio de 1952 y expiró el 23 de julio de 2002.
+
+Al añadir esta cooperación intergubernamental al sistema "comunitario" existente, el Tratado de Maastricht creó una nueva estructura con tres "pilares", de naturaleza tanto económica como política: es la denominada "Unión Europea" Tratado de Ámsterdam El Tratado de Ámsterdam, firmado el 2 de octubre de 1997, entró en vigor el 1 de mayo de 1999.
+
+Decidir sobre acuerdos internacionales, Decidir sobre ampliaciones y Revisar el programa de trabajo de la Comisión y pedirle que elabore propuestas de legislación Competencias presupuestarias Establecer el presupuesto de la UE junto con el Consejo y Aprobar el presupuesto de la UE a largo plazo («marco financiero plurianual») Competencias de supervisión Control democrático de todas las instituciones de la UE, Elegir al Presidente de la Comisión y aprobar a la Comisión como colegio.
+
+El Consejo Europeo está constituido por los representantes políticos de más rango de los Estados miembros: Jefes de Estado o de Gobierno de los países de la UE, presidente de la Comisión Europea y alto representante para Asuntos Exteriores y Política de Seguridad.
+
+Este asegura la coherencia de la acción exterior de la UE, es responsable dentro de la Comisión de responsabilidades que incumben a la misma en materia de relaciones exteriores y de la coordinación de otros aspectos de la acción exterior de la UE.
+
+Z. El Tribunal de Cuentas, El Tribunal de Cuentas europeo, creado en 1977, comprueba la legalidad y regularidad de los ingresos y gastos de la Unión Europea, y se asegura de la buena gestión financiera del presupuesto europeo, es decir que lo podemos entender como un auditor externo y guardián financiero de la UE, comprobando que los fondos de la UE se perciben y se utilizan correctamente; contribuir a mejorar la gestión financiera de la UE, también conocido como Auditor Externo Independiente.
+
+Entre los principios generales del Derecho se encuentran, aparte de los principios básicos de independencia y aplicación directa y primacía del Derecho Comunitario, la garantía de los derechos fundamentales, el principio de proporcionalidad, el principio de protección de la confidencialidad, el principio de audiencia judicial o el principio de los Estados miembros por las violaciones del Derecho Comunitario.""",
     },
     {
         "numero": 11,
@@ -6893,6 +7023,19 @@ régimen de medidas de seguridad.
 
 Fuente: conceptosjurídicos.com
 GRUPO 2- DERECHO PENAL TEMA 11""",
+        "resumen": """Se puede definir el Derecho Penal como el conjunto de normas jurídicas que a determinadas conductas consideradas como delictivas asocia penas o medidas de corrección, que en estrecha relación con el artículo 25 de la CE se establece como una de las normas capaces de imponer sanciones privativas de libertad ya que el texto constitucional dice: Artículo 25 Constitución Española 1.
+
+El condenado a pena de prisión que estuviere cumpliendo la misma gozará de los derechos fundamentales de este Capítulo, a excepción de los que se vean expresamente limitados por el contenido del fallo condenatorio, el sentido de la pena y la ley penitenciaria.
+
+El actual Código Penal fue aprobado por Ley Orgánica 10/95 de 23 de noviembre de 1995, entrando en vigor, por aplicación de la disposición final 72, seis meses después: el 24 de mayo de 1996, sin embargo ha sufrido muchas modificaciones, entre otras cabe destacar la operada por la LO 1/2004 de 28 de diciembre de Violencia de Género, la LO 15/2007 de los delitos contra la seguridad vial, la LO 5/2010 que actualizó bastantes conceptos y figuras delictivas y por último quizá la más importante desde su aprobación, la LO 1/2015 por la que se reestructura el propio CP y se añaden delitos importantes.
+
+2- El que al tiempo de cometer la infracción penal se halle en estado de intoxicación plena por el consumo de bebidas alcohólicas, drogas tóxicas, estupefacientes, sustancias psicotrópicas u otras que produzcan efectos análogos, siempre que no haya sido buscado con el propósito de cometerla o no se hubiese previsto o debido prever su comisión, o se halle bajo la influencia de un síndrome de abstinencia, a causa de su dependencia de tales sustancias, que le impida comprender la ilicitud del hecho o actuar conforme a esa comprensión.
+
+4- Cometer el delito por motivos racistas, antisemitas u otra clase de discriminación referente a la ideología, religión o creencias de la víctima, la etnia, raza o nación a la que pertenezca, su sexo, edad, orientación o identidad sexual o de género, razones de género, de aporofobia o de exclusión social, la enfermedad que padezca o su discapacidad, con independencia de que tales condiciones o circunstancias concurran efectivamente en la persona sobre la que recaiga la conducta.
+
+Será considerada pena menos grave: si se retiran el permiso de conducir por 4 años; también cuando se condena a una pena de multa de 4 meses; en el supuesto de que se condene a trabajos en beneficio de la comunidad por 40 días, o que se prohiba acercarse a la víctima por el plazo de 6 meses, etc.
+
+Será considerada pena leve: si se retira el permiso de conducir por 10 meses; también si se condena a trabajos en beneficio de la comunidad por 15 días; que se condene al pago de una multa de 3 meses, o a que se prohiba acercarse a la víctima por el plazo de 5 meses, Plazo de cancelación de antecedentes penales Los plazos para la cancelación de antecedentes penales después de la reforma del Código Penal del año 2015 son los siguientes: e 6 meses para las penas leves.""",
     },
     {
         "numero": 12,
@@ -8111,6 +8254,19 @@ anterior (art. 174.2 C.P).
 
 Fuente: conceptosjurídicos.com
 6GRUPO 2- DERECHO PENAL TEMA 12""",
+        "resumen": """La distribución o difusión pública a través de Internet, del teléfono o de cualquier otra tecnología de la información o de la comunicación de contenidos específicamente destinados a promover, fomentar o incitar al suicidio de personas menores de edad o personas con discapacidad necesitadas de especial protección será castigada con la pena de prisión de uno a cuatro años.
+
+144 al 146, modificado por la Ley Orgánica 2/2010 de 3 de marzo, de salud sexual y reproductiva y de la interrupción voluntaria del embarazo viene a determinar el articulado de la siguiente forma: Que el que produzca el aborto de una mujer, sin su consentimiento, será castigado con la pena de prisión de cuatro a ocho años e inhabilitación especial para ejercer cualquier profesión sanitaria, o para prestar servicios de toda índole en clínicas, establecimientos o consultorios ginecológicos, públicos o privados, por tiempo de tres a diez años (art.
+
+Debemos citar la aprobación de la Ley Orgánica 11/2015, de 21 de septiembre de reforma de la Ley Orgánica 2/2010, de 3 de marzo, de salud sexual y reproductiva y de la interrupción voluntaria del embarazo, para reforzar la protección de las menores y mujeres con capacidad modificada judicialmente en la interrupción voluntaria del embarazo suprime 6GRUPO 2- DERECHO PENAL TEMA 12 la posibilidad de que las menores de edad puedan prestar el consentimiento por sí solas, sin informar siquiera a sus progenitores.
+
+El que de modo leve amenace a quien sea o haya sido su esposa, o mujer que esté o haya estado ligada a él por una análoga relación de afectividad aun sin convivencia, será castigado con la pena de prisión de seis meses a un año o de trabajos en beneficio de la comunidad de treinta y uno a ochenta días y, en todo caso, privación del derecho a la tenencia y porte de armas de un año y un día a tres años, así como, cuando el Juez o Tribunal lo estime adecuado al interés del menor o incapaz, inhabilitación especial para el ejercicio de la patria potestad, tutela, curatela, guarda o acogimiento hasta cinco años.
+
+El que de modo leve amenace con armas u otros instrumentos peligrosos a alguna de las personas a las que se refiere el artículo 173.2, exceptuadas las contempladas en el apartado anterior de este artículo, será castigado con la pena de prisión de tres meses a un año o trabajos en beneficio de la comunidad de treinta y uno a ochenta días y, en todo caso, privación del derecho a la tenencia y porte de armas de uno a tres años, así como, cuando el Juez o Tribunal lo estime adecuado al interés del menor o incapaz, inhabilitación especial para el ejercicio de la patria potestad, tutela, curatela, guarda o acogimiento por tiempo de seis meses a tres años.
+
+El que de modo leve coaccione a quien sea o haya sido su esposa, o mujer que esté o haya estado ligada a él por una análoga relación de afectividad, aun sin convivencia, será castigado con la pena de prisión de seis meses a un año o de trabajos en beneficio de la comunidad de treinta y uno a ochenta días y, en todo caso, privación del derecho a la tenencia y porte de armas de un año y un día a tres años, así como, cuando el Juez o Tribunal lo estime adecuado al interés del menor o persona con discapacidad necesitada de especial protección, inhabilitación especial para el ejercicio de la patria potestad, tutela, curatela, guarda o acogimiento hasta cinco años.
+
+El que habitualmente ejerza violencia física o psíquica sobre quien sea o haya sido su cónyuge o sobre persona que esté o haya estado ligada a él por una análoga relación de afectividad aun sin convivencia, o sobre los descendientes, ascendientes o hermanos por naturaleza, adopción o afinidad, propios o del cónyuge o conviviente, o sobre los menores o incapaces que con él convivan o que se hallen sujetos a la potestad, tutela, curatela, acogimiento o guarda de hecho del cónyuge o conviviente, o sobre persona amparada en cualquier otra relación por la que se encuentre integrada en el núcleo de su convivencia familiar, así como sobre las personas que por su especial vulnerabilidad se encuentran sometidas a custodia o guarda en centros públicos o privados, será castigado con la pena de prisión de seis meses a tres años, privación del derecho a la tenencia y porte de armas de tres a cinco años y, en su caso, cuando el juez o tribunal lo estime adecuado al interés del menor o incapaz, inhabilitación especial para el ejercicio de la patria potestad, tutela, curatela, guarda o acogimiento por tiempo de uno a cinco años, sin perjuicio de las penas que pudieran corresponder a los delitos en que se hubieran concretado los actos de violencia física o psíquica.""",
     },
     {
         "numero": 13,
@@ -8935,6 +9091,15 @@ efectos de la aplicación de la circunstancia agravante de reincidencia.
 
 Fuente: conceptosjurídicos.com
 6RUPO 2 - DERECHO PENAL TEMA 13""",
+        "resumen": """El que, empleando violencia, intimidación o engaño, o abusando de una situación de superioridad o de necesidad o vulnerabilidad de la víctima, determine a una persona mayor de edad a ejercer o a mantenerse en la prostitución, será castigado con las penas de prisión de dos a cinco años y multa de doce a veinticuatro meses.
+
+9) Cuando el responsable sea ascendiente, tutor, curador, guardador, maestro o cualquier otra persona encargada, de hecho, aunque fuera provisionalmente, o de derecho, de la persona menor de edad o persona con discapacidad necesitada de especial protección, o se trate de cualquier persona que conviva con él o de otra persona que haya actuado abusando de su posición reconocida de confianza o autoridad.
+
+El que tuviere bajo su potestad, tutela, guarda o acogimiento a un menor de edad o una persona con discapacidad necesitada de especial protección y que, con conocimiento de su estado de prostitución o corrupción, no haga lo posible para impedir su continuación en tal estado, o no acuda a la autoridad competente para el mismo fin si carece de medios para la custodia del menor o persona con discapacidad necesitada de especial protección, será castigado con la pena de prisión de tres a seis meses o multa de seis a doce meses.
+
+g) Cuando el responsable sea ascendiente, tutor, curador, guardador, maestro o cualquier otra persona encargada, de hecho, aunque fuera provisionalmente, o de derecho, de la persona menor de edad o persona con discapacidad necesitada de especial protección, o se trate de cualquier persona que conviva con él o de otra persona que haya actuado abusando de su posición reconocida de confianza o autoridad.
+
+Artículo 189 bis La distribución o difusión pública a través de Internet, del teléfono o de cualquier otra tecnología de la información o de la comunicación de contenidos específicamente destinados a promover, fomentar o incitar a la comisión de los delitos previstos en este capítulo y en los capítulos lI bis y IV del presente título será castigada con la pena de multa de seis a doce meses o pena de prisión de uno a tres años.""",
     },
     {
         "numero": 14,
@@ -9440,6 +9605,19 @@ denuncia o su representante legal. También el Ministerio Fiscal puede presentar
 si la persona damnificada es menor de edad, persona con discapacidad necesitada de
 especial protección o una persona desvalida.
 6GRUPO 2- DERECHO PENAL TEMA 14""",
+        "resumen": """Hurto modalidad leve En el caso de que la cuantía que se sustraiga sea inferior a 400 euros, se considerará un delito leve y se podrá imponer una pena de multa de 1 a 3 meses, a excepción de que se concurriese en alguna de las circunstancias enmarcadas dentro del tipo de delito de hurto agravado.
+
+Hurto agravado 6GRUPO 2- DERECHO PENAL TEMA 14 En el artículo 235 del Código Penal se indica que el tipo de delito de hurto agravado se trata de aquellos que consisten en la sustracción de bienes ajenos de caracter jurídico.
+
+e Cuando se comete el delito aprovechándose de las circunstancias personales de la víctima, de una situación de desamparo o de la producción de un accidente.
+
+Artículo 242.1 del Código Penal: El culpable de robo con violencia o intimidación en las personas será castigado con la pena de prisión de dos a cinco años, sin perjuicio de la que pudiera corresponder a los actos de violencia física que realizase.
+
+Artículo 243 del Código Penal El que, con ánimo de lucro, obligare a otro, con violencia o intimidación, a realizar u omitir un acto o negocio jurídico en perjuicio de su patrimonio o del de un tercero, será castigado con la pena de prisión de uno a cinco años, sin perjuicio de las que pudieran imponerse por los actos de violencia física realizados.
+
+El que sustrajere o utilizare sin la debida autorización un vehículo a motor o ciclomotor ajenos, sin ánimo de apropiárselo, será castigado con la pena de trabajos en beneficio de la comunidad de treinta y uno a noventa días o multa de dos a doce meses, si lo restituyera, directa o indirectamente, en un plazo no superior a cuarenta y ocho horas, sin que, en ningún caso, la pena impuesta pueda ser igual o superior a la que correspondería si se apropiare definitivamente del vehículo.
+
+Tipo agravado del delito de daños 6GRUPO 2- DERECHO PENAL TEMA 14 Se regula en el artículo 263.2 del Código Penal y su pena es de 1 a 3 años de prisión y multa de 12 a 24 meses.""",
     },
     {
         "numero": 15,
@@ -9733,6 +9911,19 @@ privación del derecho a conducir vehículos a motor y ciclomotores de uno a cua
 Los hechos que se califican como imprudencias graves son los previstos en el
 artículo 379.
 6GRUPO 2- DERECHO PENAL TEMA 15""",
+        "resumen": """* Vehículo a motor: Vehículo provisto de motor para su propulsión, excepto ciclomotores, tranvías y vehículos para personas de movilidad reducida, regla 12 del Anexo | * Ciclomotor: — Vehículo de dos ruedas, con una velocidad máxima por construcción no superior a 45 km/h y con un motor de cilindrada inferior o igual a 50 cm3, si es de combustión interna, o bien con una potencia continua nominal máxima inferior o igual a 4 kW si es de motor eléctrico.
+
+— Vehículos de cuatro ruedas, cuya masa en vacío sea inferior o igual a 350 kilogramos no incluida la masa de baterías para los vehículos eléctricos, cuya velocidad máxima por construcción sea inferior o igual a 45 km/h, y cuya cilindrada del motor sea inferior o igual a 50 cm3 para los motores de encendido por chispa (positiva), o cuya potencia máxima neta sea inferior o igual a 4 kW para los demás motores de combustión interna, o cuya potencia continua nominal máxima sea inferior o igual a 4 kW para los motores eléctricos, Regla 9 del Anexo | de LSV.
+
+El que condujere un vehículo de motor o un ciclomotor a velocidad superior en sesenta kilómetros por hora en vía urbana o en ochenta kilómetros por hora en vía interurbana a la permitida reglamentariamente, será castigado con la pena de prisión de tres a seis meses o con la de multa de seis a doce meses o con la de trabajos en beneficio de la comunidad de treinta y uno a noventa días, y, en cualquier caso, con la de privación del derecho a conducir vehículos a motor y ciclomotores por tiempo superior a uno y hasta cuatro años.
+
+Penas: prisión de tres a seis meses o con una multa de seis a doce meses o con trabajos en beneficio de la comunidad de 31 a 90 días y, en cualquiera de los casos, con retirada del permiso de conducir de uno a cuatro años.
+
+381) Si además de lo mencionado en el apartado anterior, presenta manifiesto desprecio por la vida de los demás, se castigará con pena de prisión de dos a cinco años, multa de doce a 24 meses y privación del derecho a conducir vehículos a motor y ciclomotores durante un periodo de tiempo de seis a diez años.
+
+En el caso de que no se ponga en peligro la vida o la integridad de las personas, las penas serán de uno a dos años, multa de seis a doce meses y privación del derecho a conducir vehículos a motor y ciclomotores durante un periodo de tiempo de seis a diez años.
+
+383) Es delito la negativa a someterse a las pruebas legales establecidas cuando lo requiera un agente de la autoridad, para la comprobación de las tasas de alcoholemia y la presencia de las drogas tóxicas, estupefacientes y sustancias psicotrópicas a las que se refieren en los artículos anteriores Penas: prisión de seis meses a un año y privación del derecho a conducir vehículos a motor y ciclomotores por un tiempo superior a uno año y hasta cuatro años.""",
     },
     {
         "numero": 16,
@@ -10897,6 +11088,19 @@ género, esta figura está prevista en el artículo 70 y será nombrado por el F
 oído el Consejo Fiscal.
 
 GRUPO 2 - DERECHO PENAL TEMA 16""",
+        "resumen": """Este tipo de delito se castiga con una pena de prisión de 6 meses a 1 año o trabajos en beneficio de la comunidad de 31 a 80 días, y la retirada de tenencia y porte de armas por tiempo de 1 año y 1 día a 3 años.
+
+El autor de este tipo de delito puede ser castigado con una pena de prisión de 3 meses a 1 año o trabajos en beneficios de la comunidad de 31 a 80 días, así como la privación del derecho de tenencia y porte de armas de 1 año y 1 día a 2 años.
+
+El Juez de Instrucción dictará orden de protección para las víctimas de violencia doméstica en los casos en que, existiendo indicios fundados de la comisión de un delito o falta contra la vida, integridad física o moral, libertad sexual, libertad o seguridad de alguna de las personas mencionadas en el artículo 173.2 del Código Penal, resulte una situación objetiva de riesgo para la víctima que requiera la adopción de alguna de las medidas de protección reguladas en este artículo.
+
+Estas medidas podrán consistir en la forma en que se ejercerá la patria potestad, acogimiento, tutela, curatela o guarda de hecho, atribución del uso y disfrute de la vivienda familiar, determinar el régimen de guarda y custodia, suspensión o mantenimiento del régimen de visitas, comunicación y estancia con los menores o personas con discapacidad necesitadas de especial protección, el régimen de prestación de alimentos, así como cualquier disposición que se considere oportuna a fin de apartarles de un peligro o de evitarles perjuicios.
+
+Cuando se dicte una orden de protección con medidas de contenido penal y existieran indicios fundados de que los hijos e hijas menores de edad hubieran presenciado, sufrido o convivido con la violencia a la que se refiere el apartado 1 de este artículo, la autoridad judicial, de oficio o a instancia de parte, suspenderá el régimen de visitas, estancia, relación o comunicación del inculpado respecto de los menores que dependan de él.
+
+Para que las medidas que hemos visto anteriormente se lleven a cabo será necesario la formación del profesorado, a través de cursos o materiales ,regulados en el artículo 7 de la Ley, para que enseñen y potencien en su impartición de clases la igualdad a través de: e Laeducación en el respeto de los derechos y libertades fundamentales y de la igualdad entre hombres y mujeres y en el ejercicio de la tolerancia y de la libertad dentro de los principios democráticos de convivencia.
+
+1/2004 establece otra medida:" Quien fuera condenado, por sentencia firme, por la comisión de un delito doloso de homicidio en cualquiera de sus formas o de lesiones, perderá la condición de beneficiario de la pensión de viudedad que le corresponda dentro del sistema público de pensiones cuando la víctima de dichos delitos fuera la causante de la pensión, salvo que, en su caso, medie reconciliación entre ellos.” 4.""",
     },
     {
         "numero": 17,
@@ -11809,6 +12013,19 @@ La provocación, la conspiración y la proposición para cometer los delitos pre
 este Título se castigará, respectivamente, con la pena inferior en uno o dos grados.
 Fuente: dudaslegislativas.com
 6RUPO 2 - DERECHO PENAL TEMA 17""",
+        "resumen": """PREVARICACIÓN JUDICIAL Prevaricación judicial En el código penal existen otras formas de prevaricación, sin embargo no están dentro del apartado de delitos contra la administración pública, sino que afectan a la administración de justicia, hablamos de: o El delito de prevaricación judicial (artículo 446) e El delito de prevaricación de abogados y procuradores (artículo 467) Cuando la prevaricación se produce por jueces o magistrados, que a sabiendas de que llevan a cabo un hecho contrario a la ley, dicten una resolución o sentencia manifiestamente injusta, estarán llevando a cabo una prevaricación judicial.
+
+Pena de multa de doce a veinticuatro meses e inhabilitación especial para empleo o cargo público por tiempo de diez a veinte años, cuando dictara cualquier otra sentencia o resolución injustas.» ABANDONO DE DESTINO Y OMISIÓN DEL DEBER DE PERSEGUIR DELITOS El delito de abandono de destino y el de omisión del deber de perseguir delitos están recogidos en el segundo capítulo del título 19 del código penal.
+
+Existen 2 formas dentro de este delito: Delitos de los que se tenga noticia o de sus responsables Tipificado en el artículo 408, establece que la autoridad o funcionario público que faltando a la obligación de su cargo, dejare intencionadamente (conducta dolosa) de promover la persecución de delitos de los que tenga noticias o de sus responsables.
+
+En el caso de que la denegación de auxilio a un particular se hiciera para no evitar un delito contra la integridad, indemnidad sexual, libertad sexual o la salud y libertad de las personas, se castigará con una pena más atenuada que la anterior, con pena de multa de 12 a 18 meses y la suspensión de empleo o cargo público de 1 a 3 años.
+
+Si el delito fuere cometido por las personas indicadas en la letra a) del apartado anterior, la persona jurídica quedará exenta de responsabilidad si se cumplen las siguientes condiciones: 1.2 el órgano de administración ha adoptado y ejecutado con eficacia, antes de la comisión del delito, modelos de organización y gestión que incluyen las medidas de vigilancia y control idóneas para prevenir delitos de la misma naturaleza o para reducir de forma significativa el riesgo de su comisión; 2.% la supervisión del funcionamiento y del cumplimiento del modelo de prevención implantado ha sido confiada a un órgano de la persona jurídica con poderes autónomos de iniciativa y de control o que tenga encomendada legalmente la función de supervisar la eficacia de los controles internos de la persona jurídica; 3.9 los autores individuales han cometido el delito eludiendo fraudulentamente los modelos de organización y de prevención y 4.2 no se ha producido una omisión o un ejercicio insuficiente de sus funciones de supervisión, vigilancia y control por parte del órgano al que serefiere la condición 2.2 En los casos en los que las anteriores circunstancias solamente puedan ser objeto de acreditación parcial, esta circunstancia será valorada a los efectos de atenuación de la pena.
+
+Está regulado en el Capítulo VIII, de los artículos 436-438 donde se establece que: La autoridad o funcionario público que, interviniendo por razón de su cargo en cualesquiera de los actos de las modalidades de contratación pública o en liquidaciones de efectos o haberes públicos, se concertara con los interesados o usase de cualquier otro artificio para defraudar a cualquier ente público...
+
+El último artículo del capítulo (438) menciona el delito de fraude y estafa de prestaciones al sistema de seguridad social: La autoridad o funcionario público que, abusando de su cargo, cometiere algún delito de estafa o de fraude de prestaciones del Sistema de Seguridad Social del artículo 307 ter...""",
     },
     {
         "numero": 18,
@@ -12201,6 +12418,19 @@ Finalmente, el art. 561, contempla el tipo de falsa alarma de explosivos.
 
 Fuente: Derecho UNED
 6RUPO 2 - DERECHO PENAL TEMA 18""",
+        "resumen": """510.1 sanciona las más graves con una pena de prisión de 1 a 4 años y multa de 6 a 12 meses, que consisten en fomentar, promover o incitar públicamente o en producir, elaborar o incluso poseer con fines de distribución escritos u otro tipo de materiales o en negar, trivializar gravemente o enaltecer los delitos de genocidio, de lesa humanidad, o contra las personas y bienes protegidos en caso de conflicto armado o autores, siempre que ello suponga una provocación "a la discriminación , al odio, hostilidad o a la violencia contra un grupo, una parte del mismo o contra una persona determinada por razón de su pertenencia a aquél, por motivos racistas, antisemitas u otros referentes a la ideología, religión o creencias, situación familiar, la pertenencia de sus miembros a una etnia o raza o nación, su sexo, orientación o identidad sexual, por razones de género, enfermedad o discapacidad".
+
+510 se trata de un tipo privilegiado cercano a las injurias que sanciona la realización de acciones que supongan humillación, menosprecio o descrédito de grupos o personas por los mismos motivos que los señalados en el número anterior, así como el enaltecimiento o justificación de los delitos que se hubieran cometido contra estos grupos o personas, agravándose las penas en este último supuesto cuando con este tipo de 6GRUPO 2- DERECHO PENAL TEMA 18 E S P P E B Sindicato de Policías y Bomberos acciones se promueva o favorezca un clima de violencia, hostilidad, odio o discriminación contra los mencionados grupos.
+
+517 que distingue entre fundadores, directores y presidentes de las asociaciones ilícitas a los que sanciona con una pena de prisión de 2 a 4 años, multa de 12 a 24 meses e inhabilitación especial para empleo o cargo público por tiempo de 6 a 12 años y miembros activos de las mismas a las que sanciona con 6GRUPO 2- DERECHO PENAL TEMA 18 una pena lógicamente menor de prisión de 1 a 3 años y multa de 12 a 24 meses.
+
+522 sanciona, con pena de multa de 4 a 10 meses, a los que por medio de violencia, intimidación, fuerza o cualquier otro apremio ilegítimo impidan a un miembro o miembros de una confesión religiosa practicar los actos propios de las creencias que profesen o asistir a los mismos; y a los que por iguales medios fuercen a otro u otros a practicar o concurrir a actos de culto o ritos, o a realizar actos reveladores de profesar o no profesar una religión, o a mudar la que profesen.
+
+530, el más grave e importante sin duda de la sección, que sanciona, con pena de inhabilitación especial para empleo o cargo público de 4 a 8 años, a la autoridad o funcionario público que, mediando causa por delito, acordare, practicare o prolongare cualquier privación de libertad de un detenido, preso o sentenciado, con violación de los plazos o demás garantías constitucionales o legales.
+
+557 bis, que eleva las penas de 1 a 6 años de prisión para los desórdenes públicos en los siguientes casos: e por el porte, que no uso, de armas, incluso la exhibición de simuladas de fuego, u otros instrumentos peligrosos; e que los actos de violencia resulten potencialmente peligrosos para la vida o integridad, que incluye expresamente los de lanzamiento de objetos contundentes, líquidos inflamables, incendio y uso de explosivos; e cuando el desorden se produzca en una manifestación o reunión numerosa; e cuando se realicen actos de pillaje, e y finalmente, los supuestos 5 y 6) que aluden, respectivamente, a dos circunstancias como el prevalimiento del carácter público del autor o el disfraz.
+
+557 ter, se sanciona, con una pena de prisión de tres a seis meses o multa de seis a doce meses, la invasión u ocupación del domicilio de una persona jurídica, pública o privada, oficina o establecimiento abierto al público exigiendo como resultado que con ello se cause una perturbación relevante de la paz pública y de su actividad normal.""",
     },
     {
         "numero": 19,
@@ -13280,6 +13510,19 @@ se suspenderá por la falta de comparecencia del procesado o de su defensor. Igu
 asiste a quien se halle privado de libertad en razón de estas diligencias.
 
 GRUPO ILT: POLICÍA JUDICIAL Y POLICÍA ADMINISTRATIVA TEMA 17""",
+        "resumen": """B) Policía Judicial en sentido amplio: Las funciones generales de Policía Judicial corresponden a todos los miembros de las Fuerzas y Cuerpos de Seguridad, cualquiera que sea su naturaleza y dependencia, en la medida en que deben prestar la colaboración requerida por la autoridad judicial o el Ministerio Fiscal en actuaciones encaminadas a la averiguación de delitos o descubrimiento y aseguramiento de delincuentes, con estricta sujeción al ámbito de sus respectivas competencias, Los miembros de las Fuerzas y Cuerpos de Seguridad, en sus funciones de Policía Judicial, desarrollarán los cometidos expresados en el párrafo anterior, a requerimiento de la autoridad judicial, del Ministerio Fiscal, de sus superiores policiales o por propia iniciativa.
+
+a) A requerimiento de la autoridad judicial y del Ministerio Fiscal: Los jueces, Tribunales y miembros del Ministerio Fiscal podrán, en defecto de Unidades de Policía Judicial, con carácter transitorio o en supuestos de urgencia y siempre con sujeción a su respectivo ámbito legal y territorial de atribuciones, encomendar a los miembros de las Fuerzas y Cuerpos de Seguridad la práctica de concretas diligencias de investigación.
+
+1 apartados C, E y G de la Ley Orgánica 2/1986, de 13 de marzo de Fuerzas y Cuerpos de Seguridad establece como funciones propias de los Cuerpos de Policía Local Instruir atestados por accidentes de circulación dentro del casco urbano, siendo ésta la labor fundamental de los Cuerpos de Policía Local, Participar en las funciones de Policía Judicial, en la forma establecida en el art.
+
+29 .2 de la LOFCS Efectuar diligencias a prevención y cuantas actuaciones tiendan a evitar la comisión de actos delictivos en el marco de colaboración establecido en las Juntas Locales de Seguridad, En cualquier caso, las funciones citadas en los apartados 1 y 3 deberán ser comunicadas a las Fuerzas y Cuerpos de Seguridad del Estado Añade el informe mencionado que ello no excluye que los Jueces y Magistrados puedan dirigirse a los miembros de la Policía Local, en supuestos concretos, para la realización de funciones de la Policía Judicial, determinando las actuaciones procesales correspondientes, pero sin que dichas actuaciones puedan ser realizadas por propia iniciativa de la Policía Local, ya que se estima necesaria la canalización a través de las dependencias de la Guardia Civil o del Cuerpo Nacional de Policía ( que darán ulteriormente trámite a la autoridad Judicial) para la realización de tareas propias de investigación de los delitos, con el propósito de conseguir una adecuada racionalización de los medios.
+
+Como se dice en el informe de la Secretaría General Técnica del Ministerio del Interior mencionado, la investigación autónoma por parte de la Policía Local en la investigación de delitos y elaboración del correspondiente atestado, sin su canalización a través de las Fuerzas y Cuerpos de Seguridad del Estado, puede conducir a disfunciones, puesto que las Unidades de Policía Judicial disponen de una formación especializada, mayores medios técnicos de policía científica y medios de información,; además de la necesidad de unificar la reseña de los detenidos y centralizar estos datos para su utilización en todo el territorio nacional.
+
+REAL DECRETO 769/1987, sobre Regulación Policía Judicial CAPITULO PRIMERO De la función de Policía Judicial Artículo 1 Las funciones generales de policía judicial corresponden a todos los miembros de las Fuerzas y Cuerpos de Seguridad, cualquiera que sea su naturaleza y dependencia, en la medida en que deben prestar la colaboración requerida por la Autoridad Judicial o el Ministerio fiscal en actuaciones encaminadas a la averiguación de delitos o descubrimientos y aseguramiento de delincuentes, con estricta sujeción al ámbito de sus respectivas competencias, y sin perjuicio de lo dispuesto en el artículo 283 de la Ley de Enjuiciamiento Criminal.
+
+Artículo 4 Todos los componentes de las Fuerzas y Cuerpos de Seguridad, cualquiera que sea su naturaleza y dependencia, practicarán por su propia iniciativa y según sus respectivas atribuciones, las primeras diligencias de prevención y aseguramiento así que tengan noticia de la perpetración del hecho presuntamente delictivo, y la ocupación y custodia de los objetos que provinieren del delito o estuvieren relacionados con su ejecución, dando cuenta de todo ello en los términos legales a la Autoridad Judicial o Fiscal, directamente o a través de las Unidades Orgánicas de Policía Judicial.""",
     },
     {
         "numero": 20,
@@ -13859,6 +14102,19 @@ Posteriormente, se le pondrá de nuevo a disposición judicial para que un Juez 
 que tenga que decir sobre los hechos delictivos que haya podido cometer.
 
 GRUPO ILT: POLICÍA JUDICIAL Y POLICÍA ADMINISTRATIVA TEMA 20""",
+        "resumen": """De la citación, de la detención y de la prisión provisional CAPÍTULO 1V - DEL EJERCICIO DEL DERECHO DE DEFENSA, DE LA ASISTENCIA DE ABOGADO Y DEL TRATAMIENTO DE LOS DETENIDOS Y PRESOS Artículo 520 1.
+
+Toda persona detenida o presa será informada por escrito, en un lenguaje sencillo y accesible, en una lengua que comprenda y de forma inmediata, de los hechos que se le atribuyan y las razones motivadoras de su privación de libertad, así como de los derechos que le asisten y especialmente de los siguientes: a) Derecho a guardar silencio no declarando si no quiere, a no contestar alguna o algunas de las preguntas que le formulen, o a manifestar que sólo declarará ante el juez.
+
+h) Derecho a ser asistido gratuitamente por un intérprete, cuando se trate de extranjero que no comprenda o no hable el castellano o la lengua oficial de la actuación de que se trate, o de personas sordas o con discapacidad auditiva, así como de otras personas con dificultades del lenguaje.
+
+Si se tratare de un menor, será puesto a disposición de las Secciones de Menores de la Fiscalía y se comunicará el hecho y el lugar de custodia a quienes ejerzan la patria potestad, la tutela o la guarda de hecho del mismo, tan pronto se tenga constancia de la minoría de edad.
+
+Si el detenido se opusiera a la recogida de las muestras mediante frotis bucal, conforme a las previsiones de la Ley Orgánica 10/2007, de 8 de octubre, reguladora de la base de datos policial sobre identificadores obtenidos a partir del ADN, el juez de instrucción, a instancia de la Policía Judicial o del Ministerio Fiscal, podrá imponer la ejecución forzosa de tal diligencia mediante el recurso a las medidas coactivas mínimas indispensables, que deberán ser proporcionadas a las circunstancias del caso y respetuosas con su dignidad.
+
+Artículo 520 ter A los detenidos en espacios marinos por la presunta comisión de los delitos contemplados en el artículo 23.4.d) de la Ley Orgánica 6/1985, de 1 de julio, del Poder Judicial, les serán aplicados los derechos reconocidos en el presente capítulo en la medida que resulten compatibles con los medios personales y materiales existentes a bordo del buque o aeronave que practique la detención, debiendo ser puestos en libertad o a disposición de la autoridad judicial competente tan pronto como sea posible, sin que pueda exceder del plazo máximo de setenta y dos horas.
+
+Si la separación no fuese posible, el Juez instructor o Tribunal cuidará de que no se reúnan personas de diferente sexo ni los co-reos en una misma prisión, y de que los jóvenes y los no reincidentes se hallen separados de los de edad madura y de los reincidentes.""",
     },
     {
         "numero": 21,
@@ -14738,6 +14994,19 @@ hechos en el orden jurisdiccional penal sea necesaria para la fijación de la re
 patrimonial.
 
 GRUPO ILT: POLICÍA JUDICIAL Y POLICÍA ADMINISTRATIVA TEMA 21""",
+        "resumen": """El propio preámbulo de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas (en adelante LPACAP), define el procedimiento administrativo, entendido “como el conjunto ordenado de trámites y actuaciones formalmente realizadas, según el cauce legalmente previsto, para dictar un acto administrativo o expresar la voluntad de la Administración” Dicho procedimiento se encuentra establecido por normas jurídicas, cuya inobservancia puede provocar, incluso, la nulidad de la respectiva actuación administrativa.
+
+Habiéndose producido una importante modificación en el ordenamiento jurídico que afecta de forma integral la organización y funcionamiento de las Administraciones, modulando dos elementos básicos fundamentales: e La ordenación de las relaciones de las Administraciones con los ciudadanos y empresas “ad extra”, por medio de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas.
+
+e Laregulación del funcionamiento interno de cada Administración y de las relaciones entre ellas “ad intra”, por medio de la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público Con la regulación de la Ley 39/2015, de 1 de octubre, del Procedimiento Administrativo Común de las Administraciones Públicas, no se trata de unificar los distintos procedimientos administrativos, sino que establece un procedimiento administrativo común.
+
+21 y ss. Ley Cuando se produce el llamado silencio administrativo, el objetivo de la ley no es dar carácter positivo (acceder a lo solicitado) o negativo (denegar lo solicitado) sino que los ciudadanos obtengan respuesta por parte de la administración en el plazo establecido de acuerdo con las siguientes reglas: a) En los procedimientos iniciados mediante solicitud de interesado, la regla general es que la falta de pronunciamiento de la Administración produce efectos positivos, es decir estimatorios, con las siguientes excepciones (casos en que el silencio tiene efectos negativos): e enlos procedimientos del ejercicio del derecho constitucional de petición; e los procedimientos cuya estimación tuvieran como efecto que se transmitieran al solicitante o a terceros facultades relativas al dominio público o al servicio público; e enlos supuestos en los que una norma con rango de Ley por razones imperiosas de interés general o una norma de Derecho comunitario establezcan lo contrario.
+
+Dicho acuerdo deberá necesariamente contener, como mínimo, la identificación de la persona o personas presuntamente responsables; los hechos sucintamente expuestos que motivan la incoación del procedimiento, su posible calificación y las sanciones que pudieran corresponder, sin perjuicio de lo que resulte de la instrucción; la identificación del Instructor y, en su caso, del Secretario del procedimiento, con expresa indicación del régimen de recusación de los mismos; el órgano competente para la resolución del expediente y norma que le atribuya tal competencia, indicando la posibilidad de que el presunto responsable pueda reconocer voluntariamente su responsabilidad; en su caso, las medidas de carácter provisional que se hayan acordado por el órgano competente para iniciar el procedimiento sancionador, sin perjuicio de las que se puedan adoptar durante el mismo; y por último, la indicación del derecho a formular alegaciones a la audiencia en el procedimiento y de los plazos para su ejercicio.
+
+Procedimientos y límites de la revisión La revisión de oficio de los actos nulos de pleno derecho se llevará a cabo por las Administraciones públicas, en cualquier momento, previo dictamen favorable del Consejo de Estado u órgano consultivo equivalente de la Comunidad Autónoma, declarando la nulidad de los actos o de las disposiciones administrativas que sean nulas de pleno derecho según los casos previstos en el art.
+
+Contra las resoluciones y los actos de trámite, si estos últimos deciden directa o indirectamente el fondo del asunto, determinan la imposibilidad de continuar el procedimiento, producen indefensión o perjuicio irreparable a derechos e intereses legítimos, podrán interponerse por los interesados los recursos de alzada y potestativo de reposición, que cabrá fundar en cualquiera de los motivos de nulidad o anulabilidad previstos en los artículos 47 y 48 de la Ley 39/2015.""",
     },
     {
         "numero": 22,
@@ -15146,6 +15415,19 @@ soporte original de las imágenes y sonidos en su integridad a disposición judi
 mayor inmediatez posible y, en todo caso, en el plazo máximo de setenta y dos horas.
 
 GRUPO ITT: POLICÍA JUDICIAL Y POLICÍA ADMINISTRATIVA TEMA 22""",
+        "resumen": """En el Real Decreto Legislativo 6/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial regula en su Título Preliminar las disposiciones generales en materia de tráfico y para ello, establece la La legislación básica en materia de Régimen Local establece los principios de las administraciones públicas de carácter territorial, y dentro de la esfera de sus competencias, que vienen recogidos en el Artículo 4, de la Ley Reguladora de Bases de Régimen Local 7/85, corresponden en todo caso a los Municipios, las Provincias y las Islas, y son entre otros: a) Las potestades reglamentaria y de auto organización.
+
+Esta misma Ley en su artículo 25 establece las competencias de los municipios, para la gestión de sus intereses y dentro del ámbito de sus competencias, puede prestar cuantos servicios públicos contribuyan a satisfacer las necesidades y aspiraciones de la comunidad vecinal; el municipio ejercerá, en todo caso, competencias propias, en los términos de la legislación del Estado y de las Comunidades Autónomas, en las siguientes materias: GRUPO ILT: POLICÍA JUDICIAL Y POLICÍA ADMINISTRATIVA TEMA 22 a) Urbanismo: planeamiento, gestión, ejecución y disciplina urbanística.
+
+NORMATIVA e Real Decreto 199/2010, de 26 de febrero, por el que se regula el ejercicio de la venta ambulante o no sedentaria e LEY 3/2011, de 23 de marzo, de la Generalitat, de Comercio de la Comunitat Valenciana e DECRETO 65/2012, de 20 de abril, del Consell, por el que se regula la venta no sedentaria en la Comunitat Valenciana Colaboración municipal en escolarización y absentismo escolar.
+
+La normativa que regula este tipo de actividad es fundamentalmente la LEY 14/2010, de 3 de diciembre, de la Generalitat, de Espectáculos Públicos, Actividades Recreativas y Establecimientos Públicos y el DECRETO 143/2015, de 11 de septiembre, del Consell, por el que se aprueba el Reglamento de desarrollo de la Ley 4/2010, de 3 de diciembre, de la Generalitat, de Espectáculos Públicos, Actividades Recreativas y Establecimientos Públicos.
+
+El objeto de este Reglamento es la ordenación y el desarrollo del régimen jurídico de los espectáculos públicos, actividades recreativas y establecimientos públicos, incluidos en el ámbito de aplicación de la Ley 4/2003, de 26 de febrero, de la Generalitat, de Espectáculos Públicos, Actividades Recreativas y Establecimientos Públicos, que se realicen o ubiquen en el territorio de la Comunitat Valenciana, viene a derogar la mayoría de decretos que regulaban las diferentes actividades relacionadas.
+
+El papel del Delegado del Gobierno Las instalaciones fijas de videocámaras por las Fuerzas y Cuerpos de Seguridad del Estado y de las Corporaciones Locales serán autorizadas por el Delegado del Gobierno en la Comunidad Autónoma de que se trate, previo informe de una Comisión, la Comisión de garantía de videovigilancia, cuya presidencia corresponderá al Presidente del Tribunal Superior de Justicia de la misma Comunidad.
+
+En casos excepcionales de urgencia máxima o de imposibilidad de obtener a tiempo la autorización indicada en razón del momento de producción de los hechos o de las circunstancias concurrentes, se podrán obtener imágenes y sonidos con videocámaras móviles, dando cuenta, en el plazo de setenta y dos horas, al máximo responsable provincial de las Fuerzas y Cuerpos de Seguridad y a la Comisión.""",
     },
     {
         "numero": 23,
@@ -16465,6 +16747,19 @@ La LBRL establece que en el seno de la Conferencia sectorial para asuntos locale
 existirá una Conferencia de ciudades de la que formarán parte la Administración General del
 Estado, las comunidades autónomas y los alcaldes de los municipios de gran población.
 GRUPO IV: RÉGIMEN LOCAL TEMA 23""",
+        "resumen": """* LEY 8/2010, de 23 de junio, de la Generalitat, de Régimen Local de la Comunitat Valenciana (DOGV 6296 de 23 de junio) * LEY 4/2021, de 16 de abril, de la Generalitat, de la Función Pública Valenciana.
+
+De acuerdo con el artículo 149.1.18 de la Constitución, el Estado tiene competencia exclusiva para regular las bases del régimen jurídico de las Administraciones Públicas y con GRUPO IV: REGIMEN LOCAL TEMA 23 E g P P E B Smd|cato de Policías y Bomberos ese título competencial aprobó la Ley 7/1985, de 2 de abril, de bases del régimen local (con sus reformas posteriores, entre ellas, la Ley 11/1999, de 21 de abril, y la Ley 57/2003, de 16 de diciembre), en adelante LBRL; y el Texto Refundido de las disposiciones legales vigentes en materia de régimen local, aprobado mediante Real Decreto Legislativo 781/1986, de 18 de abril, que contiene también algunas disposiciones que tienen carácter básico.
+
+C) En los municipios de más de 5.000 habitantes, y en los de menos en que así lo disponga su Reglamento Orgánico o lo acuerde el Pleno, existirán, si su legislación autonómica no prevé en este ámbito otra forma organizativa, órganos que tengan por objeto el estudio, informe o consulta de los asuntos que han de ser sometidos a la decisión del Pleno, así como el seguimiento de la gestión del Alcalde, la Junta de Gobierno Local y los concejales que ostenten delegaciones, sin perjuicio de las competencias de control que corresponden al Pleno.
+
+La determinación de los niveles esenciales de la organización municipal, entendiendo por tales las grandes áreas de gobierno, los coordinadores generales, dependientes directamente de los miembros de la Junta de Gobierno Local, con funciones de coordinación de las distintas Direcciones Generales u órganos similares integradas en la misma área de gobierno, y de la gestión de los servicios comunes de éstas u otras funciones análogas y las Direcciones Generales u órganos similares que culminen la organización administrativa, sin perjuicio de las atribuciones del Alcalde para determinar el número de cada uno de tales órganos y establecer niveles complementarios inferiores.
+
+k) La determinación de las formas de gestión de los servicios, así como el acuerdo de creación de organismos autónomos, de entidades públicas empresariales y de sociedades mercantiles para la gestión de los servicios de competencia municipal, y la aprobación de los expedientes de municipalización.
+
+h) Aprobar la relación de puestos de trabajo, las retribuciones del personal de acuerdo con el presupuesto aprobado por el Pleno, la oferta de empleo público, las bases de las convocatorias de selección y provisión de puestos de trabajo, el número y régimen del personal eventual, la separación del servicio de los funcionarios del Ayuntamiento, sin perjuicio de lo dispuesto en el artículo 99 de esta ley, el despido del personal laboral, el régimen disciplinario y las demás decisiones en materia de personal que no estén expresamente atribuidas a otro órgano.
+
+La Junta de Gobierno Local podrá delegar en los Tenientes de Alcalde, en los demás miembros de la Junta de Gobierno Local, en su caso, en los demás concejales, en los coordinadores generales, directores generales u órganos similares, las funciones enumeradas en los párrafos e), f), g), h) con excepción de la aprobación de la relación de puestos de trabajo, de las retribuciones del personal, de la oferta de empleo público, de la determinación del número y del régimen del personal eventual y de la separación del servicio de los funcionarios, y 1) del apartado anterior.""",
     },
     {
         "numero": 24,
@@ -16887,6 +17182,19 @@ normas que regulan el control de las cuentas de los ayuntamientos (art. 116 Ley 
 influencia auditora, a la que tienen acceso todos los grupos políticos del ayuntamiento, es
 uno de los instrumentos más efectivos para el control democrático de la acción del gobierno.
 GRUPO 1V RÉGIMEN LOCAL TEMA 24""",
+        "resumen": """Con la finalidad de dirigir la sesión constitutiva de la nueva Corporación Municipal, se formará una Mesa de Edad, integrada por los concejales electos de mayor y menor edad, haciendo las funciones de presidente el primero de ellos y actuando como Secretario el que lo sea de la Corporación.
+
+El Pleno actúa como depositario de las potestades reglamentarias y de autoorganización, tributaria y financiera, de programación y de planificación, concentrando la disponibilidad de las atribuciones de ordenación económica y fiscal, de ordenación urbanística y de aprobación de Reglamentos y Ordenanzas.
+
+b) Los acuerdos relativos a la participación en organizaciones supramunicipales; alteración del término municipal; creación o supresión de municipios y de las entidades a que se refiere el artículo 45; creación de órganos desconcentrados; alteración de la capitalidad del municipio y el cambio de nombre de éste o de aquellas entidades y la adopción o modificación de su bandera, enseña o escudo.
+
+e) La determinación de los recursos propios de carácter tributario; la aprobación y modificación de los presupuestos, y la disposición de gastos en materia de su competencia y la aprobación de las cuentas; todo ello de acuerdo con lo dispuesto en la Ley Reguladora de las Haciendas Locales.
+
+i) La aprobación de la plantilla de personal y de la relación de puestos de trabajo, la fijación de la cuantía de las retribuciones complementarias fijas y periódicas de los funcionarios y el número y régimen del personal eventual.
+
+m) La concertación de las operaciones de crédito cuya cuantía acumulada, dentro de cada ejercicio económico, exceda del 10 por ciento de los recursos ordinarios del Presupuesto -salvo las de tesorería, que le corresponderán cuando el importe acumulado de las operaciones vivas en cada momento supere el 15 por ciento de los ingresos corrientes liquidados en el ejercicio anterior- todo ello de conformidad con lo dispuesto en la Ley Reguladora de las Haciendas Locales.
+
+20 de la Ley 7/85, establece que: en los municipios de más de 5.000 habitantes, y en los de menos en que así lo disponga su Reglamento Orgánico o lo acuerde el Pleno, existirán, si su legislación autonómica no prevé en este ámbito otra forma organizativa, órganos que tengan por objeto el estudio, informe o consulta de los asuntos que hayan de ser sometidos a la decisión del Pleno, así como el seguimiento de la gestión del Alcalde, la Junta de Gobierno Local y los Concejales que ostenten delegaciones, sin perjuicio de las competencias de control que corresponden al Pleno.""",
     },
     {
         "numero": 25,
@@ -17503,6 +17811,19 @@ operando, pues, en estas materias, como límite único, los preceptos organizati
 funcionales de la propia LRBRL.
 
 GRUPO 1V RÉGIMEN LOCAL TEMA 25""",
+        "resumen": """El municipio, en todo caso, ejercerá competencias propias en las siguientes materias: e seguridad en lugares públicos; e ordenación del tráfico de vehículos y personas en las vías urbanas; e protección civil; e prevención y extinción de incendios; e ordenación, gestión, ejecución y disciplina urbanística; e promoción y gestión de viviendas; e parques y jardines; e pavimentación de las vías públicas urbanas y conservación de caminos y vías rurales; e patrimonio histórico-artístico; e protección del medio ambiente; e abastos, mataderos, ferias, mercados y defensa de consumidores y usuarios; e protección de la salubridad pública; e participación en la gestión de la atención primaria de la salud; e cementerios y servicios funerarios; e prestación de los servicios sociales y de promoción y reinserción social; e suministro de agua y alumbrado público; e servicios de limpieza viaria, de recogida y tratamiento de residuos, alcantarillado y tratamiento de aguas residuales; e transporte público de viajeros; e actividades o instalaciones culturales y deportivas, ocupación del tiempo libre y turismo; y e participar en la programación de la enseñanza y cooperar con la Administración educativa en la creación, construcción y sostenimiento de los centros docentes públicos, intervenir en sus órganos de gestión y participar en la vigilancia del cumplimiento de la escolaridad obligatoria.
+
+Las competencias propias de la Diputación provincial, según el artículo 36 de la LRBRL, son las que les atribuyan como tales las leyes del Estado y de las Comunidades Autónomas en los diferentes sectores de la acción pública y en todo caso: e la coordinación de los servicios municipales entre sí para la garantía de la prestación integral y adecuada, en todo el territorio de la provincia, de los servicios de competencia municipal; e la asistencia y cooperación jurídica, económica y técnica a los municipios, especialmente los de menor capacidad económica y de gestión; e la prestación de servicios públicos de carácter supramunicipal y, en su caso, supracomarcal; e la cooperación en el fomento del desarrollo económico y social y en la planificación en el territorio provincial; e asistencia en la prestación de los servicios de gestión de la recaudación tributaria y de servicios de apoyo a la gestión financiera de los municipios con población inferior a 20.000 habitantes; e la prestación de los servicios de administración electrónica y la contratación centralizada en los municipios con población inferior a 20.000 habitantes; y e el fomento y la administración de los intereses peculiares de la provincia.
+
+Por su parte, los Reglamentos se ocuparán del número y características de los funcionarios de la Corporación; de los establecimientos de beneficencia municipal; de los mataderos y mercados municipales; de la Policía Local; del servicio de recogida de basuras; Resumiendo lo anterior, podemos decir que con la Ordenanza, la entidad local impone, mientras que con el Reglamento, la entidad local se sujeta.
+
+Serán muy graves las infracciones que supongan: a) Una perturbación relevante de la convivencia que afecte de manera grave, inmediata y directa a la tranquilidad o al ejercicio de derechos legítimos de otras personas, al normal desarrollo de actividades de toda clase conformes con la normativa aplicable o a la salubridad u ornato públicos, siempre que se trate de conductas no subsumibles en los tipos previstos en la Ley de Protección de la Seguridad Ciudadana.
+
+A este respecto conviene reseñar que la sentencia del Tribunal Supremo de 28 de diciembre de 1977 rechaza la posibilidad de canalizar a través de Bandos auténticas normas jurídicas externamente eficaces, pues aunque la Ley no delimita las líneas que separan las distintas manifestaciones de la potestad normativa de los entes locales, Ordenanzas y Bandos, ello no supone que pueda adoptarse indistintamente cualquiera de estas formas, ya que habrá de atenerse al sentido o finalidad de la ley en relación con la materia a regular.
+
+En los municipios de más de 5.000 habitantes, y en los de menos en que así lo disponga su Reglamento Orgánico o lo acuerde el Pleno, existirán, si su legislación autonómica no prevé en este ámbito otra forma organizativa, órganos que tengan por objeto el estudio, informe o consulta de los asuntos que han de ser sometidos a la decisión del Pleno, así como el seguimiento de la gestión del Alcalde, la J unta de Gobierno Local y los concejales que ostenten delegaciones, sin perjuicio de las competencias de control que corresponden al Pleno.
+
+De esa ponderación resulta que si en lo que trasciende a la conformación de la organización territorial (procesos de alteración de municipios y creación de nuevos entes territoriales), debe primar el interés autonómico, no sucede lo mismo en el plano de la organización interna de las Entidades Locales, plano en el que procede reconocer la primacía del interés de la acomodación de aquélla a las características específicas de éstas».""",
     },
     {
         "numero": 26,
@@ -18541,6 +18862,19 @@ desaparecida la causa objetiva que la motivó, podrá solicitar la rehabilitaci�
 de funcionario, que le será concedida.
 
 GRUPO IV: RÉGIMEN LOCAL TEMA 26""",
+        "resumen": """91 de la Ley 7/1985 de 2 de Abr (Reguladora de las Bases del Régimen Local) señala que los funcionarios al servicio de la Administración local se rigen, en lo no dispuesto en la LBRL, por el Estatuto Básico del Empleado Público, por la restante legislación del Estado en materia de función pública, así como por la legislación de las Comunidades Autónomas, en los términos del artículo 149.1.18.2 de la Constitución, disponiéndose que, con carácter general, los puestos de trabajo en la Administración local y sus Organismos Autónomos serán desempeñados por este tipo de personal, al que le corresponde exclusivamente el ejercicio de las funciones que impliquen la participación directa o indirecta en el ejercicio de las potestades públicas o en la salvaguardia de los intereses generales.
+
+El personal interino cuya designación sea consecuencia de la ejecución de programas de carácter temporal o del exceso o acumulación de tareas por plazo máximo de seis meses, dentro de un período de doce meses, podrá prestar los servicios que se le encomienden en la unidad administrativa en la que se produzca su nombramiento o en otras unidades administrativas en las que desempeñe funciones análogas, siempre que, respectivamente, dichas unidades participen en el ámbito de aplicación del citado programa de carácter temporal, con el límite de duración señalado en este artículo, o estén afectadas por la mencionada acumulación de tareas.
+
+GRUPO IV: RÉGIMEN LOCAL TEMA 26 * Corresponde a los funcionarios de carrera en la Administración local el desempeño de las funciones que se mencionan a continuación: * Las que impliquen ejercicio de autoridad; * Las de fe pública y asesoramiento legal preceptivo; * Las de control y fiscalización interna de la gestión económicofinanciera y presupuestaria; * Las de contabilidad y tesorería; y * Las que se reserven a los funcionarios para la mejor garantía de la objetividad, imparcialidad e independencia en el ejercicio de su función.
+
+El personal laboral GRUPO IV: RÉGIMEN LOCAL TEMA 26 será seleccionado por la propia Corporación local ateniéndose a los principios de que la selección se efectuará: * De acuerdo a la Oferta de Empleo Público; * Mediante convocatoria pública; * A través de los sistemas de concurso, oposición o concurso oposición libre; * Con garantía de los principios constitucionales de igualdad, mérito y capacidad, así como el de publicidad; y * Con el máximo respeto al principio de igualdad de oportunidades de cuantos reúnan los requisitos exigidos.
+
+Las leyes de Función Pública que se dicten en desarrollo de este Estatuto regularán la carrera profesional aplicable en cada ámbito que podrán consistir, entre otras, en la aplicación aislada o simultánea de alguna o algunas de las siguientes modalidades: 1) Carrera horizontal, que consiste en la progresión de grado, categoría, escalón u otros conceptos análogos, sin necesidad de cambiar de puesto de trabajo y de conformidad con lo establecido en la letra b) del artículo 17 y en el apartado 3 del artículo 20 de este Estatuto.
+
+Retribuciones diferidas: Las Administraciones públicas podrán destinar cantidades hasta el porcentaje de la masa salarial que se fije en las correspondientes Leyes de Presupuestos Generales del Estado a financiar aportaciones a planes de pensiones de empleo o contratos de seguro colectivos que incluyan la cobertura de la contingencia de jubilación, para el personal incluido en sus ámbitos, de acuerdo con lo establecido en la normativa reguladora de los Planes de Pensiones.
+
+65 EBEP) o la de cualquier otro Estado miembro de la Unión Europea o la de aquellos Estados a los que, en virtud de Tratados Internacionales celebrados por la Unión Europea y ratificados por España, les sea de aplicación la libre circulación de trabajadores, que haya sido tenida en cuenta para el nombramiento, determinará la pérdida de la condición de funcionario salvo que simultáneamente se adquiera la nacionalidad de alguno de dichos Estados.""",
     },
     {
         "numero": 27,
@@ -20654,6 +20988,19 @@ los derechos, garantías y mandatos contemplados en el presente Título y de las
 necesarias para promover su impulso y efectividad.
 
 GRUPO V: POLICÍA TEMA 27""",
+        "resumen": """El tratamiento de datos llevado a cabo con ocasión de la tramitación por el Ministerio Fiscal de los procesos de los que sea competente, así como el realizado con esos fines dentro de la gestión de la Oficina Fiscal, se regirán por lo dispuesto en el Reglamento (UE) y la presente Ley Orgánica, sin perjuicio de las disposiciones de la Ley 50/1981, de 30 de diciembre, reguladora del Estatuto Orgánico del Ministerio Fiscal, la Ley Orgánica 6/1985, de 1 de julio, del Poder Judicial y de las normas procesales que le sean aplicables.
+
+26) Será lícito el tratamiento por las Administraciones Públicas de datos con fines de archivo en interés público, que se someterá a lo dispuesto en el RGPD y en la presente ley orgánica con las especialidades que se derivan de lo previsto en la Ley 16/1985, de 25 de junio, del Patrimonio Histórico Español, en el Real Decreto 1708/2011, de 18 de noviembre, por el que se establece el Sistema Español de Archivos y se regula el Sistema de Archivos de la Administración General del Estado y de sus Organismos Públicos y su régimen de acceso, así como la legislación autonómica que resulte de aplicación.
+
+39) Sin perjuicio de las funciones y poderes de acreditación de la autoridad de control competente en virtud del RGPD, la acreditación de las instituciones de certificación podrá ser llevada a cabo por la Entidad Nacional de Acreditación (ENAC), que comunicará a la Agencia Española de Protección de Datos y a las autoridades de protección de datos de las comunidades autónomas las concesiones, denegaciones o revocaciones de las acreditaciones, así como su motivación.
+
+43 a 50) GRUPO V: POLICÍA TEMA 27 E g P P E B S<nd|ca(o de Policías y Bomberos La Agencia Española de Protección de Datos es una autoridad administrativa independiente de ámbito estatal, de las previstas en la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, con ; Su denominación oficial, de conformidad con lo establecido en el artículo 109.3 de la Ley 40/2015, de 1 de octubre, de Régimen Jurídico del Sector Público, será; «AGENCIA ESPAÑOLA DE PROTECCIÓN DE DATOS, AUTORIDAD ADMINISTRATIVA INDEPENDIENTE».
+
+r) El incumplimiento del deber de notificación a la autoridad de protección de datos de una violación de seguridad de los datos personales de conformidad con lo previsto en el artículo 33 del Reglamento (UE) s) El incumplimiento del deber de comunicación al afectado de una violación de la seguridad de los datos de conformidad con lo previsto en el artículo 34 del Reglamento (UE) 2016/679 si el responsable del tratamiento hubiera sido requerido por la autoridad de protección de datos para llevar a cabo dicha notificación.
+
+1) Derecho a la neutralidad de internet 2) Derecho de acceso universal a internet 3) Derecho a la seguridad digital 4) Derecho a la educación digital 5) Protección de los menores en internet 6) Derecho de rectificación en internet 7) Derecho a la actualización de informaciones en medios de comunicación digitales 8) Derecho a la intimidad y uso de dispositivos digitales en el ámbito laboral 9) Derecho a la desconexión digital en el ámbito laboral 10) Derecho a la intimidad frente al uso de dispositivos de videovigilancia y de grabación de sonidos en el lugar de trabajo 11) Derecho a la intimidad ante la utilización de sistemas de geolocalización en el ámbito laboral 12) Derechos digitales en la negociación colectiva GRUPO V: POLICÍA TEMA 27 13) Protección de datos de los menores en internet 14) Derecho al olvido en búsquedas de internet 15) Derecho al olvido en servicios de redes sociales y servicios equivalentes 16) Derecho de portabilidad en servicios de redes sociales y servicios equivalentes 17) Derecho al testamento digital 1) Derecho a la neutralidad de Internet.
+
+Asimismo se aprobará un Plan de Actuación dirigido a promover las acciones de formación, difusión y concienciación necesarias para lograr que los menores de edad hagan un uso equilibrado y responsable de los dispositivos digitales y de las redes sociales y de los servicios de la sociedad de la información equivalentes de Internet con la finalidad de garantizar su adecuado desarrollo de la personalidad y de preservar su dignidad y derechos fundamentales.""",
     },
     {
         "numero": 28,
@@ -20918,6 +21265,19 @@ presidencia corresponderá al Alcalde, salvo que concurriera a sus sesiones el G
 provincia, en cuyo caso, la presidencia será compartida con éste.
 
 GRUPO V: POLICÍA TEMA 28""",
+        "resumen": """No obstante, cuando ejerzan funciones de protección de autoridades de las corporaciones locales, podrán actuar fuera del término municipal respectivo, con autorización del Ministerio del Interior o de la correspondiente autoridad de la comunidad autónoma que cuente con cuerpo de policía autonómica, cuando desarrollen Ííntegramente esas actuaciones en el ámbito territorial de dicha comunidad autónoma.
+
+Los Cuerpos de Policía Local son Institutos armados de naturaleza civil, con estructura y organización jerarquizada, rigiéndose, en cuanto a su régimen estatutario, por los principios generales de los capítulos 1I y III del título | y por la sección 4.2 del capítulo IV del título II de la presente Ley, con la adecuación que exija la dependencia de la Administración correspondiente, las disposiciones dictadas al respecto por las Comunidades Autónomas y los Reglamentos específicos para cada Cuerpo y demás normas dictadas por los correspondientes Ayuntamientos.
+
+Por lo que respecta al ejercicio de los derechos sindicales, y en atención a la especificidad de las funciones de dichos Cuerpos, les será de aplicación la Ley que se dicte en cumplimiento de lo establecido en la disposición adicional segunda, apartado 2, de la Ley Orgánica 11/1985, de 2 de agosto, de Libertad Sindical.
+
+Será también de aplicación a los miembros de dichos Cuerpos lo dispuesto, respecto a los Cuerpos de Policía de las Comunidades Autónomas, en el artículo 41.3 de la presente Ley, si bien la facultad que en el mismo se atribuye a las Juntas de Seguridad corresponderá al Gobernador civil respectivo.
+
+(Téngase en cuenta que los Delegados y Subdelegados del Gobierno han asumido las competencias atribuidas a los Gobernadores Civiles en los términos establecidos en la disposición adicional cuarta de la Ley 6/1997, de 14 de abril, de Organización y Funcionamiento de la Administración General del Estado («B.O.E.» 15 abril)).
+
+En los municipios de gran población y en las Ciudades con Estatuto de Autonomía podrá asignarse, por el Pleno de la Corporación o por sus respectivas Asambleas, al ejercicio exclusivo de las funciones previstas en el párrafo b) del apartado 1 a parte de los funcionarios pertenecientes a las mismas, que tendrán la consideración de agentes de la autoridad, subordinados a los miembros de los respectivos Cuerpos de Policía Local, sin integrarse en las Fuerzas y Cuerpos de Seguridad y de manera que ello no comporte un incremento en el número de efectivos ni en los costes de personal.
+
+En los municipios que tengan Cuerpo de Policía propio, podrá constituirse una Junta Local de Seguridad, que será el órgano competente para establecer las formas y procedimientos de colaboración entre los miembros de las Fuerzas y Cuerpos de Seguridad en su ámbito territorial.""",
     },
     {
         "numero": 29,
@@ -21790,6 +22150,19 @@ x) Los demás que se establezcan en las leyes, disposiciones reglamentarias de d
 se deriven de los anteriores.
 
 GRUPO V: POLICÍA TEMA 27""",
+        "resumen": """Entre los instrumentos internacionales pertinentes están la Declaración Universal de Derechos Humanos, el Pacto Internacional de Derechos Civiles y Políticos, la Declaración sobre la Protección de todas las Personas contra la Tortura y Otros Tratos a Penas Crueles, Inhumanos o Degradantes,la Declaración de las Naciones Unidas sobre la eliminación de todas las formas de discriminación racial, la Convención Internacional sobre la Eliminación de Todas las Formas de Discriminación Racial, la Convención Internacional sobre la Represión y el Castigo del Crimen de Apartheid, la Convención para la Prevención y la Sanción del Delito de Genocidio, las Reglas Mínimas Para el Tratamiento de los Reclusos y la Convención de Viena sobre relaciones consulares.
+
+Comentario: a) Esta prohibición dimana de la Declaración sobre la Protección de Todas las Personas contra la Tortura y Otros Tratos o Penas Crueles, Inhumanos o Degradantes, aprobada por la Asablea General, y en la que se estipula que: »(Todo acto de esa naturaleza) constituye una ofensa a la dignidad humana y será condenado como violación de los propósitos de la Carta de las Naciones Unidas y de los derechos humanos y libertades fundamentales proclamadas en la Declaración Universal de Derechos Humanos (y otros instrumentos internacionales de derechos humanos)».
+
+OTRAS DECLARACIONES INTERNACIONALES DE DERECHOS HUMANOS e RECOMENDACIÓN del Consejo de Europa, adoptada por el Comité de Ministros el 19 de septiembre de 2001, sobre el Código Europeo de Ética de la Policía e DECLARACIÓN de Tokio de la Asociación Médica Mundial, adoptada por la 292 Asamblea Médica Mundial el 10 de octubre de 1975, sobre la tortura y otros castigos crueles, inhumanos y degradantes durante detenciones y encarcelamientos e RESOLUCIÓN 690 de 1979, de la Asamblea Parlamentaria del Consejo de Europa, declaración sobre la Policía GRUPO V: POLICÍA TEMA 27 La ley, que se adapta a los principios de necesidad, eficacia, proporcionalidad, seguridad jurídica y transparencia, y que se encuentra incluida en el Plan normativo de la administración de la Generalitat 2017, aprobado por el Consell el 17 de febrero de 2017, se estructura en ciento ocho artículos, ocho títulos, veintidós capítulos, cinco disposiciones adicionales, once disposiciones transitorias, una disposición derogatoria única y dos disposiciones finales.
+
+Con toda esta regulación, la Ley de coordinación de policías locales sienta las bases para construir un futuro cuerpo de policía autonómica que, aprovechando la experiencia de coordinación de los cuerpos de Policía Local, permita obtener economías de escala, al tiempo que asegure que el hecho de vivir en municipios diferentes no supone ninguna merma en la capacidad de las personas para disfrutar de los mismos derechos y oportunidades.
+
+GRUPO V: POLICÍA TEMA 27 No obstante, cuando así lo prevea la correspondiente relación de puestos de trabajo, la designación de la persona que asuma la jefatura del cuerpo podrá llevarse a cabo por el procedimiento de libre designación, mediante convocatoria abierta a los miembros de otros cuerpos de Policía Local de la Comunitat Valenciana que ostenten una categoría igual o superior a la máxima de la plantilla del cuerpo para el que se convoque el puesto y cumplan los demás requisitos establecidos.
+
+De conformidad con lo establecido en el artículo 28 de la Constitución y en el artículo 6.8 de la Ley orgánica 2/1986, de 13 de marzo, de fuerzas y cuerpos de seguridad, las personan que integran las policías locales tienen prohibido el ejercicio del derecho de huelga y de cualquier otra acción sustitutiva o concertada que pueda alterar el normal funcionamiento de los servicios.
+
+CAPÍTULO III Deberes Artículo 84 Deberes Los deberes del personal funcionario de los cuerpos de policía local de la Comunitat Valenciana serán los contenidos en la Ley orgánica 2/1986, de 13 de marzo, de las fuerzas y cuerpos de seguridad, los establecidos para el personal funcionario de la administración local, así como los que se derivan de los principios básicos de actuación en el ejercicio de sus funciones, y en particular los siguientes: a) Jurar o prometer la Constitución y el Estatuto de autonomía de la Comunitat Valenciana.""",
     },
     {
         "numero": 30,
@@ -22060,6 +22433,19 @@ materia.
 impartición de cursos, en las tres provincias de la Comunitat Valenciana.
 
 GRUPO V: POLICÍA TEMA 30""",
+        "resumen": """A la Agencia Valenciana de Seguridad y Respuesta a las Emergencias le corresponde la ejecución de las políticas de la Generalitat en materia de coordinación de policías locales y la formación de sus miembros, de acuerdo con lo establecido en esta ley, en su ley de creación y en las disposiciones que las desarrollen.
+
+La Comisión de Coordinación de las Policías Locales de la Comunitat Valenciana estará integrada por los siguientes miembros: a) Presidencia: La persona que ostente la titularidad de la dirección de la Agencia Valenciana de Seguridad y Respuesta a las Emergencias.
+
+Se crean los consejos supramunicipales de coordinación de las policías locales como órganos colegiados de coordinación y asesoramiento en el ejercicio de la competencia autonómica de coordinación de las policías locales, adscritos al órgano autonómico que tenga atribuida la titularidad de la competencia en materia de seguridad, pudiendo constituirse, según la normativa de desarrollo reglamentario, en aquellos ámbitos territoriales en los que existan cuestiones de seguridad pública comunes a varios municipios, previa consulta a los ayuntamientos afectados.
+
+En el marco de lo establecido por esta ley, el funcionamiento de los consejos supramunicipales de coordinación de las policías locales se ajustará a lo dispuesto en la legislación de régimen jurídico del sector público sobre el funcionamiento de los órganos colegiados de las administraciones públicas.
+
+Las personas titulares de las jefaturas de los cuerpos de Policía Local, o policías en quienes deleguen, en representación de las policías locales de los municipios que se integren en el consejo supramunicipal de coordinación de las policías locales, y que se nombrarán mediante decreto de alcaldía del ayuntamiento correspondiente.
+
+En el seno de cada consejo supramunicipal de coordinación de policías locales podrá constituirse una comisión técnica, integrada por las personas titulares de la jefatura de la Policía Local de cada uno de los municipios que lo integren, quienes podrán delegar en otro GRUPO V: POLICÍA TEMA 30 miembro del cuerpo respectivo, y por una persona representante de la Agencia Valenciana de Seguridad y Respuesta a las Emergencias, a quien corresponderá presidir la comisión técnica.
+
+Es competencia del Ivaspe la realización de las pruebas de acreditación de la fase previa a las que se refiere esta ley, así como la organización e impartición de cursos de capacitación, GRUPO V: POLICÍA TEMA 30 E S P P E B Sindicato de Policías y Bomberos básicos, de perfeccionamiento o de promoción, en materia de Policía Local.""",
     },
     {
         "numero": 31,
@@ -22476,6 +22862,19 @@ rigen para el personal funcionario de carrera de Policía Local.
 seguridad será el órgano competente para iniciar y resolver los expedientes disciplinarios
 que pudieran originarse durante la realización de los cursos selectivos.
 GRUPO V: POLICÍA TEMA 31""",
+        "resumen": """El régimen disciplinario del personal funcionario de los cuerpos de Policía Local se ajustará a lo establecido en la Ley orgánica 2/1986, de 13 de marzo de fuerzas y cuerpos de seguridad y en la Ley orgánica 4/2010, de 20 de mayo, del régimen disciplinario del Cuerpo Nacional de Policía, a lo establecido en esta ley, y a lo dispuesto en las normas que las desarrollen.
+
+El procedimiento sancionador del personal integrante de los cuerpos de Policía Local se ajustará a los principios de legalidad, impulso de oficio, imparcialidad, agilidad, eficacia, publicidad, contradicción, irretroactividad, tipicidad, responsabilidad, proporcionalidad y concurrencia de sanciones, y comprende esencialmente los derechos a la presunción de inocencia, información, defensa y audiencia.
+
+d) La falta de presentación o puesta a disposición inmediata, en la dependencia donde estuviera destinado o en la más próxima, en los casos de declaración de los estados de excepción o sitio o cuando así se disponga, en caso de alteración grave de la seguridad ciudadana; o en los casos de declaración del estado de alarma, la no presentación cuando sean emplazados para ello, de acuerdo con lo dispuesto por la autoridad competente.
+
+La responsabilidad disciplinaria se extingue por el cumplimiento de la sanción, por la muerte de la persona responsable y por la prescripción de la falta o de la sanción, así como por las consecuencias que en el ámbito administrativo pudieran derivarse de la concesión de un indulto, si resultara de aplicación.
+
+Si durante la sustanciación del procedimiento sancionador se produjera la pérdida o el cese en la condición de personal funcionario de quien se esté sometiendo a expediente, se dictará una resolución en la que, con invocación de la causa, se declarará extinguido el procedimiento sancionador, sin perjuicio de la responsabilidad civil o penal que le pueda ser exigida, y se ordenará el archivo de las actuaciones, salvo que por parte interesada se inste la continuación del expediente o éste se esté instruyendo por falta muy grave, en cuyo caso continuará hasta su resolución.
+
+Cuando se inicie un procedimiento penal contra una persona funcionaria de los cuerpos de Policía Local de la Comunitat Valenciana, la prescripción de las infracciones disciplinarias que de los hechos pudieran derivarse quedará suspendida por la incoación de aquel procedimiento, aun cuando no se hubiera procedido disciplinariamente.
+
+En el caso de concurrencia de varias sanciones, el plazo de prescripción de las sanciones que sean firmes y estén pendientes de cumplimiento comenzará a contarse desde el día siguiente a aquel en el que quede extinguida la sanción que le preceda en el orden de cumplimiento 0, en su caso, desde la fecha en que haya surtido eficacia la inejecución de la sanción.""",
     },
     {
         "numero": 32,
@@ -23683,6 +24082,19 @@ Queda prohibida, en todo caso, la colocación de vidrios tintados o coloreados n
 homologados.
 
 GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 32""",
+        "resumen": """C) Las autorizaciones de apertura de centros de formación de conductores y la declaración de nulidad, lesividad o pérdida de vigencia de aquéllas, así como los certificados de aptitud y autorizaciones que permitan acceder a la actuación profesional en materia de enseñanza de la conducción y la acreditación de la destinada al reconocimiento de las aptitudes psicofísicas de los conductores, con los requisitos y condiciones que reglamentariamente se determinen.
+
+h) Los registros de vehículos, de conductores e infractores, de profesionales de la enseñanza de la conducción, de centros de formación de conductores, de los centros de reconocimiento destinados a verificar las aptitudes psicofísicas de los conductores y de manipulación de placas de matrícula, en los términos que reglamentariamente se determine.
+
+Consejo Superior de Tráfico, Seguridad Vial y Movilidad Sostenible El Consejo Superior de Tráfico, Seguridad Vial y Movilidad Sostenible es el órgano de consulta y participación para el impulso y mejora del tráfico, la seguridad vial y la movilidad sostenible y para promover la concertación de las distintas Administraciones Públicas y entidades que desarrollan actividades en esos ámbitos, sin perjuicio de las competencias de las comunidades autónomas que hayan recibido el traspaso de funciones y servicios en materia de tráfico y circulación de vehículos a motor.
+
+6RUPO VE: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 32 La presidencia del Consejo corresponde al Ministro del Interior y en él están representados la Administración General del Estado, las comunidades autónomas y las ciudades de Ceuta y Melilla, las administraciones locales, así como las fundaciones, las asociaciones de víctimas, el sector social de la discapacidad, las asociaciones de prevención de accidentes de tráfico y de fomento de la seguridad vial y los centros de investigación y organizaciones profesionales, económicas y sociales más representativas directamente relacionadas con el tráfico, la seguridad vial y la movilidad sostenible.
+
+El organismo autónomo Jefatura Central de Tráfico 0, en su caso, la autoridad autonómica o local responsable de la regulación del tráfico, o sus agentes, acordarán la presencia y permanencia en la zona de intervención de todo el personal y equipo que sea imprescindible y garantizará la ausencia de personas ajenas a las labores propias de la asistencia; además, será la encargada de señalar en cada caso concreto los lugares donde deben situarse los vehículos de servicios de urgencia o de otros servicios especiales, atendiendo a la prestación de la mejor asistencia y velando por el mejor auxilio de las personas.
+
+La actuación de los equipos de los servicios de urgencia, así como la de los de asistencia mecánica y de conservación de carreteras, deberá procurar en todo momento la menor afectación posible sobre el resto de la circulación, ocupando el mínimo posible de la calzada y siguiendo en todo momento las instrucciones que imparta el organismo autónomo 6RUPO VE: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 32 Jefatura Central de Tráfico 0, en su caso, la autoridad autonómica o local responsable de la regulación del tráfico, o sus agentes.
+
+Las cargas que sobresalgan lateralmente del gálibo del vehículo, de tal manera que su extremidad lateral se encuentre a más de 0,40 metros del borde exterior de la luz delantera o trasera de posición del vehículo, deberán estar entre la puesta y la salida del sol, así como cuando existan condiciones meteorológicas o ambientales que disminuyan sensiblemente la visibilidad, respectivamente, señalizadas, en cada una de sus extremidades laterales, hacia adelante, por medio de una luz blanca y un dispositivo reflectante de color blanco, y hacia atrás, por medio de una luz roja y de un dispositivo reflectante de color rojo.""",
     },
     {
         "numero": 33,
@@ -24580,6 +24992,19 @@ documentos cuyo otorgamiento dependan de la vigencia de la clase o de las clases
 permiso o licencia de conducción recuperados.
 
 GRUPO VT: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 33""",
+        "resumen": """Se podrán conducir dentro del territorio nacional con el permiso de la clase B, con una antiguiedad superior a dos años, automóviles sin remolque impulsados por combustibles alternativos destinados al transporte de mercancías con una masa máxima autorizada superior a 3.500 kg pero que no exceda los 4.250 kg, siempre que la masa que supere los 3.500 kg provenga exclusivamente del exceso de masa del sistema de propulsión respecto al sistema de propulsión de un vehículo de las mismas dimensiones que esté equipado con un GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 33 motor convencional de combustión interna con encendido por chispa o por compresión, y siempre que no se incremente la capacidad de carga respecto al mismo vehículo (1).
+
+El procedimiento para la declaración de nulidad o lesividad se ajustará a lo establecido en el capítulo | del título VII de la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, así como a la Disposición Adicional Decimosexta de la Ley 6/1997, de 14 de abril, de Organización y Funcionamiento de la Administración General del Estado, en cuanto a la competencia para la revisión de oficio de los actos nulos.
+
+Cuando el resultado de las pruebas de control de conocimientos y de control de aptitudes y comportamientos fuera desfavorable en la tercera ocasión en que se realicen, o en alguno de los reconocimientos para explorar las aptitudes psicofísicas se comprobase que el defecto psicofísico es irreversible, cuando el titular de la autorización no se sometiera a las pruebas en los plazos establecidos en el apartado 3.A), o no hubiera acreditado que reúne el requisito correspondiente, el Jefe Provincial de Tráfico dictará resolución motivada acordando la pérdida de vigencia de la autorización administrativa de que se trate.
+
+La Jefatura Provincial de Tráfico, una vez constatada la pérdida por el titular del permiso o de la licencia de conducción de la totalidad de los puntos asignados, iniciará el procedimiento para declarar su pérdida de vigencia mediante acuerdo que contendrá una relación detallada de las resoluciones sancionadoras firmes en vía administrativa que hubieran dado lugar a la pérdida de los puntos, con indicación del número de puntos que a cada una de ellas hubiera correspondido y se le dará vista del expediente al titular de la autorización, en los términos previstos en la Ley 30/1992, de 26 de noviembre.
+
+El titular de la autorización para conducir cuya pérdida de vigencia haya sido declarada por haber perdido la totalidad de los puntos que tuviera asignados, podrá obtener nuevamente un permiso o licencia de conducción de la misma clase de la que era titular y con la misma antigúedad, previa realización y superación con aprovechamiento de un curso de sensibilización y reeducación vial de recuperación del permiso o la licencia de conducción, y posterior superación de la prueba de control de conocimientos a que se refiere el artículo 47.2.
+
+El titular de una autorización para conducir que haya perdido su vigencia por haber sido condenado a la pena de privación del derecho a conducir vehículos de motor y ciclomotores por tiempo superior a dos años podrá obtener nuevamente un permiso o licencia de conducción de la misma clase de la que era titular y con la misma antigiedad, una vez cumplida la condena y previo cumplimiento de los requisitos exigidos en el texto articulado de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial.
+
+La declaración de pérdida de vigencia por haber perdido el titular del permiso o de la licencia de conducción la totalidad del crédito de puntos, o por haber sido condenado a la pena de privación del derecho a conducir vehículos de motor y ciclomotores por tiempo superior a dos años, afectará a todas las clases del permiso o licencia de conducción de que sea titular, así como a cualquier otro certificado, autorización administrativa o documento cuyo otorgamiento dependa de la vigencia de la clase o de las clases del permiso o licencia de conducción objeto del procedimiento.""",
     },
     {
         "numero": 34,
@@ -26290,6 +26715,19 @@ En Madrid, a 14 de diciembre de 2017
 EL DIRECTOR GENERAL DE TRÁFICO
 
 GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 34""",
+        "resumen": """Instrucción 10/VS de la DGT de fecha 14 de Abril de 2010 El Real Decreto 2042/1994, de 14 de octubre, por el que se regula la inspección técnica de vehículos, recoge en su artículo 9 que en los casos de incumplimiento de lo establecido en materia de inspecciones técnicas, respecto de la frecuencia con la que éstas deben ser superadas periódicamente por los vehículos, los agentes de la autoridad encargados de la vigilancia del tráfico, sin perjuicio de la denuncia que habrán de formular por las infracciones correspondientes, “intervendrán el permiso o licencia de circulación del vehículo, entregando en su sustitución un volante en el que se refleje, al menos, la matrícula, la fecha de primera matriculación y servicio que presta, concediéndole al titular del vehículo un plazo de diez días, con el único objetivo de continuar el viaje y proceder a su traslado para someterse a la inspección técnica, y si transcurriese el plazo indicado sin que se haya justificado haber presentado el vehículo a la citada inspección, se acordará por el órgano competente que tramita la denuncia el precintado del mencionado vehículo.” En cumplimiento de dicho precepto, en la actualidad, cuando un vehículo no está al corriente de la inspección técnica periódica, el agente de la autoridad además de formular la correspondiente denuncia, retira físicamente el permiso de circulación remitiéndolo a la Jefatura de Tráfico en unión del correspondiente boletín de denuncia, entregando en su sustitución un volante (modelo 7.76) que ampara la circulación del vehículo por el plazo y a los efectos previstos en el precepto citado en el párrafo anterior.
+
+En España, la comprensión de la normativa reguladora de la responsabilidad civil derivada de la circulación de vehículos a motor se establece por: GRUPO VE POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 34 E g P P E B Smd|ca(o de Policías y Bomberos * Real Decreto Legislativo 8/2004, De 29 De Octubre, Por El Que Se Aprueba El Texto Refundido De La Ley Sobre Responsabilidad Civil Y Seguro En La Circulación De Vehículos A Motor * Real Decreto 1507/2008, de 12 de septiembre, por el que se aprueba el Reglamento del seguro obligatorio de responsabilidad civil en la circulación de vehículos a motor.
+
+Instrucción 17/ S-145 Tras la puesta en marcha de los criterios y medidas introducidos en su día por el Escrito Directriz UON-SAR 13/01, se ha hecho patente la necesidad de revisar y actualizar los mismos para que la tramitación de aquellos expedientes dados de alta por presunta infracción a lo dispuesto en el Texto Refundido de la Ley sobre responsabilidad civil y seguro en la circulación de vehículos a motor, aprobado por Real Decreto legislativo 8/2004, de 29 de octubre, cumplan con los principios inherentes a todo procedimiento sancionador reflejados en los artículos 25 y siguientes de la Ley 40/2015, de 1 de octubre, de Régimen GRUPO VE POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 34 Jurídico del Sector Público y disposiciones complementarias, así como a la Ley 39/2015, de 1 de octubre del Procedimiento Administrativo Común.
+
+Conviene recordar que, tal y como se establece en el Considerando (3) y el artículo 3 de la Directiva 2009/103/CE del Parlamento Europeo y del Consejo de 16 de septiembre de 2009, relativa al seguro de la responsabilidad civil que resulta de la circulación de vehículos automóviles, así como al control de la obligación de asegurar esa responsabilidad: “Cada Estado Miembro adoptará todas las medidas apropiadas para que la responsabilidad civil relativa a la circulación de los vehículos que tengan su estacionamiento habitual en su territorio, esté cubierta por un seguro.” Como criterio general, se recuerda que sólo habrá que considerar la posible comisión de dicha infracción cuando los vehículos objeto de denuncia no consten como asegurados en el Fichero Informativo de Vehículos Asegurados (FIVA), o bien cuando los datos que aparecen en el mismo no coincidan con los aportados por su propietario, ya sea en el momento de producirse los hechos o en cualquier otro posterior.
+
+La información contenida en FIVA es remitida diariamente por las entidades aseguradoras al Consorcio de Compensación de Seguros, en cumplimiento de lo establecido por el Reglamento de Responsabilidad Civil y Seguro en la Circulación de vehículos a motor, y Resolución de 27 de febrero de 2001 de la Dirección General de Seguros que establece el procedimiento para remitir dichos datos; poniéndose dichos datos a disposición de DGT con la misma periodicidad por parte del Consorcio de Compensación de Seguros (salvo fines de semana y festivos), conforme a lo dispuesto en el Anexo de la citada Resolución, la información actualizada de las altas y bajas de los vehículos asegurados facilitada por las entidades aseguradoras.
+
+No obstante, los Estados miembros podrán realizar controles no sistemáticos del seguro siempre que dichos controles no sean discriminatorios y se efectúen como parte de un control que no vaya dirigido exclusivamente a la comprobación del seguro.” La Comisión Europea a raíz de una consulta realizada por el Consejo de Oficinas Nacionales el 7/11/2007, sobre si las Directivas de seguro de automóviles permiten a los Estados miembros aplicar normas cuyo objetivo sea prevenir la circulación sin seguro, dictaminó: “A nuestro juicio el hecho de que la 5* Directiva de seguros de automóviles estipule que los Estados miembros deben abstenerse de realizar controles de seguros a los vehículos con estacionamiento habitual en otro Estado miembro a menos que estos controles no sean sistemáticos ni discriminatorios o que se realicen como parte de un control cuyo único objetivo no sea el de verificar el aseguramiento, permite que se lleven controles de seguro únicamente en circunstancias excepcionales.
+
+Si bien y conforme señala el artículo 4 del Reglamento de Seguro obligatorio,.. ... 'los contratos de seguro obligatorio de responsabilidad civil en la circulación de vehículos a motor, deberán estar suscritos con entidades aseguradoras que hayan obtenido la autorización correspondiente del Ministerio de Economía o que estando domiciliadas en un país perteneciente al Espacio Económico Europeo ejerzan su actividad en España en régimen de derecho de establecimiento o en régimen de libre prestación de servicios.” 6RUPO VE: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 34 $ g P P E B S|ndlcato de Policías y Bomberos Por tanto, dicha Aseguradora deberá estar autorizada para operar en nuestro país y por tanto someterse a las normas establecidas y entre ellas, la comunicación del aseguramiento del vehículo al Consorcio de Compensación de Seguros, es decir, dicho aseguramiento debe ser contrastable en FIVA y la póliza y demás documentación deben estar traducidas al español.""",
     },
     {
         "numero": 35,
@@ -26935,6 +27373,19 @@ semirremolque cuando transporten mercancías peligrosas, con excepción de los v
 que circulen sobre raíles, la maquinaria móvil y los tractores forestales y agrícolas que no
 alcancen una velocidad de diseño superior a 40 kilómetros por hora.
 GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 35""",
+        "resumen": """Debiendo de cumplir los requisitos de establecimiento, honorabilidad, capacidad financiera y competencia profesional exigidos por la reglamentación de la Unión Europea por la que se establecen normas comunes relativas a las condiciones que han de cumplirse para el ejercicio de la profesión de transportista por carretera, de conformidad con lo que en dicha reglamentación se dispone y con lo que en esta ley y en sus normas de desarrollo se señala para la ejecución de tales disposiciones.
+
+43 de la LOTT, dispone que para el otorgamiento de la autorización de transporte público esté condicionado a que la empresa solicitante acredite, de acuerdo con lo que reglamentariamente se determine, el cumplimiento de correspondientes requisitos, como son: a) Tener nacionalidad española o la de algún otro Estado miembro de la Unión Europea 0, en caso contrario, contar con las autorizaciones exigidas por la legislación reguladora del régimen general de extranjería para la realización de la actividad profesional de transportista en nombre propio.
+
+Autorización de transporte regular de viajeros de uso especial: habilita para realizar transporte regular interurbano de grupos homogéneos y específicos de usuarios (escolares, estudiantes, trabajadores y usuarios de centros y servicios) en el ámbito de la Comunidad.
+
+Transporte de mercancías - Clases de autorizaciones El transporte de mercancías consiste en el desplazamiento de mercancías en vehículos construidos y acondicionados para tal fin, pudiéndose llevar a cabo por cuenta ajena mediante retribución económica, en cuyo caso tendrá carácter público, o bien de manera complementaria a otra actividad distinta de la del transporte, en cuyo caso tendrá carácter de privado complementario.
+
+El Real Decreto 443/2001, de 27 de abril sobre condiciones de seguridad en el transporte escolar y de menores, considera que las condiciones de seguridad, previstas en el mismo, se aplicarán: a) A los transportes públicos regulares de uso especial de escolares por carretera, cuando al menos la tercera parte, o más, de los alumnos transportados tuviera una edad inferior a dieciséis años en el momento en que comience el correspondiente curso escolar.
+
+TRANSPORTE ESCOLAR Transporte escolar (hasta los 16 años) Transporte de menores (hasta los 16 años) Transporte de estudiantes (de 16 años y mayores) La Dirección General de Transportes y Logística de la Conselleria de Infraestructuras, Territorio y Medio Ambiente, tiene a su cargo la ordenación y el control del transporte escolar en el ámbito de la Comunitat Valenciana, con la participación de los organismos correspondientes de Educación, Formación y Empleo, que contratan estos servicios, mediante concurso público, a los transportistas que prestarán servicio a los centros públicos de enseñanza.
+
+Vemos ahora los requisitos, para cada uno de los tipos de transportes: e Transporte escolar para menores de 16 años GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 35 e Transporte de estudiantes de 16 años y mayores e Transporte ocasional para menores de 16 años (excursiones) e Transporte ocasional para estudiantes de 16 años y mayores (excursiones) TRANSPORTE ESCOLAR PARA MENORES DE 16 AÑOS Conductores: Permiso de conducción necesario según el vehículo.""",
     },
     {
         "numero": 36,
@@ -27516,6 +27967,19 @@ centro sanitario próximo. Los resultados se analizan en laboratorio previo pago
 gastos. Si el resultado es negativo, se devuelve el dinero al conductor.
 
 GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 36""",
+        "resumen": """El personal sanitario está obligado, en todo caso, a dar cuenta del resultado de estas pruebas al Jefe de Tráfico de la provincia donde se haya cometido el hecho o, cuando proceda, a los órganos competentes para sancionar de las comunidades autónomas que hayan recibido el traspaso de funciones y servicios en materia de tráfico y circulación de vehículos a motor, o a las autoridades municipales competentes.
+
+Cuando se trate de vehículos destinados al transporte de mercancías con una masa máxima autorizada superior a 3.500 kilogramos, vehículos destinados al transporte de viajeros de más de nueve plazas, o de servicio público, al transporte escolar y de menores, al de mercancías peligrosas o de servicio de urgencia o transportes especiales, los conductores no podrán hacerlo con una tasa de alcohol en sangre superior a 0,3 gramos por litro, o de alcohol en aire espirado superior a 0,15 miligramos por litro.
+
+Si el resultado de la prueba practicada diera un grado de impregnación alcohólica superior a 0,5 gramos de alcohol por litro de sangre o a 0,25 miligramos de alcohol por litro de aire espirado, o al previsto para determinados conductores en el artículo 20 0, aun sin alcanzar estos límites, presentara la persona examinada síntomas evidentes de encontrarse bajo la influencia de bebidas alcohólicas, el agente someterá al interesado, para una mayor garantía y a efecto de contraste, a la práctica de una segunda prueba de detección alcohólica por el aire espirado, mediante un procedimiento similar al que sirvió para efectuar la primera prueba, de lo que habrá de informarle previamente.
+
+Artículo 24 Diligencias del agente de la autoridad Si el resultado de la segunda prueba practicada por el agente, o el de los análisis efectuados a instancia del interesado, fuera positivo, o cuando el que condujese un vehículo de motor presentara síntomas evidentes de hacerlo bajo la influencia de bebidas alcohólicas GRUPO VT: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 36 O apareciera presuntamente implicado en una conducta delictiva, el agente de la autoridad, además de ajustarse, en todo caso, a lo establecido en la Ley de Enjuiciamiento Criminal, deberá: a) Describir con precisión, en el boletín de denuncia o en el atestado de las diligencias que practique, el procedimiento seguido para efectuar la prueba o pruebas de detección alcohólica, haciendo constar los datos necesarios para la identificación del instrumento o instrumentos de detección empleados, cuyas características genéricas también detallará.
+
+En el supuesto de que el resultado de las pruebas y de los análisis, en su caso, fuera positivo, el agente podrá proceder, además, a la inmediata inmovilización del vehículo, mediante su precinto u otro procedimiento efectivo que impida su circulación, a no ser que pueda hacerse cargo de su conducción otra persona debidamente habilitada, y proveerá cuanto fuese necesario en orden a la seguridad de la circulación, la de las personas transportadas en general, especialmente si se trata de niños, ancianos, enfermos o inválidos, la del propio vehículo y la de su carga.
+
+(pena de prisión de tres a seis meses o con la de multa de seis a doce meses o con la de trabajos en beneficio de la comunidad de treinta y uno a noventa días, y, en cualquier caso, con la de privación del derecho a conducir vehículos a motor y ciclomotores por tiempo superior a uno y hasta cuatro años).
+
+Artículo 383 El conductor que, requerido por un agente de la autoridad, se negare a someterse a las pruebas legalmente establecidas para la comprobación de las tasas de alcoholemia y la presencia de las drogas tóxicas, estupefacientes y sustancias psicotrópicas a que se refieren los artículos anteriores, será castigado con la penas de prisión de seis meses a un año y privación del derecho a conducir vehículos a motor y ciclomotores por tiempo superior a uno y hasta cuatro años.""",
     },
     {
         "numero": 37,
@@ -27923,6 +28387,19 @@ el el Texto Refundido de la Ley sobre responsabilidad civil y seguro en la circu
 vehículos a motor, aprobado por el Real Decreto Legislativo 8/2004, de 29 de octubre; tres
 disposiciones adicionales, una derogatoria, una transitoria y cinco disposiciones finales.
 GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 37""",
+        "resumen": """También son muy importantes las campañas de prevención que se llevan cabo encaminadas a evitar o a disminuir las consecuencias de los accidentes, y que son entre otras los controles de velocidad, de alcoholemia, sobre ITV, sobre la utilización de elementos de seguridad como cinturón o casco, presencia de Agentes encargados de la vigilancia del tráfico en lugares y horarios estratégicos, etc.
+
+GRUPO VI: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 37 $ S P P E B Sindicato de Policías y Bomberos e Vías: por la existencia de puntos negros, baches, badenes, curvas sin visibilidad, gravilla, peralte o trazado incorrecto de la vía, etc. e Aqgentes atmosféricos: por la existencia de lluvia, hielo, nieve, aire, poca luminosidad al amanecer o atardecer, etc. e Lasrelativas al hombre, que serán mediatas o inmediatas si actúan de forma directa en la producción del accidente.
+
+Los Agentes deben informar a los interesados del derecho que tienen de denunciar el suceso en el plazo de 12 meses en el caso de tratase de un delito, que en ocasiones requiere de la necesaria denuncia de los perjudicados, advirtiéndoles que el atestado policial no Sustituye a la denuncia.
+
+El TÍTULO VI del Real Decreto Legislativo 6/2015, de 30 de octubre, por el que se aprueba el texto refundido de la Ley sobre Tráfico, Circulación de Vehículos a Motor y Seguridad Vial, regula el Registro Nacional de Víctimas de Accidentes de Tráfico como organismo autónomo Jefatura Central de Tráfico, cuya finalidad es registrar únicamente aquellos datos que sean relevantes y que permitan disponer de la información necesaria para determinar las causas y circunstancias en que se han producido los accidentes de tráfico y sus consecuencias, no conteniendo más datos identificativos de los implicados o relacionados con su salud que los estrictamente necesarios para el cumplimiento de su finalidad, conforme se establece en el párrafo anterior.
+
+Orden INT/2223/2014, de 27 de octubre, por la que se regula la comunicación de la información al Registro Nacional de Víctimas de Accidentes de Tráfico, esta orden tiene por objeto regular los términos en que se comunicará al Registro Nacional de Víctimas de Accidentes de Tráfico la información referente a las víctimas de los accidentes de tráfico que tengan lugar en las vías o terrenos incluidos en el ámbito de aplicación de la legislación sobre tráfico, circulación de vehículos a motor y seguridad vial.
+
+Ley 35/2015, de 22 de septiembre, de reforma del sistema para la valoración de los daños y perjuicios causados a las personas en accidentes de circulación, conocido como baremo de indemnizaciones por accidentes de tráfico.
+
+Estructura de la norma La norma se compone de un artículo único, que introduce un conjunto de modificaciones en el el Texto Refundido de la Ley sobre responsabilidad civil y seguro en la circulación de vehículos a motor, aprobado por el Real Decreto Legislativo 8/2004, de 29 de octubre; tres disposiciones adicionales, una derogatoria, una transitoria y cinco disposiciones finales.""",
     },
     {
         "numero": 38,
@@ -28938,6 +29415,19 @@ beneficios ilegales.
 la trata puede suponer o no un traslado.
 
 GRUPO VIT: CIENCIAS SOCIALES TEMA 38""",
+        "resumen": """La “Estrategia Integral contra el racismo, la discriminación racial, la xenofobia y otras formas conexas de intolerancia”, aprobada por acuerdo del Consejo de Ministros, a propuesta del, entonces, Ministerio de Trabajo e Inmigración, de fecha 4 de noviembre de 2011, contempla entre sus objetivos y acciones a desarrollar la “promoción de mecanismos de detección y protocolos de intervención en caso de incidentes o actitudes racistas, xenófobas o discriminatorias”.
+
+Partiendo de este marco de conceptualización, se considerarían delitos de odio en nuestro ordenamiento tanto “los delitos cuya responsabilidad penal se agrava por el odio o el prejuicio penal del autor hacia determinada condición personal de su víctima, sea cual sea GRUPO VIT: CIENCIAS SOCIALES TEMA 38 esta (delitos de discriminación)” como aquellos “cuya responsabilidad penal se agrava porque produce un efecto intimidatorio en el colectivo al cual pertenece la víctima por razón de una de sus concretas condiciones personales, con independencia de cuál fuera el móvil del autor (los estrictamente'delitos de odio'”.
+
+1, incorpora el antiguo 607.2 CP relativo al delito de difusión de ideas que justifican el genocidio, incluyendo como típicas aquellas conductas que “públicamente nieguen, trivialicen gravemente o enaltezcan los delitos de genocidio, de lesa humanidad o contra las personas y bienes protegidos en caso de conflicto armado, o enaltezcan a sus autores, cuando se hubieran cometido contra un grupo o una parte del mismo, o contra una persona determinada por razón de su pertenencia al mismo, por motivos racistas, antisemitas u otros referentes a la ideología, religión o creencias, la situación familiar o la pertenencia de sus miembros a una etnia, raza o nación, su origen nacional, su sexo, orientación o identidad sexual, por razones de género, enfermedad o discapacidad, cuando de este modo se promueva o favorezca un clima de violencia, hostilidad, odio o discriminación contra los mismos”.
+
+GRUPO VIT: CIENCIAS SOCIALES TEMA 38 $ S P P E B Sindicato de Policías y Bomberos Este artículo es de interpretación muy restrictiva por parte de los tribunales al conferir un amplio margen al ejercicio del derecho de libertad de expresión y a la libertad de creación artística, de tal manera que la mayor parte de las sentencias que se han dictado al amparo del citado precepto son de contenido absolutorio.
+
+Según establece la Instrucción de Secretaría de Estado de Seguridad 1/2017, de 24 de abril, por la que se actualiza el “Protocolo de Actuación Policial con Menores”, así como la Ley Orgánica 8/2015, de 22 de julio, de modificación del sistema de protección de la infancia y adolescencia, cuando el testigo de una infracción penal sea menor de edad se adecuará la actuación policial, teniendo en cuenta: - La edad y grado de madurez del menor.
+
+Esto es, en muchas ocasiones nos encontramos ante personas que son objeto de un delito de odio pero que no se atreven a denunciar ni a solicitar la correspondiente asistencia por miedo a las Fuerzas y Cuerpos de Seguridad, como consecuencia de la valoración que hacen de los mismos atendiendo a la consideración ciudadana de estos en sus países de origen, o, especialmente, por encontrarnos ante personas que, no teniendo su situación regularizada en España, tienen miedo a ser objeto de un expediente administrativo sancionador que acabe con la propia expulsión del sujeto agredido.
+
+Entendemos por Trata "la captación, el transporte, el traslado, la acogida o la recepción de personas, recurriendo a la amenaza o al uso de la fuerza u otras formas de coacción, al rapto, al fraude, al engaño, al abuso de poder o de una situación de Vulnerabilidad o a la concesión o recepción de pagos o beneficios para obtener el consentimiento de una persona que tenga autoridad sobre otra, con fines de explotación.""",
     },
     {
         "numero": 39,
@@ -30333,6 +30823,19 @@ medidas de acción positiva en los procesos de selección que se convoquen.
 los procesos de consolidación o estabilización de empleo temporal.
 
 GRUPO VIT: CIENCIAS SOCIALES TEMA 39""",
+        "resumen": """Esta Ley tiene por objeto hacer efectivo el derecho de igualdad de trato y de oportunidades entre mujeres y hombres, en particular mediante la eliminación de la discriminación de la mujer, sea cual fuere su circunstancia o condición, en cualesquiera de los ámbitos de la vida y, singularmente, en las esferas política, civil, laboral, económica, social y cultural para, en el desarrollo de los artículos 9.2 y 14 de la Constitución, alcanzar una sociedad más democrática, más justa y más solidaria.
+
+La transversalidad o mainstreaming de género, ha sido definida por como "la organización, la mejora, el desarrollo y la evaluación de los procesos políticos, de modo que la perspectiva de la igualdad de género se incorpore en todas las políticas, a todos los niveles y en todas las etapas, por los actores normalmente involucrados en la adopción de medidas políticas" (Consejo de Europa 1999), y constituye una de las prioridades de como la estrategia más eficaz para construir una sociedad igualitaria entre las mujeres y los hombres de Europa.
+
+Según establece el artículo 78 de la Ley, el Consejo de Participación de la Mujer es un órgano colegiado de consulta y asesoramiento y su finalidad esencial es el servir de cauce para la participación de las mujeres en la consecución del principio de igualdad de trato y de oportunidades.
+
+GRUPO VIT: CIENCIAS SOCIALES TEMA 37 Según el artículo 27 de la Ley 3/2007 las Administraciones públicas, a través de sus Servicios de Salud y de los órganos competentes en cada caso, desarrollarán, de acuerdo con el principio de igualdad de oportunidades, las siguientes actuaciones: o Laadopción de medidas para incentivar y favorecer la promoción específica de la salud de las mujeres.
+
+Se crea un Registro de Planes de Igualdad de las Empresas, como parte de los Registros de convenios y acuerdos colectivos de trabajo dependientes de la Dirección General de Trabajo del Ministerio de Trabajo, Migraciones y Seguridad Social y de las Autoridades Laborales de las Comunidades Autónomas.
+
+Y por supuesto, al promover la incorporación de las mujeres a puestos directivos y de responsabilidad, así como al fomentar el asociacionismo de mujeres en el periodismo y la publicidad, se fomenta que analicen e intervengan sobre la representación de mujeres en puestos de responsabilidad en las empresas de comunicación y publicitarias y que reivindiquen la perspectiva de género en los contenidos de la producción de estas empresas.
+
+Por su parte el artículo 39 establece también obligaciones para los medios de comunicación social de titularidad privada, de esta manera deberán respetar la igualdad y se deberá promover, por parte de las Administraciones Públicas, la adopción de acuerdos de autorregulación que contribuyan al cumplimiento de la legislación en materia de igualdad entre mujeres y hombres, incluyendo las actividades de venta y publicidad que en aquellos se desarrollen.""",
     },
     {
         "numero": 40,
@@ -31332,5 +31835,18 @@ Haya el 19 de octubre de 1996, o Convenio que lo sustituya. En defecto de toda n
 internacional, se estará a las normas españolas de producción interna sobre eficacia en
 España de medidas de protección de menores.
 GRUPO VIT: CIENCIAS SOCIALES TEMA 40""",
+        "resumen": """Para la elección de la medida o medidas adecuadas se deberá atender de modo flexible, no sólo a la prueba y valoración jurídica de los hechos, sino especialmente a la edad, las circunstancias familiares y sociales, la personalidad y el interés del menor, puestos de manifiesto los dos últimos en los informes de los equipos técnicos y de las entidades públicas de protección y reforma de menores cuando éstas hubieran tenido conocimiento del menor por haber ejecutado una medida cautelar o definitiva con anterioridad, conforme a lo dispuesto en el artículo 27 de la presente Ley.
+
+La Ley penal del menor tampoco puede olvidar el interés propio del perjudicado o víctima del hecho cometido por el menor, estableciendo un procedimiento singular, rápido y poco formalista para el resarcimiento, en su caso, de daños y perjuicios, dotando de amplias facultades al Juez de Menores para la incorporación a los autos de documentos y testimonios relevantes de la causa En este ámbito de atención a los intereses y necesidades de las víctimas, la Ley penal del menor introduce el principio en cierto modo revolucionario de la responsabilidad solidaria con el menor responsable de los hechos de sus padres, tutores, acogedores o guardadores, si bien permitiendo la moderación judicial de la misma y recordando expresamente la aplicabilidad en su caso de la Ley 30/1992, de 26 de noviembre, de Régimen Jurídico de las Administraciones Públicas y del Procedimiento Administrativo Común, así como de la Ley 35/1995, de 11 de diciembre, de ayudas y asistencia a las víctimas de delitos violentos y c contra la libertad sexual.
+
+Conforme a los principios señalados, se establece, inequívocamente, el límite de los catorce años de edad para exigir este tipo de Responsabilidad penal del menor sancionadora a los menores de edad penal y se diferencian, en el ámbito de aplicación de la Ley y de la graduación de las consecuencias por los hechos cometidos, dos tramos, de catorce a dieciséis y de diecisiete a dieciocho años, por presentar uno y otro grupo diferencias características que requieren, desde un punto de vista científico y jurídico, un tratamiento GRUPO VIT: CIENCIAS SOCIALES TEMA 40 E g P P E B S<nd|ca(o de Policías y Bomberos diferenciado, constituyendo una agravación específica en el tramo de los mayores de dieciséis años la comisión de delitos que se caracterizan por la violencia, intimidación o peligro para las personas.
+
+Esta preocupación por dotar al menor de un adecuado marco jurídico de protección trasciende también de diversos Tratados Internacionales ratificados en los últimos años por España y, muy especialmente, de la Convención de Derechos del Niño, de Naciones Unidas, de 20 de noviembre de 1989, ratificada por España el 30 de noviembre de 1990, que marca el inicio de una nueva filosofía en relación con el menor, basada en un mayor reconocimiento del papel que éste desempeña en la sociedad y en la exigencia de un mayor protagonismo para el mismo.
+
+Se considerará situación de riesgo aquella en la que, a causa de circunstancias, carencias o conflictos familiares, sociales o educativos, la persona menor de edad se vea perjudicada en su desarrollo personal, familiar, social o educativo, en su bienestar o en sus derechos de forma que, sin alcanzar la entidad, intensidad o persistencia que fundamentarían su declaración de situación de desamparo y la asunción de la tutela por ministerio de la ley, sea precisa la intervención de la administración pública competente, para eliminar, reducir o compensar las dificultades o inadaptación que le afectan y evitar su desamparo y exclusión social, sin tener que ser separado de su entorno familiar.
+
+En los supuestos en que la administración pública competente para apreciar e intervenir en la situación de riesgo estime que existe una situación de desprotección que puede requerir la separación del menor de su ámbito familiar o cuando, concluido el período previsto en el proyecto de intervención o Convenio, no se hayan conseguido cambios en el desempeño de los deberes de guarda que garanticen que el menor cuenta con la necesaria asistencia moral o material, lo pondrá en conocimiento de la Entidad Pública a fin de que valore la procedencia de declarar la situación de desamparo, comunicándolo al Ministerio Fiscal.
+
+En particular cuando se produzcan malos tratos físicos graves, abusos sexuales o negligencia grave en el cumplimiento de las obligaciones alimentarias y de salud por parte de las personas de la unidad familiar o de terceros con consentimiento de aquellas; también cuando el menor sea identificado como víctima de trata de seres humanos y haya un conflicto de intereses con los progenitores, tutores y guardadores; o cuando exista un consumo reiterado de sustancias con potencial adictivo o la ejecución de otro tipo de conductas adictivas de manera reiterada por parte del menor con el conocimiento, consentimiento o la tolerancia de los progenitores, tutores o guardadores.""",
     },
 ]

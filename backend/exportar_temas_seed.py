@@ -27,10 +27,12 @@ lines = [
 ]
 for t in temas:
     contenido = (t.contenido or "").replace("\\", "\\\\").replace('"""', '\\"\\"\\"')
+    resumen = (t.resumen or "").replace("\\", "\\\\").replace('"""', '\\"\\"\\"')
     lines.append(f'    {{\n')
     lines.append(f'        "numero": {t.numero},\n')
     lines.append(f'        "titulo": {repr(t.titulo)},\n')
     lines.append(f'        "contenido": """{contenido}""",\n')
+    lines.append(f'        "resumen": """{resumen}""",\n')
     lines.append(f'    }},\n')
 
 lines.append("]\n")
