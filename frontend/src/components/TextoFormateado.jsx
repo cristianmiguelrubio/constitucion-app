@@ -114,15 +114,95 @@ function parsear(texto) {
   return agrupados
 }
 
-// ── Componente ────────────────────────────────────────────────────────────────
+// ── Agrupa bloques en secciones ───────────────────────────────────────────────
 
-const COLORES_TITULO = [
-  'text-brand-700 border-brand-300 bg-brand-50',
-  'text-indigo-700 border-indigo-300 bg-indigo-50',
-  'text-emerald-700 border-emerald-300 bg-emerald-50',
-  'text-amber-700 border-amber-300 bg-amber-50',
-  'text-rose-700 border-rose-300 bg-rose-50',
+const COLORES = [
+  { borde: 'border-brand-400',   fondo: 'bg-brand-50',   texto: 'text-brand-700'   },
+  { borde: 'border-indigo-400',  fondo: 'bg-indigo-50',  texto: 'text-indigo-700'  },
+  { borde: 'border-emerald-400', fondo: 'bg-emerald-50', texto: 'text-emerald-700' },
+  { borde: 'border-amber-400',   fondo: 'bg-amber-50',   texto: 'text-amber-700'   },
+  { borde: 'border-rose-400',    fondo: 'bg-rose-50',    texto: 'text-rose-700'    },
 ]
+
+function agruparEnSecciones(bloques) {
+  const secciones = []
+  let actual = { titulo: null, contenido: [] }
+
+  for (const b of bloques) {
+    if (b.tipo === 'titulo') {
+      if (actual.contenido.length > 0 || actual.titulo) secciones.push(actual)
+      actual = { titulo: b.texto, contenido: [] }
+    } else {
+      actual.contenido.push(b)
+    }
+  }
+  if (actual.contenido.length > 0 || actual.titulo) secciones.push(actual)
+  return secciones
+}
+
+// ── Subcomponente: bloque de contenido ───────────────────────────────────────
+
+function BloqueContenido({ b }) {
+  if (b.tipo === 'lista') {
+    return (
+      <ul className="space-y-1.5 my-2 pl-1">
+        {b.items.map((item, j) => (
+          <li key={j} className="flex gap-2 text-gray-700 text-[14px]">
+            <span className="text-brand-400 mt-0.5 shrink-0 text-xs">▸</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  if (b.tipo === 'parrafo') {
+    return <p className="text-gray-700 text-[14px] leading-relaxed my-2">{b.texto}</p>
+  }
+  return null
+}
+
+// ── Subcomponente: sección plegable ──────────────────────────────────────────
+
+function Seccion({ seccion, colorIdx, abiertaInicial }) {
+  const [abierta, setAbierta] = useState(abiertaInicial)
+  const c = COLORES[colorIdx % COLORES.length]
+
+  if (!seccion.titulo) {
+    // Bloques sin título van siempre visibles (intro del tema)
+    return (
+      <div className="space-y-1 mb-3">
+        {seccion.contenido.map((b, i) => <BloqueContenido key={i} b={b} />)}
+      </div>
+    )
+  }
+
+  return (
+    <div className={`rounded-xl border ${abierta ? 'border-gray-200' : 'border-gray-100'} overflow-hidden mb-2`}>
+      <button
+        onClick={() => setAbierta(v => !v)}
+        className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-colors ${
+          abierta ? `${c.fondo} ${c.texto}` : 'bg-gray-50 text-gray-600 active:bg-gray-100'
+        }`}
+      >
+        <span className={`shrink-0 w-1.5 h-5 rounded-full ${c.borde} border-2`} />
+        <span className="flex-1 font-semibold text-[13px] uppercase tracking-wide leading-snug">
+          {seccion.titulo}
+        </span>
+        <span className="text-xs opacity-50 shrink-0">{abierta ? '▲' : '▼'}</span>
+      </button>
+
+      {abierta && (
+        <div className="px-4 pb-4 pt-2 bg-white border-t border-gray-100">
+          {seccion.contenido.map((b, i) => <BloqueContenido key={i} b={b} />)}
+        </div>
+      )}
+    </div>
+  )
+}
+
+// ── Componente principal ──────────────────────────────────────────────────────
+
+import { useState } from 'react'
 
 export default function TextoFormateado({ texto }) {
   if (!texto) return (
@@ -133,47 +213,38 @@ export default function TextoFormateado({ texto }) {
   )
 
   const bloques = parsear(texto)
-  let contadorTitulos = 0
+  const secciones = agruparEnSecciones(bloques)
+  let colorIdx = 0
 
   return (
-    <div className="space-y-3 text-[15px] leading-relaxed">
-      {bloques.map((b, i) => {
-        if (b.tipo === 'titulo') {
-          const color = COLORES_TITULO[contadorTitulos % COLORES_TITULO.length]
-          contadorTitulos++
-          return (
-            <h2
-              key={i}
-              className={`font-bold text-sm uppercase tracking-wide px-3 py-2 rounded-lg border-l-4 mt-5 first:mt-0 ${color}`}
-            >
-              {b.texto}
-            </h2>
-          )
-        }
+    <div>
+      {/* Índice rápido */}
+      {secciones.filter(s => s.titulo).length > 1 && (
+        <div className="bg-gray-50 rounded-xl p-3 mb-4 border border-gray-100">
+          <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Contenido</p>
+          <div className="space-y-1">
+            {secciones.filter(s => s.titulo).map((s, i) => {
+              const c = COLORES[i % COLORES.length]
+              return (
+                <p key={i} className={`text-xs font-medium ${c.texto} flex items-center gap-1.5`}>
+                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${c.borde} border-2`} />
+                  {s.titulo}
+                </p>
+              )
+            })}
+          </div>
+        </div>
+      )}
 
-        if (b.tipo === 'lista') {
-          return (
-            <ul key={i} className="space-y-1.5 pl-2">
-              {b.items.map((item, j) => (
-                <li key={j} className="flex gap-2 text-gray-700">
-                  <span className="text-brand-400 mt-1 shrink-0">▸</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          )
-        }
-
-        if (b.tipo === 'parrafo') {
-          return (
-            <p key={i} className="text-gray-700">
-              {b.texto}
-            </p>
-          )
-        }
-
-        return null
-      })}
+      {/* Secciones */}
+      {secciones.map((s, i) => (
+        <Seccion
+          key={i}
+          seccion={s}
+          colorIdx={s.titulo ? colorIdx++ : 0}
+          abiertaInicial={i === 0 || !s.titulo}
+        />
+      ))}
     </div>
   )
 }
