@@ -30,7 +30,14 @@ export default function LoginModal({ onLogin }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
       })
-      const data = await resp.json()
+
+      let data
+      try {
+        data = await resp.json()
+      } catch {
+        setError(`Error del servidor (${resp.status}). Inténtalo de nuevo.`)
+        return
+      }
 
       if (!resp.ok) {
         setError(data.detail || 'Error al iniciar sesión')

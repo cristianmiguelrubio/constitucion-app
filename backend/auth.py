@@ -1,10 +1,10 @@
 from passlib.context import CryptContext
-from jose import jwt, JWTError
+import jwt
 from datetime import datetime, timedelta
 from fastapi import HTTPException, Header
 import os
 
-SECRET_KEY = os.getenv("SECRET_KEY", "constitucion-app-secret-2024-cambia-esto-en-produccion")
+SECRET_KEY = os.getenv("SECRET_KEY", "constitucion-app-secret-2024")
 ALGORITHM = "HS256"
 TOKEN_EXPIRE_DAYS = 30
 
@@ -29,14 +29,14 @@ def crear_token(usuario_id: int, email: str) -> str:
 
 def verificar_token(token: str) -> dict:
     try:
-        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
-        return payload
-    except JWTError:
-        raise HTTPException(status_code=401, detail="Token inválido o expirado")
+        return jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+    except jwt.ExpiredSignatureError:
+        raise HTTPException(status_code=401, detail="Sesión expirada, vuelve a entrar")
+    except jwt.InvalidTokenError:
+        raise HTTPException(status_code=401, detail="Token inválido")
 
 
 def get_current_user(authorization: str = Header(None)):
     if not authorization or not authorization.startswith("Bearer "):
         raise HTTPException(status_code=401, detail="No autenticado")
-    token = authorization.split(" ", 1)[1]
-    return verificar_token(token)
+    return verificar_token(authorization.split(" ", 1)[1])
