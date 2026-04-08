@@ -97,11 +97,21 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero */}
-      <div className="bg-gradient-to-br from-brand-800 to-brand-600 rounded-2xl p-5 mb-5 text-white shadow-lg">
-        <p className="text-xs font-semibold uppercase tracking-widest text-white/60 mb-1">Plataforma de estudio</p>
-        <h1 className="text-2xl font-bold leading-tight mb-1">Oposiciones del Estado</h1>
-        <p className="text-sm text-white/70">Prepara tu oposición con temarios actualizados, resúmenes y tests</p>
+      {/* Hero imagen */}
+      <div className="relative rounded-2xl overflow-hidden mb-5 shadow-xl" style={{ height: '200px' }}>
+        <img
+          src="/hero.jpg"
+          alt="Oposiciones del Estado"
+          className="w-full h-full object-cover object-center"
+        />
+        {/* Overlay degradado */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+        {/* Texto encima */}
+        <div className="absolute bottom-0 left-0 right-0 p-4">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/60 mb-0.5">Plataforma de estudio</p>
+          <h1 className="text-2xl font-black text-white leading-tight drop-shadow-lg">Oposiciones del Estado</h1>
+          <p className="text-xs text-white/70 mt-0.5">Temarios actualizados · Tests · Resúmenes</p>
+        </div>
       </div>
 
       {/* Progreso */}

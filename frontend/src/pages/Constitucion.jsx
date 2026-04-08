@@ -43,6 +43,18 @@ export default function Home() {
 
   return (
     <div>
+      {/* Header visual */}
+      <div className="relative rounded-2xl overflow-hidden mb-5 shadow-lg" style={{ height: '140px' }}>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1e3a5f] via-[#2d5a8e] to-[#1a237e]" />
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'repeating-linear-gradient(45deg, white 0, white 1px, transparent 0, transparent 50%)', backgroundSize: '20px 20px' }} />
+        <div className="absolute inset-0 flex flex-col justify-center px-5">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/50 mb-1">Texto oficial · BOE</p>
+          <h1 className="text-2xl font-black text-white leading-tight">Constitución<br/>Española</h1>
+          <p className="text-xs text-white/60 mt-1">Aprobada el 6 de diciembre de 1978</p>
+        </div>
+        <div className="absolute right-4 top-1/2 -translate-y-1/2 text-6xl opacity-20">📜</div>
+      </div>
+
       {/* Progreso */}
       <div className="card mb-5">
         <div className="flex justify-between items-center mb-2">
@@ -57,8 +69,6 @@ export default function Home() {
         </div>
         <p className="text-xs text-gray-400 text-right">{porcentaje}% completado</p>
       </div>
-
-      <h1 className="text-lg font-bold text-brand-700 mb-3">Constitución Española</h1>
 
       <div className="space-y-2">
         {titulos.map(([titulo, bloques]) => {
