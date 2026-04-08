@@ -62,5 +62,5 @@ lines.append("]\n")
 
 out = Path(__file__).parent / "seed_temas.py"
 out.write_text("".join(lines), encoding="utf-8")
-print(f"Exportados {len(temas)} temas, {total_preguntas} preguntas → {out}")
+print(f"Exportados {len(temas)} temas, {total_preguntas} preguntas -> {out}")
 db.close()
