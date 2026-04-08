@@ -483,11 +483,12 @@ def quiz_oposicion(slug: str, tema_id: int | None = None, limite: int = 10, db: 
             "tema_id": p.tema_id,
             "tema_numero": p.tema.numero,
             "tema_titulo": p.tema.titulo,
+            "seccion": p.seccion,
             "pregunta": p.pregunta,
             "respuesta_correcta": p.respuesta_correcta,
-            "opciones": random.sample([
-                p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d
-            ], 4),
+            "opcion_b": p.opcion_b,
+            "opcion_c": p.opcion_c,
+            "opcion_d": p.opcion_d,
         }
         for p in preguntas
     ]
