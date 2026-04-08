@@ -18,22 +18,52 @@ log = logging.getLogger(__name__)
 sys.path.insert(0, str(Path(__file__).parent))
 
 
+def es_ruido(linea: str) -> bool:
+    """Detecta líneas con demasiado ruido OCR para no incluirlas en el resumen."""
+    l = linea.strip()
+    if not l or len(l) < 8:
+        return True
+    # Cabeceras de página
+    if re.match(r'^GRUPO\s+\d+', l, re.I):
+        return True
+    # Viñetas OCR sueltas (e Título, e Capítulo...)
+    if re.match(r'^e\s+[A-ZÁÉÍÓÚÑÜ]', l):
+        return True
+    # Líneas con símbolo % que debería ser º/° (artefacto OCR)
+    if l.count('%') >= 2:
+        return True
+    # Líneas que empiezan por = (viñeta OCR)
+    if l.startswith('=') or l.startswith('e Cap') or l.startswith('e T'):
+        return True
+    # Ratio de letras muy bajo
+    letras = sum(1 for c in l if c.isalpha())
+    if letras < 6 or letras / len(l) < 0.45:
+        return True
+    return False
+
+
 def limpiar_para_resumen(texto: str) -> str:
     """Quita ruido OCR antes de resumir."""
     lineas = []
     for linea in texto.split('\n'):
-        l = linea.strip()
-        if not l:
-            continue
-        # Descartar líneas de cabecera de página
-        if re.match(r'^GRUPO\s+\d+', l, re.I):
-            continue
-        # Descartar líneas con muy pocas letras
-        letras = sum(1 for c in l if c.isalpha())
-        if letras < 4:
-            continue
-        lineas.append(l)
+        if not es_ruido(linea):
+            lineas.append(linea.strip())
     return ' '.join(lineas)
+
+
+def es_frase_valida(frase: str) -> bool:
+    """Descarta frases del resumen que aún contengan ruido OCR."""
+    f = frase.strip()
+    if re.match(r'^e\s+[A-ZÁÉÍÓÚÑÜ]', f):
+        return False
+    if f.count('%') >= 2:
+        return False
+    if f.startswith('=') or f.startswith('e Cap') or f.startswith('e T'):
+        return False
+    letras = sum(1 for c in f if c.isalpha())
+    if letras < 20 or letras / max(len(f), 1) < 0.45:
+        return False
+    return True
 
 
 def resumir(texto: str, num_frases: int = 7) -> str:
@@ -52,16 +82,20 @@ def resumir(texto: str, num_frases: int = 7) -> str:
     summarizer = TextRankSummarizer(stemmer)
     summarizer.stop_words = get_stop_words('spanish')
 
-    frases = summarizer(parser.document, num_frases)
-    # Eliminar duplicados manteniendo orden
+    # Pedir más frases para poder filtrar las malas y quedarnos con las buenas
+    frases_raw = summarizer(parser.document, num_frases + 5)
     vistas = set()
     unicas = []
-    for f in frases:
+    for f in frases_raw:
         txt = str(f).strip()
+        if not es_frase_valida(txt):
+            continue
         clave = txt[:80]
         if clave not in vistas:
             vistas.add(clave)
             unicas.append(txt)
+        if len(unicas) >= num_frases:
+            break
 
     return '\n\n'.join(unicas)
 
