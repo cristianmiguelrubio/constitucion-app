@@ -58,8 +58,8 @@ export default function LoginModal({ onLogin }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-brand-900/80 backdrop-blur-sm">
-      <div className="bg-white w-full sm:max-w-sm sm:mx-4 rounded-t-3xl sm:rounded-2xl shadow-2xl p-6 pb-10 sm:pb-6">
+    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-brand-900/80 backdrop-blur-sm" style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}>
+      <div className="bg-white w-full sm:max-w-sm sm:mx-4 rounded-t-3xl sm:rounded-2xl shadow-2xl p-6 pb-6 sm:pb-6" style={{ marginBottom: '56px' }}>
 
         {/* Handle bar móvil */}
         <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-5 sm:hidden" />
@@ -67,7 +67,7 @@ export default function LoginModal({ onLogin }) {
         {/* Logo */}
         <div className="text-center mb-5">
           <div className="text-4xl mb-2">📜</div>
-          <h1 className="text-xl font-bold text-brand-700">Constitución Española</h1>
+          <h1 className="text-xl font-bold text-brand-700">Oposiciones del Estado</h1>
           <p className="text-xs text-gray-400 mt-1">Estudio para oposiciones</p>
         </div>
 

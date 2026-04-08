@@ -243,23 +243,15 @@ export default function Home() {
       {/* Contacto */}
       <div className="mt-5 bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Contacto</p>
-        <div className="flex gap-3">
-          <a
-            href="tel:611945719"
-            className="flex-1 flex items-center justify-center gap-2 bg-brand-50 rounded-xl py-3 active:bg-brand-100"
-          >
+        <div className="flex gap-3 mb-1">
+          <a href="tel:611945719" className="flex-1 flex items-center justify-center gap-2 bg-brand-50 rounded-xl py-3 active:bg-brand-100">
             <span className="text-xl">📞</span>
             <div className="text-left">
               <p className="text-sm font-semibold text-brand-700">Llamar</p>
               <p className="text-xs text-brand-400">611 945 719</p>
             </div>
           </a>
-          <a
-            href="https://wa.me/34611945719"
-            target="_blank"
-            rel="noreferrer"
-            className="flex-1 flex items-center justify-center gap-2 bg-green-50 rounded-xl py-3 active:bg-green-100"
-          >
+          <a href="https://wa.me/34611945719" target="_blank" rel="noreferrer" className="flex-1 flex items-center justify-center gap-2 bg-green-50 rounded-xl py-3 active:bg-green-100">
             <span className="text-xl">💬</span>
             <div className="text-left">
               <p className="text-sm font-semibold text-green-700">WhatsApp</p>

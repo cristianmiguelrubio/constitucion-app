@@ -49,14 +49,18 @@ export default function Layout({ children, usuario, onLogout }) {
             </button>
           </form>
 
-          {/* Botón buscar móvil */}
-          <button
-            onClick={() => setBuscarAbierto(v => !v)}
-            className="sm:hidden ml-auto p-2 rounded-xl hover:bg-white/10 transition-colors"
-            aria-label="Buscar"
-          >
-            🔍
-          </button>
+          {/* Iconos rápidos móvil */}
+          <div className="sm:hidden ml-auto flex items-center gap-1">
+            <a href="tel:611945719" className="p-2 rounded-xl hover:bg-white/10 transition-colors text-lg" aria-label="Llamar">📞</a>
+            <Link to="/ranking" className="p-2 rounded-xl hover:bg-white/10 transition-colors text-lg" aria-label="Ranking">🏆</Link>
+            <button
+              onClick={() => setBuscarAbierto(v => !v)}
+              className="p-2 rounded-xl hover:bg-white/10 transition-colors"
+              aria-label="Buscar"
+            >
+              🔍
+            </button>
+          </div>
 
           {/* Usuario escritorio */}
           {usuario && (

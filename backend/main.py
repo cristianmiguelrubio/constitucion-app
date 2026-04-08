@@ -407,7 +407,24 @@ def obtener_preguntas(
         preguntas = [p for p in preguntas if _tema_de(p["articulo"]) == tema]
 
     random.shuffle(preguntas)
-    return preguntas[:limite]
+    resultado = []
+    for p in preguntas[:limite]:
+        # Normalizar: si tiene 'opciones' array, extraer opcion_b/c/d
+        if 'opciones' in p and 'opcion_b' not in p:
+            ops = [o for o in p['opciones'] if o != p['respuesta_correcta']]
+            random.shuffle(ops)
+            resultado.append({
+                'articulo': p.get('articulo'),
+                'seccion': p.get('seccion'),
+                'pregunta': p['pregunta'],
+                'respuesta_correcta': p['respuesta_correcta'],
+                'opcion_b': ops[0] if len(ops) > 0 else '',
+                'opcion_c': ops[1] if len(ops) > 1 else '',
+                'opcion_d': ops[2] if len(ops) > 2 else '',
+            })
+        else:
+            resultado.append(p)
+    return resultado
 
 
 # ── Oposiciones ────────────────────────────────────────────────────────────
