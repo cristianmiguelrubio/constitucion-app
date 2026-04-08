@@ -42,11 +42,11 @@ def es_basura(l):
 def es_titulo(l):
     if len(l) < 5 or len(l) > 110:
         return False
-    letras = re.sub(r'[^a-záéíóúñüA-ZÁÉÍÓÚÑÜ]', '', l)
+    letras = [c for c in l if c.isalpha()]
     if len(letras) < 4:
         return False
-    mayus = sum(1 for c in l if c in 'AÁEÉIÍOÓUÚÑÜ')
-    return mayus / max(len(letras), 1) > 0.7
+    mayus = sum(1 for c in letras if c.isupper())
+    return mayus / len(letras) > 0.75
 
 def es_vineta(l):
     return bool(re.match(r'^[=•\-–*]\s+\S', l) or re.match(r'^e\s+[A-ZÁÉÍÓÚÑÜ]', l))

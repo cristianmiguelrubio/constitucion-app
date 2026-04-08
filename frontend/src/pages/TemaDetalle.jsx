@@ -76,8 +76,19 @@ export default function TemaDetalle() {
   }
 
   const elegir = (pregId, key) => {
-    if (enviado) return
-    setRespuestas(prev => ({ ...prev, [pregId]: key }))
+    if (respuestas[pregId]) return  // ya respondida
+    setRespuestas(prev => {
+      const nuevo = { ...prev, [pregId]: key }
+      if (quiz && Object.keys(nuevo).length === quiz.length) {
+        const ac = quiz.filter(p => nuevo[p.id] === 'correcta').length
+        if (ac / quiz.length >= 0.3) {
+          localStorage.setItem(clavePregunta(slug, numero), '1')
+          setCompletado(true)
+        }
+        setEnviado(true)
+      }
+      return nuevo
+    })
   }
 
   const aciertos = quiz ? quiz.filter(p => respuestas[p.id] === 'correcta').length : 0
@@ -236,11 +247,10 @@ export default function TemaDetalle() {
                           {p.opciones.map(({ key, texto }) => {
                             const elegida = respuestas[p.id] === key
                             const esCorrecta = key === 'correcta'
+                            const yaRespondida = !!respuestas[p.id]
                             let cls = 'w-full text-left px-3 py-2.5 rounded-xl border text-[13px] leading-snug transition-colors '
-                            if (!enviado) {
-                              cls += elegida
-                                ? 'border-brand-500 bg-brand-50 text-brand-700 font-medium'
-                                : 'border-gray-200 text-gray-700 active:bg-gray-50'
+                            if (!yaRespondida) {
+                              cls += 'border-gray-200 text-gray-700 active:bg-gray-50'
                             } else {
                               if (esCorrecta) cls += 'border-green-400 bg-green-50 text-green-700 font-medium'
                               else if (elegida) cls += 'border-red-300 bg-red-50 text-red-600'
@@ -248,6 +258,8 @@ export default function TemaDetalle() {
                             }
                             return (
                               <button key={key} onClick={() => elegir(p.id, key)} className={cls}>
+                                {yaRespondida && esCorrecta && <span className="mr-1.5">✓</span>}
+                                {yaRespondida && elegida && !esCorrecta && <span className="mr-1.5">✗</span>}
                                 {texto}
                               </button>
                             )
@@ -261,16 +273,13 @@ export default function TemaDetalle() {
             )
           })}
 
-          {/* Botón enviar / resultado */}
-          {!enviado ? (
-            <button
-              onClick={enviarQuiz}
-              disabled={Object.keys(respuestas).length < quiz.length}
-              className="w-full bg-brand-700 text-white font-semibold py-3.5 rounded-xl disabled:opacity-40"
-            >
-              Ver resultados ({Object.keys(respuestas).length}/{quiz.length})
-            </button>
-          ) : (
+          {/* Progreso y resultado */}
+          {!enviado && (
+            <div className="text-center text-xs text-gray-400 py-2">
+              {Object.keys(respuestas).length}/{quiz.length} preguntas respondidas
+            </div>
+          )}
+          {enviado && (
             <div className={`card text-center border-2 ${pct >= 30 ? 'border-green-300' : 'border-red-200'}`}>
               <p className="text-4xl mb-2">{pct >= 70 ? '🎉' : pct >= 30 ? '👍' : '📚'}</p>
               <p className={`text-3xl font-bold mb-1 ${pct >= 30 ? 'text-green-600' : 'text-red-500'}`}>
