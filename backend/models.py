@@ -100,3 +100,24 @@ class ProgresoUsuario(Base):
     estudiado: Mapped[bool] = mapped_column(default=False)
     nota: Mapped[str | None] = mapped_column(Text)
     actualizado_en: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
+class TiempoEstudio(Base):
+    __tablename__ = "tiempo_estudio"
+    __table_args__ = (UniqueConstraint("usuario_id"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    segundos_total: Mapped[int] = mapped_column(Integer, default=0)
+    ultima_actualizacion: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+    usuario: Mapped["Usuario"] = relationship("Usuario")
+
+
+class Sugerencia(Base):
+    __tablename__ = "sugerencias"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int | None] = mapped_column(ForeignKey("usuarios.id"), nullable=True)
+    texto: Mapped[str] = mapped_column(Text)
+    fecha: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)

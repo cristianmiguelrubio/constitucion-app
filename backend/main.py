@@ -12,7 +12,7 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -549,6 +549,56 @@ def quiz_tema(slug: str, numero: int, limite: int = 10, db: Session = Depends(ge
             "opcion_d": p.opcion_d,
         })
     return resultado
+
+
+class SugerenciaIn(BaseModel):
+    texto: str
+
+@app.post("/api/sugerencias")
+def enviar_sugerencia(body: SugerenciaIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    if not body.texto or len(body.texto.strip()) < 5:
+        raise HTTPException(status_code=400, detail="Sugerencia demasiado corta")
+    db.add(Sugerencia(usuario_id=int(current_user["sub"]), texto=body.texto.strip()[:1000]))
+    db.commit()
+    return {"ok": True}
+
+
+class TiempoIn(BaseModel):
+    segundos: int
+
+@app.post("/api/tiempo")
+def registrar_tiempo(body: TiempoIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    if body.segundos <= 0:
+        return {"ok": True}
+    uid = int(current_user["sub"])
+    registro = db.query(TiempoEstudio).filter(TiempoEstudio.usuario_id == uid).first()
+    if registro:
+        registro.segundos_total += body.segundos
+        registro.ultima_actualizacion = datetime.utcnow()
+    else:
+        db.add(TiempoEstudio(usuario_id=uid, segundos_total=body.segundos))
+    db.commit()
+    return {"ok": True}
+
+
+@app.get("/api/ranking")
+def ranking(db: Session = Depends(get_db)):
+    registros = (
+        db.query(TiempoEstudio, Usuario)
+        .join(Usuario, TiempoEstudio.usuario_id == Usuario.id)
+        .order_by(TiempoEstudio.segundos_total.desc())
+        .limit(20)
+        .all()
+    )
+    return [
+        {
+            "posicion": i + 1,
+            "nombre": u.nombre or u.email.split("@")[0],
+            "segundos": t.segundos_total,
+            "horas": round(t.segundos_total / 3600, 1),
+        }
+        for i, (t, u) in enumerate(registros)
+    ]
 
 
 @app.post("/api/admin/actualizar")

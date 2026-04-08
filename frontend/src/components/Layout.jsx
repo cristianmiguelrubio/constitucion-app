@@ -6,7 +6,7 @@ const NAV_ITEMS = [
   { to: '/constitucion',label: 'Constitución',icon: '📜' },
   { to: '/oposiciones', label: 'Oposiciones', icon: '👮' },
   { to: '/quiz',        label: 'Test',        icon: '🧠' },
-  { to: '/cambios',     label: 'Cambios',     icon: '🔔' },
+  { to: '/ranking',     label: 'Ranking',     icon: '🏆' },
 ]
 
 export default function Layout({ children, usuario, onLogout }) {

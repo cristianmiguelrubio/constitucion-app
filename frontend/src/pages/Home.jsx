@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { apiFetch } from '../utils/api'
 
 const CATEGORIAS = [
   {
@@ -117,7 +118,74 @@ function ProgresoCard() {
   )
 }
 
+function useTiempoTracker() {
+  const inicio = useRef(Date.now())
+  useEffect(() => {
+    const enviar = () => {
+      const seg = Math.floor((Date.now() - inicio.current) / 1000)
+      if (seg > 5) apiFetch('/api/tiempo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ segundos: seg }) }).catch(() => {})
+    }
+    window.addEventListener('beforeunload', enviar)
+    const id = setInterval(() => {
+      const seg = Math.floor((Date.now() - inicio.current) / 1000)
+      if (seg > 0 && seg % 60 === 0) {
+        apiFetch('/api/tiempo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ segundos: 60 }) }).catch(() => {})
+        inicio.current = Date.now()
+      }
+    }, 10000)
+    return () => { window.removeEventListener('beforeunload', enviar); clearInterval(id) }
+  }, [])
+}
+
+function FormSugerencia() {
+  const [texto, setTexto] = useState('')
+  const [estado, setEstado] = useState(null) // null | 'ok' | 'error'
+  const [enviando, setEnviando] = useState(false)
+
+  const enviar = async (e) => {
+    e.preventDefault()
+    if (texto.trim().length < 5) return
+    setEnviando(true)
+    try {
+      const r = await apiFetch('/api/sugerencias', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ texto }) })
+      setEstado(r.ok ? 'ok' : 'error')
+      if (r.ok) setTexto('')
+    } catch { setEstado('error') }
+    setEnviando(false)
+  }
+
+  if (estado === 'ok') return (
+    <div className="text-center py-4">
+      <p className="text-2xl mb-1">✅</p>
+      <p className="text-sm font-medium text-green-600">¡Sugerencia enviada! Gracias.</p>
+      <button onClick={() => setEstado(null)} className="text-xs text-gray-400 mt-2">Enviar otra</button>
+    </div>
+  )
+
+  return (
+    <form onSubmit={enviar} className="mt-4 border-t border-gray-100 pt-4">
+      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Sugerencias para la app</p>
+      <textarea
+        value={texto}
+        onChange={e => setTexto(e.target.value)}
+        placeholder="¿Qué mejorarías o añadirías?"
+        rows={3}
+        className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm text-gray-700 resize-none focus:outline-none focus:ring-2 focus:ring-brand-300"
+      />
+      {estado === 'error' && <p className="text-xs text-red-500 mt-1">Error al enviar. Inténtalo de nuevo.</p>}
+      <button
+        type="submit"
+        disabled={texto.trim().length < 5 || enviando}
+        className="mt-2 w-full bg-brand-700 text-white text-sm font-semibold py-2.5 rounded-xl disabled:opacity-40"
+      >
+        {enviando ? 'Enviando...' : 'Enviar sugerencia'}
+      </button>
+    </form>
+  )
+}
+
 export default function Home() {
+  useTiempoTracker()
   const navigate = useNavigate()
 
   return (
@@ -198,7 +266,7 @@ export default function Home() {
               <p className="text-xs text-green-400">611 945 719</p>
             </div>
           </a>
-        </div>
+        <FormSugerencia />
       </div>
     </div>
   )
