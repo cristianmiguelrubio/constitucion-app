@@ -106,13 +106,38 @@ export default function TemaDetalle() {
 
       {/* Resumen */}
       {vista === 'resumen' && (
-        <div className="card mb-4">
+        <div className="mb-4">
           {tema.resumen ? (
-            <div className="text-gray-700 leading-relaxed whitespace-pre-line text-[15px]">
-              {tema.resumen}
-            </div>
+            <>
+              <div className="flex items-center gap-2 mb-3 px-1">
+                <span className="text-lg">📝</span>
+                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                  Puntos clave del tema
+                </p>
+              </div>
+              <div className="space-y-2">
+                {tema.resumen.split('\n\n').filter(s => s.trim().length > 10).map((frase, i) => (
+                  <div key={i} className="bg-white rounded-xl border border-gray-100 shadow-sm flex gap-3 p-4">
+                    <span className={`shrink-0 w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${
+                      [
+                        'bg-brand-100 text-brand-700',
+                        'bg-indigo-100 text-indigo-700',
+                        'bg-emerald-100 text-emerald-700',
+                        'bg-amber-100 text-amber-700',
+                        'bg-rose-100 text-rose-700',
+                        'bg-purple-100 text-purple-700',
+                        'bg-teal-100 text-teal-700',
+                      ][i % 7]
+                    }`}>
+                      {i + 1}
+                    </span>
+                    <p className="text-[14px] text-gray-700 leading-relaxed">{frase.trim()}</p>
+                  </div>
+                ))}
+              </div>
+            </>
           ) : (
-            <div className="text-center py-10 text-gray-400">
+            <div className="card text-center py-10 text-gray-400">
               <p className="text-3xl mb-3">✍️</p>
               <p className="font-medium">Resumen no disponible aún</p>
               <p className="text-sm mt-1">Se añadirá próximamente</p>
