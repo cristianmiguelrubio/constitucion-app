@@ -114,6 +114,17 @@ class TiempoEstudio(Base):
     usuario: Mapped["Usuario"] = relationship("Usuario")
 
 
+class TokenRecuperacion(Base):
+    __tablename__ = "tokens_recuperacion"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    email: Mapped[str] = mapped_column(String(255), index=True)
+    token: Mapped[str] = mapped_column(String(6))
+    expira: Mapped[datetime] = mapped_column(DateTime)
+    usado: Mapped[bool] = mapped_column(default=False)
+    creado_en: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
 class Sugerencia(Base):
     __tablename__ = "sugerencias"
 

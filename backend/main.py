@@ -12,7 +12,7 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia, TokenRecuperacion
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Rutas públicas que no requieren token
-RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro"}
+RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset"}
 
 app = FastAPI(title="Constitución App", version="1.0.0", docs_url=None, redoc_url=None)
 
@@ -220,6 +220,74 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
 
     token = crear_token(usuario.id, usuario.email)
     return {"token": token, "email": usuario.email, "nombre": usuario.nombre}
+
+
+# ── Recuperación de contraseña ──────────────────────────────────────────────
+
+class RecuperarIn(BaseModel):
+    email: str
+
+class ResetIn(BaseModel):
+    email: str
+    codigo: str
+    nueva_password: str
+
+@app.post("/api/auth/recuperar")
+def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
+    from email_utils import enviar_codigo_recuperacion, email_configurado
+    from datetime import timedelta
+    import random as _random
+
+    email = data.email.strip().lower()
+    usuario = db.query(Usuario).filter(Usuario.email == email).first()
+    # Siempre devolver OK para no revelar si el email existe
+    if not usuario:
+        return {"ok": True, "email_enviado": False}
+
+    # Invalidar tokens anteriores
+    db.query(TokenRecuperacion).filter(
+        TokenRecuperacion.email == email, TokenRecuperacion.usado == False
+    ).update({"usado": True})
+
+    codigo = str(_random.randint(100000, 999999))
+    expira = datetime.utcnow() + timedelta(minutes=15)
+    db.add(TokenRecuperacion(email=email, token=codigo, expira=expira))
+    db.commit()
+
+    enviado = enviar_codigo_recuperacion(email, codigo)
+    if not enviado and not email_configurado():
+        # Dev mode: devolver código en respuesta (solo si SMTP no está configurado)
+        return {"ok": True, "email_enviado": False, "dev_codigo": codigo}
+
+    return {"ok": True, "email_enviado": enviado}
+
+
+@app.post("/api/auth/reset")
+def resetear_password(data: ResetIn, db: Session = Depends(get_db)):
+    email = data.email.strip().lower()
+    if len(data.nueva_password) < 6:
+        raise HTTPException(status_code=400, detail="La contraseña debe tener al menos 6 caracteres")
+
+    token = db.query(TokenRecuperacion).filter(
+        TokenRecuperacion.email == email,
+        TokenRecuperacion.token == data.codigo,
+        TokenRecuperacion.usado == False,
+        TokenRecuperacion.expira > datetime.utcnow(),
+    ).first()
+
+    if not token:
+        raise HTTPException(status_code=400, detail="Código incorrecto o caducado")
+
+    usuario = db.query(Usuario).filter(Usuario.email == email).first()
+    if not usuario:
+        raise HTTPException(status_code=404)
+
+    usuario.password_hash = hash_password(data.nueva_password)
+    token.usado = True
+    db.commit()
+
+    jwt_token = crear_token(usuario.id, usuario.email)
+    return {"ok": True, "token": jwt_token, "email": usuario.email, "nombre": usuario.nombre}
 
 
 # ── Progreso (requiere auth) ────────────────────────────────────────────────
