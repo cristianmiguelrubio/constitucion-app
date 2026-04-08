@@ -4,6 +4,7 @@ import Layout from './components/Layout'
 import LoginModal from './components/LoginModal'
 import InstallPrompt from './components/InstallPrompt'
 import Home from './pages/Home'
+import Constitucion from './pages/Constitucion'
 import Articulo from './pages/Articulo'
 import Buscar from './pages/Buscar'
 import Cambios from './pages/Cambios'
@@ -42,6 +43,7 @@ export default function App() {
       <Layout usuario={usuario} onLogout={() => { localStorage.removeItem('usuario'); setUsuario(null) }}>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/constitucion" element={<Constitucion />} />
           <Route path="/articulo/:numero" element={<Articulo usuario={usuario} />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/cambios" element={<Cambios />} />

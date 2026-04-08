@@ -2,7 +2,8 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const NAV_ITEMS = [
-  { to: '/',            label: 'Índice',      icon: '📋' },
+  { to: '/',            label: 'Inicio',      icon: '🏠' },
+  { to: '/constitucion',label: 'Constitución',icon: '📜' },
   { to: '/oposiciones', label: 'Oposiciones', icon: '👮' },
   { to: '/quiz',        label: 'Test',        icon: '🧠' },
   { to: '/cambios',     label: 'Cambios',     icon: '🔔' },
