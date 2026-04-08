@@ -4,7 +4,11 @@ from datetime import datetime, timedelta
 from fastapi import HTTPException, Header
 import os
 
-SECRET_KEY = os.getenv("SECRET_KEY", "constitucion-app-secret-2024")
+_default_key = "constitucion-app-secret-2024-xK9mP2qL8nR5vT"
+SECRET_KEY = os.getenv("SECRET_KEY", _default_key)
+if SECRET_KEY == _default_key:
+    import logging
+    logging.getLogger(__name__).warning("SECRET_KEY no configurada — usar variable de entorno en producción")
 ALGORITHM = "HS256"
 TOKEN_EXPIRE_DAYS = 30
 

@@ -1,3 +1,4 @@
+import { apiFetch } from '../utils/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -8,7 +9,7 @@ export default function Home() {
   const [abiertos, setAbiertos] = useState({})
 
   useEffect(() => {
-    fetch('/api/estructura')
+    apiFetch('/api/estructura')
       .then(r => r.json())
       .then(data => { setEstructura(data); setCargando(false) })
       .catch(() => { setError('No se pudo conectar con el servidor'); setCargando(false) })

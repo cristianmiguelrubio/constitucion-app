@@ -1,3 +1,4 @@
+import { apiFetch } from '../utils/api'
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import Flashcard from '../components/Flashcard'
@@ -36,7 +37,7 @@ export default function Articulo({ usuario }) {
     // Sincronizar con servidor si hay usuario
     const token = localStorage.getItem('token')
     if (token) {
-      fetch('/api/progreso', {
+      apiFetch('/api/progreso', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         body: JSON.stringify({ articulo_numero: numero, estudiado: !estudiado, nota }),
@@ -55,7 +56,7 @@ export default function Articulo({ usuario }) {
     const token = localStorage.getItem('token')
     if (!token) return
     setGuardandoNota(true)
-    fetch('/api/progreso', {
+    apiFetch('/api/progreso', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
       body: JSON.stringify({ articulo_numero: numero, estudiado, nota }),

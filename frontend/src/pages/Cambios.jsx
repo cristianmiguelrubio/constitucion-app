@@ -1,3 +1,4 @@
+import { apiFetch } from '../utils/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -6,7 +7,7 @@ export default function Cambios() {
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
-    fetch('/api/cambios')
+    apiFetch('/api/cambios')
       .then(r => r.json())
       .then(data => { setCambios(data); setCargando(false) })
       .catch(() => setCargando(false))

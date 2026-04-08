@@ -1,3 +1,4 @@
+import { apiFetch } from '../utils/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -6,7 +7,7 @@ export default function Oposiciones() {
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
-    fetch('/api/oposiciones')
+    apiFetch('/api/oposiciones')
       .then(r => r.json())
       .then(data => { setLista(data); setCargando(false) })
       .catch(() => setCargando(false))

@@ -1,3 +1,4 @@
+import { apiFetch } from '../utils/api'
 import { useEffect, useState, useCallback } from 'react'
 
 const TOTAL = 10
@@ -138,7 +139,7 @@ export default function Quiz() {
   const [temasPoliciaOk, setTemasPoliciaOk] = useState(0)
 
   useEffect(() => {
-    fetch('/api/quiz/temas').then(r => r.json()).then(setTemasCons).catch(() => {})
+    apiFetch('/api/quiz/temas').then(r => r.json()).then(setTemasCons).catch(() => {})
     const ok = Object.keys(localStorage).filter(k => k.startsWith('quiz_ok_policia-local_')).length
     setTemasPoliciaOk(ok)
   }, [])

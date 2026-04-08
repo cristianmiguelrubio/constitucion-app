@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
+import { apiFetch } from '../utils/api'
 
 export default function OposicionTemas() {
   const { slug } = useParams()
@@ -8,7 +9,7 @@ export default function OposicionTemas() {
   const [cargando, setCargando] = useState(true)
 
   useEffect(() => {
-    fetch(`/api/oposiciones/${slug}/temas`)
+    apiFetch(`/api/oposiciones/${slug}/temas`)
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => {
         setOposicion(data.oposicion)

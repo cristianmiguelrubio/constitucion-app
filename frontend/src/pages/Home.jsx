@@ -172,22 +172,33 @@ export default function Home() {
         ))}
       </div>
 
-      {/* Acceso rápido al test */}
-      <div className="mt-5 grid grid-cols-2 gap-3">
-        <Link to="/quiz" className="card flex items-center gap-3 active:bg-gray-50">
-          <span className="text-2xl">🧠</span>
-          <div>
-            <p className="font-semibold text-sm text-gray-700">Test rápido</p>
-            <p className="text-xs text-gray-400">Constitución + Policía</p>
-          </div>
-        </Link>
-        <Link to="/cambios" className="card flex items-center gap-3 active:bg-gray-50">
-          <span className="text-2xl">🔔</span>
-          <div>
-            <p className="font-semibold text-sm text-gray-700">Cambios BOE</p>
-            <p className="text-xs text-gray-400">Actualizaciones</p>
-          </div>
-        </Link>
+      {/* Contacto */}
+      <div className="mt-5 bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Contacto</p>
+        <div className="flex gap-3">
+          <a
+            href="tel:611945719"
+            className="flex-1 flex items-center justify-center gap-2 bg-brand-50 rounded-xl py-3 active:bg-brand-100"
+          >
+            <span className="text-xl">📞</span>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-brand-700">Llamar</p>
+              <p className="text-xs text-brand-400">611 945 719</p>
+            </div>
+          </a>
+          <a
+            href="https://wa.me/34611945719"
+            target="_blank"
+            rel="noreferrer"
+            className="flex-1 flex items-center justify-center gap-2 bg-green-50 rounded-xl py-3 active:bg-green-100"
+          >
+            <span className="text-xl">💬</span>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-green-700">WhatsApp</p>
+              <p className="text-xs text-green-400">611 945 719</p>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   )

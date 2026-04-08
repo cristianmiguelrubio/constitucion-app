@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import TextoFormateado from '../components/TextoFormateado'
+import { apiFetch } from '../utils/api'
 
 const COLORES_NUM = [
   'bg-brand-100 text-brand-700',
@@ -40,7 +41,7 @@ export default function TemaDetalle() {
   useEffect(() => {
     setCargando(true)
     setCompletado(!!localStorage.getItem(clavePregunta(slug, numero)))
-    fetch(`/api/oposiciones/${slug}/temas/${numero}`)
+    apiFetch(`/api/oposiciones/${slug}/temas/${numero}`)
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => { setTema(data); setCargando(false) })
       .catch(() => setCargando(false))
@@ -48,7 +49,7 @@ export default function TemaDetalle() {
 
   const cargarQuiz = () => {
     const token = localStorage.getItem('token')
-    fetch(`/api/oposiciones/${slug}/temas/${numero}/quiz?limite=20`, {
+    apiFetch(`/api/oposiciones/${slug}/temas/${numero}/quiz?limite=20`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     })
       .then(r => r.json())

@@ -1,7 +1,8 @@
-from fastapi import FastAPI, Depends, HTTPException, Query
+from fastapi import FastAPI, Depends, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
+from starlette.middleware.base import BaseHTTPMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import or_
 from datetime import datetime
@@ -15,19 +16,43 @@ from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, 
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
-from auth import hash_password, verify_password, crear_token, get_current_user
+from auth import hash_password, verify_password, crear_token, get_current_user, verificar_token
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-app = FastAPI(title="Constitución App", version="1.0.0")
+# Rutas públicas que no requieren token
+RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro"}
+
+app = FastAPI(title="Constitución App", version="1.0.0", docs_url=None, redoc_url=None)
+
+# CORS restringido al dominio propio
+ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:8000").split(",")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_origins=ALLOWED_ORIGINS,
+    allow_methods=["GET", "POST"],
+    allow_headers=["Authorization", "Content-Type"],
 )
+
+
+class AuthMiddleware(BaseHTTPMiddleware):
+    async def dispatch(self, request: Request, call_next):
+        path = request.url.path
+        # Solo proteger rutas /api/ que no sean públicas
+        if path.startswith("/api/") and path not in RUTAS_PUBLICAS:
+            auth = request.headers.get("Authorization", "")
+            if not auth.startswith("Bearer "):
+                return JSONResponse(status_code=401, content={"detail": "No autenticado"})
+            try:
+                verificar_token(auth.split(" ", 1)[1])
+            except HTTPException as e:
+                return JSONResponse(status_code=e.status_code, content={"detail": e.detail})
+        return await call_next(request)
+
+
+app.add_middleware(AuthMiddleware)
 
 
 @app.on_event("startup")
