@@ -45,8 +45,37 @@ async def startup():
                 _cargar_constitucion(db)
             except Exception as e:
                 logger.warning(f"BOE no disponible en startup: {e}. Usando seed_data.")
+
+        # Cargar temas de Policía Local si no existen
+        count_temas = db.query(Tema).count()
+        if count_temas == 0:
+            try:
+                from seed_temas import TEMAS_POLICIA_LOCAL
+                _cargar_temas_policia(db, TEMAS_POLICIA_LOCAL)
+            except ImportError:
+                logger.info("seed_temas.py no encontrado — temas se cargarán manualmente")
+            except Exception as e:
+                logger.warning(f"Error cargando temas: {e}")
     finally:
         db.close()
+
+
+def _cargar_temas_policia(db: Session, temas: list):
+    op = db.query(Oposicion).filter(Oposicion.slug == "policia-local").first()
+    if not op:
+        op = Oposicion(
+            slug="policia-local", nombre="Policía Local",
+            descripcion="Temario oficial para oposiciones a Policía Local",
+            icono="👮", activa=True, orden=1,
+        )
+        db.add(op)
+        db.flush()
+    for t in temas:
+        existe = db.query(Tema).filter(Tema.oposicion_id == op.id, Tema.numero == t["numero"]).first()
+        if not existe:
+            db.add(Tema(oposicion_id=op.id, numero=t["numero"], titulo=t["titulo"], contenido=t["contenido"]))
+    db.commit()
+    logger.info(f"Cargados {len(temas)} temas de Policía Local")
 
 
 def _cargar_constitucion(db: Session):
