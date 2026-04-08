@@ -49,44 +49,69 @@ const CATEGORIAS = [
   },
 ]
 
+const CURSOS = [
+  {
+    slug: 'constitucion',
+    nombre: 'Constitución Española',
+    icono: '📜',
+    link: '/constitucion',
+    color: { bar: 'bg-brand-500', bg: 'bg-brand-50', text: 'text-brand-700', sub: 'text-brand-400' },
+    getProgreso: () => {
+      try {
+        const est = JSON.parse(localStorage.getItem('estudiados') || '{}')
+        const hecho = Object.values(est).filter(Boolean).length
+        return { hecho, total: 169, label: 'artículos leídos' }
+      } catch { return { hecho: 0, total: 169, label: 'artículos leídos' } }
+    },
+  },
+  {
+    slug: 'policia-local',
+    nombre: 'Policía Local',
+    icono: '👮',
+    link: '/oposiciones/policia-local',
+    color: { bar: 'bg-indigo-500', bg: 'bg-indigo-50', text: 'text-indigo-700', sub: 'text-indigo-400' },
+    getProgreso: () => {
+      const hecho = Object.keys(localStorage).filter(k => k.startsWith('quiz_ok_policia-local_')).length
+      return { hecho, total: 40, label: 'temas superados' }
+    },
+  },
+]
+
 function ProgresoCard() {
-  const [stats, setStats] = useState({ artEstudiados: 0, artTotal: 169, temasOk: 0 })
+  const [progresos, setProgresos] = useState([])
 
   useEffect(() => {
-    try {
-      const est = JSON.parse(localStorage.getItem('estudiados') || '{}')
-      const artEstudiados = Object.values(est).filter(Boolean).length
-      // contar temas de policia completados
-      const temasOk = Object.keys(localStorage)
-        .filter(k => k.startsWith('quiz_ok_policia-local_')).length
-      setStats({ artEstudiados, artTotal: 169, temasOk })
-    } catch {}
+    setProgresos(CURSOS.map(c => ({ ...c, progreso: c.getProgreso() })))
   }, [])
+
+  // Solo mostrar cursos con algún progreso, o todos si ninguno tiene
+  const activos = progresos.filter(c => c.progreso?.hecho > 0)
+  const mostrar = activos.length > 0 ? activos : progresos
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-5">
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Tu progreso</p>
-      <div className="grid grid-cols-2 gap-3">
-        <Link to="/constitucion" className="bg-brand-50 rounded-xl p-3 text-center active:bg-brand-100">
-          <p className="text-2xl font-bold text-brand-700">{stats.artEstudiados}</p>
-          <p className="text-xs text-brand-500 mt-0.5">arts. Constitución</p>
-          <div className="mt-2 bg-brand-100 rounded-full h-1.5">
-            <div
-              className="bg-brand-500 h-1.5 rounded-full transition-all"
-              style={{ width: `${Math.round(stats.artEstudiados / stats.artTotal * 100)}%` }}
-            />
-          </div>
-        </Link>
-        <Link to="/quiz" className="bg-indigo-50 rounded-xl p-3 text-center active:bg-indigo-100">
-          <p className="text-2xl font-bold text-indigo-700">{stats.temasOk}</p>
-          <p className="text-xs text-indigo-500 mt-0.5">tests superados</p>
-          <div className="mt-2 bg-indigo-100 rounded-full h-1.5">
-            <div
-              className="bg-indigo-500 h-1.5 rounded-full transition-all"
-              style={{ width: `${Math.round(stats.temasOk / 40 * 100)}%` }}
-            />
-          </div>
-        </Link>
+      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Mi progreso</p>
+      <div className="space-y-3">
+        {mostrar.map(c => {
+          const { hecho, total, label } = c.progreso || { hecho: 0, total: 1, label: '' }
+          const pct = Math.round(hecho / total * 100)
+          return (
+            <Link key={c.slug} to={c.link} className={`flex items-center gap-3 ${c.color.bg} rounded-xl p-3 active:opacity-80`}>
+              <span className="text-2xl shrink-0">{c.icono}</span>
+              <div className="flex-1 min-w-0">
+                <div className="flex justify-between items-baseline mb-1">
+                  <p className={`text-sm font-semibold ${c.color.text} truncate`}>{c.nombre}</p>
+                  <span className={`text-xs font-bold ${c.color.text} shrink-0 ml-2`}>{pct}%</span>
+                </div>
+                <div className="bg-white/60 rounded-full h-1.5">
+                  <div className={`${c.color.bar} h-1.5 rounded-full transition-all`} style={{ width: `${pct}%` }} />
+                </div>
+                <p className={`text-[11px] ${c.color.sub} mt-1`}>{hecho}/{total} {label}</p>
+              </div>
+              <span className={`${c.color.sub} text-lg shrink-0`}>›</span>
+            </Link>
+          )
+        })}
       </div>
     </div>
   )
