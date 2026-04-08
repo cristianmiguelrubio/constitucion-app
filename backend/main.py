@@ -47,15 +47,20 @@ async def startup():
                 logger.warning(f"BOE no disponible en startup: {e}. Usando seed_data.")
 
         # Cargar temas de Policía Local si no existen
-        count_temas = db.query(Tema).count()
-        if count_temas == 0:
-            try:
-                from seed_temas import TEMAS_POLICIA_LOCAL
+        try:
+            from seed_temas import TEMAS_POLICIA_LOCAL
+            count_temas = db.query(Tema).count()
+            count_preguntas = db.query(PreguntaTema).count()
+            if count_temas == 0:
                 _cargar_temas_policia(db, TEMAS_POLICIA_LOCAL)
-            except ImportError:
-                logger.info("seed_temas.py no encontrado — temas se cargarán manualmente")
-            except Exception as e:
-                logger.warning(f"Error cargando temas: {e}")
+            elif count_preguntas == 0:
+                # Temas ya cargados pero sin preguntas — cargar solo las preguntas
+                logger.info("Cargando preguntas de temas existentes...")
+                _cargar_preguntas_temas(db, TEMAS_POLICIA_LOCAL)
+        except ImportError:
+            logger.info("seed_temas.py no encontrado — temas se cargarán manualmente")
+        except Exception as e:
+            logger.warning(f"Error cargando temas: {e}")
     finally:
         db.close()
 
@@ -94,6 +99,30 @@ def _cargar_temas_policia(db: Session, temas: list):
                 ))
     db.commit()
     logger.info(f"Cargados {len(temas)} temas de Policía Local")
+
+
+def _cargar_preguntas_temas(db: Session, temas: list):
+    op = db.query(Oposicion).filter(Oposicion.slug == "policia-local").first()
+    if not op:
+        return
+    total = 0
+    for t in temas:
+        tema = db.query(Tema).filter(Tema.oposicion_id == op.id, Tema.numero == t["numero"]).first()
+        if not tema:
+            continue
+        for p in t.get("preguntas", []):
+            db.add(PreguntaTema(
+                tema_id=tema.id,
+                seccion=p.get("seccion"),
+                pregunta=p["pregunta"],
+                respuesta_correcta=p["respuesta_correcta"],
+                opcion_b=p["opcion_b"],
+                opcion_c=p["opcion_c"],
+                opcion_d=p["opcion_d"],
+            ))
+            total += 1
+    db.commit()
+    logger.info(f"Cargadas {total} preguntas en temas existentes")
 
 
 def _cargar_constitucion(db: Session):
