@@ -293,7 +293,7 @@ export default function TemaDetalle() {
       )}
 
       {/* Navegación entre temas */}
-      <div className="flex justify-between gap-3 mt-2">
+      <div className="flex justify-between gap-3 mt-2 mb-8">
         {num > 1 ? (
           <button
             onClick={() => navigate(`/oposiciones/${slug}/temas/${num - 1}`)}
