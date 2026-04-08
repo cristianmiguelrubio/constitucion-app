@@ -73,7 +73,25 @@ def _cargar_temas_policia(db: Session, temas: list):
     for t in temas:
         existe = db.query(Tema).filter(Tema.oposicion_id == op.id, Tema.numero == t["numero"]).first()
         if not existe:
-            db.add(Tema(oposicion_id=op.id, numero=t["numero"], titulo=t["titulo"], contenido=t["contenido"], resumen=t.get("resumen")))
+            nuevo = Tema(
+                oposicion_id=op.id,
+                numero=t["numero"],
+                titulo=t["titulo"],
+                contenido=t["contenido"],
+                resumen=t.get("resumen"),
+            )
+            db.add(nuevo)
+            db.flush()
+            for p in t.get("preguntas", []):
+                db.add(PreguntaTema(
+                    tema_id=nuevo.id,
+                    seccion=p.get("seccion"),
+                    pregunta=p["pregunta"],
+                    respuesta_correcta=p["respuesta_correcta"],
+                    opcion_b=p["opcion_b"],
+                    opcion_c=p["opcion_c"],
+                    opcion_d=p["opcion_d"],
+                ))
     db.commit()
     logger.info(f"Cargados {len(temas)} temas de Policía Local")
 
@@ -468,6 +486,7 @@ def quiz_tema(slug: str, numero: int, limite: int = 10, db: Session = Depends(ge
         # La clave 'a' siempre apunta a respuesta_correcta para que el front sepa cuál es
         resultado.append({
             "id": p.id,
+            "seccion": p.seccion,
             "pregunta": p.pregunta,
             "respuesta_correcta": p.respuesta_correcta,
             "opcion_b": p.opcion_b,

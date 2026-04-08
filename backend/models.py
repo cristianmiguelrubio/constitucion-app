@@ -80,6 +80,7 @@ class PreguntaTema(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     tema_id: Mapped[int] = mapped_column(ForeignKey("temas.id"))
+    seccion: Mapped[str | None] = mapped_column(String(300))   # título de sección
     pregunta: Mapped[str] = mapped_column(Text)
     respuesta_correcta: Mapped[str] = mapped_column(Text)
     opcion_b: Mapped[str] = mapped_column(Text)
