@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
+import TextoFormateado from '../components/TextoFormateado'
 
 export default function TemaDetalle() {
   const { slug, numero } = useParams()
@@ -99,17 +100,7 @@ export default function TemaDetalle() {
       {/* Contenido */}
       {vista === 'contenido' && (
         <div className="card mb-4">
-          {tema.contenido ? (
-            <div className="text-gray-700 leading-relaxed whitespace-pre-line text-[15px]">
-              {tema.contenido}
-            </div>
-          ) : (
-            <div className="text-center py-10 text-gray-400">
-              <p className="text-3xl mb-3">🚧</p>
-              <p className="font-medium">Texto pendiente de procesamiento OCR</p>
-              <p className="text-sm mt-1">Disponible próximamente</p>
-            </div>
-          )}
+          <TextoFormateado texto={tema.contenido} />
         </div>
       )}
 
