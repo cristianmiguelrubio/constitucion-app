@@ -543,6 +543,10 @@ if os.path.exists(STATIC_DIR):
         if full_path.startswith("api/"):
             from fastapi import HTTPException
             raise HTTPException(status_code=404)
+        # Servir archivos estáticos del raíz (hero.jpg, favicon.ico, etc.)
+        static_file = os.path.join(STATIC_DIR, full_path)
+        if os.path.isfile(static_file):
+            return FileResponse(static_file)
         index = os.path.join(STATIC_DIR, "index.html")
         return FileResponse(index)
 
