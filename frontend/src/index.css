@@ -24,9 +24,13 @@
   .badge-nuevo {
     @apply inline-block bg-amber-100 text-amber-800 text-xs font-semibold px-2 py-0.5 rounded-full;
   }
-  /* Área segura para el nav inferior en iPhone */
+  /* Área segura para el nav inferior en iPhone (home indicator) */
   .safe-area-bottom {
     padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  /* Área segura para el header en iPhone (notch / Dynamic Island) */
+  .safe-area-top {
+    padding-top: env(safe-area-inset-top, 0px);
   }
 }
 

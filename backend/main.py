@@ -11,7 +11,7 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -307,6 +307,145 @@ def obtener_preguntas(
 
     random.shuffle(preguntas)
     return preguntas[:limite]
+
+
+# ── Oposiciones ────────────────────────────────────────────────────────────
+
+@app.get("/api/oposiciones")
+def listar_oposiciones(db: Session = Depends(get_db)):
+    ops = db.query(Oposicion).filter(Oposicion.activa == True).order_by(Oposicion.orden).all()
+    return [
+        {
+            "id": o.id, "slug": o.slug, "nombre": o.nombre,
+            "descripcion": o.descripcion, "icono": o.icono,
+            "total_temas": len(o.temas),
+        }
+        for o in ops
+    ]
+
+
+@app.get("/api/oposiciones/{slug}/temas")
+def listar_temas(slug: str, db: Session = Depends(get_db)):
+    op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
+    if not op:
+        raise HTTPException(status_code=404, detail="Oposición no encontrada")
+    temas = db.query(Tema).filter(Tema.oposicion_id == op.id).order_by(Tema.numero).all()
+    return {
+        "oposicion": {"slug": op.slug, "nombre": op.nombre, "icono": op.icono},
+        "temas": [
+            {
+                "id": t.id, "numero": t.numero, "titulo": t.titulo,
+                "tiene_pdf": t.pdf_path is not None,
+                "tiene_contenido": t.contenido is not None,
+                "tiene_resumen": t.resumen is not None,
+                "total_preguntas": len(t.preguntas),
+            }
+            for t in temas
+        ]
+    }
+
+
+@app.get("/api/oposiciones/{slug}/temas/{numero}")
+def obtener_tema(slug: str, numero: int, db: Session = Depends(get_db)):
+    op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
+    if not op:
+        raise HTTPException(status_code=404, detail="Oposición no encontrada")
+    tema = db.query(Tema).filter(
+        Tema.oposicion_id == op.id, Tema.numero == numero
+    ).first()
+    if not tema:
+        raise HTTPException(status_code=404, detail="Tema no encontrado")
+    return {
+        "id": tema.id, "numero": tema.numero, "titulo": tema.titulo,
+        "contenido": tema.contenido, "resumen": tema.resumen,
+        "tiene_pdf": tema.pdf_path is not None,
+        "total_preguntas": len(tema.preguntas),
+    }
+
+
+@app.get("/api/oposiciones/{slug}/temas/{numero}/pdf")
+def descargar_pdf(
+    slug: str, numero: int,
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Sirve el PDF del tema — solo a usuarios autenticados."""
+    op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
+    if not op:
+        raise HTTPException(status_code=404)
+    tema = db.query(Tema).filter(
+        Tema.oposicion_id == op.id, Tema.numero == numero
+    ).first()
+    if not tema or not tema.pdf_path:
+        raise HTTPException(status_code=404, detail="PDF no disponible")
+    if not os.path.exists(tema.pdf_path):
+        raise HTTPException(status_code=404, detail="Archivo no encontrado")
+    return FileResponse(
+        tema.pdf_path,
+        media_type="application/pdf",
+        filename=f"{slug}-tema-{numero}.pdf",
+    )
+
+
+@app.get("/api/oposiciones/{slug}/quiz")
+def quiz_oposicion(slug: str, tema_id: int | None = None, limite: int = 10, db: Session = Depends(get_db)):
+    op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
+    if not op:
+        raise HTTPException(status_code=404)
+
+    query = db.query(PreguntaTema).join(Tema).filter(Tema.oposicion_id == op.id)
+    if tema_id:
+        query = query.filter(PreguntaTema.tema_id == tema_id)
+
+    preguntas = query.all()
+    random.shuffle(preguntas)
+    preguntas = preguntas[:limite]
+
+    return [
+        {
+            "id": p.id,
+            "tema_id": p.tema_id,
+            "tema_numero": p.tema.numero,
+            "tema_titulo": p.tema.titulo,
+            "pregunta": p.pregunta,
+            "respuesta_correcta": p.respuesta_correcta,
+            "opciones": random.sample([
+                p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d
+            ], 4),
+        }
+        for p in preguntas
+    ]
+
+
+@app.get("/api/oposiciones/{slug}/temas/{numero}/quiz")
+def quiz_tema(slug: str, numero: int, limite: int = 10, db: Session = Depends(get_db)):
+    op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
+    if not op:
+        raise HTTPException(status_code=404)
+    tema = db.query(Tema).filter(
+        Tema.oposicion_id == op.id, Tema.numero == numero
+    ).first()
+    if not tema:
+        raise HTTPException(status_code=404, detail="Tema no encontrado")
+
+    preguntas = list(tema.preguntas)
+    random.shuffle(preguntas)
+    preguntas = preguntas[:limite]
+
+    resultado = []
+    for p in preguntas:
+        opciones = [p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d]
+        random.shuffle(opciones)
+        # La clave 'a' siempre apunta a respuesta_correcta para que el front sepa cuál es
+        resultado.append({
+            "id": p.id,
+            "pregunta": p.pregunta,
+            "respuesta_correcta": p.respuesta_correcta,
+            "opcion_b": p.opcion_b,
+            "opcion_c": p.opcion_c,
+            "opcion_d": p.opcion_d,
+        })
+    return resultado
 
 
 @app.post("/api/admin/actualizar")

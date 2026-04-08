@@ -2,10 +2,10 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 const NAV_ITEMS = [
-  { to: '/',        label: 'Índice',   icon: '📋' },
-  { to: '/quiz',    label: 'Test',     icon: '🧠' },
-  { to: '/stats',   label: 'Stats',    icon: '📊' },
-  { to: '/cambios', label: 'Cambios',  icon: '🔔' },
+  { to: '/',            label: 'Índice',      icon: '📋' },
+  { to: '/oposiciones', label: 'Oposiciones', icon: '👮' },
+  { to: '/quiz',        label: 'Test',        icon: '🧠' },
+  { to: '/cambios',     label: 'Cambios',     icon: '🔔' },
 ]
 
 export default function Layout({ children, usuario, onLogout }) {
@@ -26,7 +26,7 @@ export default function Layout({ children, usuario, onLogout }) {
     <div className="min-h-screen flex flex-col bg-gray-50">
 
       {/* Header top */}
-      <header className="bg-brand-700 text-white shadow-md sticky top-0 z-50">
+      <header className="bg-brand-700 text-white shadow-md sticky top-0 z-50 safe-area-top">
         <div className="max-w-4xl mx-auto px-4 h-14 flex items-center gap-3">
 
           <Link to="/" className="font-bold text-base leading-tight shrink-0 flex items-center gap-1.5">
@@ -116,7 +116,7 @@ export default function Layout({ children, usuario, onLogout }) {
       </header>
 
       {/* Contenido */}
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-5 pb-24 sm:pb-6">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-5 pb-28 sm:pb-6">
         {children}
       </main>
 
@@ -126,7 +126,7 @@ export default function Layout({ children, usuario, onLogout }) {
       </footer>
 
       {/* Nav inferior móvil */}
-      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 safe-area-bottom">
+      <nav className="sm:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200">
         <div className="flex">
           {NAV_ITEMS.map(({ to, label, icon }) => (
             <NavLink
@@ -134,7 +134,7 @@ export default function Layout({ children, usuario, onLogout }) {
               to={to}
               end
               className={({ isActive }) =>
-                `flex-1 flex flex-col items-center justify-center py-2.5 gap-0.5 transition-colors ${
+                `flex-1 flex flex-col items-center justify-center pt-2 gap-0.5 transition-colors ${
                   isActive ? 'text-brand-600' : 'text-gray-400'
                 }`
               }
@@ -145,6 +145,8 @@ export default function Layout({ children, usuario, onLogout }) {
                   <span className={`text-[10px] font-medium ${isActive ? 'text-brand-600' : 'text-gray-400'}`}>
                     {label}
                   </span>
+                  {/* Relleno debajo de los iconos = home indicator iPhone */}
+                  <span className="block" style={{ height: 'env(safe-area-inset-bottom, 8px)' }} />
                 </>
               )}
             </NavLink>

@@ -9,6 +9,9 @@ import Buscar from './pages/Buscar'
 import Cambios from './pages/Cambios'
 import Quiz from './pages/Quiz'
 import Stats from './pages/Stats'
+import Oposiciones from './pages/Oposiciones'
+import OposicionTemas from './pages/OposicionTemas'
+import TemaDetalle from './pages/TemaDetalle'
 
 export default function App() {
   const [usuario, setUsuario] = useState(null)
@@ -44,6 +47,9 @@ export default function App() {
           <Route path="/cambios" element={<Cambios />} />
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/stats" element={<Stats />} />
+          <Route path="/oposiciones" element={<Oposiciones />} />
+          <Route path="/oposiciones/:slug" element={<OposicionTemas />} />
+          <Route path="/oposiciones/:slug/temas/:numero" element={<TemaDetalle />} />
         </Routes>
       </Layout>
       <InstallPrompt />
