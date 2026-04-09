@@ -1,101 +1,69 @@
-import smtplib
 import os
 import logging
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 
 logger = logging.getLogger(__name__)
 
-SMTP_HOST = os.getenv("SMTP_HOST", "")
-SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
-SMTP_USER = os.getenv("SMTP_USER", "")
-SMTP_PASS = os.getenv("SMTP_PASS", "")
-EMAIL_FROM = os.getenv("EMAIL_FROM", SMTP_USER)
+RESEND_API_KEY = os.getenv("RESEND_API_KEY", "")
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "cristianmiguelrubio@gmail.com")
+EMAIL_FROM = os.getenv("EMAIL_FROM", "Oposiciones del Estado <noreply@oposapp.es>")
 
 
 def email_configurado():
-    return bool(SMTP_HOST and SMTP_USER and SMTP_PASS)
+    return bool(RESEND_API_KEY)
 
 
-ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "cristianmiguelrubio@gmail.com")
-
-
-def enviar_notificacion_sugerencia(texto: str, usuario_email: str) -> bool:
+def _enviar(destinatario: str, asunto: str, html: str) -> bool:
     if not email_configurado():
+        logger.warning("RESEND_API_KEY no configurada")
         return False
     try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = "💡 Nueva sugerencia recibida — Oposiciones del Estado"
-        msg["From"] = EMAIL_FROM
-        msg["To"] = ADMIN_EMAIL
-
-        html = f"""
-        <div style="font-family: sans-serif; max-width: 480px; margin: auto; padding: 24px;">
-          <h2 style="color: #1e3a5f;">💡 Nueva sugerencia</h2>
-          <p style="color: #444;">De: <strong>{usuario_email}</strong></p>
-          <div style="background: #f0f4ff; border-left: 4px solid #1e3a5f; padding: 16px;
-                      border-radius: 8px; margin: 16px 0; color: #333; font-size: 15px;">
-            {texto}
-          </div>
-          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-          <p style="color: #aaa; font-size: 12px;">Oposiciones del Estado · Panel admin: /admin</p>
-        </div>
-        """
-
-        msg.attach(MIMEText(html, "html"))
-
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(EMAIL_FROM, ADMIN_EMAIL, msg.as_string())
-
-        logger.info(f"Notificación de sugerencia enviada al admin")
+        import resend
+        resend.api_key = RESEND_API_KEY
+        resend.Emails.send({
+            "from": EMAIL_FROM,
+            "to": [destinatario],
+            "subject": asunto,
+            "html": html,
+        })
+        logger.info(f"Email enviado a {destinatario}: {asunto}")
         return True
-
     except Exception as e:
-        logger.error(f"Error enviando notificación de sugerencia: {e}")
+        logger.error(f"Error enviando email a {destinatario}: {type(e).__name__}: {e}")
         return False
 
 
 def enviar_codigo_recuperacion(destinatario: str, codigo: str) -> bool:
-    if not email_configurado():
-        logger.warning("Email no configurado — SMTP_HOST, SMTP_USER, SMTP_PASS requeridos")
-        return False
+    html = f"""
+    <div style="font-family: sans-serif; max-width: 480px; margin: auto; padding: 24px;">
+      <h2 style="color: #1e3a5f;">Recuperar contraseña</h2>
+      <p>Tu código de recuperación es:</p>
+      <div style="font-size: 40px; font-weight: bold; letter-spacing: 12px;
+                  color: #1e3a5f; background: #f0f4ff; padding: 20px;
+                  border-radius: 12px; text-align: center; margin: 20px 0;">
+        {codigo}
+      </div>
+      <p style="color: #666; font-size: 14px;">
+        Válido durante <strong>15 minutos</strong>.<br>
+        Si no solicitaste este código, ignora este correo.
+      </p>
+      <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+      <p style="color: #aaa; font-size: 12px;">Oposiciones del Estado</p>
+    </div>
+    """
+    return _enviar(destinatario, "Recuperación de contraseña — Oposiciones del Estado", html)
 
-    try:
-        msg = MIMEMultipart("alternative")
-        msg["Subject"] = "Recuperación de contraseña — Oposiciones del Estado"
-        msg["From"] = EMAIL_FROM
-        msg["To"] = destinatario
 
-        html = f"""
-        <div style="font-family: sans-serif; max-width: 480px; margin: auto; padding: 24px;">
-          <h2 style="color: #1e3a5f;">Recuperar contraseña</h2>
-          <p>Tu código de recuperación es:</p>
-          <div style="font-size: 40px; font-weight: bold; letter-spacing: 12px;
-                      color: #1e3a5f; background: #f0f4ff; padding: 20px;
-                      border-radius: 12px; text-align: center; margin: 20px 0;">
-            {codigo}
-          </div>
-          <p style="color: #666; font-size: 14px;">
-            Válido durante <strong>15 minutos</strong>.<br>
-            Si no solicitaste este código, ignora este correo.
-          </p>
-          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
-          <p style="color: #aaa; font-size: 12px;">Oposiciones del Estado · oposapp.com</p>
-        </div>
-        """
-
-        msg.attach(MIMEText(html, "html"))
-
-        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
-            server.starttls()
-            server.login(SMTP_USER, SMTP_PASS)
-            server.sendmail(EMAIL_FROM, destinatario, msg.as_string())
-
-        logger.info(f"Código de recuperación enviado a {destinatario}")
-        return True
-
-    except Exception as e:
-        logger.error(f"Error enviando email a {destinatario}: {type(e).__name__}: {e}")
-        return False
+def enviar_notificacion_sugerencia(texto: str, usuario_email: str) -> bool:
+    html = f"""
+    <div style="font-family: sans-serif; max-width: 480px; margin: auto; padding: 24px;">
+      <h2 style="color: #1e3a5f;">💡 Nueva sugerencia</h2>
+      <p style="color: #444;">De: <strong>{usuario_email}</strong></p>
+      <div style="background: #f0f4ff; border-left: 4px solid #1e3a5f; padding: 16px;
+                  border-radius: 8px; margin: 16px 0; color: #333; font-size: 15px;">
+        {texto}
+      </div>
+      <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+      <p style="color: #aaa; font-size: 12px;">Oposiciones del Estado · Panel admin: /admin</p>
+    </div>
+    """
+    return _enviar(ADMIN_EMAIL, "💡 Nueva sugerencia recibida — Oposiciones del Estado", html)

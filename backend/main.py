@@ -817,7 +817,7 @@ def ranking(periodo: str = "total", db: Session = Depends(get_db)):
             )
             .join(Usuario, TiempoEstudioDiario.usuario_id == Usuario.id)
             .filter(TiempoEstudioDiario.fecha >= fecha_inicio)
-            .group_by(TiempoEstudioDiario.usuario_id)
+            .group_by(TiempoEstudioDiario.usuario_id, Usuario.nombre, Usuario.email)
             .order_by(func.sum(TiempoEstudioDiario.segundos).desc())
             .limit(20)
             .all()
