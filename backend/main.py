@@ -23,6 +23,13 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
+def get_usuario_or_401(uid: int, db: Session) -> "Usuario":
+    u = db.query(Usuario).filter(Usuario.id == uid).first()
+    if not u:
+        raise HTTPException(status_code=401, detail="Sesión expirada")
+    return u
+
+
 def es_admin(current_user: dict, db: Session) -> bool:
     uid = int(current_user["sub"])
     if uid == 1:
@@ -681,13 +688,13 @@ def enviar_sugerencia(body: SugerenciaIn, current_user: dict = Depends(get_curre
     if not body.texto or len(body.texto.strip()) < 5:
         raise HTTPException(status_code=400, detail="Sugerencia demasiado corta")
     uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
     db.add(Sugerencia(usuario_id=uid, texto=body.texto.strip()[:1000]))
     db.commit()
     # Notificar al admin por email
     try:
         from email_utils import enviar_notificacion_sugerencia
-        usuario = db.query(Usuario).filter(Usuario.id == uid).first()
-        email_usuario = usuario.email if usuario else "usuario desconocido"
+        email_usuario = usuario.email
         enviar_notificacion_sugerencia(body.texto.strip()[:1000], email_usuario)
     except Exception:
         pass
@@ -702,6 +709,7 @@ def registrar_tiempo(body: TiempoIn, current_user: dict = Depends(get_current_us
     if body.segundos <= 0:
         return {"ok": True}
     uid = int(current_user["sub"])
+    get_usuario_or_401(uid, db)
     ahora = datetime.utcnow()
 
     # Tiempo total acumulado
@@ -732,6 +740,7 @@ def registrar_tiempo(body: TiempoIn, current_user: dict = Depends(get_current_us
 def registrar_racha(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     from datetime import date, timedelta
     uid = int(current_user["sub"])
+    get_usuario_or_401(uid, db)
     hoy = date.today()
     registro = db.query(RachaDiaria).filter(RachaDiaria.usuario_id == uid).first()
     if not registro:
