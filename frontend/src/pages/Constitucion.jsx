@@ -2,7 +2,7 @@ import { apiFetch } from '../utils/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-export default function Home() {
+export default function Constitucion() {
   const [estructura, setEstructura] = useState(null)
   const [cargando, setCargando] = useState(true)
   const [error, setError] = useState(null)

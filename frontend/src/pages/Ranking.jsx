@@ -59,20 +59,20 @@ export default function Ranking() {
 
       {!cargando && ranking.length > 0 && (
         <>
-          {/* Top 3 podio */}
+          {/* Top 3 podio — orden visual: 2º, 1º, 3º */}
           <div className="flex items-end justify-center gap-3 mb-5">
-            {[top3[1], top3[0], top3[2]].filter(Boolean).map((r, idx) => {
-              const real = idx === 0 ? top3[1] : idx === 1 ? top3[0] : top3[2]
-              const altura = idx === 1 ? 'h-28' : 'h-20'
-              const pos = idx === 1 ? 1 : idx === 0 ? 2 : 3
-              const esYo = real?.nombre === miNombre
+            {([top3[1], top3[0], top3[2]]).map((r, idx) => {
+              if (!r) return null
+              const pos = idx === 0 ? 2 : idx === 1 ? 1 : 3
+              const altura = pos === 1 ? 'h-28' : 'h-20'
+              const esYo = r.nombre === miNombre
               return (
                 <div key={pos} className="flex-1 flex flex-col items-center gap-1">
                   <span className="text-2xl">{MEDALLAS[pos - 1]}</span>
                   <p className={`text-xs font-bold text-center truncate w-full px-1 ${esYo ? 'text-amber-600' : 'text-gray-700'}`}>
-                    {real?.nombre}{esYo ? ' (tú)' : ''}
+                    {r.nombre}{esYo ? ' (tú)' : ''}
                   </p>
-                  <p className="text-[10px] text-gray-400">{formatTiempo(real?.segundos)}</p>
+                  <p className="text-[10px] text-gray-400">{formatTiempo(r.segundos)}</p>
                   <div className={`w-full ${altura} rounded-t-xl flex items-end justify-center pb-2 ${
                     pos === 1 ? 'bg-amber-400' : pos === 2 ? 'bg-gray-300' : 'bg-orange-300'
                   }`}>

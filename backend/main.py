@@ -335,7 +335,9 @@ def guardar_progreso(
 
 
 @app.get("/api/admin/usuarios")
-def listar_usuarios(db: Session = Depends(get_db)):
+def listar_usuarios(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    if int(current_user["sub"]) != 1:
+        raise HTTPException(status_code=403, detail="Acceso denegado")
     usuarios = db.query(Usuario).order_by(Usuario.fecha_registro.desc()).all()
     return [
         {
@@ -740,7 +742,9 @@ def ranking(db: Session = Depends(get_db)):
 
 
 @app.post("/api/admin/actualizar")
-def forzar_actualizacion():
+def forzar_actualizacion(current_user: dict = Depends(get_current_user)):
+    if int(current_user["sub"]) != 1:
+        raise HTTPException(status_code=403, detail="Acceso denegado")
     from scheduler import ejecutar_comprobacion_boe
     ejecutar_comprobacion_boe()
     return {"ok": True, "mensaje": "Comprobación iniciada"}

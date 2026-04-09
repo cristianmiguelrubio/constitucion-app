@@ -18,9 +18,12 @@ export default function Buscar() {
   }, [q])
 
   const resaltar = (texto, termino) => {
-    if (!termino) return texto
+    if (!termino || !texto) return texto
     const regex = new RegExp(`(${termino.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi')
-    return texto.replace(regex, '<mark class="bg-yellow-200 rounded px-0.5">$1</mark>')
+    const partes = texto.split(regex)
+    return partes.map((p, i) =>
+      regex.test(p) ? <mark key={i} className="bg-yellow-200 rounded px-0.5">{p}</mark> : p
+    )
   }
 
   return (
@@ -59,10 +62,9 @@ export default function Buscar() {
               </span>
               <div className="min-w-0">
                 {art.titulo && (
-                  <p
-                    className="font-medium text-gray-800 text-sm"
-                    dangerouslySetInnerHTML={{ __html: resaltar(art.titulo, q) }}
-                  />
+                  <p className="font-medium text-gray-800 text-sm">
+                    {resaltar(art.titulo, q)}
+                  </p>
                 )}
                 {art.titulo_titulo && (
                   <p className="text-xs text-gray-400 mt-0.5">{art.titulo_titulo}</p>

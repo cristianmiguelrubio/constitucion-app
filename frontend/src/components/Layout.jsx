@@ -1,5 +1,5 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { Link, NavLink, useNavigate, useLocation } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const NAV_ITEMS = [
   { to: '/',            label: 'Inicio',      icon: '🏠' },
@@ -13,6 +13,12 @@ export default function Layout({ children, usuario, onLogout }) {
   const [query, setQuery] = useState('')
   const [buscarAbierto, setBuscarAbierto] = useState(false)
   const navigate = useNavigate()
+  const location = useLocation()
+
+  useEffect(() => {
+    setBuscarAbierto(false)
+    setQuery('')
+  }, [location.pathname])
 
   const handleSearch = (e) => {
     e.preventDefault()
