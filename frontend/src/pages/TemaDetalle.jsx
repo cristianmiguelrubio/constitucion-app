@@ -90,6 +90,8 @@ export default function TemaDetalle() {
         if (ac / quiz.length >= 0.3) {
           localStorage.setItem(clavePregunta(slug, numero), '1')
           setCompletado(true)
+          // Sincronizar con servidor
+          apiFetch(`/api/temas-completados?slug=${slug}&numero=${numero}`, { method: 'POST' }).catch(() => {})
         }
         clearInterval(cronRef.current)
         setEnviado(true)

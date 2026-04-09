@@ -38,6 +38,12 @@ export default function LoginModal({ onLogin }) {
         const progreso = await pr.json()
         if (Object.keys(progreso.estudiados || {}).length > 0) localStorage.setItem('estudiados', JSON.stringify(progreso.estudiados))
         if (Object.keys(progreso.notas || {}).length > 0) localStorage.setItem('notas', JSON.stringify(progreso.notas))
+        // Cargar temas completados
+        const tc = await fetch('/api/temas-completados', { headers: { Authorization: `Bearer ${data.token}` } })
+        const temas = await tc.json()
+        temas.forEach(({ slug, numero }) => {
+          localStorage.setItem(`quiz_ok_${slug}_${numero}`, '1')
+        })
       } catch {}
       onLogin({ email: data.email, nombre: data.nombre })
     } catch { setError('Error de conexión. Inténtalo de nuevo.') }
@@ -69,6 +75,11 @@ export default function LoginModal({ onLogin }) {
       if (!resp.ok) { setError(data.detail || 'Código incorrecto'); return }
       localStorage.setItem('token', data.token)
       localStorage.setItem('usuario', JSON.stringify({ email: data.email, nombre: data.nombre }))
+      try {
+        const tc = await fetch('/api/temas-completados', { headers: { Authorization: `Bearer ${data.token}` } })
+        const temas = await tc.json()
+        temas.forEach(({ slug, numero }) => localStorage.setItem(`quiz_ok_${slug}_${numero}`, '1'))
+      } catch {}
       onLogin({ email: data.email, nombre: data.nombre })
     } catch { setError('Error de conexión') }
     finally { setCargando(false) }

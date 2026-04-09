@@ -114,6 +114,17 @@ class TiempoEstudio(Base):
     usuario: Mapped["Usuario"] = relationship("Usuario")
 
 
+class TemaCompletado(Base):
+    __tablename__ = "temas_completados"
+    __table_args__ = (UniqueConstraint("usuario_id", "slug", "numero"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    slug: Mapped[str] = mapped_column(String(50))
+    numero: Mapped[int] = mapped_column(Integer)
+    completado_en: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
 class RachaDiaria(Base):
     __tablename__ = "racha_diaria"
     __table_args__ = (UniqueConstraint("usuario_id"),)

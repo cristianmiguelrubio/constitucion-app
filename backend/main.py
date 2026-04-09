@@ -12,7 +12,7 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia, TokenRecuperacion, RachaDiaria
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -331,6 +331,31 @@ def guardar_progreso(
             nota=data.nota,
         ))
     db.commit()
+    return {"ok": True}
+
+
+@app.get("/api/temas-completados")
+def obtener_temas_completados(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    registros = db.query(TemaCompletado).filter(TemaCompletado.usuario_id == uid).all()
+    return [{"slug": r.slug, "numero": r.numero} for r in registros]
+
+
+@app.post("/api/temas-completados")
+def marcar_tema_completado(
+    slug: str, numero: int,
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    uid = int(current_user["sub"])
+    existe = db.query(TemaCompletado).filter(
+        TemaCompletado.usuario_id == uid,
+        TemaCompletado.slug == slug,
+        TemaCompletado.numero == numero,
+    ).first()
+    if not existe:
+        db.add(TemaCompletado(usuario_id=uid, slug=slug, numero=numero))
+        db.commit()
     return {"ok": True}
 
 
@@ -762,7 +787,8 @@ if os.path.exists(STATIC_DIR):
             from fastapi import HTTPException
             raise HTTPException(status_code=404)
         # Servir archivos estáticos del raíz (hero.jpg, favicon.ico, etc.)
-        static_file = os.path.join(STATIC_DIR, full_path)
+        safe_path = full_path.replace("\\", "/").lstrip("/")
+        static_file = os.path.join(STATIC_DIR, safe_path)
         if os.path.isfile(static_file):
             return FileResponse(static_file)
         index = os.path.join(STATIC_DIR, "index.html")
