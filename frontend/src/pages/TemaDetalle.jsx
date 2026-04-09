@@ -50,10 +50,7 @@ export default function TemaDetalle() {
   }, [slug, numero])
 
   const cargarQuiz = () => {
-    const token = localStorage.getItem('token')
-    apiFetch(`/api/oposiciones/${slug}/temas/${numero}/quiz?limite=20`, {
-      headers: token ? { Authorization: `Bearer ${token}` } : {},
-    })
+    apiFetch(`/api/oposiciones/${slug}/temas/${numero}/quiz?limite=20`)
       .then(r => r.json())
       .then(data => {
         // Mezclar las opciones de cada pregunta manteniendo rastro de cuál es correcta

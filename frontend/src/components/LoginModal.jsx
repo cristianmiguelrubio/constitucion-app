@@ -57,9 +57,10 @@ export default function LoginModal({ onLogin }) {
     setCargando(true); setError('')
     try {
       const resp = await fetch('/api/auth/recuperar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: emailLimpio }) })
-      const data = await resp.json()
+      let data = {}
+      try { data = await resp.json() } catch {}
       if (data.dev_codigo) setDevCodigo(data.dev_codigo)
-      setModo('codigo')
+      setModo('codigo') // avanzar siempre — no revelar si el email existe
     } catch { setError('Error de conexión') }
     finally { setCargando(false) }
   }
