@@ -9,6 +9,7 @@ FROM python:3.11-slim
 WORKDIR /app
 COPY backend/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
+# Cache bust: 2
 COPY backend/ ./backend/
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 WORKDIR /app/backend
