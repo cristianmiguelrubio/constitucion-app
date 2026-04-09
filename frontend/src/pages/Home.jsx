@@ -143,10 +143,11 @@ function FormSugerencia() {
     setEnviando(true)
     try {
       const r = await apiFetch('/api/sugerencias', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ texto }) })
+      if (r.status === 401) { setEstado('error'); return }
       setEstado(r.ok ? 'ok' : 'error')
       if (r.ok) setTexto('')
     } catch { setEstado('error') }
-    setEnviando(false)
+    finally { setEnviando(false) }
   }
 
   if (estado === 'ok') return (
@@ -167,7 +168,7 @@ function FormSugerencia() {
         rows={3}
         className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm text-gray-700 resize-none focus:outline-none focus:ring-2 focus:ring-brand-300"
       />
-      {estado === 'error' && <p className="text-xs text-red-500 mt-1">Error al enviar. Inténtalo de nuevo.</p>}
+      {estado === 'error' && <p className="text-xs text-red-500 mt-1">Error al enviar. Recarga la página e inténtalo de nuevo.</p>}
       <button
         type="submit"
         disabled={texto.trim().length < 5 || enviando}

@@ -11,9 +11,12 @@ export function apiFetch(url, options = {}) {
   return fetch(url, { ...options, headers }).then(res => {
     if (res.status === 401 && token) {
       // Solo limpiar y recargar si había token (sesión expirada)
-      localStorage.removeItem('token')
-      localStorage.removeItem('usuario')
-      window.location.reload()
+      // Pequeño delay para que el llamador pueda manejar el error primero
+      setTimeout(() => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('usuario')
+        window.location.reload()
+      }, 300)
     }
     return res
   })
