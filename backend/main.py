@@ -31,7 +31,7 @@ def es_admin(current_user: dict, db: Session) -> bool:
     return usuario is not None and usuario.email == ADMIN_EMAIL
 
 # Rutas públicas que no requieren token
-RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset", "/api/ranking"}
+RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset", "/api/ranking", "/api/version"}
 
 app = FastAPI(title="Constitución App", version="1.0.0", docs_url=None, redoc_url=None)
 
@@ -779,6 +779,11 @@ def ver_sugerencias(current_user: dict = Depends(get_current_user), db: Session 
         }
         for s, u in sug
     ]
+
+
+@app.get("/api/version")
+def version():
+    return {"version": "2.0", "build": "email-fix"}
 
 
 @app.get("/api/ranking")
