@@ -12,7 +12,7 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia, TokenRecuperacion
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia, TokenRecuperacion, RachaDiaria
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -22,7 +22,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Rutas públicas que no requieren token
-RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset"}
+RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset", "/api/ranking"}
 
 app = FastAPI(title="Constitución App", version="1.0.0", docs_url=None, redoc_url=None)
 
@@ -664,6 +664,59 @@ def registrar_tiempo(body: TiempoIn, current_user: dict = Depends(get_current_us
         db.add(TiempoEstudio(usuario_id=uid, segundos_total=body.segundos))
     db.commit()
     return {"ok": True}
+
+
+@app.post("/api/racha")
+def registrar_racha(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    from datetime import date, timedelta
+    uid = int(current_user["sub"])
+    hoy = date.today()
+    registro = db.query(RachaDiaria).filter(RachaDiaria.usuario_id == uid).first()
+    if not registro:
+        db.add(RachaDiaria(usuario_id=uid, racha_actual=1, racha_maxima=1, ultimo_dia=datetime.utcnow()))
+        db.commit()
+        return {"racha": 1, "maxima": 1, "nueva": True}
+    ultimo = registro.ultimo_dia.date()
+    if ultimo == hoy:
+        return {"racha": registro.racha_actual, "maxima": registro.racha_maxima, "nueva": False}
+    elif ultimo == hoy - timedelta(days=1):
+        registro.racha_actual += 1
+        registro.racha_maxima = max(registro.racha_maxima, registro.racha_actual)
+        registro.ultimo_dia = datetime.utcnow()
+        db.commit()
+        return {"racha": registro.racha_actual, "maxima": registro.racha_maxima, "nueva": True}
+    else:
+        registro.racha_actual = 1
+        registro.ultimo_dia = datetime.utcnow()
+        db.commit()
+        return {"racha": 1, "maxima": registro.racha_maxima, "nueva": False}
+
+
+@app.get("/api/racha")
+def obtener_racha(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    registro = db.query(RachaDiaria).filter(RachaDiaria.usuario_id == uid).first()
+    if not registro:
+        return {"racha": 0, "maxima": 0}
+    return {"racha": registro.racha_actual, "maxima": registro.racha_maxima}
+
+
+@app.get("/api/admin/sugerencias")
+def ver_sugerencias(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    # Solo admin (primer usuario registrado, id=1)
+    if int(current_user["sub"]) != 1:
+        raise HTTPException(status_code=403, detail="Acceso denegado")
+    sug = db.query(Sugerencia, Usuario).outerjoin(Usuario, Sugerencia.usuario_id == Usuario.id)\
+        .order_by(Sugerencia.fecha.desc()).limit(100).all()
+    return [
+        {
+            "id": s.id,
+            "texto": s.texto,
+            "fecha": s.fecha.isoformat(),
+            "usuario": u.nombre or u.email if u else "Anónimo",
+        }
+        for s, u in sug
+    ]
 
 
 @app.get("/api/ranking")

@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { apiFetch } from '../utils/api'
 
@@ -80,9 +80,14 @@ const CURSOS = [
 
 function ProgresoCard() {
   const [progresos, setProgresos] = useState([])
+  const [racha, setRacha] = useState(null)
 
   useEffect(() => {
     setProgresos(CURSOS.map(c => ({ ...c, progreso: c.getProgreso() })))
+    apiFetch('/api/racha', { method: 'POST' })
+      .then(r => r.json())
+      .then(setRacha)
+      .catch(() => {})
   }, [])
 
   // Solo mostrar cursos con algún progreso, o todos si ninguno tiene
@@ -91,7 +96,15 @@ function ProgresoCard() {
 
   return (
     <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 mb-5">
-      <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3">Mi progreso</p>
+      <div className="flex items-center justify-between mb-3">
+        <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Mi progreso</p>
+        {racha && racha.racha > 0 && (
+          <div className="flex items-center gap-1 bg-orange-50 border border-orange-200 rounded-full px-2.5 py-1">
+            <span className="text-sm">🔥</span>
+            <span className="text-xs font-bold text-orange-600">{racha.racha} {racha.racha === 1 ? 'día' : 'días'}</span>
+          </div>
+        )}
+      </div>
       <div className="space-y-3">
         {mostrar.map(c => {
           const { hecho, total, label } = c.progreso || { hecho: 0, total: 1, label: '' }
@@ -118,24 +131,6 @@ function ProgresoCard() {
   )
 }
 
-function useTiempoTracker() {
-  const inicio = useRef(Date.now())
-  useEffect(() => {
-    const enviar = () => {
-      const seg = Math.floor((Date.now() - inicio.current) / 1000)
-      if (seg > 5) apiFetch('/api/tiempo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ segundos: seg }) }).catch(() => {})
-    }
-    window.addEventListener('beforeunload', enviar)
-    const id = setInterval(() => {
-      const seg = Math.floor((Date.now() - inicio.current) / 1000)
-      if (seg > 0 && seg % 60 === 0) {
-        apiFetch('/api/tiempo', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ segundos: 60 }) }).catch(() => {})
-        inicio.current = Date.now()
-      }
-    }, 10000)
-    return () => { window.removeEventListener('beforeunload', enviar); clearInterval(id) }
-  }, [])
-}
 
 function FormSugerencia() {
   const [texto, setTexto] = useState('')
@@ -185,7 +180,6 @@ function FormSugerencia() {
 }
 
 export default function Home() {
-  useTiempoTracker()
   const navigate = useNavigate()
 
   return (

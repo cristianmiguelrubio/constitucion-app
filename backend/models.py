@@ -114,6 +114,19 @@ class TiempoEstudio(Base):
     usuario: Mapped["Usuario"] = relationship("Usuario")
 
 
+class RachaDiaria(Base):
+    __tablename__ = "racha_diaria"
+    __table_args__ = (UniqueConstraint("usuario_id"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    racha_actual: Mapped[int] = mapped_column(Integer, default=1)
+    racha_maxima: Mapped[int] = mapped_column(Integer, default=1)
+    ultimo_dia: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+    usuario: Mapped["Usuario"] = relationship("Usuario")
+
+
 class TokenRecuperacion(Base):
     __tablename__ = "tokens_recuperacion"
 

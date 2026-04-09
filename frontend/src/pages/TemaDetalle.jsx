@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import TextoFormateado from '../components/TextoFormateado'
 import { apiFetch } from '../utils/api'
@@ -35,6 +35,8 @@ export default function TemaDetalle() {
   const [respuestas, setRespuestas] = useState({})
   const [enviado, setEnviado] = useState(false)
   const [completado, setCompletado] = useState(false)
+  const [cronometro, setCronometro] = useState(0)
+  const cronRef = useRef(null)
 
   const num = parseInt(numero)
 
@@ -72,6 +74,9 @@ export default function TemaDetalle() {
         setQuiz(mezcladas)
         setRespuestas({})
         setEnviado(false)
+        setCronometro(0)
+        clearInterval(cronRef.current)
+        cronRef.current = setInterval(() => setCronometro(s => s + 1), 1000)
         setVista('quiz')
       })
   }
@@ -86,6 +91,7 @@ export default function TemaDetalle() {
           localStorage.setItem(clavePregunta(slug, numero), '1')
           setCompletado(true)
         }
+        clearInterval(cronRef.current)
         setEnviado(true)
       }
       return nuevo
@@ -212,13 +218,19 @@ export default function TemaDetalle() {
       {/* Quiz */}
       {vista === 'quiz' && quiz && (
         <div className="mb-4">
-          {/* Info test */}
+          {/* Info test + cronómetro */}
           {!enviado && (
             <div className="bg-brand-50 border border-brand-100 rounded-xl px-4 py-3 mb-4 flex items-center gap-3">
               <span className="text-2xl">🧠</span>
-              <div>
-                <p className="text-sm font-semibold text-brand-700">{quiz.length} preguntas</p>
-                <p className="text-xs text-brand-500">Necesitas un 30% para superar el test</p>
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-brand-700">{quiz.length} preguntas · mín. 30% para superar</p>
+                <p className="text-xs text-brand-400">{Object.keys(respuestas).length}/{quiz.length} respondidas</p>
+              </div>
+              <div className="shrink-0 text-right">
+                <p className="text-lg font-bold text-brand-700 tabular-nums">
+                  {String(Math.floor(cronometro / 60)).padStart(2,'0')}:{String(cronometro % 60).padStart(2,'0')}
+                </p>
+                <p className="text-[10px] text-brand-400">tiempo</p>
               </div>
             </div>
           )}
@@ -288,6 +300,9 @@ export default function TemaDetalle() {
               </p>
               <p className={`text-lg font-semibold mb-1 ${pct >= 30 ? 'text-green-600' : 'text-red-500'}`}>
                 {pct}%
+              </p>
+              <p className="text-xs text-gray-400 mb-1">
+                ⏱ {String(Math.floor(cronometro / 60)).padStart(2,'0')}:{String(cronometro % 60).padStart(2,'0')} empleados
               </p>
               {pct >= 30 ? (
                 <p className="text-sm text-green-600 font-medium">✓ Test superado — tema marcado como completado</p>
