@@ -90,17 +90,18 @@ function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
       </div>
       <div className="space-y-2 mb-5">
         {p.opciones.map((op, i) => {
-          let cls = 'w-full text-left px-4 py-3 rounded-xl border-2 text-sm font-medium transition-all '
+          let cls = 'w-full text-left px-4 py-3 rounded-xl border-2 text-sm transition-all flex gap-2 items-start '
           if (!seleccionada) cls += 'border-gray-200 active:border-brand-400 active:bg-brand-50 text-gray-700'
-          else if (op === p.respuesta_correcta) cls += 'border-green-400 bg-green-50 text-green-800'
+          else if (op === p.respuesta_correcta) cls += 'border-green-400 bg-green-50 text-green-800 font-medium'
           else if (op === seleccionada) cls += 'border-red-400 bg-red-50 text-red-700'
           else cls += 'border-gray-100 text-gray-400'
+          const marca = seleccionada
+            ? op === p.respuesta_correcta ? '✓' : op === seleccionada ? '✗' : String.fromCharCode(65 + i) + '.'
+            : String.fromCharCode(65 + i) + '.'
           return (
             <button key={i} onClick={() => responder(op)} className={cls}>
-              <span className="font-bold text-gray-400 mr-2">{String.fromCharCode(65 + i)}.</span>
-              {op}
-              {seleccionada && op === p.respuesta_correcta && ' ✓'}
-              {seleccionada && op === seleccionada && op !== p.respuesta_correcta && ' ✗'}
+              <span className="shrink-0 font-bold text-[11px] mt-0.5 w-5">{marca}</span>
+              <span className="flex-1 whitespace-normal break-words leading-relaxed">{op}</span>
             </button>
           )
         })}

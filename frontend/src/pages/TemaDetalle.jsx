@@ -256,11 +256,12 @@ export default function TemaDetalle() {
                           {n}. {p.pregunta}
                         </p>
                         <div className="space-y-2">
-                          {p.opciones.map(({ key, texto }) => {
+                          {p.opciones.map(({ key, texto }, oi) => {
+                            const letra = ['A', 'B', 'C', 'D'][oi]
                             const elegida = respuestas[p.id] === key
                             const esCorrecta = key === 'correcta'
                             const yaRespondida = !!respuestas[p.id]
-                            let cls = 'w-full text-left px-3 py-2.5 rounded-xl border text-[13px] leading-snug transition-colors '
+                            let cls = 'w-full text-left px-3 py-2.5 rounded-xl border text-[13px] leading-relaxed transition-colors flex gap-2 items-start '
                             if (!yaRespondida) {
                               cls += 'border-gray-200 text-gray-700 active:bg-gray-50'
                             } else {
@@ -270,9 +271,10 @@ export default function TemaDetalle() {
                             }
                             return (
                               <button key={key} onClick={() => elegir(p.id, key)} className={cls}>
-                                {yaRespondida && esCorrecta && <span className="mr-1.5">✓</span>}
-                                {yaRespondida && elegida && !esCorrecta && <span className="mr-1.5">✗</span>}
-                                {texto}
+                                <span className="shrink-0 font-bold text-[11px] mt-0.5 w-4">
+                                  {yaRespondida && esCorrecta ? '✓' : yaRespondida && elegida && !esCorrecta ? '✗' : letra+'.'}
+                                </span>
+                                <span className="flex-1 whitespace-normal break-words">{texto}</span>
                               </button>
                             )
                           })}
