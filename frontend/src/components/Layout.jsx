@@ -38,7 +38,8 @@ export default function Layout({ children, usuario, onLogout }) {
 
           <Link to="/" className="font-bold text-base leading-tight shrink-0 flex items-center gap-1.5">
             <span className="text-xl">📜</span>
-            <span className="hidden sm:inline">Constitución</span>
+            <span className="hidden sm:inline">Oposiciones del Estado</span>
+            <span className="sm:hidden text-sm">Oposiciones del Estado</span>
           </Link>
 
           {/* Buscador — escritorio */}

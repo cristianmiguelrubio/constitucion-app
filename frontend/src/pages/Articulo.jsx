@@ -15,7 +15,7 @@ export default function Articulo({ usuario }) {
 
   useEffect(() => {
     setCargando(true)
-    fetch(`/api/articulos/${numero}`)
+    apiFetch(`/api/articulos/${numero}`)
       .then(r => r.ok ? r.json() : Promise.reject())
       .then(data => {
         setArt(data)
@@ -35,14 +35,11 @@ export default function Articulo({ usuario }) {
     setEstudiado(!estudiado)
 
     // Sincronizar con servidor si hay usuario
-    const token = localStorage.getItem('token')
-    if (token) {
-      apiFetch('/api/progreso', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        body: JSON.stringify({ articulo_numero: numero, estudiado: !estudiado, nota }),
-      }).catch(() => {})
-    }
+    apiFetch('/api/progreso', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ articulo_numero: numero, estudiado: !estudiado, nota }),
+    }).catch(() => {})
   }
 
   const guardarNota = (val) => {
@@ -53,12 +50,10 @@ export default function Articulo({ usuario }) {
   }
 
   const guardarNotaServidor = () => {
-    const token = localStorage.getItem('token')
-    if (!token) return
     setGuardandoNota(true)
     apiFetch('/api/progreso', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ articulo_numero: numero, estudiado, nota }),
     }).finally(() => setGuardandoNota(false))
   }

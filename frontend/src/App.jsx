@@ -16,6 +16,7 @@ import Admin from './pages/Admin'
 import Oposiciones from './pages/Oposiciones'
 import OposicionTemas from './pages/OposicionTemas'
 import TemaDetalle from './pages/TemaDetalle'
+import Flashcards from './pages/Flashcards'
 
 function useTiempoGlobal(usuario) {
   const inicio = useRef(Date.now())
@@ -72,6 +73,7 @@ export default function App() {
           <Route path="/oposiciones" element={<Oposiciones />} />
           <Route path="/oposiciones/:slug" element={<OposicionTemas />} />
           <Route path="/oposiciones/:slug/temas/:numero" element={<TemaDetalle />} />
+          <Route path="/flashcards" element={<Flashcards />} />
         </Routes>
       </Layout>
       <InstallPrompt />

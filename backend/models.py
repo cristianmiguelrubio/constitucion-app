@@ -125,6 +125,16 @@ class TemaCompletado(Base):
     completado_en: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
 
+class TiempoEstudioDiario(Base):
+    __tablename__ = "tiempo_estudio_diario"
+    __table_args__ = (UniqueConstraint("usuario_id", "fecha"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    fecha: Mapped[datetime] = mapped_column(DateTime)  # solo la fecha (sin hora)
+    segundos: Mapped[int] = mapped_column(Integer, default=0)
+
+
 class RachaDiaria(Base):
     __tablename__ = "racha_diaria"
     __table_args__ = (UniqueConstraint("usuario_id"),)

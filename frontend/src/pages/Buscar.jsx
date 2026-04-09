@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSearchParams, Link } from 'react-router-dom'
+import { apiFetch } from '../utils/api'
 
 export default function Buscar() {
   const [searchParams] = useSearchParams()
@@ -11,7 +12,7 @@ export default function Buscar() {
   useEffect(() => {
     if (q.length < 2) return
     setCargando(true)
-    fetch(`/api/buscar?q=${encodeURIComponent(q)}`)
+    apiFetch(`/api/buscar?q=${encodeURIComponent(q)}`)
       .then(r => r.json())
       .then(data => { setResultados(data); setBuscado(q); setCargando(false) })
       .catch(() => setCargando(false))

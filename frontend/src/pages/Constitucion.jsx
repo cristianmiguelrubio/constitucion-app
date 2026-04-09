@@ -2,6 +2,7 @@ import { apiFetch } from '../utils/api'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+
 export default function Constitucion() {
   const [estructura, setEstructura] = useState(null)
   const [cargando, setCargando] = useState(true)
@@ -70,6 +71,19 @@ export default function Constitucion() {
         </div>
         <p className="text-xs text-gray-400 text-right">{porcentaje}% completado</p>
       </div>
+
+      {/* Acceso rápido a Flashcards */}
+      <Link
+        to="/flashcards"
+        className="flex items-center gap-3 card mb-5 bg-violet-50 border-violet-200 hover:border-violet-400 transition-colors"
+      >
+        <span className="text-2xl">🃏</span>
+        <div className="flex-1 min-w-0">
+          <p className="text-sm font-semibold text-violet-700">Repasar con Flashcards</p>
+          <p className="text-xs text-violet-400">Estudia los artículos uno a uno con volteo de tarjeta</p>
+        </div>
+        <span className="text-violet-400 text-sm">→</span>
+      </Link>
 
       <div className="space-y-2">
         {titulos.map(([titulo, bloques]) => {

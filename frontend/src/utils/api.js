@@ -9,7 +9,8 @@ export function apiFetch(url, options = {}) {
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
   }
   return fetch(url, { ...options, headers }).then(res => {
-    if (res.status === 401) {
+    if (res.status === 401 && token) {
+      // Solo limpiar y recargar si había token (sesión expirada)
       localStorage.removeItem('token')
       localStorage.removeItem('usuario')
       window.location.reload()

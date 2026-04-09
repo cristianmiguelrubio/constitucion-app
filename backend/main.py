@@ -12,14 +12,23 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
 from auth import hash_password, verify_password, crear_token, get_current_user, verificar_token
+from email_utils import ADMIN_EMAIL
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+
+def es_admin(current_user: dict, db: Session) -> bool:
+    uid = int(current_user["sub"])
+    if uid == 1:
+        return True
+    usuario = db.query(Usuario).filter(Usuario.id == uid).first()
+    return usuario is not None and usuario.email == ADMIN_EMAIL
 
 # Rutas públicas que no requieren token
 RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset", "/api/ranking"}
@@ -255,11 +264,12 @@ def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
     db.commit()
 
     enviado = enviar_codigo_recuperacion(email, codigo)
-    if not enviado and not email_configurado():
-        # Dev mode: devolver código en respuesta (solo si SMTP no está configurado)
+    if not enviado:
+        # Si falló el envío, mostrar el código en pantalla como fallback
+        logger.error(f"Fallo al enviar email de recuperación a {email}")
         return {"ok": True, "email_enviado": False, "dev_codigo": codigo}
 
-    return {"ok": True, "email_enviado": enviado}
+    return {"ok": True, "email_enviado": True}
 
 
 @app.post("/api/auth/reset")
@@ -361,7 +371,7 @@ def marcar_tema_completado(
 
 @app.get("/api/admin/usuarios")
 def listar_usuarios(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
-    if int(current_user["sub"]) != 1:
+    if not es_admin(current_user, db):
         raise HTTPException(status_code=403, detail="Acceso denegado")
     usuarios = db.query(Usuario).order_by(Usuario.fecha_registro.desc()).all()
     return [
@@ -670,8 +680,17 @@ class SugerenciaIn(BaseModel):
 def enviar_sugerencia(body: SugerenciaIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     if not body.texto or len(body.texto.strip()) < 5:
         raise HTTPException(status_code=400, detail="Sugerencia demasiado corta")
-    db.add(Sugerencia(usuario_id=int(current_user["sub"]), texto=body.texto.strip()[:1000]))
+    uid = int(current_user["sub"])
+    db.add(Sugerencia(usuario_id=uid, texto=body.texto.strip()[:1000]))
     db.commit()
+    # Notificar al admin por email
+    try:
+        from email_utils import enviar_notificacion_sugerencia
+        usuario = db.query(Usuario).filter(Usuario.id == uid).first()
+        email_usuario = usuario.email if usuario else "usuario desconocido"
+        enviar_notificacion_sugerencia(body.texto.strip()[:1000], email_usuario)
+    except Exception:
+        pass
     return {"ok": True}
 
 
@@ -683,12 +702,28 @@ def registrar_tiempo(body: TiempoIn, current_user: dict = Depends(get_current_us
     if body.segundos <= 0:
         return {"ok": True}
     uid = int(current_user["sub"])
+    ahora = datetime.utcnow()
+
+    # Tiempo total acumulado
     registro = db.query(TiempoEstudio).filter(TiempoEstudio.usuario_id == uid).first()
     if registro:
         registro.segundos_total += body.segundos
-        registro.ultima_actualizacion = datetime.utcnow()
+        registro.ultima_actualizacion = ahora
     else:
         db.add(TiempoEstudio(usuario_id=uid, segundos_total=body.segundos))
+
+    # Tiempo diario (fecha sin hora, en UTC)
+    from datetime import date
+    hoy = datetime(ahora.year, ahora.month, ahora.day)
+    diario = db.query(TiempoEstudioDiario).filter(
+        TiempoEstudioDiario.usuario_id == uid,
+        TiempoEstudioDiario.fecha == hoy,
+    ).first()
+    if diario:
+        diario.segundos += body.segundos
+    else:
+        db.add(TiempoEstudioDiario(usuario_id=uid, fecha=hoy, segundos=body.segundos))
+
     db.commit()
     return {"ok": True}
 
@@ -731,7 +766,7 @@ def obtener_racha(current_user: dict = Depends(get_current_user), db: Session = 
 @app.get("/api/admin/sugerencias")
 def ver_sugerencias(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     # Solo admin (primer usuario registrado, id=1)
-    if int(current_user["sub"]) != 1:
+    if not es_admin(current_user, db):
         raise HTTPException(status_code=403, detail="Acceso denegado")
     sug = db.query(Sugerencia, Usuario).outerjoin(Usuario, Sugerencia.usuario_id == Usuario.id)\
         .order_by(Sugerencia.fecha.desc()).limit(100).all()
@@ -747,7 +782,42 @@ def ver_sugerencias(current_user: dict = Depends(get_current_user), db: Session 
 
 
 @app.get("/api/ranking")
-def ranking(db: Session = Depends(get_db)):
+def ranking(periodo: str = "total", db: Session = Depends(get_db)):
+    from sqlalchemy import func
+    from datetime import date, timedelta
+
+    if periodo in ("hoy", "semana"):
+        if periodo == "hoy":
+            hoy = datetime.utcnow()
+            fecha_inicio = datetime(hoy.year, hoy.month, hoy.day)
+        else:
+            hace7 = datetime.utcnow() - timedelta(days=7)
+            fecha_inicio = datetime(hace7.year, hace7.month, hace7.day)
+
+        registros = (
+            db.query(
+                TiempoEstudioDiario.usuario_id,
+                func.sum(TiempoEstudioDiario.segundos).label("total"),
+                Usuario.nombre,
+                Usuario.email,
+            )
+            .join(Usuario, TiempoEstudioDiario.usuario_id == Usuario.id)
+            .filter(TiempoEstudioDiario.fecha >= fecha_inicio)
+            .group_by(TiempoEstudioDiario.usuario_id)
+            .order_by(func.sum(TiempoEstudioDiario.segundos).desc())
+            .limit(20)
+            .all()
+        )
+        return [
+            {
+                "posicion": i + 1,
+                "nombre": r.nombre or r.email.split("@")[0],
+                "segundos": r.total or 0,
+            }
+            for i, r in enumerate(registros)
+        ]
+
+    # Total histórico
     registros = (
         db.query(TiempoEstudio, Usuario)
         .join(Usuario, TiempoEstudio.usuario_id == Usuario.id)
@@ -760,15 +830,14 @@ def ranking(db: Session = Depends(get_db)):
             "posicion": i + 1,
             "nombre": u.nombre or u.email.split("@")[0],
             "segundos": t.segundos_total,
-            "horas": round(t.segundos_total / 3600, 1),
         }
         for i, (t, u) in enumerate(registros)
     ]
 
 
 @app.post("/api/admin/actualizar")
-def forzar_actualizacion(current_user: dict = Depends(get_current_user)):
-    if int(current_user["sub"]) != 1:
+def forzar_actualizacion(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    if not es_admin(current_user, db):
         raise HTTPException(status_code=403, detail="Acceso denegado")
     from scheduler import ejecutar_comprobacion_boe
     ejecutar_comprobacion_boe()
@@ -805,10 +874,10 @@ def _serializar_articulo(a: Articulo, breve: bool = False) -> dict:
         "titulo_titulo": a.titulo_titulo,
         "titulo_capitulo": a.titulo_capitulo,
         "titulo_seccion": a.titulo_seccion,
+        "contenido": a.contenido,
         "actualizado_en": a.actualizado_en.isoformat(),
     }
     if not breve:
-        base["contenido"] = a.contenido
         base["cambios"] = [
             {
                 "id": c.id,

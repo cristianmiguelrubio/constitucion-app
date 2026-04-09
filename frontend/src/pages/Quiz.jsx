@@ -149,12 +149,12 @@ export default function Quiz() {
     const url = temaSeleccionado
       ? `/api/quiz?limite=${TOTAL}&tema=${encodeURIComponent(temaSeleccionado)}`
       : `/api/quiz?limite=${TOTAL}`
-    return fetch(url).then(r => r.json())
+    return apiFetch(url).then(r => r.json())
   }, [temaSeleccionado])
 
   // Fetch preguntas policía local
   const fetchPolicia = useCallback(() =>
-    fetch(`/api/oposiciones/policia-local/quiz?limite=${TOTAL}`).then(r => r.json())
+    apiFetch(`/api/oposiciones/policia-local/quiz?limite=${TOTAL}`).then(r => r.json())
   , [])
 
   // ── Selector de modo ─────────────────────────────────────────────────────

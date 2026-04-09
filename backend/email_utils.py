@@ -17,6 +17,46 @@ def email_configurado():
     return bool(SMTP_HOST and SMTP_USER and SMTP_PASS)
 
 
+ADMIN_EMAIL = os.getenv("ADMIN_EMAIL", "cristianmiguelrubio@gmail.com")
+
+
+def enviar_notificacion_sugerencia(texto: str, usuario_email: str) -> bool:
+    if not email_configurado():
+        return False
+    try:
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = "💡 Nueva sugerencia recibida — Oposiciones del Estado"
+        msg["From"] = EMAIL_FROM
+        msg["To"] = ADMIN_EMAIL
+
+        html = f"""
+        <div style="font-family: sans-serif; max-width: 480px; margin: auto; padding: 24px;">
+          <h2 style="color: #1e3a5f;">💡 Nueva sugerencia</h2>
+          <p style="color: #444;">De: <strong>{usuario_email}</strong></p>
+          <div style="background: #f0f4ff; border-left: 4px solid #1e3a5f; padding: 16px;
+                      border-radius: 8px; margin: 16px 0; color: #333; font-size: 15px;">
+            {texto}
+          </div>
+          <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+          <p style="color: #aaa; font-size: 12px;">Oposiciones del Estado · Panel admin: /admin</p>
+        </div>
+        """
+
+        msg.attach(MIMEText(html, "html"))
+
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASS)
+            server.sendmail(EMAIL_FROM, ADMIN_EMAIL, msg.as_string())
+
+        logger.info(f"Notificación de sugerencia enviada al admin")
+        return True
+
+    except Exception as e:
+        logger.error(f"Error enviando notificación de sugerencia: {e}")
+        return False
+
+
 def enviar_codigo_recuperacion(destinatario: str, codigo: str) -> bool:
     if not email_configurado():
         logger.warning("Email no configurado — SMTP_HOST, SMTP_USER, SMTP_PASS requeridos")
@@ -57,5 +97,5 @@ def enviar_codigo_recuperacion(destinatario: str, codigo: str) -> bool:
         return True
 
     except Exception as e:
-        logger.error(f"Error enviando email a {destinatario}: {e}")
+        logger.error(f"Error enviando email a {destinatario}: {type(e).__name__}: {e}")
         return False

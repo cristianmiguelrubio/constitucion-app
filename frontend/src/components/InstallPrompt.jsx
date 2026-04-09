@@ -11,13 +11,11 @@ export default function InstallPrompt() {
   const [oculto, setOculto] = useState(false)
 
   useEffect(() => {
-    // Ya instalada o ya descartada
-    if (
+    // No mostrar si ya está instalada como PWA (standalone) o descartada
+    const esStandalone =
       window.matchMedia('(display-mode: standalone)').matches ||
-      localStorage.getItem('pwa_descartada')
-    ) {
-      return
-    }
+      window.navigator.standalone === true  // iOS Safari instalada
+    if (esStandalone || localStorage.getItem('pwa_descartada')) return
 
     // Android / Chrome
     const handler = (e) => {
@@ -26,11 +24,13 @@ export default function InstallPrompt() {
     }
     window.addEventListener('beforeinstallprompt', handler)
 
-    // iOS Safari
+    // iOS Safari — solo mostrar si no está instalada
     const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent)
     const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent)
-    if (isIOS && isSafari) {
-      setMostrarIOS(true)
+    if (isIOS && isSafari && !esStandalone) {
+      // Esperar 5 segundos antes de mostrar para no interrumpir al entrar
+      const t = setTimeout(() => setMostrarIOS(true), 5000)
+      return () => { clearTimeout(t); window.removeEventListener('beforeinstallprompt', handler) }
     }
 
     return () => window.removeEventListener('beforeinstallprompt', handler)
@@ -54,7 +54,7 @@ export default function InstallPrompt() {
   if (oculto || (!promptEvt && !mostrarIOS)) return null
 
   return (
-    <div className="fixed bottom-4 left-4 right-4 z-40 max-w-sm mx-auto">
+    <div className="fixed left-4 right-4 z-40 max-w-sm mx-auto" style={{ bottom: 'calc(env(safe-area-inset-bottom, 0px) + 72px)' }}>
       <div className="bg-brand-700 text-white rounded-2xl shadow-2xl p-4">
         <div className="flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
