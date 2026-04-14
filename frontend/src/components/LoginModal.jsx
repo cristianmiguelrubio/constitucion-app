@@ -123,9 +123,8 @@ export default function LoginModal({ onLogin }) {
             <p className="text-sm text-gray-600 mb-1">Introduce el código que te enviamos y tu nueva contraseña.</p>
             {devCodigo && (
               <div className="bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5 text-sm">
-                <p className="text-amber-700 font-medium">Modo desarrollo</p>
-                <p className="text-amber-600">Código: <span className="font-bold tracking-widest">{devCodigo}</span></p>
-                <p className="text-xs text-amber-500 mt-0.5">Configura SMTP_HOST en Railway para enviar emails reales</p>
+                <p className="text-amber-700 font-medium">Email no disponible — usa este código:</p>
+                <p className="text-amber-600 text-xl font-bold tracking-widest text-center py-1">{devCodigo}</p>
               </div>
             )}
             <div>
