@@ -1084,7 +1084,7 @@ def obtener_planes():
 
 # ── IA Tutora ────────────────────────────────────────────────────────────────
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 
 class TutorIn(BaseModel):
     pregunta: str
@@ -1098,11 +1098,13 @@ def ia_tutora(body: TutorIn, current_user: dict = Depends(get_current_user), db:
     usuario = get_usuario_or_401(uid, db)
     if usuario.plan not in ("pro", "vitalicio"):
         raise HTTPException(status_code=403, detail="La IA tutora requiere plan Pro o Vitalicio")
-    if not ANTHROPIC_API_KEY:
+    if not GEMINI_API_KEY:
         raise HTTPException(status_code=503, detail="IA no configurada")
 
-    import anthropic
-    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    import google.generativeai as genai
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel("gemini-1.5-flash")
+
     prompt = f"""Eres un tutor experto en oposiciones del Estado español. El alumno ha fallado una pregunta.
 
 Pregunta: {body.pregunta}
@@ -1117,12 +1119,8 @@ Explica de forma clara y concisa (máx 3 párrafos):
 
 Responde en español, tono cercano y motivador."""
 
-    message = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=500,
-        messages=[{"role": "user", "content": prompt}],
-    )
-    return {"explicacion": message.content[0].text}
+    response = model.generate_content(prompt)
+    return {"explicacion": response.text}
 
 
 @app.post("/api/admin/actualizar")
