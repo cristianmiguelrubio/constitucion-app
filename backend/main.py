@@ -167,6 +167,16 @@ async def startup():
             logger.info("seed_temas.py no encontrado — temas se cargarán manualmente")
         except Exception as e:
             logger.warning(f"Error cargando temas: {e}")
+        # Cargar temas de Guardia Civil si no existen
+        try:
+            from seed_temas_gc import TEMAS_GUARDIA_CIVIL
+            op_gc = db.query(Oposicion).filter(Oposicion.slug == "guardia-civil").first()
+            if op_gc is None or db.query(Tema).filter(Tema.oposicion_id == (op_gc.id if op_gc else -1)).count() == 0:
+                _cargar_temas_gc(db, TEMAS_GUARDIA_CIVIL)
+        except ImportError:
+            logger.info("seed_temas_gc.py no encontrado — temas GC se cargarán manualmente")
+        except Exception as e:
+            logger.warning(f"Error cargando temas Guardia Civil: {e}")
         # Cargar oposiciones base si no existen
         _cargar_oposiciones_base(db)
     finally:
@@ -231,6 +241,42 @@ def _cargar_preguntas_temas(db: Session, temas: list):
             total += 1
     db.commit()
     logger.info(f"Cargadas {total} preguntas en temas existentes")
+
+
+def _cargar_temas_gc(db: Session, temas: list):
+    op = db.query(Oposicion).filter(Oposicion.slug == "guardia-civil").first()
+    if not op:
+        op = Oposicion(
+            slug="guardia-civil", nombre="Guardia Civil",
+            descripcion="Temario oficial para oposiciones a la Guardia Civil",
+            icono="⭐", activa=True, orden=3,
+        )
+        db.add(op)
+        db.flush()
+    for t in temas:
+        existe = db.query(Tema).filter(Tema.oposicion_id == op.id, Tema.numero == t["numero"]).first()
+        if not existe:
+            nuevo = Tema(
+                oposicion_id=op.id,
+                numero=t["numero"],
+                titulo=t["titulo"],
+                contenido=t["contenido"],
+                resumen=t.get("resumen"),
+            )
+            db.add(nuevo)
+            db.flush()
+            for p in t.get("preguntas", []):
+                db.add(PreguntaTema(
+                    tema_id=nuevo.id,
+                    seccion=p.get("seccion"),
+                    pregunta=p["pregunta"],
+                    respuesta_correcta=p["respuesta_correcta"],
+                    opcion_b=p["opcion_b"],
+                    opcion_c=p["opcion_c"],
+                    opcion_d=p["opcion_d"],
+                ))
+    db.commit()
+    logger.info(f"Cargados {len(temas)} temas de Guardia Civil")
 
 
 OPOSICIONES_BASE = [
