@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import TextoFormateado from '../components/TextoFormateado'
 import { apiFetch } from '../utils/api'
+import { usePlan } from '../hooks/usePlan'
 
 const COLORES_NUM = [
   'bg-brand-100 text-brand-700',
@@ -28,6 +29,7 @@ function clavePregunta(slug, numero) {
 export default function TemaDetalle() {
   const { slug, numero } = useParams()
   const navigate = useNavigate()
+  const plan = usePlan()
   const [tema, setTema] = useState(null)
   const [cargando, setCargando] = useState(true)
   const [vista, setVista] = useState('contenido')
@@ -115,6 +117,43 @@ export default function TemaDetalle() {
     acc[sec].push(p)
     return acc
   }, {}) : {}
+
+  // Trial: bloquear temas > 1
+  if (plan && plan.es_trial && num > 1) {
+    return (
+      <div className="max-w-xl mx-auto">
+        <div className="flex items-center gap-1 text-xs text-gray-400 mb-3">
+          <Link to="/oposiciones" className="hover:text-brand-500">Oposiciones</Link>
+          <span>/</span>
+          <Link to={`/oposiciones/${slug}`} className="hover:text-brand-500 capitalize">{slug.replace(/-/g,' ')}</Link>
+          <span>/</span>
+          <span className="text-gray-600">Tema {numero}</span>
+        </div>
+        <div className="min-h-[60vh] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-sm w-full text-center border border-gray-100">
+            <div className="w-16 h-16 bg-amber-50 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl">🔒</div>
+            <h2 className="text-lg font-bold text-gray-800 mb-2">Solo disponible con suscripción</h2>
+            <p className="text-gray-500 text-sm mb-2 leading-relaxed">
+              Tu periodo de prueba incluye acceso al <strong>Tema 1</strong> de cada oposición.
+            </p>
+            <p className="text-gray-400 text-sm mb-6">
+              Suscríbete para desbloquear los {slug === 'policia-local' ? '40' : 'todos los'} temas completos con test.
+            </p>
+            <button
+              onClick={() => navigate('/planes')}
+              className="w-full bg-gray-900 text-white py-3 rounded-xl font-semibold text-sm hover:bg-gray-800 transition-colors mb-3">
+              Ver planes →
+            </button>
+            <button
+              onClick={() => navigate(`/oposiciones/${slug}/temas/1`)}
+              className="w-full border border-gray-200 text-gray-600 py-2.5 rounded-xl text-sm font-medium">
+              ← Ir al Tema 1
+            </button>
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   if (cargando) return (
     <div className="flex justify-center mt-24">
@@ -332,12 +371,21 @@ export default function TemaDetalle() {
             ← Índice
           </Link>
         )}
-        <button
-          onClick={() => navigate(`/oposiciones/${slug}/temas/${num + 1}`)}
-          className="flex-1 py-3 border border-gray-200 rounded-xl text-sm text-brand-500 font-medium active:bg-gray-50"
-        >
-          Tema {num + 1} →
-        </button>
+        {plan?.es_trial ? (
+          <button
+            onClick={() => navigate('/planes')}
+            className="flex-1 py-3 border border-amber-200 rounded-xl text-sm text-amber-600 font-medium active:bg-amber-50 flex items-center justify-center gap-1"
+          >
+            🔒 Tema {num + 1} →
+          </button>
+        ) : (
+          <button
+            onClick={() => navigate(`/oposiciones/${slug}/temas/${num + 1}`)}
+            className="flex-1 py-3 border border-gray-200 rounded-xl text-sm text-brand-500 font-medium active:bg-gray-50"
+          >
+            Tema {num + 1} →
+          </button>
+        )}
       </div>
     </div>
   )

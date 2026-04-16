@@ -679,7 +679,18 @@ def listar_temas(slug: str, db: Session = Depends(get_db)):
 
 
 @app.get("/api/oposiciones/{slug}/temas/{numero}")
-def obtener_tema(slug: str, numero: int, db: Session = Depends(get_db)):
+def obtener_tema(slug: str, numero: int, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    # Trial solo puede acceder al tema 1
+    if numero > 1:
+        es_trial_activo = (
+            usuario.plan == "trial"
+            and usuario.trial_expira is not None
+            and datetime.utcnow() < usuario.trial_expira
+        )
+        if es_trial_activo or not tiene_acceso_premium(usuario):
+            raise HTTPException(status_code=403, detail="trial_only_tema1")
     op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
     if not op:
         raise HTTPException(status_code=404, detail="Oposición no encontrada")
@@ -752,7 +763,18 @@ def quiz_oposicion(slug: str, tema_id: int | None = None, limite: int = 10, db: 
 
 
 @app.get("/api/oposiciones/{slug}/temas/{numero}/quiz")
-def quiz_tema(slug: str, numero: int, limite: int = 10, db: Session = Depends(get_db)):
+def quiz_tema(slug: str, numero: int, limite: int = 10, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    # Trial solo puede acceder al quiz del tema 1
+    if numero > 1:
+        es_trial_activo = (
+            usuario.plan == "trial"
+            and usuario.trial_expira is not None
+            and datetime.utcnow() < usuario.trial_expira
+        )
+        if es_trial_activo or not tiene_acceso_premium(usuario):
+            raise HTTPException(status_code=403, detail="trial_only_tema1")
     op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
     if not op:
         raise HTTPException(status_code=404)
@@ -905,9 +927,15 @@ def obtener_plan(current_user: dict = Depends(get_current_user), db: Session = D
     uid = int(current_user["sub"])
     usuario = get_usuario_or_401(uid, db)
     premium = tiene_acceso_premium(usuario)
+    es_trial = (
+        usuario.plan == "trial"
+        and usuario.trial_expira is not None
+        and datetime.utcnow() < usuario.trial_expira
+    )
     return {
         "plan": usuario.plan,
         "premium": premium,
+        "es_trial": es_trial,
         "trial_expira": usuario.trial_expira.isoformat() if usuario.trial_expira else None,
         "plan_expira": usuario.plan_expira.isoformat() if usuario.plan_expira else None,
     }

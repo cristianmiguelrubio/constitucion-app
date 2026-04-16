@@ -66,7 +66,7 @@ export default function App() {
     setUsuario(u)
     if (esNuevo) {
       setTimeout(() => {
-        showToast('¡Bienvenido! Tienes 24 horas de acceso gratuito completo 🎉', 'success', 8000)
+        showToast('¡Bienvenido! 24h gratis: accede al Tema 1 de cada oposición 🎉', 'success', 8000)
       }, 800)
     }
   }
