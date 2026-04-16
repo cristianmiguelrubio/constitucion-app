@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { apiFetch } from '../utils/api'
 
 export default function LoginModal({ onLogin }) {
   const [modo, setModo] = useState('login') // 'login' | 'registro' | 'recuperar' | 'codigo'
@@ -34,12 +35,12 @@ export default function LoginModal({ onLogin }) {
       localStorage.setItem('token', data.token)
       localStorage.setItem('usuario', JSON.stringify({ email: data.email, nombre: data.nombre }))
       try {
-        const pr = await fetch('/api/progreso', { headers: { Authorization: `Bearer ${data.token}` } })
+        const pr = await apiFetch('/api/progreso')
         const progreso = await pr.json()
         if (Object.keys(progreso.estudiados || {}).length > 0) localStorage.setItem('estudiados', JSON.stringify(progreso.estudiados))
         if (Object.keys(progreso.notas || {}).length > 0) localStorage.setItem('notas', JSON.stringify(progreso.notas))
         // Cargar temas completados
-        const tc = await fetch('/api/temas-completados', { headers: { Authorization: `Bearer ${data.token}` } })
+        const tc = await apiFetch('/api/temas-completados')
         const temas = await tc.json()
         temas.forEach(({ slug, numero }) => {
           localStorage.setItem(`quiz_ok_${slug}_${numero}`, '1')
@@ -77,7 +78,7 @@ export default function LoginModal({ onLogin }) {
       localStorage.setItem('token', data.token)
       localStorage.setItem('usuario', JSON.stringify({ email: data.email, nombre: data.nombre }))
       try {
-        const tc = await fetch('/api/temas-completados', { headers: { Authorization: `Bearer ${data.token}` } })
+        const tc = await apiFetch('/api/temas-completados')
         const temas = await tc.json()
         temas.forEach(({ slug, numero }) => localStorage.setItem(`quiz_ok_${slug}_${numero}`, '1'))
       } catch {}
