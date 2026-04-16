@@ -1,5 +1,6 @@
 import { apiFetch } from '../utils/api'
 import { useEffect, useState, useCallback } from 'react'
+import TutorIA from '../components/TutorIA'
 
 const TOTAL = 10
 
@@ -66,6 +67,9 @@ function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
               <p className="text-sm text-gray-700 mb-1">{h.pregunta}</p>
               {h.elegida !== h.correcta && <p className="text-xs text-red-500">✗ {h.elegida}</p>}
               <p className="text-xs text-green-600 font-medium">✓ {h.correcta}</p>
+              {h.elegida !== h.correcta && (
+                <TutorIA pregunta={h.pregunta} respuestaUsuario={h.elegida} respuestaCorrecta={h.correcta} />
+              )}
             </div>
           ))}
         </div>

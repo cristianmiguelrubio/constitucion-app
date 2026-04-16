@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { to: '/',            label: 'Inicio',      icon: '🏠' },
   { to: '/constitucion',label: 'Constitución',icon: '📜' },
   { to: '/oposiciones', label: 'Oposiciones', icon: '👮' },
-  { to: '/quiz',        label: 'Test',        icon: '🧠' },
+  { to: '/simulacro',   label: 'Simulacro',   icon: '⏱' },
   { to: '/ranking',     label: 'Ranking',     icon: '🏆' },
 ]
 
@@ -72,6 +72,9 @@ export default function Layout({ children, usuario, onLogout }) {
           {/* Usuario escritorio */}
           {usuario && (
             <div className="hidden sm:flex items-center gap-2 shrink-0">
+              <Link to="/planes" className="text-xs bg-yellow-400 text-brand-900 font-semibold px-3 py-1 rounded-lg hover:bg-yellow-300 transition-colors">
+                Planes
+              </Link>
               <span className="text-xs text-white/60 truncate max-w-[130px]">
                 {usuario.nombre || usuario.email}
               </span>

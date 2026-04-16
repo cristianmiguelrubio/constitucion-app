@@ -1,5 +1,5 @@
 from datetime import datetime
-from sqlalchemy import Integer, String, Text, DateTime, ForeignKey, UniqueConstraint
+from sqlalchemy import Integer, String, Text, DateTime, ForeignKey, UniqueConstraint, Boolean, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from database import Base
 
@@ -43,6 +43,12 @@ class Usuario(Base):
     fecha_registro: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     ultima_visita: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
     visitas: Mapped[int] = mapped_column(Integer, default=1)
+    # Freemium
+    plan: Mapped[str] = mapped_column(String(20), default="trial")  # trial | free | basico | pro | vitalicio
+    trial_expira: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    plan_expira: Mapped[datetime | None] = mapped_column(DateTime, nullable=True)
+    stripe_customer_id: Mapped[str | None] = mapped_column(String(200), nullable=True)
+    stripe_subscription_id: Mapped[str | None] = mapped_column(String(200), nullable=True)
 
 
 class Oposicion(Base):
@@ -166,3 +172,22 @@ class Sugerencia(Base):
     usuario_id: Mapped[int | None] = mapped_column(ForeignKey("usuarios.id"), nullable=True)
     texto: Mapped[str] = mapped_column(Text)
     fecha: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
+class Simulacro(Base):
+    __tablename__ = "simulacros"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    tipo: Mapped[str] = mapped_column(String(50), default="constitucion")  # constitucion | policia-local | mixto
+    total_preguntas: Mapped[int] = mapped_column(Integer, default=65)
+    respondidas: Mapped[int] = mapped_column(Integer, default=0)
+    correctas: Mapped[int] = mapped_column(Integer, default=0)
+    incorrectas: Mapped[int] = mapped_column(Integer, default=0)
+    en_blanco: Mapped[int] = mapped_column(Integer, default=0)
+    puntuacion: Mapped[float | None] = mapped_column(Float, nullable=True)
+    tiempo_segundos: Mapped[int | None] = mapped_column(Integer, nullable=True)
+    completado: Mapped[bool] = mapped_column(Boolean, default=False)
+    fecha: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+    usuario: Mapped["Usuario"] = relationship("Usuario")

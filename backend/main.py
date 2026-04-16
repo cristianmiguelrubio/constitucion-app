@@ -5,14 +5,14 @@ from fastapi.responses import FileResponse, JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import or_
-from datetime import datetime
+from datetime import datetime, timedelta
 from pydantic import BaseModel
 import logging
 import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado, Simulacro
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -29,6 +29,21 @@ def get_usuario_or_401(uid: int, db: Session) -> "Usuario":
         raise HTTPException(status_code=401, detail="Sesión expirada")
     return u
 
+
+PLANES_PREMIUM = {"basico", "pro", "vitalicio"}
+
+def tiene_acceso_premium(usuario: "Usuario") -> bool:
+    """Devuelve True si el usuario tiene acceso premium activo (trial, plan de pago, o vitalicio)."""
+    if usuario.plan == "vitalicio":
+        return True
+    if usuario.plan == "trial":
+        if usuario.trial_expira and datetime.utcnow() < usuario.trial_expira:
+            return True
+        return False
+    if usuario.plan in PLANES_PREMIUM:
+        if usuario.plan_expira is None or datetime.utcnow() < usuario.plan_expira:
+            return True
+    return False
 
 def es_admin(current_user: dict, db: Session) -> bool:
     uid = int(current_user["sub"])
@@ -214,12 +229,17 @@ def registro(data: RegistroRequest, db: Session = Depends(get_db)):
         email=email,
         nombre=data.nombre,
         password_hash=hash_password(data.password),
+        plan="trial",
+        trial_expira=datetime.utcnow() + timedelta(hours=24),
     )
     db.add(usuario)
     db.commit()
     db.refresh(usuario)
     token = crear_token(usuario.id, usuario.email)
-    return {"token": token, "email": usuario.email, "nombre": usuario.nombre}
+    return {
+        "token": token, "email": usuario.email, "nombre": usuario.nombre,
+        "plan": usuario.plan, "trial_expira": usuario.trial_expira.isoformat() if usuario.trial_expira else None,
+    }
 
 
 @app.post("/api/auth/login")
@@ -235,7 +255,12 @@ def login(data: LoginRequest, db: Session = Depends(get_db)):
     db.commit()
 
     token = crear_token(usuario.id, usuario.email)
-    return {"token": token, "email": usuario.email, "nombre": usuario.nombre}
+    return {
+        "token": token, "email": usuario.email, "nombre": usuario.nombre,
+        "plan": usuario.plan, "trial_expira": usuario.trial_expira.isoformat() if usuario.trial_expira else None,
+        "plan_expira": usuario.plan_expira.isoformat() if usuario.plan_expira else None,
+        "premium": tiene_acceso_premium(usuario),
+    }
 
 
 # ── Recuperación de contraseña ──────────────────────────────────────────────
@@ -792,7 +817,119 @@ def ver_sugerencias(current_user: dict = Depends(get_current_user), db: Session 
 
 @app.get("/api/version")
 def version():
-    return {"version": "2.0", "build": "email-fix"}
+    return {"version": "3.0", "build": "freemium"}
+
+
+# ── Plan / Freemium ─────────────────────────────────────────────────────────
+
+@app.get("/api/plan")
+def obtener_plan(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    premium = tiene_acceso_premium(usuario)
+    return {
+        "plan": usuario.plan,
+        "premium": premium,
+        "trial_expira": usuario.trial_expira.isoformat() if usuario.trial_expira else None,
+        "plan_expira": usuario.plan_expira.isoformat() if usuario.plan_expira else None,
+    }
+
+
+# ── Simulacros ───────────────────────────────────────────────────────────────
+
+class SimulacroResultadoIn(BaseModel):
+    tipo: str = "constitucion"
+    correctas: int
+    incorrectas: int
+    en_blanco: int
+    tiempo_segundos: int
+
+@app.post("/api/simulacros")
+def guardar_simulacro(body: SimulacroResultadoIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    if not tiene_acceso_premium(usuario):
+        raise HTTPException(status_code=403, detail="Suscripción requerida")
+    total = body.correctas + body.incorrectas + body.en_blanco
+    # Fórmula oficial: aciertos - (errores / 3)
+    puntuacion = round(body.correctas - (body.incorrectas / 3), 3)
+    s = Simulacro(
+        usuario_id=uid,
+        tipo=body.tipo,
+        total_preguntas=total,
+        respondidas=body.correctas + body.incorrectas,
+        correctas=body.correctas,
+        incorrectas=body.incorrectas,
+        en_blanco=body.en_blanco,
+        puntuacion=puntuacion,
+        tiempo_segundos=body.tiempo_segundos,
+        completado=True,
+    )
+    db.add(s)
+    db.commit()
+    db.refresh(s)
+    return {"id": s.id, "puntuacion": puntuacion, "ok": True}
+
+@app.get("/api/simulacros")
+def mis_simulacros(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    lista = db.query(Simulacro).filter(Simulacro.usuario_id == uid, Simulacro.completado == True)\
+        .order_by(Simulacro.fecha.desc()).limit(20).all()
+    return [
+        {
+            "id": s.id,
+            "tipo": s.tipo,
+            "correctas": s.correctas,
+            "incorrectas": s.incorrectas,
+            "en_blanco": s.en_blanco,
+            "puntuacion": s.puntuacion,
+            "tiempo_segundos": s.tiempo_segundos,
+            "fecha": s.fecha.isoformat(),
+        }
+        for s in lista
+    ]
+
+@app.get("/api/simulacros/preguntas")
+def preguntas_simulacro(
+    tipo: str = "constitucion",
+    n: int = Query(65, ge=10, le=100),
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    if not tiene_acceso_premium(usuario):
+        raise HTTPException(status_code=403, detail="Suscripción requerida")
+
+    preguntas = []
+    if tipo == "constitucion" or tipo == "mixto":
+        sample = random.sample(QUIZ_PREGUNTAS, min(n, len(QUIZ_PREGUNTAS)))
+        for p in sample:
+            opciones = [p["respuesta_correcta"], p["opcion_b"], p["opcion_c"], p["opcion_d"]]
+            random.shuffle(opciones)
+            preguntas.append({
+                "id": f"c_{QUIZ_PREGUNTAS.index(p)}",
+                "pregunta": p["pregunta"],
+                "opciones": opciones,
+                "correcta": p["respuesta_correcta"],
+            })
+    if tipo == "policia-local" or tipo == "mixto":
+        op = db.query(Oposicion).filter(Oposicion.slug == "policia-local").first()
+        if op:
+            pp = db.query(PreguntaTema).join(Tema).filter(Tema.oposicion_id == op.id).all()
+            if pp:
+                sample2 = random.sample(pp, min(n - len(preguntas), len(pp)))
+                for p in sample2:
+                    opciones = [p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d]
+                    random.shuffle(opciones)
+                    preguntas.append({
+                        "id": f"p_{p.id}",
+                        "pregunta": p.pregunta,
+                        "opciones": opciones,
+                        "correcta": p.respuesta_correcta,
+                    })
+    random.shuffle(preguntas)
+    return preguntas[:n]
 
 
 @app.get("/api/ranking")
@@ -847,6 +984,145 @@ def ranking(periodo: str = "total", db: Session = Depends(get_db)):
         }
         for i, (t, u) in enumerate(registros)
     ]
+
+
+# ── Stripe Pagos ────────────────────────────────────────────────────────────
+
+STRIPE_SECRET_KEY = os.getenv("STRIPE_SECRET_KEY", "")
+STRIPE_WEBHOOK_SECRET = os.getenv("STRIPE_WEBHOOK_SECRET", "")
+STRIPE_PRICE_BASICO = os.getenv("STRIPE_PRICE_BASICO", "")   # price_xxx mensual básico
+STRIPE_PRICE_PRO = os.getenv("STRIPE_PRICE_PRO", "")          # price_xxx mensual pro
+STRIPE_PRICE_VITALICIO = os.getenv("STRIPE_PRICE_VITALICIO", "")  # price_xxx pago único
+
+PRECIOS_INFO = {
+    "basico": {"nombre": "Básico", "precio": "4,99€/mes", "descripcion": "Acceso completo sin límites"},
+    "pro": {"nombre": "Pro", "precio": "9,99€/mes", "descripcion": "Básico + Simulacros + IA tutora"},
+    "vitalicio": {"nombre": "Vitalicio", "precio": "49,99€ único", "descripcion": "Acceso de por vida"},
+}
+
+@app.post("/api/stripe/checkout")
+def crear_checkout(
+    body: dict,
+    current_user: dict = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    import stripe as stripe_lib
+    stripe_lib.api_key = STRIPE_SECRET_KEY
+    if not STRIPE_SECRET_KEY:
+        raise HTTPException(status_code=503, detail="Pagos no configurados")
+
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    plan = body.get("plan", "basico")
+    price_map = {"basico": STRIPE_PRICE_BASICO, "pro": STRIPE_PRICE_PRO, "vitalicio": STRIPE_PRICE_VITALICIO}
+    price_id = price_map.get(plan)
+    if not price_id:
+        raise HTTPException(status_code=400, detail="Plan no válido")
+
+    base_url = os.getenv("BASE_URL", "https://oposiciones-del-estado.up.railway.app")
+    mode = "payment" if plan == "vitalicio" else "subscription"
+
+    session = stripe_lib.checkout.Session.create(
+        customer_email=usuario.email,
+        payment_method_types=["card"],
+        line_items=[{"price": price_id, "quantity": 1}],
+        mode=mode,
+        success_url=f"{base_url}/pago-ok?session_id={{CHECKOUT_SESSION_ID}}",
+        cancel_url=f"{base_url}/planes",
+        metadata={"usuario_id": str(uid), "plan": plan},
+    )
+    return {"url": session.url}
+
+
+@app.post("/api/stripe/webhook")
+async def stripe_webhook(request: Request, db: Session = Depends(get_db)):
+    import stripe as stripe_lib
+    stripe_lib.api_key = STRIPE_SECRET_KEY
+    payload = await request.body()
+    sig = request.headers.get("stripe-signature", "")
+    try:
+        event = stripe_lib.Webhook.construct_event(payload, sig, STRIPE_WEBHOOK_SECRET)
+    except Exception:
+        raise HTTPException(status_code=400, detail="Webhook inválido")
+
+    if event["type"] in ("checkout.session.completed", "invoice.payment_succeeded"):
+        obj = event["data"]["object"]
+        meta = obj.get("metadata") or {}
+        uid = meta.get("usuario_id")
+        plan = meta.get("plan")
+        if uid and plan:
+            usuario = db.query(Usuario).filter(Usuario.id == int(uid)).first()
+            if usuario:
+                usuario.plan = plan
+                if plan == "vitalicio":
+                    usuario.plan_expira = None
+                else:
+                    usuario.plan_expira = datetime.utcnow() + timedelta(days=32)
+                if obj.get("customer"):
+                    usuario.stripe_customer_id = obj["customer"]
+                if obj.get("subscription"):
+                    usuario.stripe_subscription_id = obj["subscription"]
+                db.commit()
+                logger.info(f"Plan '{plan}' activado para usuario {uid}")
+
+    elif event["type"] == "customer.subscription.deleted":
+        sub = event["data"]["object"]
+        usuario = db.query(Usuario).filter(Usuario.stripe_subscription_id == sub["id"]).first()
+        if usuario:
+            usuario.plan = "free"
+            usuario.plan_expira = datetime.utcnow()
+            db.commit()
+            logger.info(f"Suscripción cancelada para usuario {usuario.id}")
+
+    return {"ok": True}
+
+
+@app.get("/api/planes")
+def obtener_planes():
+    return PRECIOS_INFO
+
+
+# ── IA Tutora ────────────────────────────────────────────────────────────────
+
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+
+class TutorIn(BaseModel):
+    pregunta: str
+    respuesta_usuario: str
+    respuesta_correcta: str
+    contexto: str | None = None
+
+@app.post("/api/tutor")
+def ia_tutora(body: TutorIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    if usuario.plan not in ("pro", "vitalicio"):
+        raise HTTPException(status_code=403, detail="La IA tutora requiere plan Pro o Vitalicio")
+    if not ANTHROPIC_API_KEY:
+        raise HTTPException(status_code=503, detail="IA no configurada")
+
+    import anthropic
+    client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    prompt = f"""Eres un tutor experto en oposiciones del Estado español. El alumno ha fallado una pregunta.
+
+Pregunta: {body.pregunta}
+Respuesta del alumno: {body.respuesta_usuario}
+Respuesta correcta: {body.respuesta_correcta}
+{f'Contexto adicional: {body.contexto}' if body.contexto else ''}
+
+Explica de forma clara y concisa (máx 3 párrafos):
+1. Por qué la respuesta correcta es correcta
+2. Por qué la respuesta del alumno es incorrecta
+3. Un truco o regla mnemotécnica para recordarlo
+
+Responde en español, tono cercano y motivador."""
+
+    message = client.messages.create(
+        model="claude-haiku-4-5-20251001",
+        max_tokens=500,
+        messages=[{"role": "user", "content": prompt}],
+    )
+    return {"explicacion": message.content[0].text}
 
 
 @app.post("/api/admin/actualizar")
