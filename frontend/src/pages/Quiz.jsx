@@ -53,7 +53,7 @@ function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
           </div>
           <div className="flex gap-2 mt-2">
             <button onClick={() => { setFase('cargando'); setIndice(0); setCorrectas(0); setHistorial([]); setSeleccionada(null)
-              fetchPreguntas().then(data => { setPreguntas(data.map(p => ({ ...p, opciones: [p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d].sort(() => Math.random() - 0.5) }))); setFase('jugando') }) }}
+              fetchPreguntas().then(data => { setPreguntas(data.map(p => ({ ...p, opciones: [p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d].sort(() => Math.random() - 0.5) }))); setFase('jugando') }).catch(() => setFase('vacio')) }}
               className="btn-primary flex-1">Repetir</button>
             <button onClick={onSalir} className="flex-1 border border-gray-200 text-gray-600 px-4 py-2 rounded-xl text-sm font-medium">← Salir</button>
           </div>

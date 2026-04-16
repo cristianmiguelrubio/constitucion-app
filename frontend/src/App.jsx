@@ -59,7 +59,7 @@ export default function App() {
   return (
     <>
       {!usuario && <LoginModal onLogin={handleLogin} />}
-      <Layout usuario={usuario} onLogout={() => { localStorage.removeItem('usuario'); setUsuario(null) }}>
+      <Layout usuario={usuario} onLogout={() => { localStorage.removeItem('usuario'); localStorage.removeItem('token'); setUsuario(null) }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/constitucion" element={<Constitucion />} />
