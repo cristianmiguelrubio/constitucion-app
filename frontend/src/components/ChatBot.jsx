@@ -48,7 +48,7 @@ export default function ChatBot() {
       {/* Botón flotante */}
       <button
         onClick={() => setAbierto(v => !v)}
-        className="fixed bottom-20 right-4 z-50 w-14 h-14 rounded-full bg-gray-900 text-white shadow-xl flex items-center justify-center text-2xl hover:bg-gray-800 active:scale-95 transition-all sm:bottom-6"
+        className="fixed bottom-20 right-4 z-50 w-14 h-14 rounded-full bg-gray-900 text-white shadow-xl flex items-center justify-center text-2xl hover:bg-gray-800 active:scale-95 transition-all"
         aria-label="Abrir chatbot"
       >
         {abierto ? '✕' : '🤖'}
@@ -56,7 +56,7 @@ export default function ChatBot() {
 
       {/* Ventana chat */}
       {abierto && (
-        <div className="fixed bottom-36 right-4 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden sm:bottom-20"
+        <div className="fixed bottom-36 right-4 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden"
           style={{ height: '420px' }}>
 
           {/* Header */}

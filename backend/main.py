@@ -53,7 +53,7 @@ def es_admin(current_user: dict, db: Session) -> bool:
     return usuario is not None and usuario.email == ADMIN_EMAIL
 
 # Rutas públicas que no requieren token
-RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset", "/api/ranking", "/api/version"}
+RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar", "/api/auth/reset", "/api/ranking", "/api/version", "/api/planes", "/api/push/vapid-key", "/api/stripe/webhook"}
 
 app = FastAPI(title="Constitución App", version="1.0.0", docs_url=None, redoc_url=None)
 
@@ -199,7 +199,6 @@ OPOSICIONES_BASE = [
     {"slug": "guardia-civil",    "nombre": "Guardia Civil",    "icono": "⭐", "orden": 3, "descripcion": "Oposición a la Guardia Civil"},
     {"slug": "correos",          "nombre": "Correos",          "icono": "📮", "orden": 4, "descripcion": "Oposición a Correos y Telégrafos"},
     {"slug": "bomberos",         "nombre": "Bomberos",         "icono": "🚒", "orden": 5, "descripcion": "Oposición a Bombero"},
-    {"slug": "hacienda",         "nombre": "Agencia Tributaria","icono": "💼","orden": 6, "descripcion": "Oposición a la Agencia Tributaria (AEAT)"},
 ]
 
 def _cargar_oposiciones_base(db: Session):
@@ -1246,6 +1245,76 @@ Si no sabes algo con certeza, dilo claramente. Máximo 200 palabras por respuest
     ])
     response = chat.send_message(body.mensaje)
     return {"respuesta": response.text}
+
+
+# ── Perfil usuario ───────────────────────────────────────────────────────────
+
+class PerfilIn(BaseModel):
+    nombre: str | None = None
+    email: str | None = None
+    foto_url: str | None = None
+
+class CambiarPasswordIn(BaseModel):
+    password_actual: str
+    nueva_password: str
+
+@app.get("/api/perfil")
+def obtener_perfil(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    u = get_usuario_or_401(uid, db)
+    return {
+        "email": u.email, "nombre": u.nombre, "foto_url": getattr(u, "foto_url", None),
+        "plan": u.plan, "premium": tiene_acceso_premium(u),
+        "trial_expira": u.trial_expira.isoformat() if u.trial_expira else None,
+        "plan_expira": u.plan_expira.isoformat() if u.plan_expira else None,
+        "fecha_registro": u.fecha_registro.isoformat(),
+    }
+
+@app.post("/api/perfil")
+def actualizar_perfil(body: PerfilIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    u = get_usuario_or_401(uid, db)
+    if body.nombre is not None:
+        u.nombre = body.nombre.strip()[:100]
+    if body.email is not None:
+        nuevo_email = body.email.strip().lower()
+        if "@" not in nuevo_email:
+            raise HTTPException(status_code=400, detail="Email no válido")
+        existente = db.query(Usuario).filter(Usuario.email == nuevo_email, Usuario.id != uid).first()
+        if existente:
+            raise HTTPException(status_code=409, detail="Ese email ya está en uso")
+        u.email = nuevo_email
+    db.commit()
+    return {"ok": True, "nombre": u.nombre, "email": u.email}
+
+@app.post("/api/perfil/password")
+def cambiar_password(body: CambiarPasswordIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    u = get_usuario_or_401(uid, db)
+    if not verify_password(body.password_actual, u.password_hash):
+        raise HTTPException(status_code=400, detail="Contraseña actual incorrecta")
+    if len(body.nueva_password) < 6:
+        raise HTTPException(status_code=400, detail="La nueva contraseña debe tener al menos 6 caracteres")
+    u.password_hash = hash_password(body.nueva_password)
+    db.commit()
+    return {"ok": True}
+
+@app.post("/api/perfil/cancelar-plan")
+def cancelar_plan(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    u = get_usuario_or_401(uid, db)
+    if u.stripe_subscription_id and STRIPE_SECRET_KEY:
+        try:
+            import stripe as stripe_lib
+            stripe_lib.api_key = STRIPE_SECRET_KEY
+            stripe_lib.Subscription.cancel(u.stripe_subscription_id)
+        except Exception as e:
+            logger.warning(f"Error cancelando Stripe: {e}")
+    u.plan = "free"
+    u.plan_expira = datetime.utcnow()
+    u.stripe_subscription_id = None
+    db.commit()
+    return {"ok": True}
 
 
 @app.post("/api/admin/actualizar")

@@ -29,7 +29,7 @@ export default function TrialBanner() {
   const expirado = info.plan === 'free' || horas === 0
 
   return (
-    <div className={`fixed bottom-16 left-0 right-0 z-40 px-4 pb-2`}>
+    <div className="fixed bottom-4 left-0 right-0 z-40 px-4">
       <div className={`max-w-lg mx-auto rounded-2xl shadow-lg px-4 py-3 flex items-center justify-between gap-3
         ${expirado ? 'bg-red-600 text-white' : 'bg-amber-500 text-white'}`}>
         <div className="flex-1 min-w-0">
