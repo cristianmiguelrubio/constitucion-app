@@ -91,15 +91,55 @@ async def startup():
     init_db()
     iniciar_scheduler()
     db = next(get_db())
-    # Migrar usuarios existentes sin plan
+    # Migrar columnas nuevas en PostgreSQL si no existen
     try:
         from sqlalchemy import text
+        migraciones = [
+            "ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS plan VARCHAR(20) DEFAULT 'free'",
+            "ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS trial_expira TIMESTAMP",
+            "ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS plan_expira TIMESTAMP",
+            "ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS stripe_customer_id VARCHAR(200)",
+            "ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS stripe_subscription_id VARCHAR(200)",
+            "ALTER TABLE push_suscripciones ADD COLUMN IF NOT EXISTS id SERIAL",
+        ]
+        for sql in migraciones:
+            try:
+                db.execute(text(sql))
+            except Exception:
+                pass
+        # Crear tabla push_suscripciones si no existe (init_db la crea, pero por si acaso)
+        db.execute(text("""
+            CREATE TABLE IF NOT EXISTS push_suscripciones (
+                id SERIAL PRIMARY KEY,
+                usuario_id INTEGER REFERENCES usuarios(id),
+                endpoint TEXT NOT NULL,
+                p256dh TEXT NOT NULL,
+                auth TEXT NOT NULL,
+                creado_en TIMESTAMP DEFAULT NOW(),
+                UNIQUE(usuario_id, endpoint)
+            )
+        """))
+        db.execute(text("""
+            CREATE TABLE IF NOT EXISTS simulacros (
+                id SERIAL PRIMARY KEY,
+                usuario_id INTEGER REFERENCES usuarios(id),
+                tipo VARCHAR(50) DEFAULT 'constitucion',
+                total_preguntas INTEGER DEFAULT 65,
+                respondidas INTEGER DEFAULT 0,
+                correctas INTEGER DEFAULT 0,
+                incorrectas INTEGER DEFAULT 0,
+                en_blanco INTEGER DEFAULT 0,
+                puntuacion FLOAT,
+                tiempo_segundos INTEGER,
+                completado BOOLEAN DEFAULT FALSE,
+                fecha TIMESTAMP DEFAULT NOW()
+            )
+        """))
         db.execute(text("UPDATE usuarios SET plan='free' WHERE plan IS NULL"))
-        db.execute(text("UPDATE usuarios SET trial_expira=NULL WHERE trial_expira IS NULL AND plan='free'"))
         db.commit()
-        logger.info("Migración plan usuarios OK")
+        logger.info("Migración DB OK")
     except Exception as e:
-        logger.warning(f"Migración plan: {e}")
+        logger.warning(f"Migración DB: {e}")
         db.rollback()
     try:
         count = db.query(Articulo).count()
@@ -939,7 +979,7 @@ def preguntas_simulacro(
     if not tiene_acceso_premium(usuario):
         raise HTTPException(status_code=403, detail="Suscripción requerida")
 
-    preguntas = []
+    preguntas: list = []
     if tipo == "constitucion" or tipo == "mixto":
         sample = random.sample(QUIZ_PREGUNTAS, min(n, len(QUIZ_PREGUNTAS)))
         for p in sample:
@@ -1225,26 +1265,30 @@ class ChatIn(BaseModel):
 def chatbot(body: ChatIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     uid = int(current_user["sub"])
     usuario = get_usuario_or_401(uid, db)
-    if usuario.plan not in ("pro", "vitalicio"):
-        raise HTTPException(status_code=403, detail="El chatbot requiere plan Pro o Vitalicio")
+    if not tiene_acceso_premium(usuario):
+        raise HTTPException(status_code=403, detail="El chatbot requiere suscripción activa")
     if not GEMINI_API_KEY:
         raise HTTPException(status_code=503, detail="IA no configurada")
 
-    import google.generativeai as genai
-    genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel(
-        "gemini-1.5-flash",
-        system_instruction="""Eres un asistente experto en oposiciones del Estado español.
+    try:
+        import google.generativeai as genai
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel(
+            "gemini-1.5-flash",
+            system_instruction="""Eres un asistente experto en oposiciones del Estado español.
 Conoces en profundidad: la Constitución Española de 1978, temarios de Policía Local, Policía Nacional, Guardia Civil, Correos y otras oposiciones del Estado.
 Responde siempre en español, de forma clara, precisa y motivadora.
 Si no sabes algo con certeza, dilo claramente. Máximo 200 palabras por respuesta."""
-    )
-    chat = model.start_chat(history=[
-        {"role": "user" if m.rol == "user" else "model", "parts": [m.texto]}
-        for m in body.historial
-    ])
-    response = chat.send_message(body.mensaje)
-    return {"respuesta": response.text}
+        )
+        history = []
+        for m in body.historial:
+            history.append({"role": "user" if m.rol == "user" else "model", "parts": [m.texto]})
+        chat = model.start_chat(history=history)
+        response = chat.send_message(body.mensaje)
+        return {"respuesta": response.text}
+    except Exception as e:
+        logger.error(f"Chat error: {e}")
+        raise HTTPException(status_code=500, detail=f"Error IA: {str(e)[:100]}")
 
 
 # ── Perfil usuario ───────────────────────────────────────────────────────────

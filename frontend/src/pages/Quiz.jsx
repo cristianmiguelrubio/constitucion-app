@@ -82,7 +82,11 @@ function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
     <div className="max-w-xl mx-auto">
       <div className="flex items-center justify-between mb-2">
         <button onClick={onSalir} className="text-xs text-gray-400">← {titulo}</button>
-        <span className="text-sm text-gray-500">{indice + 1}/{preguntas.length} · <span className="text-green-600 font-medium">{correctas} ✓</span></span>
+        <div className="flex items-center gap-3">
+          <button onClick={() => { setIndice(0); setCorrectas(0); setHistorial([]); setSeleccionada(null) }}
+            className="text-xs text-gray-400 hover:text-red-400 transition-colors">↺ Resetear</button>
+          <span className="text-sm text-gray-500">{indice + 1}/{preguntas.length} · <span className="text-green-600 font-medium">{correctas} ✓</span></span>
+        </div>
       </div>
       <div className="w-full bg-gray-100 rounded-full h-1.5 mb-4">
         <div className="bg-brand-500 h-1.5 rounded-full" style={{ width: `${(indice / preguntas.length) * 100}%` }} />
