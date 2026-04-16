@@ -33,11 +33,11 @@ const CATEGORIAS = [
   {
     slug: 'guardia-civil',
     nombre: 'Guardia Civil',
-    descripcion: 'Temario completo en preparación',
-    link: null,
+    descripcion: '24 temas · Test por sección · Resúmenes',
+    link: '/oposiciones/guardia-civil',
     gradient: 'from-[#1b5e20] to-[#2e7d32]',
     icono: '⭐',
-    badge: 'Próximamente',
+    badge: 'Disponible',
   },
   {
     slug: 'bomberos',
@@ -74,6 +74,17 @@ const CURSOS = [
     getProgreso: () => {
       const hecho = Object.keys(localStorage).filter(k => k.startsWith('quiz_ok_policia-local_')).length
       return { hecho, total: 40, label: 'temas superados' }
+    },
+  },
+  {
+    slug: 'guardia-civil',
+    nombre: 'Guardia Civil',
+    icono: '⭐',
+    link: '/oposiciones/guardia-civil',
+    color: { bar: 'bg-green-500', bg: 'bg-green-50', text: 'text-green-700', sub: 'text-green-400' },
+    getProgreso: () => {
+      const hecho = Object.keys(localStorage).filter(k => k.startsWith('quiz_ok_guardia-civil_')).length
+      return { hecho, total: 24, label: 'temas superados' }
     },
   },
 ]
