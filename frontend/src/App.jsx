@@ -22,6 +22,10 @@ import Planes from './pages/Planes'
 import PagoOk from './pages/PagoOk'
 import TrialBanner from './components/TrialBanner'
 import { useToast, ToastContainer } from './components/Toast'
+import { PlanContext, usePlanData } from './hooks/usePlan'
+import PremiumGate from './components/PremiumGate'
+import { usePushNotifications } from './hooks/usePush'
+import ChatBot from './components/ChatBot'
 
 function useTiempoGlobal(usuario) {
   const inicio = useRef(Date.now())
@@ -44,6 +48,8 @@ export default function App() {
   const [usuario, setUsuario] = useState(null)
   const [cargando, setCargando] = useState(true)
   const { toasts, show: showToast } = useToast()
+  const { plan } = usePlanData()
+  usePushNotifications(usuario)
 
   useEffect(() => {
     const guardado = localStorage.getItem('usuario')
@@ -68,6 +74,7 @@ export default function App() {
   if (cargando) return null
 
   return (
+    <PlanContext.Provider value={plan}>
     <>
       <ToastContainer toasts={toasts} />
       {!usuario && <LoginModal onLogin={handleLogin} />}
@@ -78,14 +85,14 @@ export default function App() {
           <Route path="/articulo/:numero" element={<Articulo usuario={usuario} />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/cambios" element={<Cambios />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/stats" element={<Stats />} />
+          <Route path="/quiz" element={<PremiumGate mensaje="Los tests ilimitados requieren suscripción. Con el plan Básico tienes acceso completo."><Quiz /></PremiumGate>} />
+          <Route path="/stats" element={<PremiumGate mensaje="Las estadísticas avanzadas requieren suscripción."><Stats /></PremiumGate>} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/oposiciones" element={<Oposiciones />} />
-          <Route path="/oposiciones/:slug" element={<OposicionTemas />} />
-          <Route path="/oposiciones/:slug/temas/:numero" element={<TemaDetalle />} />
-          <Route path="/flashcards" element={<Flashcards />} />
+          <Route path="/oposiciones/:slug" element={<PremiumGate mensaje="El temario de oposiciones requiere suscripción."><OposicionTemas /></PremiumGate>} />
+          <Route path="/oposiciones/:slug/temas/:numero" element={<PremiumGate mensaje="El temario de oposiciones requiere suscripción."><TemaDetalle /></PremiumGate>} />
+          <Route path="/flashcards" element={<PremiumGate mensaje="Las flashcards requieren suscripción."><Flashcards /></PremiumGate>} />
           <Route path="/simulacro" element={<Simulacro usuario={usuario} />} />
           <Route path="/planes" element={<Planes />} />
           <Route path="/pago-ok" element={<PagoOk />} />
@@ -93,6 +100,8 @@ export default function App() {
       </Layout>
       <TrialBanner />
       <InstallPrompt />
+      {usuario && <ChatBot />}
     </>
+    </PlanContext.Provider>
   )
 }

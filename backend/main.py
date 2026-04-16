@@ -12,7 +12,7 @@ import random
 import os
 
 from database import get_db, init_db
-from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado, Simulacro
+from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado, Simulacro, PushSuscripcion
 from scraper import scrape_constitucion, check_boe_actualizaciones
 from scheduler import iniciar_scheduler
 from seed_data import QUIZ_PREGUNTAS
@@ -91,6 +91,16 @@ async def startup():
     init_db()
     iniciar_scheduler()
     db = next(get_db())
+    # Migrar usuarios existentes sin plan
+    try:
+        from sqlalchemy import text
+        db.execute(text("UPDATE usuarios SET plan='free' WHERE plan IS NULL"))
+        db.execute(text("UPDATE usuarios SET trial_expira=NULL WHERE trial_expira IS NULL AND plan='free'"))
+        db.commit()
+        logger.info("Migración plan usuarios OK")
+    except Exception as e:
+        logger.warning(f"Migración plan: {e}")
+        db.rollback()
     try:
         count = db.query(Articulo).count()
         if count == 0:
@@ -117,6 +127,8 @@ async def startup():
             logger.info("seed_temas.py no encontrado — temas se cargarán manualmente")
         except Exception as e:
             logger.warning(f"Error cargando temas: {e}")
+        # Cargar oposiciones base si no existen
+        _cargar_oposiciones_base(db)
     finally:
         db.close()
 
@@ -181,6 +193,26 @@ def _cargar_preguntas_temas(db: Session, temas: list):
     logger.info(f"Cargadas {total} preguntas en temas existentes")
 
 
+OPOSICIONES_BASE = [
+    {"slug": "policia-local",    "nombre": "Policía Local",    "icono": "👮", "orden": 1, "descripcion": "Oposición a Policía Local"},
+    {"slug": "policia-nacional", "nombre": "Policía Nacional", "icono": "🛡️", "orden": 2, "descripcion": "Oposición a Policía Nacional del Estado"},
+    {"slug": "guardia-civil",    "nombre": "Guardia Civil",    "icono": "⭐", "orden": 3, "descripcion": "Oposición a la Guardia Civil"},
+    {"slug": "correos",          "nombre": "Correos",          "icono": "📮", "orden": 4, "descripcion": "Oposición a Correos y Telégrafos"},
+    {"slug": "bomberos",         "nombre": "Bomberos",         "icono": "🚒", "orden": 5, "descripcion": "Oposición a Bombero"},
+    {"slug": "hacienda",         "nombre": "Agencia Tributaria","icono": "💼","orden": 6, "descripcion": "Oposición a la Agencia Tributaria (AEAT)"},
+]
+
+def _cargar_oposiciones_base(db: Session):
+    for op in OPOSICIONES_BASE:
+        existe = db.query(Oposicion).filter(Oposicion.slug == op["slug"]).first()
+        if not existe:
+            db.add(Oposicion(**op, activa=True))
+    try:
+        db.commit()
+    except Exception:
+        db.rollback()
+
+
 def _cargar_constitucion(db: Session):
     try:
         articulos = scrape_constitucion()
@@ -236,6 +268,13 @@ def registro(data: RegistroRequest, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(usuario)
     token = crear_token(usuario.id, usuario.email)
+    # Enviar push de bienvenida si tiene suscripción (registro desde PWA)
+    try:
+        subs = db.query(PushSuscripcion).filter(PushSuscripcion.usuario_id == usuario.id).all()
+        for s in subs:
+            enviar_push(s, "¡Bienvenido! 🎉", "Tienes 24 horas de acceso gratuito completo.", "/planes")
+    except Exception:
+        pass
     return {
         "token": token, "email": usuario.email, "nombre": usuario.nombre,
         "plan": usuario.plan, "trial_expira": usuario.trial_expira.isoformat() if usuario.trial_expira else None,
@@ -1121,6 +1160,92 @@ Responde en español, tono cercano y motivador."""
 
     response = model.generate_content(prompt)
     return {"explicacion": response.text}
+
+
+# ── Push Notifications ──────────────────────────────────────────────────────
+
+VAPID_PUBLIC_KEY = os.getenv("VAPID_PUBLIC_KEY", "")
+VAPID_PRIVATE_KEY = os.getenv("VAPID_PRIVATE_KEY", "")
+VAPID_CLAIMS_SUB = os.getenv("VAPID_CLAIMS_SUB", "mailto:admin@oposapp.es")
+
+def enviar_push(suscripcion: "PushSuscripcion", titulo: str, body: str, url: str = "/"):
+    if not VAPID_PUBLIC_KEY or not VAPID_PRIVATE_KEY:
+        return False
+    try:
+        from pywebpush import webpush, WebPushException
+        import json as _json
+        subscription_info = {
+            "endpoint": suscripcion.endpoint,
+            "keys": {"p256dh": suscripcion.p256dh, "auth": suscripcion.auth},
+        }
+        webpush(
+            subscription_info=subscription_info,
+            data=_json.dumps({"title": titulo, "body": body, "url": url}),
+            vapid_private_key=VAPID_PRIVATE_KEY,
+            vapid_claims={"sub": VAPID_CLAIMS_SUB},
+        )
+        return True
+    except Exception as e:
+        logger.warning(f"Push error: {e}")
+        return False
+
+@app.get("/api/push/vapid-key")
+def obtener_vapid_key():
+    return {"publicKey": VAPID_PUBLIC_KEY}
+
+class PushSuscripcionIn(BaseModel):
+    endpoint: str
+    p256dh: str
+    auth: str
+
+@app.post("/api/push/subscribe")
+def suscribir_push(body: PushSuscripcionIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    get_usuario_or_401(uid, db)
+    existente = db.query(PushSuscripcion).filter(
+        PushSuscripcion.usuario_id == uid,
+        PushSuscripcion.endpoint == body.endpoint,
+    ).first()
+    if not existente:
+        db.add(PushSuscripcion(usuario_id=uid, endpoint=body.endpoint, p256dh=body.p256dh, auth=body.auth))
+        db.commit()
+    return {"ok": True}
+
+
+# ── Chatbot IA ───────────────────────────────────────────────────────────────
+
+class ChatMensaje(BaseModel):
+    rol: str
+    texto: str
+
+class ChatIn(BaseModel):
+    mensaje: str
+    historial: list[ChatMensaje] = []
+
+@app.post("/api/chat")
+def chatbot(body: ChatIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    if usuario.plan not in ("pro", "vitalicio"):
+        raise HTTPException(status_code=403, detail="El chatbot requiere plan Pro o Vitalicio")
+    if not GEMINI_API_KEY:
+        raise HTTPException(status_code=503, detail="IA no configurada")
+
+    import google.generativeai as genai
+    genai.configure(api_key=GEMINI_API_KEY)
+    model = genai.GenerativeModel(
+        "gemini-1.5-flash",
+        system_instruction="""Eres un asistente experto en oposiciones del Estado español.
+Conoces en profundidad: la Constitución Española de 1978, temarios de Policía Local, Policía Nacional, Guardia Civil, Correos y otras oposiciones del Estado.
+Responde siempre en español, de forma clara, precisa y motivadora.
+Si no sabes algo con certeza, dilo claramente. Máximo 200 palabras por respuesta."""
+    )
+    chat = model.start_chat(history=[
+        {"role": "user" if m.rol == "user" else "model", "parts": [m.texto]}
+        for m in body.historial
+    ])
+    response = chat.send_message(body.mensaje)
+    return {"respuesta": response.text}
 
 
 @app.post("/api/admin/actualizar")

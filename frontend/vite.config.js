@@ -25,6 +25,8 @@ export default defineConfig({
         ],
         categories: ['education', 'productivity'],
       },
+      selfDestroying: false,
+      strategies: 'generateSW',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         runtimeCaching: [
@@ -39,6 +41,8 @@ export default defineConfig({
             },
           },
         ],
+        additionalManifestEntries: [],
+        navigateFallback: 'index.html',
       },
     }),
   ],

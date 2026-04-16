@@ -174,6 +174,18 @@ class Sugerencia(Base):
     fecha: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
 
 
+class PushSuscripcion(Base):
+    __tablename__ = "push_suscripciones"
+    __table_args__ = (UniqueConstraint("usuario_id", "endpoint"),)
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    usuario_id: Mapped[int] = mapped_column(ForeignKey("usuarios.id"))
+    endpoint: Mapped[str] = mapped_column(Text)
+    p256dh: Mapped[str] = mapped_column(Text)
+    auth: Mapped[str] = mapped_column(Text)
+    creado_en: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)
+
+
 class Simulacro(Base):
     __tablename__ = "simulacros"
 

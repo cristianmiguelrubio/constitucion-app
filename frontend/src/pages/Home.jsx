@@ -99,9 +99,14 @@ function ProgresoCard() {
       <div className="flex items-center justify-between mb-3">
         <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide">Mi progreso</p>
         {racha && racha.racha > 0 && (
-          <div className="flex items-center gap-1 bg-orange-50 border border-orange-200 rounded-full px-2.5 py-1">
-            <span className="text-sm">🔥</span>
-            <span className="text-xs font-bold text-orange-600">{racha.racha} {racha.racha === 1 ? 'día' : 'días'}</span>
+          <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1 bg-orange-50 border border-orange-200 rounded-full px-2.5 py-1">
+              <span className="text-sm">🔥</span>
+              <span className="text-xs font-bold text-orange-600">{racha.racha} {racha.racha === 1 ? 'día' : 'días'}</span>
+            </div>
+            {racha.maxima > 1 && (
+              <span className="text-[10px] text-gray-400">Máx. {racha.maxima}</span>
+            )}
           </div>
         )}
       </div>
