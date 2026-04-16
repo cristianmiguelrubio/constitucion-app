@@ -46,7 +46,7 @@ export default function LoginModal({ onLogin }) {
           localStorage.setItem(`quiz_ok_${slug}_${numero}`, '1')
         })
       } catch {}
-      onLogin({ email: data.email, nombre: data.nombre })
+      onLogin({ email: data.email, nombre: data.nombre }, modo === 'registro')
     } catch { setError('Error de conexión. Inténtalo de nuevo.') }
     finally { setCargando(false) }
   }

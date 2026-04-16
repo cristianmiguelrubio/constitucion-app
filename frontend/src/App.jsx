@@ -21,6 +21,7 @@ import Simulacro from './pages/Simulacro'
 import Planes from './pages/Planes'
 import PagoOk from './pages/PagoOk'
 import TrialBanner from './components/TrialBanner'
+import { useToast, ToastContainer } from './components/Toast'
 
 function useTiempoGlobal(usuario) {
   const inicio = useRef(Date.now())
@@ -42,6 +43,7 @@ function useTiempoGlobal(usuario) {
 export default function App() {
   const [usuario, setUsuario] = useState(null)
   const [cargando, setCargando] = useState(true)
+  const { toasts, show: showToast } = useToast()
 
   useEffect(() => {
     const guardado = localStorage.getItem('usuario')
@@ -54,14 +56,20 @@ export default function App() {
 
   useTiempoGlobal(usuario)
 
-  const handleLogin = (u) => {
+  const handleLogin = (u, esNuevo = false) => {
     setUsuario(u)
+    if (esNuevo) {
+      setTimeout(() => {
+        showToast('¡Bienvenido! Tienes 24 horas de acceso gratuito completo 🎉', 'success', 8000)
+      }, 800)
+    }
   }
 
   if (cargando) return null
 
   return (
     <>
+      <ToastContainer toasts={toasts} />
       {!usuario && <LoginModal onLogin={handleLogin} />}
       <Layout usuario={usuario} onLogout={() => { localStorage.removeItem('usuario'); localStorage.removeItem('token'); setUsuario(null) }}>
         <Routes>
