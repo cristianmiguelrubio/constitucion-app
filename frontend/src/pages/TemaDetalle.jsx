@@ -103,10 +103,12 @@ export default function TemaDetalle() {
   const pct = quiz ? Math.round((aciertos / quiz.length) * 100) : 0
 
   const enviarQuiz = () => {
+    clearInterval(cronRef.current)
     setEnviado(true)
     if (quiz && aciertos / quiz.length >= 0.3) {
       localStorage.setItem(clavePregunta(slug, numero), '1')
       setCompletado(true)
+      apiFetch(`/api/temas-completados?slug=${slug}&numero=${numero}`, { method: 'POST' }).catch(() => {})
     }
   }
 
@@ -203,7 +205,7 @@ export default function TemaDetalle() {
         ].map(tab => (
           <button
             key={tab.id}
-            onClick={() => tab.id === 'quiz' ? cargarQuiz() : setVista(tab.id)}
+            onClick={() => { window.scrollTo(0, 0); tab.id === 'quiz' ? cargarQuiz() : setVista(tab.id) }}
             className={`flex-1 py-2.5 text-sm font-semibold transition-colors ${
               vista === tab.id
                 ? 'bg-brand-700 text-white'
@@ -326,10 +328,18 @@ export default function TemaDetalle() {
             )
           })}
 
-          {/* Progreso y resultado */}
+          {/* Progreso y botón entregar */}
           {!enviado && (
-            <div className="text-center text-xs text-gray-400 py-2">
-              {Object.keys(respuestas).length}/{quiz.length} preguntas respondidas
+            <div className="flex items-center justify-between px-1 py-2">
+              <span className="text-xs text-gray-400">{Object.keys(respuestas).length}/{quiz.length} respondidas</span>
+              {Object.keys(respuestas).length > 0 && (
+                <button
+                  onClick={enviarQuiz}
+                  className="text-xs font-semibold bg-brand-700 text-white px-4 py-2 rounded-xl active:bg-brand-900"
+                >
+                  Entregar test →
+                </button>
+              )}
             </div>
           )}
           {enviado && (

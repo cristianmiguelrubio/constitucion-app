@@ -10,7 +10,6 @@ export default function LoginModal({ onLogin }) {
   const [nuevaPass, setNuevaPass] = useState('')
   const [error, setError] = useState('')
   const [cargando, setCargando] = useState(false)
-  const [devCodigo, setDevCodigo] = useState(null)
 
   const limpiarError = () => setError('')
 
@@ -58,9 +57,7 @@ export default function LoginModal({ onLogin }) {
     setCargando(true); setError('')
     try {
       const resp = await fetch('/api/auth/recuperar', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: emailLimpio }) })
-      let data = {}
-      try { data = await resp.json() } catch {}
-      if (data.dev_codigo) setDevCodigo(data.dev_codigo)
+      if (resp.status === 429) { setError('Demasiados intentos. Espera 1 hora.'); return }
       setModo('codigo') // avanzar siempre — no revelar si el email existe
     } catch { setError('Error de conexión') }
     finally { setCargando(false) }

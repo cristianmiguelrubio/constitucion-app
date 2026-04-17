@@ -10,6 +10,8 @@ from pydantic import BaseModel
 import logging
 import random
 import os
+import time
+from collections import defaultdict
 
 from database import get_db, init_db
 from models import Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema, PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia, TokenRecuperacion, RachaDiaria, TemaCompletado, Simulacro, PushSuscripcion
@@ -21,6 +23,9 @@ from email_utils import ADMIN_EMAIL
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+# Rate limiting para recuperación de contraseña (máx 5 intentos/hora por IP)
+_recovery_attempts: dict = defaultdict(list)
 
 
 def get_usuario_or_401(uid: int, db: Session) -> "Usuario":
@@ -58,7 +63,7 @@ RUTAS_PUBLICAS = {"/api/auth/login", "/api/auth/registro", "/api/auth/recuperar"
 app = FastAPI(title="Constitución App", version="1.0.0", docs_url=None, redoc_url=None)
 
 # CORS restringido al dominio propio
-ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:8000").split(",")
+ALLOWED_ORIGINS = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:8000").split(",")]
 
 app.add_middleware(
     CORSMiddleware,
@@ -398,16 +403,24 @@ class ResetIn(BaseModel):
     nueva_password: str
 
 @app.post("/api/auth/recuperar")
-def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
+def solicitar_recuperacion(data: RecuperarIn, request: Request, db: Session = Depends(get_db)):
     from email_utils import enviar_codigo_recuperacion
     from datetime import timedelta
     import random as _random
+
+    # Rate limiting: máx 5 intentos por IP en 1 hora
+    ip = request.client.host if request.client else "unknown"
+    ahora = time.time()
+    _recovery_attempts[ip] = [t for t in _recovery_attempts[ip] if ahora - t < 3600]
+    if len(_recovery_attempts[ip]) >= 5:
+        raise HTTPException(status_code=429, detail="Demasiados intentos. Espera 1 hora.")
+    _recovery_attempts[ip].append(ahora)
 
     email = data.email.strip().lower()
     usuario = db.query(Usuario).filter(Usuario.email == email).first()
     # Siempre devolver OK para no revelar si el email existe
     if not usuario:
-        return {"ok": True, "dev_codigo": None}
+        return {"ok": True}
 
     # Invalidar tokens anteriores
     db.query(TokenRecuperacion).filter(
@@ -754,7 +767,11 @@ def descargar_pdf(
     current_user: dict = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    """Sirve el PDF del tema — solo a usuarios autenticados."""
+    """Sirve el PDF del tema — solo a usuarios premium."""
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    if not tiene_acceso_premium(usuario):
+        raise HTTPException(status_code=403, detail="Se requiere suscripción")
     op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
     if not op:
         raise HTTPException(status_code=404)
