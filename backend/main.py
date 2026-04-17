@@ -1057,7 +1057,11 @@ def preguntas_simulacro(
     if tipo == "constitucion" or tipo == "mixto":
         sample = random.sample(QUIZ_PREGUNTAS, min(n, len(QUIZ_PREGUNTAS)))
         for p in sample:
-            opciones = [p["respuesta_correcta"], p["opcion_b"], p["opcion_c"], p["opcion_d"]]
+            if "opcion_b" in p:
+                opciones = [p["respuesta_correcta"], p["opcion_b"], p["opcion_c"], p["opcion_d"]]
+            else:
+                ops = [o for o in p["opciones"] if o != p["respuesta_correcta"]]
+                opciones = [p["respuesta_correcta"]] + ops[:3]
             random.shuffle(opciones)
             preguntas.append({
                 "id": f"c_{QUIZ_PREGUNTAS.index(p)}",

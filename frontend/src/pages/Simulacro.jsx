@@ -57,12 +57,22 @@ export default function Simulacro({ usuario }) {
     if (fase !== 'examen') return
     timerRef.current = setInterval(() => {
       setTiempoRestante(t => {
-        if (t <= 1) { clearInterval(timerRef.current); finalizarSimulacro(); return 0 }
+        if (t <= 1) { clearInterval(timerRef.current); return 0 }
         return t - 1
       })
     }, 1000)
     return () => clearInterval(timerRef.current)
   }, [fase])
+
+  // Finalizar cuando el temporizador llega a 0
+  useEffect(() => {
+    if (fase === 'examen' && tiempoRestante === 0) {
+      finalizarSimulacro()
+    }
+    // finalizarSimulacro se omite de deps: el efecto re-corre cada segundo
+    // y captura la versión más reciente al llegar a 0
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tiempoRestante, fase])
 
   const finalizarSimulacro = async () => {
     clearInterval(timerRef.current)
