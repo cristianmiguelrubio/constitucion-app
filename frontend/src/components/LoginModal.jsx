@@ -119,13 +119,7 @@ export default function LoginModal({ onLogin }) {
         {/* ── Recuperar: paso 2 (código + nueva contraseña) ── */}
         {modo === 'codigo' && (
           <form onSubmit={handleReset} className="space-y-3">
-            <p className="text-sm text-gray-600 mb-1">Usa el código de recuperación y elige tu nueva contraseña.</p>
-            {devCodigo && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5 text-sm">
-                <p className="text-amber-700 font-medium">Tu código de recuperación:</p>
-                <p className="text-amber-600 text-2xl font-bold tracking-widest text-center py-1">{devCodigo}</p>
-              </div>
-            )}
+            <p className="text-sm text-gray-600 mb-1">Revisa tu email e introduce el código de 6 dígitos que te hemos enviado.</p>
             <div>
               <label className="block text-xs font-medium text-gray-600 mb-1">Código (6 dígitos)</label>
               <input type="text" value={codigo} onChange={e => { setCodigo(e.target.value.replace(/\D/g, '').slice(0, 6)); limpiarError() }}

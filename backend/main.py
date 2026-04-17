@@ -419,9 +419,8 @@ def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
     db.add(TokenRecuperacion(email=email, token=codigo, expira=expira))
     db.commit()
 
-    # Enviar email Y mostrar el código en pantalla siempre
     enviar_codigo_recuperacion(email, codigo)
-    return {"ok": True, "dev_codigo": codigo}
+    return {"ok": True}
 
 
 @app.post("/api/auth/reset")
