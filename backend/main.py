@@ -399,6 +399,7 @@ class ResetIn(BaseModel):
 
 @app.post("/api/auth/recuperar")
 def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
+    from email_utils import enviar_codigo_recuperacion
     from datetime import timedelta
     import random as _random
 
@@ -418,7 +419,8 @@ def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
     db.add(TokenRecuperacion(email=email, token=codigo, expira=expira))
     db.commit()
 
-    # Mostrar siempre el código en pantalla
+    # Enviar email Y mostrar el código en pantalla siempre
+    enviar_codigo_recuperacion(email, codigo)
     return {"ok": True, "dev_codigo": codigo}
 
 
