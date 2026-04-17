@@ -88,10 +88,8 @@ export default function LoginModal({ onLogin }) {
   }
 
   return (
-    <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-brand-900/80 backdrop-blur-sm">
-      <div className="bg-white w-full sm:max-w-sm sm:mx-4 rounded-t-3xl sm:rounded-2xl shadow-2xl p-6 pb-6" style={{ marginBottom: '56px' }}>
-
-        <div className="w-10 h-1 bg-gray-200 rounded-full mx-auto mb-5 sm:hidden" />
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-brand-900/80 backdrop-blur-sm px-4">
+      <div className="bg-white w-full max-w-sm rounded-2xl shadow-2xl p-6">
 
         {/* Logo */}
         <div className="text-center mb-5">
@@ -121,11 +119,11 @@ export default function LoginModal({ onLogin }) {
         {/* ── Recuperar: paso 2 (código + nueva contraseña) ── */}
         {modo === 'codigo' && (
           <form onSubmit={handleReset} className="space-y-3">
-            <p className="text-sm text-gray-600 mb-1">Introduce el código que te enviamos y tu nueva contraseña.</p>
+            <p className="text-sm text-gray-600 mb-1">Usa el código de recuperación y elige tu nueva contraseña.</p>
             {devCodigo && (
               <div className="bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5 text-sm">
-                <p className="text-amber-700 font-medium">Email no disponible — usa este código:</p>
-                <p className="text-amber-600 text-xl font-bold tracking-widest text-center py-1">{devCodigo}</p>
+                <p className="text-amber-700 font-medium">Tu código de recuperación:</p>
+                <p className="text-amber-600 text-2xl font-bold tracking-widest text-center py-1">{devCodigo}</p>
               </div>
             )}
             <div>

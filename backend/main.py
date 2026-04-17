@@ -399,7 +399,6 @@ class ResetIn(BaseModel):
 
 @app.post("/api/auth/recuperar")
 def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
-    from email_utils import enviar_codigo_recuperacion, email_configurado
     from datetime import timedelta
     import random as _random
 
@@ -407,7 +406,7 @@ def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
     usuario = db.query(Usuario).filter(Usuario.email == email).first()
     # Siempre devolver OK para no revelar si el email existe
     if not usuario:
-        return {"ok": True, "email_enviado": False}
+        return {"ok": True, "dev_codigo": None}
 
     # Invalidar tokens anteriores
     db.query(TokenRecuperacion).filter(
@@ -419,13 +418,8 @@ def solicitar_recuperacion(data: RecuperarIn, db: Session = Depends(get_db)):
     db.add(TokenRecuperacion(email=email, token=codigo, expira=expira))
     db.commit()
 
-    enviado = enviar_codigo_recuperacion(email, codigo)
-    if not enviado:
-        # Si falló el envío, mostrar el código en pantalla como fallback
-        logger.error(f"Fallo al enviar email de recuperación a {email}")
-        return {"ok": True, "email_enviado": False, "dev_codigo": codigo}
-
-    return {"ok": True, "email_enviado": True}
+    # Mostrar siempre el código en pantalla
+    return {"ok": True, "dev_codigo": codigo}
 
 
 @app.post("/api/auth/reset")
