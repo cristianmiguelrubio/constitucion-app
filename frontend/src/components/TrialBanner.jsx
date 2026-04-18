@@ -1,14 +1,9 @@
-import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { apiFetch } from '../utils/api'
+import { usePlan } from '../hooks/usePlan'
 
 export default function TrialBanner() {
   const navigate = useNavigate()
-  const [info, setInfo] = useState(null)
-
-  useEffect(() => {
-    apiFetch('/api/plan').then(r => r.json()).then(setInfo).catch(() => {})
-  }, [])
+  const info = usePlan()
 
   if (!info) return null
 

@@ -4,6 +4,15 @@ import TutorIA from '../components/TutorIA'
 
 const TOTAL = 10
 
+function shuffle(arr) {
+  const a = [...arr]
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]]
+  }
+  return a
+}
+
 // ── Quiz engine (compartido) ──────────────────────────────────────────────────
 function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
   const [fase, setFase] = useState('cargando')
@@ -18,8 +27,7 @@ function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
       if (!data?.length) { setFase('vacio'); return }
       setPreguntas(data.map(p => ({
         ...p,
-        opciones: [p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d]
-          .sort(() => Math.random() - 0.5),
+        opciones: shuffle([p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d]),
       })))
       setFase('jugando')
     }).catch(() => setFase('vacio'))
@@ -54,7 +62,7 @@ function QuizEngine({ fetchPreguntas, onSalir, titulo }) {
           </div>
           <div className="flex gap-2 mt-2">
             <button onClick={() => { setFase('cargando'); setIndice(0); setCorrectas(0); setHistorial([]); setSeleccionada(null)
-              fetchPreguntas().then(data => { setPreguntas(data.map(p => ({ ...p, opciones: [p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d].sort(() => Math.random() - 0.5) }))); setFase('jugando') }).catch(() => setFase('vacio')) }}
+              fetchPreguntas().then(data => { setPreguntas(data.map(p => ({ ...p, opciones: shuffle([p.respuesta_correcta, p.opcion_b, p.opcion_c, p.opcion_d]) }))); setFase('jugando') }).catch(() => setFase('vacio')) }}
               className="btn-primary flex-1">Repetir</button>
             <button onClick={onSalir} className="flex-1 border border-gray-200 text-gray-600 px-4 py-2 rounded-xl text-sm font-medium">← Salir</button>
           </div>
@@ -232,6 +240,7 @@ export default function Quiz() {
   // ── Quiz activo ──────────────────────────────────────────────────────────
   if (modo === 'constitucion') {
     return <QuizEngine
+      key={temaSeleccionado || 'todos'}
       titulo="Constitución"
       fetchPreguntas={fetchConstitucion}
       onSalir={() => setModo(null)}

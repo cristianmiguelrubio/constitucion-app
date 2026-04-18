@@ -83,7 +83,7 @@ export default function Layout({ children, usuario, onLogout }) {
       </header>
 
       {/* Contenido */}
-      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-5 pb-10">
+      <main className="flex-1 max-w-4xl w-full mx-auto px-4 py-5 pb-24">
         {children}
       </main>
 

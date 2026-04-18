@@ -35,7 +35,7 @@ const PLANES = [
       { texto: 'Búsqueda de artículos', ok: true },
       { texto: 'Tests ilimitados', ok: true },
       { texto: 'Simulacros cronometrados', ok: true },
-      { texto: 'IA tutora', ok: false },
+      { texto: 'IA tutora', ok: true },
       { texto: 'Estadísticas avanzadas', ok: true },
       { texto: 'Historial de exámenes', ok: true },
     ],

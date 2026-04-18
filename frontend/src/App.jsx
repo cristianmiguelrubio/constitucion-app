@@ -85,7 +85,7 @@ export default function App() {
           <Route path="/articulo/:numero" element={<Articulo usuario={usuario} />} />
           <Route path="/buscar" element={<Buscar />} />
           <Route path="/cambios" element={<Cambios />} />
-          <Route path="/quiz" element={<PremiumGate mensaje="Los tests ilimitados requieren suscripción. Con el plan Básico tienes acceso completo."><Quiz /></PremiumGate>} />
+          <Route path="/quiz" element={<Quiz />} />
           <Route path="/stats" element={<PremiumGate mensaje="Las estadísticas avanzadas requieren suscripción."><Stats /></PremiumGate>} />
           <Route path="/ranking" element={<Ranking />} />
           <Route path="/admin" element={<Admin />} />

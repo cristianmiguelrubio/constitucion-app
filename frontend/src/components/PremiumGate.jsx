@@ -5,8 +5,12 @@ export default function PremiumGate({ children, mensaje = 'Este contenido requie
   const navigate = useNavigate()
   const plan = usePlan()
 
-  // Si el plan aún no cargó, mostrar children (evitar flash)
-  if (!plan) return children
+  // Si el plan aún no cargó, spinner pequeño (evita exponer contenido premium)
+  if (!plan) return (
+    <div className="flex justify-center mt-24">
+      <div className="w-7 h-7 border-4 border-brand-500 border-t-transparent rounded-full animate-spin" />
+    </div>
+  )
 
   if (plan.premium) return children
 

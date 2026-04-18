@@ -40,7 +40,7 @@ export default function Ranking() {
   const top3 = ranking.slice(0, 3)
   const resto = ranking.slice(3)
 
-  const miPosicion = ranking.findIndex(r => r.nombre === miNombre)
+  const miPosicion = miNombre ? ranking.findIndex(r => r.nombre === miNombre) : -1
 
   return (
     <div className="max-w-xl mx-auto">
