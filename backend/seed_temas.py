@@ -45,9 +45,9 @@ manera:
 e Título Preliminar (artículos del 1 al 9).
 e Título | “De los Derechos y Deberes Fundamentales” (artículos del 10 al 55):
 
-e Capítulo 1%: De los españoles y los extranjeros (del 11 al 13).
+e Capítulo 1: De los españoles y los extranjeros (del 11 al 13).
 
-e Capítulo 2"%: De los Derechos y Libertades (del 14 al 38).
+e Capítulo 2: De los Derechos y Libertades (del 14 al 38).
 
 GRUPO 1 - DERECHO CONSTITUCTONAL TEMA 1
 
@@ -60,15 +60,15 @@ e Capítulo 4%: De las garantías de las libertades y derechos fundamentales (de
 e Capítulo 5%: De la suspensión de los derechos y libertades (artículo 55).
 e Título II “De la Corona” (artículos 56 al 65).
 e Título III “De las Cortes Generales” (artículos 66 al 96).
-e Capítulo 1%: De las Cámaras (del 66 al 80).
-e Capítulo 2"%: De la elaboración de las leyes (del 81 al 92).
+e Capítulo 1: De las Cámaras (del 66 al 80).
+e Capítulo 2: De la elaboración de las leyes (del 81 al 92).
 e Capítulo 3%: De los Tratados Internacionales (del 93 al 96).
 e Título IV “Del Gobierno y la administración” (artículos 97 al 107).
 e Título V “De las relaciones entre el Gobierno y las Cortes Generales” (artículos 108 al
 e Título VI “Del Poder Judicial” (artículos 117 al 127).
 e Título VII “De Economía y Hacienda” (artículos 128 al 136).
 e Título ViII “De la Organización Territorial del Estado” (artículos 137 al 158).
--Capítulo 1%: Principios Generales (del 137 al 139).
+-Capítulo 1: Principios Generales (del 137 al 139).
 -Capítulo 2%: De la Administración Local (del 140 al 142).
 -Capítulo 3%: De las Comunidades Autónomas (del 143 al 158).
 e Título IX “Del Tribunal Constitucional” (artículos 159 al 165).
@@ -1786,7 +1786,7 @@ Partidos, Provincias y Comunidades Autónomas art. 30 de la LO 6/85.
 
 Destacaremos los siguientes órganos judiciales:
 1- JUZGADOS DE PAZ.
-2- JUZGADOS DE 1*% INSTANCIA E INSTRUCCIÓN.
+2- JUZGADOS DE 1.a INSTANCIA E INSTRUCCIÓN.
 3- JUZGADOS CENTRALES DE INSTRUCCIÓN.
 4- JUZGADOS DE LO PENAL.
 5- JUZGADOS CENTRALES DE LO PENAL.
@@ -2449,7 +2449,7 @@ válidamente emitidos, será elevado a las Cortes Generales. Los Plenos de ambas
 decidirán sobre el texto mediante un voto de ratificación. Aprobado el Estatuto, el Rey lo
 sancionará y lo promulgará como ley.
 
-* De no alcanzarse el acuerdo a que se refiere el apartado 2.? de este número, el proyecto de
+* De no alcanzarse el acuerdo a que se refiere el apartado 2.o de este número, el proyecto de
 Estatuto será tramitado como proyecto de ley ante las Cortes Generales. El texto aprobado
 por éstas será sometido a referéndum del cuerpo electoral de las provincias comprendidas
 en el ámbito territorial del proyectado Estatuto. En caso de ser aprobado por la mayoría de
@@ -2830,7 +2830,7 @@ DEFENSA Y GARANTÍA DE LOS DERECHOS Y LIBERTADES.
 El Título | “De los Derechos y Libertades Fundamentales” (artículos del 10 al 55) se
 
 dedica exclusivamente a este ámbito, su defensa y su posible suspensión:
-o Capítulo 1%: De los españoles y los extranjeros (del 11 al 13).
+o Capítulo 1: De los españoles y los extranjeros (del 11 al 13).
 o Capítulo 2%: De los Derechos y Libertades (del 14 al 38).
 o Sección 12: De los Derechos fundamentales y de las libertades públicas
 (del 15 al 29).
@@ -4133,7 +4133,7 @@ administración de la enseñanza en toda su extensión, niveles y grados, modali
 
 especialidades, sin perjuicio de lo que disponen el art. 27 [1. Todos tienen el derecho a la
 
-educación. Se reconoce la libertad de enseñanza....] de la Constitución Española y las Leyes
+educación. Se reconoce la libertad de enseñanza...] de la Constitución Española y las Leyes
 
 Orgánicas que, de acuerdo con el apartado 1 del art. 81 [1. Son leyes orgánicas las relativas
 
@@ -7405,7 +7405,7 @@ En los casos por imprudencia grave, el Juez o Tribunal podrá imponer
 motivadamente la pena superior en un grado, en la extensión que estime conveniente, si el
 hecho revistiere notoria gravedad, en atención a la singular entidad y relevancia del riesgo
 creado y del deber normativo de cuidado infringido, y hubiere provocado la muerte de dos o
-más personas o la muerte de una y lesiones constitutivas de delito del artículo 152.1.2.9 o
+más personas o la muerte de una y lesiones constitutivas de delito del artículo 152.1.2.o o
 3.5 en las demás, y en dos grados si el número de fallecidos fuere muy elevado.
 
 Suicidio.
@@ -7738,19 +7738,19 @@ Las lesiones previstas en el apartado 1 del artículo anterior podrán ser casti
 con la pena de prisión de dos a cinco años, atendiendo al resultado causado o riesgo
 producido:
 
-1.9 Si en la agresión se hubieren utilizado armas, instrumentos, objetos, medios,
+1.o Si en la agresión se hubieren utilizado armas, instrumentos, objetos, medios,
 métodos o formas concretamente peligrosas para la vida o salud, física o psíquica, del
 lesionado.
 
-2.% Si hubiere mediado ensañamiento o alevosía.
+2.o Si hubiere mediado ensañamiento o alevosía.
 
-3.9 Si la víctima fuere menor de catorce años o persona con discapacidad necesitada
+3.o Si la víctima fuere menor de catorce años o persona con discapacidad necesitada
 de especial protección.
 
-4.9 Si la víctima fuere o hubiere sido esposa, o mujer que estuviere o hubiere estado
+4.o Si la víctima fuere o hubiere sido esposa, o mujer que estuviere o hubiere estado
 ligada al autor por una análoga relación de afectividad, aun sin convivencia.
 
-5.9 Si la víctima fuera una persona especialmente vulnerable que conviva con el autor.
+5.o Si la víctima fuera una persona especialmente vulnerable que conviva con el autor.
 6GRUPO 2- DERECHO PENAL TEMA 12
 
 
@@ -8370,7 +8370,7 @@ Artículo 172 ter del Código Penal
 veinticuatro meses el que acose a una persona llevando a cabo de forma insistente y reiterada,
 y sin estar legítimamente autorizado, alguna de las conductas siguientes y, de este modo,
 altere gravemente el desarrollo de su vida cotidiana:
-1.9 La vigile, la persiga o busque su cercanía física.
+1.o La vigile, la persiga o busque su cercanía física.
 2.4 Establezca o intente establecer contacto con ella a través de cualquier medio de
 comunicación, o por medio de terceras personas.
 3.2 Mediante el uso indebido de sus datos personales, adquiera productos o mercancías, o
@@ -8541,7 +8541,7 @@ El que de modo leve amenace con armas u otros instrumentos peligrosos a alguna d
                     {"seccion": 'Torturas Cometidas Por Funcionarios Públicos.', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'conocimiento, discernimiento o decisión, o que de cualquier otro modo atenten contra su', "opcion_b": 'conseguido su propósito. De no conseguirlo, se impondrá la pena de prisión de seis meses a', "opcion_c": 'El artículo 145 bis, dedicado a las clínicas, establecimientos o consultorios', "opcion_d": 'Si las lesiones hubieran sido cometidas por imprudencia profesional, se impondrá'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 12', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'manera que el paciente se la pueda auto administrar, para causar su propia muerte, lo que se', "opcion_b": 'con la pena de prisión de cuatro a ocho años e inhabilitación especial para ejercer cualquier', "opcion_c": 'consiste en utilizar la violencia para impedir a una persona que haga algo que no está', "opcion_d": 'Es en el artículo 145 donde se regula el aborto consentido fuera de los casos'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 12', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'trabajos en beneficio de la comunidad de treinta y uno a ochenta días y, en todo caso,', "opcion_b": 'Las mismas penas se impondrán al que practique el aborto habiendo obtenido la anuencia', "opcion_c": 'dos modos: bien mediante la administración directa al paciente de una sustancia por parte', "opcion_d": 'la víctima, o trabajos en beneficio de la comunidad de cinco a treinta días, o multa de uno a'},
-                    {"seccion": 'Las Torturas Y Otros Delitos Contra La Integridad Moral.', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'Se impondrá también la misma pena al que de forma reiterada lleve a cabo actos hostiles o', "opcion_b": 'La coacción es un delito contra la libertad de las personas que conlleva utilizar la', "opcion_c": 'a) cuando concurra en su comisión alguna de las circunstancias del apartado 1 del artículo', "opcion_d": '3.9 Si la víctima fuere menor de catorce años o persona con discapacidad necesitada'},
+                    {"seccion": 'Las Torturas Y Otros Delitos Contra La Integridad Moral.', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'Se impondrá también la misma pena al que de forma reiterada lleve a cabo actos hostiles o', "opcion_b": 'La coacción es un delito contra la libertad de las personas que conlleva utilizar la', "opcion_c": 'a) cuando concurra en su comisión alguna de las circunstancias del apartado 1 del artículo', "opcion_d": '3.o Si la víctima fuere menor de catorce años o persona con discapacidad necesitada'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 12', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'amputando o inutilizando de cualquier otro modo.', "opcion_b": 'víctima puede ser física, compulsiva (intimidación) o implicar fuerza en las cosas.', "opcion_c": 'violencia para obligar al sujeto pasivo a realizar algo en contra de su voluntad o impedirle', "opcion_d": 'establecimientos o consultorios ginecológicos, públicos o privados, por tiempo de dos a'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 12', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": 'lesiones constitutivas de delito del artículo 152.1.2.* 0 3.* a una pluralidad de personas, y en', "opcion_b": '3.2 Con ensañamiento, aumentando deliberada e inhumanamente el dolor del ofendido.', "opcion_c": 'establecimientos o consultorios ginecológicos, públicos o privados, por tiempo de dos a', "opcion_d": 'la pena de prisión de cuatro a seis años como responsable de un delito de detención ilegal'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 12', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'Para garantizar que el interesado actúa libremente, se ha establecido un proceso muy', "opcion_b": 'E S P P E B Sindicato de Policías y Bomberos', "opcion_c": 'la pena de prisión de cuatro a seis años como responsable de un delito de detención ilegal', "opcion_d": 'reproductiva y de la interrupción voluntaria del embarazo viene a determinar el articulado de'},
@@ -9624,17 +9624,17 @@ concurra alguna de las circunstancias siguientes:
 
 Artículo 238 del Código Penal
 
-1.9 Escalamiento.
+1.o Escalamiento.
 
-2.9 Rompimiento de pared, techo o suelo, o fractura de puerta o ventana.
+2.o Rompimiento de pared, techo o suelo, o fractura de puerta o ventana.
 
-3.9 Fractura de armarios, arcas u otra clase de muebles u objetos cerrados o sellados, o
+3.o Fractura de armarios, arcas u otra clase de muebles u objetos cerrados o sellados, o
 forzamiento de sus cerraduras o descubrimiento de sus claves para sustraer su contenido, sea
 en el lugar del robo o fuera del mismo.
 
 4." Uso de llaves falsas.
 
-5.9 Inutilización de sistemas específicos de alarma o guarda.
+5.o Inutilización de sistemas específicos de alarma o guarda.
 
 Penas por delito de robo
 
@@ -9961,7 +9961,7 @@ Artículo 242.1 del Código Penal: El culpable de robo con violencia o intimidac
                     {"seccion": 'Robos.', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'La acción de robar solo puede definirse a partir del medio utilizado para apropiarse', "opcion_b": 'En cualquier caso, el daño a bienes que tengan valor sentimental y de poco valor', "opcion_c": 'toma bienes ajenos por un valor superior a 400 euros.', "opcion_d": 'El Código Penal introdujo un nuevo artículo, donde se contemplan los daños'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 14', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'el funcionamiento de servicios públicos esenciales.', "opcion_b": 'para proteger la acción de huir del robo o quienes empleen violencia sobre quienes tratan de', "opcion_c": 'Según el artículo 238 del Código Penal, las acciones orientadas a violentar los', "opcion_d": 'El uso de armas también implica una condena a partir de su mitad superior. Todas'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 14', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": '4. Si el hecho se cometiere con violencia o intimidación en las personas, se', "opcion_b": 'ascender o disminuir. La graduación que se considere de la pena dependerá de las', "opcion_c": 'Esto es lo que regula el artículo 237 del Código Penal español.', "opcion_d": 'el delincuente hiciere uso de armas u otros medios igualmente peligrosos, sea al cometer el'},
-                    {"seccion": '6Grupo 2- Derecho Penal Tema 14', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'beneficio de la comunidad de treinta y uno a noventa días o multa de dos a doce meses, si lo', "opcion_b": 'auxiliar a la víctima, igualmente son condenables.', "opcion_c": '3.9 Fractura de armarios, arcas u otra clase de muebles u objetos cerrados o sellados, o', "opcion_d": 'Los reos de un robo son todas aquellas personas naturales que se empoderen de un'},
+                    {"seccion": '6Grupo 2- Derecho Penal Tema 14', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'beneficio de la comunidad de treinta y uno a noventa días o multa de dos a doce meses, si lo', "opcion_b": 'auxiliar a la víctima, igualmente son condenables.', "opcion_c": '3.o Fractura de armarios, arcas u otra clase de muebles u objetos cerrados o sellados, o', "opcion_d": 'Los reos de un robo son todas aquellas personas naturales que se empoderen de un'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 14', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": 'que no excedan los 400 euros. Se impone una multa de 1 a 3 meses.', "opcion_b": 'cualquiera de sus dependencias, se impondrá la pena de prisión de tres años y seis meses a', "opcion_c": 'La ley indica claramente cuáles son las variantes que pueden alargar o disminuir una', "opcion_d": 'realizar u omitir un acto o negocio jurídico con ánimo de lucro y con la intención de provocar'},
                     {"seccion": 'Robos.', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'objetos-muebles pueden ser objeto de robo, debido a que son susceptibles de', "opcion_b": 'En este caso se tienen en cuenta los siguientes daños:', "opcion_c": 'gastos mediante recibos. La evaluación de un experto del valor monetario de la propiedad', "opcion_d": 'Delitos contra el patrimonio y contra el orden socioeconómico.'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 14', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'También se condena la facilitación de programas informáticos, contraseñas o', "opcion_b": 'ascender o disminuir. La graduación que se considere de la pena dependerá de las', "opcion_c": 'Esto implica por ejemplo, utilizar llaves robadas para ejecutar el apoderamiento de un', "opcion_d": 'cumplir distintas penas de cárcel. El periodo dependerá de las particularidades propias del'},
@@ -12088,12 +12088,12 @@ delito, modelos de organización y gestión que incluyen las medidas de vigilanc
 idóneas para prevenir delitos de la misma naturaleza o para reducir de forma significativa el
 riesgo de su comisión;
 
-2.% la supervisión del funcionamiento y del cumplimiento del modelo de prevención implantado
+2.o la supervisión del funcionamiento y del cumplimiento del modelo de prevención implantado
 ha sido confiada a un órgano de la persona jurídica con poderes autónomos de iniciativa y de
 control o que tenga encomendada legalmente la función de supervisar la eficacia de los
 controles internos de la persona jurídica;
 
-3.9 los autores individuales han cometido el delito eludiendo fraudulentamente los modelos de
+3.o los autores individuales han cometido el delito eludiendo fraudulentamente los modelos de
 organización y de prevención y
 
 4.2 no se ha producido una omisión o un ejercicio insuficiente de sus funciones de supervisión,
@@ -12122,20 +12122,20 @@ apartado 2 de este artículo.
 5. Los modelos de organización y gestión a que se refieren la condición 1.2 del
 apartado 2 y el apartado anterior deberán cumplir los siguientes requisitos:
 
-1.9 Identificarán las actividades en cuyo ámbito puedan ser cometidos los delitos que deben
+1.o Identificarán las actividades en cuyo ámbito puedan ser cometidos los delitos que deben
 ser prevenidos.
 
-2.9 Establecerán los protocolos o procedimientos que concreten el proceso de formación de la
+2.o Establecerán los protocolos o procedimientos que concreten el proceso de formación de la
 voluntad de la persona jurídica, de adopción de decisiones y de ejecución de las mismas con
 relación a aquéllos.
 
-3.9 Dispondrán de modelos de gestión de los recursos financieros adecuados para impedir la
+3.o Dispondrán de modelos de gestión de los recursos financieros adecuados para impedir la
 comisión de los delitos que deben ser prevenidos.
 
-4.% Impondrán la obligación de informar de posibles riesgos e incumplimientos al organismo
+4.o Impondrán la obligación de informar de posibles riesgos e incumplimientos al organismo
 encargado de vigilar el funcionamiento y observancia del modelo de prevención.
 
-5.9 Establecerán un sistema disciplinario que sancione adecuadamente el incumplimiento de
+5.o Establecerán un sistema disciplinario que sancione adecuadamente el incumplimiento de
 las medidas que establezca el modelo.
 
 6. Realizarán una verificación periódica del modelo y de su eventual modificación cuando se
@@ -12474,7 +12474,7 @@ También se castiga la no realización o el retraso injustificado para realizar 
                     {"seccion": '6Grupo 2- Derecho Penal Tema 17', "pregunta": 'Señala la opción CORRECTA:', "respuesta_correcta": 'inhabilitación especial para el ejercicio de cualquier empleo o cargo público y para el', "opcion_b": 'La prevaricación es un delito castigado en nuestro código penal que comienza a', "opcion_c": 'Por otra parte el código penal en su artículo 430 castiga a aquellas personas', "opcion_d": 'El delito de revelación de secretos se castiga penalmente por el artículo 417 teniendo'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 17', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'por tiempo de seis a diez años, si se tratara de una sentencia injusta contra el reo dictada en', "opcion_b": 'en los artículos 439-442, estableciendo que:', "opcion_c": 'llevaba, e inhabilitación del empleo o cargo público y del sufragio pasivo de dos a cuatro', "opcion_d": 'concurra alguno de los siguientes casos:'},
                     {"seccion": 'Infidelidad En La Custodia De Documentos Y De La Violación De Secretos', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'El artículo 413 castiga a la autoridad o funcionario público que por razón de su cargo', "opcion_b": 'una relación con el reo), se impondrá una pena de prisión de 6 meses a 1 año. Este delito se', "opcion_c": 'podrán recibir beneficios o incentivos fiscales y de la seguridad social por un tiempo', "opcion_d": 'abandonando el lugar está creando un perjuicio castigado penalmente.'},
-                    {"seccion": 'Infidelidad En La Custodia De Documentos Y De La Violación De Secretos', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'despacho o custodia de documentos, por comisión del Gobierno o de las autoridades o', "opcion_b": 'del mismo. También se castiga la no realización o el retraso injustificado para realizar un', "opcion_c": 'Título XXIV: delitos contra la Comunidad Internacional', "opcion_d": '2.9 Establecerán los protocolos o procedimientos que concreten el proceso de formación de la'},
+                    {"seccion": 'Infidelidad En La Custodia De Documentos Y De La Violación De Secretos', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'despacho o custodia de documentos, por comisión del Gobierno o de las autoridades o', "opcion_b": 'del mismo. También se castiga la no realización o el retraso injustificado para realizar un', "opcion_c": 'Título XXIV: delitos contra la Comunidad Internacional', "opcion_d": '2.o Establecerán los protocolos o procedimientos que concreten el proceso de formación de la'},
                     {"seccion": 'Prevaricación Y Otros Comportamientos Injustos', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'El delito de nombramiento ilegal se recoge en el artículo 405 del código penal.', "opcion_b": 'Penas: se aplicarán las penas respectivamente señaladas a éstos delitos específicos,', "opcion_c": 'En el artículo 420 se castiga al funcionario público o autoridad que reciba o solicite,', "opcion_d": 'El siguiente artículo castiga a los particulares encargados accidentalmente del'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 17', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'Alos administradores o depositarios de dinero o bienes embargados, secuestrados o', "opcion_b": 'subvenciones, ayudas, (como en el art. anterior) de 6 a 10 años.', "opcion_c": 'También se castigará al particular que coopere con el responsable: recibirá el mismo', "opcion_d": 'obtener beneficios o incentivos fiscales y de la seguridad social de 6 a 10 años.'},
                     {"seccion": '6Grupo 2- Derecho Penal Tema 17', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": 'El artículo 426 libera de responsabilidad, quedando exento del delito de cohecho al', "opcion_b": 'El artículo 252 mencionado anteriormente habla del delito de apropiación desleal,', "opcion_c": 'y con la misma pena en su mitad superior y multa de doce a veinticuatro meses si se ha', "opcion_d": 'magistrado se niegue a juzgar una causa judicial.'},
@@ -13245,7 +13245,7 @@ GRUPO ILT: POLICÍA JUDICIAL Y POLICÍA ADMINISTRATIVA TEMA 17
 Artículo 2
 
 Los miembros de las Fuerzas y Cuerpos de Seguridad, en sus funciones de policía
-judicial, desarrollarán los cometidos expresados en el artículo 1.% a requerimiento de la
+judicial, desarrollarán los cometidos expresados en el artículo 1.o a requerimiento de la
 Autoridad Judicial, del Ministerio fiscal o de sus superiores policiales o por propia iniciativa a
 través de estos últimos, en los términos previstos en los artículos siguientes.
 
@@ -13438,7 +13438,7 @@ citación policial en el juzgado de guardia. No será necesaria la citación de 
 Fuerzas y Cuerpos de Seguridad que hubieren intervenido en el atestado cuando su
 declaración conste en el mismo.
 
-5.9 Citará para el mismo día y hora a las entidades a que se refiere el artículo 117 del
+5.o Citará para el mismo día y hora a las entidades a que se refiere el artículo 117 del
 Código Penal, en el caso de que conste su identidad.
 
 6.2 Remitirá al Instituto de Toxicología, al Instituto de Medicina Legal o al laboratorio
@@ -17041,15 +17041,15 @@ d) La comunicación, publicación y ejecución de los acuerdos plenarios.
 e) El asesoramiento legal al Pleno y a las comisiones, que será preceptivo en los
 siguientes supuestos:
 
-1.9 Cuando así lo ordene el Presidente o cuando lo solicite un tercio de sus miembros
+1.o Cuando así lo ordene el Presidente o cuando lo solicite un tercio de sus miembros
 con antelación suficiente a la celebración de la sesión en que el asunto hubiere de tratarse.
 
-2.9 Siempre que se trate de asuntos sobre materias para las que se exija una mayoría
+2.o Siempre que se trate de asuntos sobre materias para las que se exija una mayoría
 especial.
 
-3.9 Cuando una ley así lo exija en las materias de la competencia plenaria.
+3.o Cuando una ley así lo exija en las materias de la competencia plenaria.
 
-4.9% Cuando, en el ejercicio de la función de control y fiscalización de los órganos de
+4.o% Cuando, en el ejercicio de la función de control y fiscalización de los órganos de
 gobierno, lo solicite el Presidente o la cuarta parte, al menos, de los Concejales.
 
 Dichas funciones quedan reservadas a funcionarios de Administración local con
@@ -17433,7 +17433,7 @@ Cuando un municipio, de acuerdo con las cifras oficiales de población resultant
                     {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'proporción al número de concejales que tengan en el Pleno.', "opcion_b": 'estaban constituidas o en proceso de constitución con anterioridad a 31 de diciembre de', "opcion_c": 'a) La asistencia al concejal-secretario de la Junta de Gobierno Local.', "opcion_d": 'El Alcalde podrá delegar mediante decreto las competencias anteriores en la Junta'},
                     {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'La citada Comisión podrá supervisar la actividad de la Administración municipal, y', "opcion_b": '3. La dimisión sobrevenida del Alcalde no suspenderá la tramitación y votación de la moción', "opcion_c": 'La Junta de Gobierno Local responde políticamente ante el Pleno de su gestión de', "opcion_d": 'forma solidaria, sin perjuicio de la responsabilidad directa de cada uno de sus miembros por'},
                     {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": '— El desarrollo de la gestión económica, de acuerdo con el presupuesto.', "opcion_b": 'que ha quedado con muy escasas competencias y con reducidos recursos financieros.', "opcion_c": 'desarrollo de esa legislación básica, que la mayoría han aprobado; y los propios', "opcion_d": 'Reglamento de Organización, Funcionamiento y Régimen Jurídico de las Entidades'},
-                    {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": '3.9 Cuando una ley así lo exija en las materias de la competencia plenaria.', "opcion_b": 'libre, directo y secreto; y que los alcaldes serán elegidos por los concejales o por los vecinos', "opcion_c": 'suplencia de éste, al que sustituirán en los casos de vacante, ausencia o enfermedad por el', "opcion_d": '2. Asimismo, existirán en todas las Diputaciones órganos que tengan por objeto el'},
+                    {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": '3.o Cuando una ley así lo exija en las materias de la competencia plenaria.', "opcion_b": 'libre, directo y secreto; y que los alcaldes serán elegidos por los concejales o por los vecinos', "opcion_c": 'suplencia de éste, al que sustituirán en los casos de vacante, ausencia o enfermedad por el', "opcion_d": '2. Asimismo, existirán en todas las Diputaciones órganos que tengan por objeto el'},
                     {"seccion": 'Grupo Iv: Regimen Local Tema 23', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'intervenir en los debates, sin perjuicio de las facultades que corresponden a su Presidente.', "opcion_b": 'deberá dar cuenta al Pleno, mediante un informe anual, de las quejas presentadas y de las', "opcion_c": 'podrán asistir los concejales no pertenecientes a la Junta y los titulares de los órganos', "opcion_d": 'Administraciones, salvo que por ley se impongan obligatoriamente.'},
                     {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": 'debiendo poseer todos sus miembros un nivel de titulación igual o superior al exigido para el', "opcion_b": 'prerrogativas que se les reconozcan en la legislación de las Comunidades Autónomas o en', "opcion_c": 'f) Las potestades de ejecución forzosa y sancionadora.', "opcion_d": 'Provincia garantizar los principios de solidaridad y equilibrio intermunicipales, en el marco de'},
                     {"seccion": 'Grupo Iv: Régimen Local Tema 23', "pregunta": '¿Qué afirmación es CORRECTA según el temario?', "respuesta_correcta": 'Se requerirá el voto favorable de la mayoría absoluta del número legal de miembros', "opcion_b": 'que ha quedado con muy escasas competencias y con reducidos recursos financieros.', "opcion_c": 'concejales serán elegidos por los vecinos del municipio mediante sufragio universal, igual,', "opcion_d": 'sustituirá el Teniente de Alcalde a quien corresponda, quien dará cuenta de ello al resto de la'},
@@ -18368,7 +18368,7 @@ estratégicos de la localidad, y a viva voz, después de hacer sonar un instrume
 GRUPO 1V RÉGIMEN LOCAL TEMA 25
 
 
-comenzaban su Pregón diciendo: «Por orden del señor Alcalde se hace saber que....», y a
+comenzaban su Pregón diciendo: «Por orden del señor Alcalde se hace saber que...», y a
 continuación leían el manifiesto.
 
 Abandonada prácticamente en nuestros tiempos su forma oral, el Bando se emplea
@@ -18388,7 +18388,7 @@ vender alcohol a menores de edad, de permanecer abiertos los bares o discotecas 
 determinadas horas, etc.—.
 
 El reconocimiento de la potestad de dictar Bandos se encuentra actualmente
-recogido en los artículos el Art. 21.1.e) y 124.4.9) de la LRBRL, donde siguiendo la tradición
+recogido en los artículos el Art. 21.1.e) y 124.4.o) de la LRBRL, donde siguiendo la tradición
 se establece como una de las atribuciones en favor del Alcalde (y, además, indelegable), ya
 nos encontremos en un Municipio del régimen común o en uno altamente poblado.
 
@@ -19681,7 +19681,7 @@ Derecho penal como reservado a las conductas más graves (la jurisprudencia reit
 Derecho penal es la última ratio del Derecho sancionador).
 
 El soporte constitucional de la Ley Orgánica 4/2015, de 30 de marzo, de protección
-de la seguridad ciudadana se halla en los artículos 104.1 y 149.1.29.% en cuyo marco, esta
+de la seguridad ciudadana se halla en los artículos 104.1 y 149.1.29.o en cuyo marco, esta
 Ley tiene por objeto la protección de personas y bienes y el mantenimiento de la tranquilidad
 ciudadana.
 
@@ -21802,7 +21802,7 @@ Cuando el responsable o el encargado del tratamiento hubieran designado un deleg
                     {"seccion": 'Grupo V: Policía Tema 27', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": '4. Los actos de obstrucción que pretendan impedir a cualquier autoridad, empleado', "opcion_b": 'los servicios de la sociedad de la información a fin de garantizar el adecuado desarrollo de', "opcion_c": 'Ley de Protección de Seguridad Ciudadana L.O 4/2015', "opcion_d": 'e las que archiven las actuaciones previas de investigación,'},
                     {"seccion": 'Grupo V: Policía Tema 27', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'seguridad de los datos personales de conformidad con lo previsto en el artículo 33 del Reglamento (UE)', "opcion_b": 'ciudadana sustituyó a la anterior de 1992, para adaptar la materia a los cambios sociales', "opcion_c": '5. Imponer limitación temporal o definitiva o prohibición del', "opcion_d": 'adecuados para posibilitar el ejercicio del derecho de rectificación ante los usuarios que'},
                     {"seccion": 'Grupo V: Policía Tema 27', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'confidencialidad de datos sujetos al secreto profesional, reversión no autorizada de la', "opcion_b": 'intento de hacer compatibles los derechos y libertades de los ciudadanos con la injerencia', "opcion_c": 'e que declaren haber lugar o no a la atención de los derechos reconocidos en', "opcion_d": 'acaecidos en las dos décadas transcurridas y a la jurisprudencia fundamentalmente'},
-                    {"seccion": 'Grupo V: Policía Tema 27', "pregunta": 'Señala la opción CORRECTA:', "respuesta_correcta": '-Consentimiento de los menores de edad. (art. 7)', "opcion_b": 'público de la correspondiente Comunidad Autónoma o de las Entidades Locales incluidas en', "opcion_c": 'de la seguridad ciudadana se halla en los artículos 104.1 y 149.1.29.% en cuyo marco, esta', "opcion_d": 'conexas fuera de los supuestos permitidos por el artículo 10 del Reglamento (UE) 2016/679 y en el artículo 10'},
+                    {"seccion": 'Grupo V: Policía Tema 27', "pregunta": 'Señala la opción CORRECTA:', "respuesta_correcta": '-Consentimiento de los menores de edad. (art. 7)', "opcion_b": 'público de la correspondiente Comunidad Autónoma o de las Entidades Locales incluidas en', "opcion_c": 'de la seguridad ciudadana se halla en los artículos 104.1 y 149.1.29.o en cuyo marco, esta', "opcion_d": 'conexas fuera de los supuestos permitidos por el artículo 10 del Reglamento (UE) 2016/679 y en el artículo 10'},
                     {"seccion": '- Poderes De La Autoridad De Control (Aepd)', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'Poderes de | 1. Llevar a cabo investigaciones en forma de AUDITORÍAS', "opcion_b": 'Poderes de autorización | 1. Asesorar al responsable del tratamiento ,', "opcion_c": 'capacidad modificada judicialmente, los fallecimientos o las declaraciones de ausencia o', "opcion_d": 'n) Los operadores que desarrollen la actividad de juego a través de canales'},
                     {"seccion": 'Infracciones', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'conexas fuera de los supuestos permitidos por el artículo 10 del Reglamento (UE) 2016/679 y en el artículo 10', "opcion_b": '3. El incumplimiento de las restricciones de circulación peatonal o itinerario con', "opcion_c": 'Convenios Internacionales en que España sea parte son plenamente aplicables en Internet.', "opcion_d": 'La Agencia Española de Protección de Datos tendrá la condición de representante'},
                     {"seccion": 'Grupo V: Policía Tema 27', "pregunta": 'Indica la afirmación CORRECTA:', "respuesta_correcta": 'de Acceso a Internet con los siguientes objetivos:', "opcion_b": 'Para garantizar la seguridad ciudadana, el modelo de Estado de Derecho instaurado', "opcion_c": 'Regulación básica sobre protección de datos de carácter personal.', "opcion_d": 'dar respuesta a los diversos fenómenos ilícitos, un Poder Judicial que asegure su aplicación,'},
@@ -24935,10 +24935,10 @@ y acondicionamiento, podrán sobresalir:
 
 a) En el caso de vigas, postes, tubos u otras cargas de longitud indivisible:
 
-1.9 En vehículos de longitud superior a cinco metros, dos metros por la parte anterior
+1.o En vehículos de longitud superior a cinco metros, dos metros por la parte anterior
 y tres metros por la posterior.
 
-2.9 En vehículos de longitud igual o inferior a cinco metros, el tercio de la longitud del
+2.o En vehículos de longitud igual o inferior a cinco metros, el tercio de la longitud del
 vehículo por cada extremo anterior y posterior.
 
 b) En el caso de que la dimensión menor de la carga indivisible sea superior al ancho
@@ -26801,7 +26801,7 @@ aplicación lo previsto la Instrucción 10/VS de la DGT de fecha 14 de Abril de 
 casos de incumplimiento de lo ordenado en materia de ITV, los agentes de la autoridad, sin
 perjuicio de la denuncia que habrán de formular, entregando en su sustitución un volante
 para que continúe viaje, concediendo al titular del vehículo un plazo de 10 días para
-someterse a la ITV (art. 6.9 RD 920/2017 de ITV). Trascurrido el plazo indicado sin que se
+someterse a la ITV (art. 6.o RD 920/2017 de ITV). Trascurrido el plazo indicado sin que se
 hubiera acreditado la presentación del mismo a la citada inspección, la Jefatura de Tráfico
 iniciará el procedimiento para acordar la baja de oficio del vehículo.
 
@@ -26860,9 +26860,8 @@ o g Decreto 2042/1994, de 14 de Octubre, por el que ss regula la inspección té
 »
 g X
 £ É ascl | [resacela pc | - [sevcodme de
-EE
-5;5 Información para e' denunciado/a: la Jefatura Provincial de Tráfico comprobará, de oficio, que el vehículo
-? % ha superado favorablemente la inspección técnica, no siendo necesario acudir a la Jefatura Provincial
+Información para e' denunciado/a: la Jefatura Provincial de Tráfico comprobará, de oficio, que el vehículo
+ha superado favorablemente la inspección técnica, no siendo necesario acudir a la Jefatura Provincial
 de Tráfico para acreditarlo. Transcurrido el plazo sin haber superado la inspección técnica, se ordenará la
 inmovilización del vehículo.
 Definición de seguro obligatorio de responsabilidad civil.
@@ -27275,7 +27274,7 @@ de octubre de 2011, es preciso señalar que el fundamento de persecución de est
 infracciones se refiere al momento mismo en que se detectan las mismas por parte de la
 Autoridad competente, y no a que los efectos de un posible aseguramiento posterior a la
 fecha de los hechos cubran ese tramo temporal. Así, en la citada sentencia se precisa
-que....'No podemos sino hacer nuestras las conclusiones a las que se llega por la Sentencia
+que...'No podemos sino hacer nuestras las conclusiones a las que se llega por la Sentencia
 del Tribunal Superior de Justicia de Baleares de 25 de octubre de 2010:
 
 “En la facultad de policía administrativa, la reprensión de la conducta punible en que puede
@@ -27467,7 +27466,7 @@ mencionados en el artículo 2 LTSV. Se denunciará a la persona que la utiliza e
 6RUPO VE: POLICÍA DE TRÁFICO Y MOVILIDAD TEMA 34
 
 
-ese momento por “Circular....”, haciéndose constar claramente la vía, punto
+ese momento por “Circular...”, haciéndose constar claramente la vía, punto
 kilométrico, modelo, bastidor, el destino de dicho vehículo...etc.
 6.6. Minimotos
 La Instrucción n? 05/S-79 “Minimotos o Minibikes” se encuentra en vigor por lo que se
@@ -27520,7 +27519,7 @@ histórico de seguros la información para contrastar que dicho error se hubiera
 producido, es decir, la anotación errónea en “otra matrícula” con fecha anterior a la
 denuncia, debe quedar acreditada, adjuntando dichos informes a PSAN.
 
-6.9. Vehículo que en el momento de detectarse el incumplimiento de la LSOA, se
+6.o. Vehículo que en el momento de detectarse el incumplimiento de la LSOA, se
 encuentra de baja en el Registro de Vehículos.
 En este supuesto:
 
@@ -27841,7 +27840,7 @@ El artículo 36 del Real Decreto 2822/1998 de 23 de diciembre que aprueba el Reg
                     {"seccion": '6Rupo Ve: Policía De Tráfico Y Movilidad Tema 34', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'obligatorio, tiene por fundamento la no acreditación del hecho de que en el día y', "opcion_b": 'YVehículo estacionado en las vías y terrenos especificados en el artículo 2 del', "opcion_c": 'limitará al elemento o conjunto que se suponga defectuoso. A petición del interesado, será', "opcion_d": 'del vehículo hayan sido alterados o modificados, siguiendo lo establecido en el artículo 8 del'},
                     {"seccion": '6Rupo Ve: Policía De Tráfico Y Movilidad Tema 34', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'kilométrico, modelo, bastidor, el destino de dicho vehículo...etc.', "opcion_b": 'revisión o de nulidad se supedita a que las notificaciones previas hayan sido correctas, pues', "opcion_c": 'alcance de su publicidad se ajustará, además, a la reglamentación que se recoge en el anexo', "opcion_d": '“cuestión interna, de cada uno de los países miembros con sus nacionales”, y sólo en'},
                     {"seccion": 'Grupo Ve Policía De Tráfico Y Movilidad Tema 34', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'revisión o de nulidad se supedita a que las notificaciones previas hayan sido correctas, pues', "opcion_b": 'La inspección técnica, una vez comprobada la identificación del vehículo, versará sobre las', "opcion_c": 'Europeo y Estados Asociados al mismo, garantiza sin necesidad de Carta Verde la', "opcion_d": 'contrastable en FIVA y la póliza y demás documentación deben estar traducidas al español.'},
-                    {"seccion": '6Rupo Ve: Policía De Tráfico Y Movilidad Tema 34', "pregunta": 'Señala la opción CORRECTA:', "respuesta_correcta": 'póliza fuesen las 00.00 horas del día de la denuncia, se pedirá por escrito a la', "opcion_b": 'situación de no aseguramiento de un vehículo obligado a ello, cuando el mismo se encuentra', "opcion_c": 'someterse a la ITV (art. 6.9 RD 920/2017 de ITV). Trascurrido el plazo indicado sin que se', "opcion_d": 'E g P P E B Smd|ca(o de Policías y Bomberos'},
+                    {"seccion": '6Rupo Ve: Policía De Tráfico Y Movilidad Tema 34', "pregunta": 'Señala la opción CORRECTA:', "respuesta_correcta": 'póliza fuesen las 00.00 horas del día de la denuncia, se pedirá por escrito a la', "opcion_b": 'situación de no aseguramiento de un vehículo obligado a ello, cuando el mismo se encuentra', "opcion_c": 'someterse a la ITV (art. 6.o RD 920/2017 de ITV). Trascurrido el plazo indicado sin que se', "opcion_d": 'E g P P E B Smd|ca(o de Policías y Bomberos'},
                     {"seccion": 'Grupo Ve Policía De Tráfico Y Movilidad Tema 34', "pregunta": '¿Cuál de las siguientes opciones es VERDADERA?', "respuesta_correcta": 'inspecciones técnicas en carretera de vehículos comerciales que circulan en territorio', "opcion_b": 'los casos en que, bien la prima fraccionada (no la inicial), bien la primera prima de', "opcion_c": 'sustracción. Asimismo se procede, de oficio, a dar de alta el vehículo, una vez que se', "opcion_d": 'vigente Texto Refundido de la Ley sobre Responsabilidad Civil y Seguro en la Circulación de'},
                     {"seccion": 'Grupo Ve Policía De Tráfico Y Movilidad Tema 34', "pregunta": '¿Cuál de las siguientes afirmaciones es CORRECTA?', "respuesta_correcta": 'Vehículo híbrido (HV): vehículo equipado con un sistema de propulsión que contiene', "opcion_b": 'inspección técnica. Trascurrido el plazo indicado sin que se hubiera acreditado la', "opcion_c": 'Tractor agrícola: Vehículo especial autopropulsado, de dos o más ejes, concebido y', "opcion_d": 'Vehículos a Motor. Puede ocurrir que en algunos Estados, por su propia legislación interna, la'},
                     {"seccion": '6Rupo Ve: Policía De Tráfico Y Movilidad Tema 34', "pregunta": 'Señala la opción CORRECTA:', "respuesta_correcta": 'Por todo cuanto antecede, todas las actuaciones que se desarrollen en aplicación de la', "opcion_b": 'plaza y propulsado exclusivamente por motores eléctricos que pueden proporcionar al', "opcion_c": 'Vehículo mixto adaptable: Automóvil especialmente dispuesto para el transporte,', "opcion_d": 'válida como inspección periódica siempre que se efectúen todas las mediciones y'},
@@ -32403,7 +32402,7 @@ deseo de no recibir notificaciones.
 hechos a los que se refiere el artículo 1 y no concurra en ellos ninguna de las causas de
 exención o extinción de la responsabilidad criminal previstas en el vigente Código Penal.
 2. No obstante lo anterior, a los menores en quienes concurran las circunstancias previstas
-en los números 1.%, 2.9 y 3.? del artículo 20 del vigente Código Penal les serán aplicables, en
+en los números 1.o, 2.o y 3.o del artículo 20 del vigente Código Penal les serán aplicables, en
 caso necesario, las medidas terapéuticas a las que se refiere el artículo 7.1, letras d) y e), de
 la presente Ley.
 3. Las edades indicadas en el articulado de esta Ley se han de entender siempre referidas al
@@ -33042,13 +33041,13 @@ f) Las prácticas discriminatorias, por parte de los responsables parentales, co
 niñas y adolescentes que conlleven un perjuicio para su bienestar y su salud mental y física,
 en particular:
 
-1.9 Las actitudes discriminatorias que por razón de género, edad o discapacidad puedan
+1.o Las actitudes discriminatorias que por razón de género, edad o discapacidad puedan
 aumentar las posibilidades de confinamiento en el hogar, la falta de acceso a la educación,
 las escasas oportunidades de ocio, la falta de acceso al arte y a la vida cultural, así como
 cualquier otra circunstancia que por razón de género, edad o discapacidad, les impidan
 disfrutar de sus derechos en igualdad.
 
-2.9 La no aceptación de la orientación sexual, identidad de género o las características
+2.o La no aceptación de la orientación sexual, identidad de género o las características
 sexuales de la persona menor de edad.
 
 9) El riesgo de sufrir ablación, mutilación genital femenina o cualquier otra forma de

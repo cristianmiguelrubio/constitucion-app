@@ -993,6 +993,30 @@ def obtener_racha(current_user: dict = Depends(get_current_user), db: Session = 
     return {"racha": registro.racha_actual, "maxima": registro.racha_maxima}
 
 
+@app.post("/api/admin/recargar-temas")
+def recargar_temas(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    """Recarga el contenido de todos los temas desde los seed files (admin only)."""
+    if not es_admin(current_user, db):
+        raise HTTPException(status_code=403, detail="Acceso denegado")
+    try:
+        from seed_temas import TEMAS_POLICIA_LOCAL
+        op = db.query(Oposicion).filter(Oposicion.slug == "policia-local").first()
+        actualizados = 0
+        if op:
+            for t in TEMAS_POLICIA_LOCAL:
+                tema = db.query(Tema).filter(Tema.oposicion_id == op.id, Tema.numero == t["numero"]).first()
+                if tema:
+                    tema.contenido = t["contenido"]
+                    tema.resumen = t.get("resumen")
+                    tema.titulo = t["titulo"]
+                    actualizados += 1
+        db.commit()
+        return {"ok": True, "actualizados": actualizados, "oposicion": "policia-local"}
+    except Exception as e:
+        db.rollback()
+        raise HTTPException(status_code=500, detail=str(e))
+
+
 @app.get("/api/admin/sugerencias")
 def ver_sugerencias(current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     # Solo admin (primer usuario registrado, id=1)
