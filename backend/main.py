@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from starlette.middleware.base import BaseHTTPMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import or_
@@ -732,6 +732,44 @@ def listar_temas(slug: str, db: Session = Depends(get_db)):
     }
 
 
+@app.get("/api/oposiciones/{slug}/descargar")
+def descargar_temario(slug: str, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    """Descarga el temario completo de una oposición como fichero de texto."""
+    uid = int(current_user["sub"])
+    usuario = get_usuario_or_401(uid, db)
+    if not tiene_acceso_premium(usuario):
+        raise HTTPException(status_code=403, detail="Se requiere suscripción")
+    op = db.query(Oposicion).filter(Oposicion.slug == slug).first()
+    if not op:
+        raise HTTPException(status_code=404)
+    temas = db.query(Tema).filter(Tema.oposicion_id == op.id).order_by(Tema.numero).all()
+    if not temas:
+        raise HTTPException(status_code=404, detail="Sin contenido")
+
+    lineas = [f"TEMARIO OFICIAL — {op.nombre.upper()}", "=" * 60, ""]
+    for t in temas:
+        lineas.append(f"TEMA {t.numero}. {t.titulo}")
+        lineas.append("-" * 50)
+        if t.contenido:
+            lineas.append(t.contenido)
+        if t.resumen:
+            lineas.append("\n📝 RESUMEN:")
+            lineas.append(t.resumen)
+        lineas.append("\n")
+
+    contenido = "\n".join(lineas)
+
+    def iterfile():
+        yield contenido.encode("utf-8")
+
+    nombre_fichero = f"temario-{slug}.txt"
+    return StreamingResponse(
+        iterfile(),
+        media_type="text/plain; charset=utf-8",
+        headers={"Content-Disposition": f'attachment; filename="{nombre_fichero}"'}
+    )
+
+
 @app.get("/api/oposiciones/{slug}/temas/{numero}")
 def obtener_tema(slug: str, numero: int, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     uid = int(current_user["sub"])
@@ -1264,8 +1302,8 @@ class TutorIn(BaseModel):
 def ia_tutora(body: TutorIn, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
     uid = int(current_user["sub"])
     usuario = get_usuario_or_401(uid, db)
-    if usuario.plan not in ("pro", "vitalicio"):
-        raise HTTPException(status_code=403, detail="La IA tutora requiere plan Pro o Vitalicio")
+    if usuario.plan not in ("basico", "pro", "vitalicio") and not tiene_acceso_premium(usuario):
+        raise HTTPException(status_code=403, detail="La IA tutora requiere suscripción activa")
     if not GEMINI_API_KEY:
         raise HTTPException(status_code=503, detail="IA no configurada")
 

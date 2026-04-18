@@ -48,20 +48,20 @@ export default function ChatBot() {
       {/* Botón flotante */}
       <button
         onClick={() => setAbierto(v => !v)}
-        className="fixed bottom-20 right-4 z-50 w-14 h-14 rounded-full bg-gray-900 text-white shadow-xl flex items-center justify-center text-2xl hover:bg-gray-800 active:scale-95 transition-all"
+        className="fixed bottom-24 right-4 z-50 w-14 h-14 rounded-full bg-brand-700 text-white shadow-xl flex items-center justify-center text-2xl hover:bg-brand-900 active:scale-95 transition-all"
         aria-label="Abrir chatbot"
       >
-        {abierto ? '✕' : '🤖'}
+        {abierto ? '✕' : '💬'}
       </button>
 
       {/* Ventana chat */}
       {abierto && (
-        <div className="fixed bottom-36 right-4 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden"
+        <div className="fixed bottom-40 right-4 z-50 w-[340px] max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 flex flex-col overflow-hidden"
           style={{ height: '420px' }}>
 
           {/* Header */}
-          <div className="bg-gray-900 text-white px-4 py-3 flex items-center gap-3">
-            <span className="text-xl">🤖</span>
+          <div className="bg-brand-700 text-white px-4 py-3 flex items-center gap-3">
+            <span className="text-xl">💬</span>
             <div>
               <p className="text-sm font-semibold leading-none">Asistente IA</p>
               <p className="text-[11px] text-gray-400 mt-0.5">Oposiciones del Estado</p>
@@ -109,7 +109,7 @@ export default function ChatBot() {
             <button
               onClick={enviar}
               disabled={!input.trim() || cargando}
-              className="w-9 h-9 rounded-xl bg-gray-900 text-white flex items-center justify-center disabled:opacity-30 hover:bg-gray-800 transition-colors shrink-0"
+              className="w-9 h-9 rounded-xl bg-brand-700 text-white flex items-center justify-center disabled:opacity-30 hover:bg-brand-900 transition-colors shrink-0"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />

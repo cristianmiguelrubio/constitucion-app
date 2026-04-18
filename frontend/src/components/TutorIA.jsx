@@ -16,7 +16,7 @@ export default function TutorIA({ pregunta, respuestaUsuario, respuestaCorrecta,
         body: JSON.stringify({ pregunta, respuesta_usuario: respuestaUsuario, respuesta_correcta: respuestaCorrecta, contexto }),
       })
       if (r.status === 403) {
-        setExplicacion('La IA tutora requiere plan Pro o Vitalicio. Ve a Planes para actualizarte.')
+        setExplicacion('La IA tutora requiere suscripción activa. Ve a Planes para activarla.')
       } else {
         const data = await r.json()
         setExplicacion(data.explicacion || 'No se pudo obtener explicación')

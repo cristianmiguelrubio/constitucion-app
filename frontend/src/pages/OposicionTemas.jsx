@@ -50,13 +50,22 @@ export default function OposicionTemas() {
       <div className="card mb-5">
         <div className="flex items-center gap-3">
           <span className="text-4xl">{oposicion.icono || '📚'}</span>
-          <div>
+          <div className="flex-1 min-w-0">
             <h1 className="text-xl font-bold text-brand-700">{oposicion.nombre}</h1>
             {oposicion.descripcion && (
               <p className="text-sm text-gray-400 mt-0.5">{oposicion.descripcion}</p>
             )}
             <p className="text-xs text-gray-300 mt-1">{temas.length} temas disponibles</p>
           </div>
+          {!esTrial && temas.length > 0 && (
+            <a
+              href={`/api/oposiciones/${slug}/descargar`}
+              download
+              className="shrink-0 flex items-center gap-1 bg-brand-50 text-brand-700 text-xs font-semibold px-3 py-1.5 rounded-xl hover:bg-brand-100 transition-colors"
+            >
+              ⬇ Temario
+            </a>
+          )}
         </div>
       </div>
 
@@ -100,7 +109,7 @@ export default function OposicionTemas() {
                     {tema.numero}
                   </span>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-gray-500 leading-snug line-clamp-2">
+                    <p className="text-sm font-medium text-gray-500 leading-snug line-clamp-3">
                       {tema.titulo}
                     </p>
                     {tema.total_preguntas > 0 && (
@@ -124,7 +133,7 @@ export default function OposicionTemas() {
                   {tema.numero}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-2">
+                  <p className="text-sm font-medium text-gray-800 leading-snug line-clamp-3">
                     {tema.titulo}
                   </p>
                   {tema.total_preguntas > 0 && (

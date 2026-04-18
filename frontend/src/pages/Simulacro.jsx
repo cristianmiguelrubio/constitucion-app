@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { apiFetch } from '../utils/api'
 import { useNavigate } from 'react-router-dom'
+import TutorIA from '../components/TutorIA'
 
 const TIEMPO_TOTAL = 30 * 60 // 30 minutos en segundos
 
@@ -232,21 +233,24 @@ export default function Simulacro({ usuario }) {
   if (fase === 'resultado' && resultado) {
     const nota = parseFloat(resultado.puntuacion)
     const aprobado = nota >= (nPreguntas * 0.5)
+    const falladas = preguntas.filter(p => respuestas[p.id] && respuestas[p.id] !== p.correcta)
+    const enBlanco = preguntas.filter(p => !respuestas[p.id])
     return (
-      <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
-        <div className="bg-white rounded-2xl shadow-lg p-8 max-w-md w-full">
-          <div className="text-center mb-6">
-            <div className="text-6xl mb-3">{aprobado ? '🎉' : '📚'}</div>
-            <h2 className="text-2xl font-bold text-gray-800">{aprobado ? '¡Aprobado!' : 'Sigue practicando'}</h2>
-            <p className="text-gray-500 text-sm mt-1">Tiempo: {formatTiempo(resultado.tiempoUsado)}</p>
-          </div>
+      <div className="bg-gray-50 min-h-screen pb-10">
+        <div className="max-w-2xl mx-auto px-4 pt-6">
+          {/* Cabecera resultado */}
+          <div className="bg-white rounded-2xl shadow-sm p-6 mb-4 text-center">
+            <div className="text-5xl mb-2">{aprobado ? '🎉' : '📚'}</div>
+            <h2 className="text-2xl font-bold text-gray-800 mb-0.5">{aprobado ? '¡Aprobado!' : 'Sigue practicando'}</h2>
+            <p className="text-gray-400 text-sm">Tiempo: {formatTiempo(resultado.tiempoUsado)}</p>
 
-          <div className="bg-gray-50 rounded-2xl p-5 mb-6">
-            <div className="text-center mb-4">
+            <div className="mt-4 mb-2">
               <span className={`text-5xl font-black ${aprobado ? 'text-green-600' : 'text-red-500'}`}>{nota}</span>
               <span className="text-gray-400 text-lg ml-1">/ {nPreguntas}</span>
             </div>
-            <div className="grid grid-cols-3 gap-3 text-center">
+            <p className="text-xs text-gray-400 mb-4">Aciertos − (Errores ÷ 3) = {nota}</p>
+
+            <div className="grid grid-cols-3 gap-2 text-center">
               <div className="bg-green-50 rounded-xl p-3">
                 <div className="text-2xl font-bold text-green-600">{resultado.correctas}</div>
                 <div className="text-xs text-green-500 mt-0.5">Correctas</div>
@@ -260,20 +264,63 @@ export default function Simulacro({ usuario }) {
                 <div className="text-xs text-gray-400 mt-0.5">En blanco</div>
               </div>
             </div>
+
+            <div className="flex gap-3 mt-5">
+              <button onClick={() => setFase('config')} className="flex-1 py-2.5 border border-gray-200 rounded-xl text-sm font-medium text-gray-600">
+                Nuevo simulacro
+              </button>
+              <button onClick={() => navigate('/')} className="flex-1 py-2.5 bg-brand-700 text-white rounded-xl text-sm font-semibold">
+                Inicio
+              </button>
+            </div>
           </div>
 
-          <div className="text-xs text-gray-400 text-center mb-6">
-            Fórmula oficial: Aciertos − (Errores ÷ 3) = <strong>{nota}</strong>
-          </div>
+          {/* Repaso de fallos */}
+          {falladas.length > 0 && (
+            <div className="mb-4">
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3 px-1">
+                Preguntas falladas ({falladas.length})
+              </p>
+              <div className="space-y-3">
+                {falladas.map((p, i) => (
+                  <div key={p.id} className="bg-white rounded-2xl shadow-sm p-4 border-l-4 border-red-400">
+                    <p className="text-sm font-medium text-gray-800 mb-3 leading-relaxed">{i + 1}. {p.pregunta}</p>
+                    <div className="space-y-1.5 mb-2">
+                      {p.opciones.map((op, oi) => {
+                        const esCorrecta = op === p.correcta
+                        const elegida = respuestas[p.id] === op
+                        return (
+                          <div key={oi} className={`px-3 py-2 rounded-xl text-xs leading-relaxed flex gap-2 items-start
+                            ${esCorrecta ? 'bg-green-50 text-green-700 font-medium' : elegida ? 'bg-red-50 text-red-600' : 'text-gray-400'}`}>
+                            <span className="shrink-0 font-bold">{esCorrecta ? '✓' : elegida ? '✗' : ['A','B','C','D'][oi]+'.'}</span>
+                            <span className="whitespace-normal break-words">{op}</span>
+                          </div>
+                        )
+                      })}
+                    </div>
+                    <TutorIA pregunta={p.pregunta} respuestaUsuario={respuestas[p.id]} respuestaCorrecta={p.correcta} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
-          <div className="flex gap-3">
-            <button onClick={() => setFase('config')} className="flex-1 py-3 border border-gray-200 rounded-xl text-sm font-medium text-gray-600 hover:bg-gray-50">
-              Nuevo simulacro
-            </button>
-            <button onClick={() => navigate('/')} className="flex-1 py-3 bg-blue-600 text-white rounded-xl text-sm font-semibold hover:bg-blue-700">
-              Volver al inicio
-            </button>
-          </div>
+          {/* En blanco */}
+          {enBlanco.length > 0 && (
+            <div>
+              <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-3 px-1">
+                Sin responder ({enBlanco.length})
+              </p>
+              <div className="space-y-2">
+                {enBlanco.map((p, i) => (
+                  <div key={p.id} className="bg-white rounded-xl p-3 border border-gray-100">
+                    <p className="text-sm text-gray-600 leading-relaxed">{i + 1}. {p.pregunta}</p>
+                    <p className="text-xs text-green-600 font-medium mt-1.5">✓ {p.correcta}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     )

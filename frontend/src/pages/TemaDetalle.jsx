@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import TextoFormateado from '../components/TextoFormateado'
 import { apiFetch } from '../utils/api'
 import { usePlan } from '../hooks/usePlan'
+import TutorIA from '../components/TutorIA'
 
 const COLORES_NUM = [
   'bg-brand-100 text-brand-700',
@@ -293,7 +294,7 @@ export default function TemaDetalle() {
                     const n = numPregGlobal
                     return (
                       <div key={p.id} className="card">
-                        <p className="font-semibold text-sm text-gray-800 mb-3">
+                        <p className="font-semibold text-sm text-gray-800 mb-3 leading-relaxed">
                           {n}. {p.pregunta}
                         </p>
                         <div className="space-y-2">
@@ -320,6 +321,13 @@ export default function TemaDetalle() {
                             )
                           })}
                         </div>
+                        {respuestas[p.id] && respuestas[p.id] !== 'correcta' && (
+                          <TutorIA
+                            pregunta={p.pregunta}
+                            respuestaUsuario={p.opciones.find(o => o.key === respuestas[p.id])?.texto}
+                            respuestaCorrecta={p.opciones.find(o => o.key === 'correcta')?.texto}
+                          />
+                        )}
                       </div>
                     )
                   })}
