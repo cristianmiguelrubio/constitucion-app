@@ -31,7 +31,7 @@ export default function Layout({ children, usuario, onLogout }) {
 
           <Link to="/" className="font-bold text-base leading-tight shrink-0 flex items-center gap-1.5">
             <span className="text-xl">📜</span>
-            <span className="text-sm">Oposiciones del Estado</span>
+            <span className="text-sm">constitucion española</span>
           </Link>
 
           {/* Buscador escritorio */}
