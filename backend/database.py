@@ -30,5 +30,9 @@ def get_db():
 
 
 def init_db():
-    from models import Articulo, Cambio  # noqa
+    from models import (  # noqa: F401
+        Articulo, Cambio, Usuario, ProgresoUsuario, Oposicion, Tema,
+        PreguntaTema, TiempoEstudio, TiempoEstudioDiario, Sugerencia,
+        TokenRecuperacion, RachaDiaria, TemaCompletado, Simulacro, PushSuscripcion,
+    )
     Base.metadata.create_all(bind=engine)

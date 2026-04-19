@@ -1333,7 +1333,7 @@ def ia_tutora(body: TutorIn, current_user: dict = Depends(get_current_user), db:
 
     import google.generativeai as genai
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel("gemini-flash-latest")
+    model = genai.GenerativeModel("gemini-1.5-flash-latest")
 
     prompt = f"""Eres un tutor experto en oposiciones del Estado español. El alumno ha fallado una pregunta.
 
@@ -1426,7 +1426,7 @@ def chatbot(body: ChatIn, current_user: dict = Depends(get_current_user), db: Se
         import google.generativeai as genai
         genai.configure(api_key=GEMINI_API_KEY)
         model = genai.GenerativeModel(
-            "gemini-flash-latest",
+            "gemini-1.5-flash-latest",
             system_instruction="""Eres un asistente experto en oposiciones del Estado español.
 Conoces en profundidad: la Constitución Española de 1978, temarios de Policía Local, Policía Nacional, Guardia Civil, Correos y otras oposiciones del Estado.
 Responde siempre en español, de forma clara, precisa y motivadora.
